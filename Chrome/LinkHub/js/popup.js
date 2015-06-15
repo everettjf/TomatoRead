@@ -103,6 +103,13 @@ extensionApp.controller('ExtensionCtrl',['$scope','$http',function($scope,$http)
     $scope.appendTag = function(tagName) {
         $scope.linkTagString = tagName + " " + $scope.linkTagString;
     };
+    $scope.openTab = function(fullURL){
+        chrome.tabs.create({
+            url:fullURL
+        },function(tab){
+
+        });
+    };
 }]);
 
 var gImportedBookmarksCount = 0;

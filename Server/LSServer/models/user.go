@@ -16,10 +16,11 @@ type User struct {
 }
 
 func NewUser(email string, password string) *User {
+
 	return &User{
 		0, // should change to auto-incr id when save
 		email,
-		utils.GetMd5String(password),
+		utils.MakePassword(password),
 		time.Now().Unix(),
 		false,
 	}

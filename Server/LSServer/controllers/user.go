@@ -16,6 +16,7 @@ func (this *UserController) SignUp() {
 	req := struct {
 		Email    string
 		Password string
+		Code     string
 	}{}
 
 	if err := json.Unmarshal(this.Ctx.Input.RequestBody, &req); err != nil {
@@ -25,8 +26,13 @@ func (this *UserController) SignUp() {
 
 	beego.Info("email:", req.Email)
 	beego.Info("password:", req.Password)
+	beego.Info("code:", req.Code)
 	if req.Email == "" || req.Password == "" {
 		this.ResponseError400(fmt.Errorf("empty field"), "")
+		return
+	}
+	if req.Code != "hello" {
+		this.ResponseError400(fmt.Errorf("signup code incorrect"), "")
 		return
 	}
 
@@ -60,8 +66,9 @@ func (this *UserController) SignIn() {
 		this.ResponseError400(err, "")
 		return
 	}
-	if user.Password != utils.GetMd5String(req.Password) {
-		this.ResponseError400(err, "password incorrect")
+
+	if user.Password != utils.MakePassword(req.Password) {
+		this.ResponseError400(fmt.Errorf("password incorrect"), "")
 		return
 	}
 

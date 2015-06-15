@@ -55,3 +55,9 @@ func SubString(str string, begin, length int) (substr string) {
 	// 返回子串
 	return string(rs[begin:end])
 }
+
+func MakePassword(password string) string {
+	t := GetMd5String(password)
+	x := "everettjf" + t + "234@#$%(KJ" + t
+	return GetMd5String(x)
+}

@@ -12,11 +12,18 @@ linkControllers.controller('LinkSignUpCtrl',['$scope','$http',function($scope,$h
     $scope.inputPassword="hellohello";
     $scope.confirmPassword="hellohello";
     $scope.signMessage="";
+    $scope.signupCode = "";
 
     $scope.signUp = function(){
+        if($scope.signupCode == ""){
+            $scope.signMessage="Signup Code is empty.";
+            return;
+        }
+
         $http.post('/user/signup',{
             Email:$scope.inputEmail,
-            Password:$scope.inputPassword
+            Password:$scope.inputPassword,
+            Code:$scope.signupCode
         }).success(function(data){
             $scope.signMessage = "Success";
 
