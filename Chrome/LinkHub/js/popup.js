@@ -67,11 +67,14 @@ extensionApp.controller('ExtensionCtrl',['$scope','$http',function($scope,$http)
         });
     };
 
-    $scope.inputEmail="everettjf@qq.com";
-    $scope.inputPassword="hellohello";
+    $scope.inputEmail="";
+    $scope.inputPassword="";
     $scope.signMessage="";
 
     $scope.signIn = function(){
+        if($scope.inputEmail == "" || $scope.inputPassword == ""){
+            return;
+        }
         $http.post(serverURL('/user/signin'),{
             Email:$scope.inputEmail,
             Password:$scope.inputPassword

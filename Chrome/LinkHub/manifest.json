@@ -16,9 +16,9 @@
     "activeTab",
     "tabs",
     "bookmarks",
-    "https://ajax.googleapis.com/",
-    "http://127.0.0.1/",
     "http://127.0.0.1:8086/",
-    "http://127.0.0.1:8080/"
+    "http://linkhub.pub:8086/",
+    "http://lianjie.pub:8086/",
+    "http://urls.pub:8086/"
   ]
 }
