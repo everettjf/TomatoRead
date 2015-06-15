@@ -1,0 +1,15 @@
+{
+  "name": "static",
+  "version": "0.0.1",
+  "homepage": "https://github.com/everettjf",
+  "authors": [
+    "zhufeng <everettjf@163.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "jquery": "~2.1.4",
+    "angular": "~1.4.0",
+    "angular-cookies": "~1.4.0"
+  }
+}

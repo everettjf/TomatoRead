@@ -1,0 +1,15 @@
+<form class="form-signup">
+  <h2 class="form-signup-heading">sign up</h2>
+  <label for="inputEmail" class="sr-only">Email address</label>
+  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus ng-model="inputEmail">
+
+  <label for="inputPassword" class="sr-only">Password</label>
+  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required ng-model="inputPassword">
+
+  <label for="confirmPassword" class="sr-only">Confirm Password</label>
+  <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password" required ng-model="confirmPassword">
+
+  <button class="btn btn-lg btn-primary btn-block" ng-click="signUp()">Sign Up</button>
+
+  <div>{{signMessage}}</div>
+</form>

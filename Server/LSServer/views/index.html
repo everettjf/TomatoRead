@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN" ng-app="linkApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="micro-community for link share">
+    <meta name="author" content="everettjf">
+
+    <link rel="icon" href="/static/img/favicon.ico">
+    <link href="/static/components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/css/base.css" rel="stylesheet">
+    <link href="/static/css/signin.css" rel="stylesheet">
+    <link href="/static/css/signup.css" rel="stylesheet">
+
+    <script src="/static/components/jquery/dist/jquery.js"></script>
+    <script src="/static/components/angular/angular.js"></script>  
+    <script src="/static/components/angular-route/angular-route.js"></script>
+    <script src="/static/components/bootstrap/dist/js/bootstrap.min.js"></script> 
+
+    <script src="/static/js/app.js"></script>
+    <script src="/static/js/controllers.js"></script>
+    <script src="/static/js/filters.js"></script>
+
+    <title>LinkHub</title>
+</head>
+<body>
+    <div class="container" ng-controller="LinkIndexCtrl">
+    <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">LinkHub</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+<!--                 <li class="active"><a href="#/">广场</a></li>
+ -->                
+                <% if .userEmail %>
+                    <li><a href="#/my">我的收藏</a></li>
+                <% end %>
+
+            </ul>
+           <ul class="nav navbar-nav navbar-right">
+          <li id="fat-menu" class="dropdown">
+                <% if .userEmail %>
+              <a id="drop3"  class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                <% .userEmail %>
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+                <li role="presentation"><a role="menuitem" tabindex="-1">Profile</a></li>
+                <!-- <li role="presentation" class="divider"></li> -->
+              </ul>
+            </li>
+                    <li><a href="/user/signout">注销&nbsp;&nbsp;</a> </li>
+                <% else %>
+                    <li><a href="#/signin">登录</a> </li>
+                    <li><a href="#/signup">注册&nbsp;&nbsp; </a></li>
+                <% end %>
+            </ul> 
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+      <div class="jumbotron">
+        <div ng-view></div>
+
+        </div>
+        <hr/>
+<a href="http://inkmind.xyz" target="_blank">About LinkHub 2015</a>
+
+    </div>
+
+</body>
+</html>

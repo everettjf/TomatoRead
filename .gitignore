@@ -1,0 +1,5 @@
+*.crx
+*.pem
+/Server/LSServer/logs
+/Server/LSServer/LSServer
+*.log
