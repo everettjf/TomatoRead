@@ -167,10 +167,16 @@
 
 <h2>Top Never Click Links</h2>
 <span ng-repeat="l in topNeverClickLinks ">
-    <!-- <span><a href="/link/info/{{l.ID}}">{{l.ID}}</a> | </span>  -->
+    <span
+     ng-mouseenter="isShowMore=true"
+     ng-mouseleave="isShowMore=false"
+     ng-init="isShowMore=false"
+     >
     <a class="btn btn-default" role="button" href="{{l.Basic.URL}}" target="_blank" ng-click="linkClick(l)">
        {{l.LastClickTime | formatTimeStamp}} | {{l.Basic.Title}}
     </a>
+    <button ng-show="isShowMore"  class="btn btn-success"  ng-click="linkMoreClick(l);">More</button>
+    </span>
 </span>
 
 <h2>Tags</h2>
