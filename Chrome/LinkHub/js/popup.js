@@ -13,6 +13,17 @@ extensionApp.controller('ExtensionCtrl',['$scope','$http',function($scope,$http)
     console.log('angular extension');
     $scope.addResult = "Click to add this link.";
 
+    $scope.isUserSignin = false;
+    var checkSignin = function(){
+        $http.get(serverURL('/user/status'))
+        .success(function(data){
+            $scope.isUserSignin = true;
+        }).error(function(data,status){
+            $scope.isUserSignin = false;
+        });
+    };
+    checkSignin();
+
     $scope.addLink = function(){
         console.log('new link');
 
@@ -57,7 +68,7 @@ extensionApp.controller('ExtensionCtrl',['$scope','$http',function($scope,$http)
 
     $scope.inputEmail="everettjf@qq.com";
     $scope.inputPassword="hellohello";
-    $scope.signMessage="waiting...";
+    $scope.signMessage="";
 
     $scope.signIn = function(){
         $http.post(serverURL('/user/signin'),{
@@ -65,6 +76,7 @@ extensionApp.controller('ExtensionCtrl',['$scope','$http',function($scope,$http)
             Password:$scope.inputPassword
         }).success(function(data){
             $scope.signMessage = "Success";
+            $scope.isUserSignin = true;
         }).error(function(data,status){
             $scope.signMessage="Error:" + data;
         });
@@ -73,6 +85,7 @@ extensionApp.controller('ExtensionCtrl',['$scope','$http',function($scope,$http)
         $http.post(serverURL('/user/signout'),{
         }).success(function(data){
             $scope.signMessage = "Success";
+            $scope.isUserSignin = false;
         }).error(function(data,status){
             $scope.signMessage="Error:" + data;
         });

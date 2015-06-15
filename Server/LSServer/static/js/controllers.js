@@ -47,6 +47,19 @@ linkControllers.controller('LinkSignInCtrl',['$scope','$http',function($scope,$h
 linkControllers.controller('LinkMyCtrl',['$scope','$http',function($scope,$http){
     console.log('hello');
 
+    $scope.signinMessage = "";
+    $scope.isUserSignin = false;
+    var checkSignin = function(){
+        $http.get('/user/status')
+        .success(function(data){
+            $scope.isUserSignin = true;
+        }).error(function(data,status){
+            $scope.isUserSignin = false;
+            $scope.signinMessage = "请登录。";
+        });
+    };
+    checkSignin();
+
     $scope.links = [];
     $scope.topClickLinks = [];
     $scope.topNeverClickLinks = [];

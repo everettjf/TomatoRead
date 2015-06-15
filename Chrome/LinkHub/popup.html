@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="zh-CN" ng-app="extensionApp">
+<html lang="zh-CN" ng-app="extensionApp" ng-csp>
 <head>
     <meta charset="utf-8">
-    <title>LinkShare</title>
+    <title>LinkHub</title>
     <link href="components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <link href="css/popup.css" rel="stylesheet">
+    <link href="components/angular/angular-csp.css" rel="stylesheet">
 
     <script src="components/jquery/dist/jquery.js"></script>
     <script src="components/angular/angular.js"></script>
@@ -12,9 +13,33 @@
 
 </head>
 <body>
-    <div id="extensionCtrl" class="container" ng-controller="ExtensionCtrl">
-      <div id="topTab" role="tabpanel">
+<div id="extensionCtrl" class="container" ng-controller="ExtensionCtrl">
+    <div ng-hide="isUserSignin">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" id="inputEmail3" placeholder="Email" ng-model="inputEmail">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" id="inputPassword3" placeholder="Password" ng-model="inputPassword">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-default" ng-click="signIn()">Sign in</button>
+                  <span>{{signMessage}}</span>
 
+                  <a href="http://localhost:8086/my#/signup" href="blank">没有账号？注册</a>
+                </div>
+              </div>
+            </form>
+    </div>
+
+      <div id="topTab" role="tabpanel" ng-show="isUserSignin">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Active Tab</a></li>
@@ -89,36 +114,16 @@
           </div>
           <div role="tabpanel" class="tab-pane" id="settings">
                   
-
-            <form class="form-horizontal">
-              <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-                <div class="col-sm-10">
-                  <input type="email" class="form-control" id="inputEmail3" placeholder="Email" ng-model="inputEmail">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-                <div class="col-sm-10">
-                  <input type="password" class="form-control" id="inputPassword3" placeholder="Password" ng-model="inputPassword">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <button type="submit" class="btn btn-default" ng-click="signIn()">Sign in</button>
-                  <button type="submit" class="btn btn-default" ng-click="signOut()">Sign Out</button>
-                  <span>{{signMessage}}</span>
-                </div>
-              </div>
-            </form>
-
+            <button type="submit" class="btn btn-default" ng-click="signOut()">Sign Out</button>
 
           </div>
         </div>
 
       </div>
-    </div>
 
-    <script src="js/popup.js"></script>
+
+
+</div> 
+<script src="js/popup.js"></script>
 </body>
 </html>

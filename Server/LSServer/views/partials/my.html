@@ -1,5 +1,9 @@
 
+<span ng-hide="isUserSignin">
+<a href="/my#/signin">{{signinMessage}}</a>
+</span>
 
+<div ng-show="isUserSignin">
 <h2>Group Links</h2>
 <div class="row">
   <div ng-repeat="g in groups" class="col-sm-4">
@@ -260,6 +264,7 @@
   </div>
 </form>
 
+</div>
 
 
 

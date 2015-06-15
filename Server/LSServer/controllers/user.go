@@ -72,7 +72,7 @@ func (this *UserController) SignIn() {
 func (this *UserController) UserStatus() {
 	user := this.UserLoginSession()
 	if user == nil {
-		this.ResponseError400(fmt.Errorf("User not sign on"), "")
+		this.ResponseError400(fmt.Errorf("User not signin"), "")
 		return
 	}
 
