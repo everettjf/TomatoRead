@@ -1,3 +1,7 @@
+<span ng-show="isUserSignin">已经登录</span>
+
+<div ng-hide="isUserSignin">
+
 <form class="form-signin">
   <h2 class="form-signin-heading">sign in</h2>
   <label for="inputEmail" class="sr-only">Email address</label>
@@ -10,3 +14,4 @@
 
   <div>{{signMessage}}</div>
 </form>
+</div>
