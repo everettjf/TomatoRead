@@ -8,9 +8,9 @@ linkControllers.controller('LinkIndexCtrl',['$scope','$http',function($scope,$ht
 }]);
 linkControllers.controller('LinkSignUpCtrl',['$scope','$http',function($scope,$http){
     //test data
-    $scope.inputEmail="everettjf@qq.com";
-    $scope.inputPassword="hellohello";
-    $scope.confirmPassword="hellohello";
+    $scope.inputEmail="";
+    $scope.inputPassword="";
+    $scope.confirmPassword="";
     $scope.signMessage="";
     $scope.signupCode = "";
 
@@ -34,8 +34,8 @@ linkControllers.controller('LinkSignUpCtrl',['$scope','$http',function($scope,$h
     };
 }]);
 linkControllers.controller('LinkSignInCtrl',['$scope','$http',function($scope,$http){
-    $scope.inputEmail="everettjf@qq.com";
-    $scope.inputPassword="hellohello";
+    $scope.inputEmail="";
+    $scope.inputPassword="";
     $scope.signMessage="";
 
     $scope.signIn = function(){
@@ -54,7 +54,6 @@ linkControllers.controller('LinkSignInCtrl',['$scope','$http',function($scope,$h
 linkControllers.controller('LinkMyCtrl',['$scope','$http',function($scope,$http){
     console.log('hello');
 
-    $scope.signinMessage = "";
     $scope.isUserSignin = false;
     var checkSignin = function(){
         $http.get('/user/status')
@@ -62,7 +61,6 @@ linkControllers.controller('LinkMyCtrl',['$scope','$http',function($scope,$http)
             $scope.isUserSignin = true;
         }).error(function(data,status){
             $scope.isUserSignin = false;
-            $scope.signinMessage = "请登录。";
         });
     };
     checkSignin();

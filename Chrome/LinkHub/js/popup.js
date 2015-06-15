@@ -7,7 +7,8 @@ var logError = function(data,status){
 };
 
 var serverURL = function(partialURL){
-    return 'http://127.0.0.1:8086' + partialURL;
+    return 'http://linkhub.pub:8086' + partialURL;
+    //return 'http://127.0.0.1:8086' + partialURL;
 }
 extensionApp.controller('ExtensionCtrl',['$scope','$http',function($scope,$http){
     console.log('angular extension');
