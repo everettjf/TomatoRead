@@ -1,1 +1,678 @@
-{}
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"si",
+				"signup"
+			],
+			[
+				"re",
+				"RemoveLinkFromGroup	error ƒ"
+			],
+			[
+				"g",
+				"groupID	int64 ν"
+			],
+			[
+				"dbus",
+				"dbUserLinksLinkGroup	string ν"
+			],
+			[
+				"dbuse",
+				"dbUserLinksGroupLinks	string ν"
+			],
+			[
+				"refresh",
+				"refreshBasicGroups"
+			],
+			[
+				"linkde",
+				"linkDetailTags"
+			],
+			[
+				"linkDe",
+				"linkDetailInfo"
+			],
+			[
+				"linkD",
+				"linkDetailTags"
+			],
+			[
+				"linde",
+				"linkDetailURL"
+			],
+			[
+				"refre",
+				"refreshGroups"
+			],
+			[
+				"Tin",
+				"TinyGroup	struct ʈ"
+			],
+			[
+				"dbu",
+				"dbUserLinksGroupLinks	string ν"
+			],
+			[
+				"dbuser",
+				"dbUserLinksGroup	string ν"
+			],
+			[
+				"dbuserl",
+				"dbUserLinksGroupLinks	string ν"
+			],
+			[
+				"kdbuserlink",
+				"KDBUserLinksGroups	 Ɩ"
+			],
+			[
+				"kdbuserLinksgrou",
+				"KDBUserLinksGroupCount	 Ɩ"
+			],
+			[
+				"Link",
+				"LinkManager	struct ʈ"
+			],
+			[
+				"dr",
+				"dropdown"
+			],
+			[
+				"TinyLinkWith",
+				"TinyLinkWithClickTime	struct ʈ"
+			],
+			[
+				"cl",
+				"LastClickTime	int64 ν"
+			],
+			[
+				"Linkpro",
+				"LinkPropertyData	struct ʈ"
+			],
+			[
+				"Linkp",
+				"LinkPropertyData	struct ʈ"
+			],
+			[
+				"Lin",
+				"LinkPropertyBasic	struct ʈ"
+			],
+			[
+				"dblink",
+				"dbLinksExtend	string ν"
+			],
+			[
+				"LinkPro",
+				"LinkPropertyExtend	struct ʈ"
+			],
+			[
+				"form",
+				"FormatInt	string ƒ"
+			],
+			[
+				"qpu",
+				"Qpush_back	size int64, err error ƒ"
+			],
+			[
+				"ext",
+				"extractTagsByArray	[]string ƒ"
+			],
+			[
+				"dbln",
+				"dbLinkUrlMap	string ν"
+			],
+			[
+				"dbl",
+				"dbLinks	string ν"
+			],
+			[
+				"e",
+				"EmailStatus	bool ν"
+			],
+			[
+				"user",
+				"UserLoginSession	*models.User ƒ"
+			],
+			[
+				"dblins",
+				"dbLinksTagMap	string ν"
+			],
+			[
+				"dblinsk",
+				"dbLinksClickCount	string ν"
+			],
+			[
+				"redi",
+				"RedirectToRouter	 ƒ"
+			],
+			[
+				"linkC",
+				"linkControllers〔variable〕"
+			],
+			[
+				"res",
+				"ResponseError400	 ƒ"
+			],
+			[
+				"reson",
+				"ResponseError404	 ƒ"
+			],
+			[
+				"respon",
+				"ResponseError400	 ƒ"
+			],
+			[
+				"kdbusers",
+				"KDBUsers	 Ɩ"
+			],
+			[
+				"KDBU",
+				"KDBUsersEmailMap	 Ɩ"
+			],
+			[
+				"inpu",
+				"inputPassword"
+			],
+			[
+				"sm",
+				"SmtpPassword	string ν"
+			],
+			[
+				"te",
+				"TplNames	string ν"
+			],
+			[
+				"reques",
+				"RequestBody	[]byte ν"
+			],
+			[
+				"ex",
+				"extensionCtrlHttp"
+			],
+			[
+				"load",
+				"LoadUserDictionary	error ƒ"
+			],
+			[
+				"exten",
+				"extensionCtrlScope"
+			],
+			[
+				"pr",
+				"Println	n int, err error ƒ"
+			],
+			[
+				"prin",
+				"Println	n int, err error ƒ"
+			],
+			[
+				"k",
+				"KDBLinksTagMap	 Ɩ"
+			],
+			[
+				"sp",
+				"Sprintf	string ƒ"
+			],
+			[
+				"kdb",
+				"KDBLinksClickCount	 Ɩ"
+			],
+			[
+				"im",
+				"import	import (...) ʂ"
+			],
+			[
+				"def",
+				"DefaultLinkList	*models.LinkManager ν"
+			],
+			[
+				"p",
+				"Println	n int, err error ƒ"
+			],
+			[
+				"sc",
+				"scores	[]int64 ν"
+			],
+			[
+				"rend",
+				"renderText"
+			],
+			[
+				"status",
+				"statusText"
+			],
+			[
+				"get",
+				"getCurrentTabUrl"
+			],
+			[
+				"l",
+				"DefaultLinkList	*models.LinkManager ν"
+			],
+			[
+				"de",
+				"DefaultLinkList	*models.LinkManager ν"
+			],
+			[
+				"resu",
+				"result2	 ν"
+			],
+			[
+				"sco",
+				"scoreEnd	interface{} ν"
+			],
+			[
+				"score",
+				"scoreStart	interface{} ν"
+			],
+			[
+				"int",
+				"Int64	int64 ƒ"
+			],
+			[
+				"in",
+				"Int64	int64 ƒ"
+			],
+			[
+				"print",
+				"Println	n int, err error ƒ"
+			],
+			[
+				"main",
+				"func main	func main {...} ʂ"
+			],
+			[
+				"func",
+				"func main	func main {...} ʂ"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"sty",
+				"style	Tag"
+			],
+			[
+				"fun",
+				"function"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 167.0,
+		"last_filter": "install",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"GoSublime:     v",
+				"GoSublime: Activate 9o"
+			],
+			[
+				"GoSublime: godef",
+				"GoSublime: Goto Definition"
+			],
+			[
+				"removep",
+				"Package Control: Remove Package"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"print('h')",
+			"print 'h'",
+			"godef",
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/everettjf/GitHub/LinkHub",
+		"/Users/everettjf/GitHub/LinkHub/Chrome",
+		"/Users/everettjf/GitHub/LinkHub/Chrome/LinkHub",
+		"/Users/everettjf/GitHub/LinkHub/Chrome/LinkHub/components",
+		"/Users/everettjf/GitHub/LinkHub/Chrome/LinkHub/components/angular",
+		"/Users/everettjf/GitHub/LinkHub/Chrome/LinkHub/components/angular-cookies",
+		"/Users/everettjf/GitHub/LinkHub/Chrome/LinkHub/components/bootstrap",
+		"/Users/everettjf/GitHub/LinkHub/Chrome/LinkHub/components/bootstrap/dist",
+		"/Users/everettjf/GitHub/LinkHub/Chrome/LinkHub/components/bootstrap/dist/js",
+		"/Users/everettjf/GitHub/LinkHub/Chrome/LinkHub/components/jquery",
+		"/Users/everettjf/GitHub/LinkHub/Chrome/LinkHub/components/jquery/dist",
+		"/Users/everettjf/GitHub/LinkHub/Chrome/LinkHub/css",
+		"/Users/everettjf/GitHub/LinkHub/Chrome/LinkHub/js",
+		"/Users/everettjf/GitHub/LinkHub/Server",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/conf",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/routers",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/static",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/static/css",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/static/js",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/utils",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/utils/tags",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views/common",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views/partials",
+		"/Users/everettjf/Golang/basegopath/src/github.com/everettjf/jiebago",
+		"/Users/everettjf/Golang/basegopath/src/github.com/everettjf/jiebago/analyse",
+		"/Users/everettjf/Golang/basegopath/src/github.com/everettjf/jiebago/posseg"
+	],
+	"file_history":
+	[
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views/partials/signin.html",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views/partials/my.html",
+		"/Users/everettjf/GitHub/LinkHub/Chrome/LinkHub/popup.html",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/conf/app.conf",
+		"/Users/everettjf/GitHub/LinkHub/Chrome/LinkHub/manifest.json",
+		"/Users/everettjf/GitHub/LinkHub/Chrome/LinkHub/js/popup.js",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views/welcome.html",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views/common/tongji.html",
+		"/Users/everettjf/GitHub/LinkHub/.gitignore",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views/index.html",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views/common/duoshuo.html",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/static/js/controllers.js",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/controllers/user.go",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views/partials/signup.html",
+		"/Users/everettjf/Golang/workspace/src/LSServer/models/user.go",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/utils/util.go",
+		"/Users/everettjf/Golang/workspace/src/LSServer/utils/util.go",
+		"/Users/everettjf/Golang/workspace/src/common/md5.go",
+		"/Users/everettjf/GitHub/LinkHub/README.md",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/views/welcome.html",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/static/js/controllers.js",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/conf/app.conf",
+		"/Users/everettjf/Bitbucket/LinkShare/Chrome/LinkShare/popup.html",
+		"/Users/everettjf/Bitbucket/LinkShare/Chrome/LinkShare/js/popup.js",
+		"/Users/everettjf/Bitbucket/LinkShare/Chrome/LinkShare/css/popup.css",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/views/partials/my.html",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/models/const.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/models/link.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/controllers/link.go",
+		"/Users/everettjf/Golang/workspace/src/LSServer/models/link.go",
+		"/Users/everettjf/Golang/basegopath/src/github.com/everettjf/gossdb/hset.go",
+		"/Users/everettjf/Golang/workspace/src/LSServer/models/const.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/routers/router.go",
+		"/Users/everettjf/Golang/basegopath/src/github.com/everettjf/gossdb/value.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/views/index.html",
+		"/Users/everettjf/Golang/basegopath/src/github.com/everettjf/gossdb/set.go",
+		"/Users/everettjf/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/everettjf/Library/Application Support/Sublime Text 3/Packages/User/ColorPicker.sublime-settings",
+		"/Users/everettjf/Library/Application Support/Sublime Text 3/Packages/ColorPicker/ColorPicker.sublime-settings",
+		"/Users/everettjf/Golang/workspace/src/LSServer/controllers/tag.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/controllers/main.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/static/js/app.js",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/views/partials/public.html",
+		"/Users/everettjf/Golang/basegopath/src/github.com/everettjf/gossdb/zset.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/static/css/base.css",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/utils/util.go",
+		"/Users/everettjf/Golang/basegopath/src/github.com/seefan/to/to.go",
+		"/Users/everettjf/Golang/basegopath/src/github.com/astaxie/beego/context/input.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/controllers/base.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/models/user.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/controllers/user.go",
+		"/Users/everettjf/Golang/basegopath/src/github.com/everettjf/gossdb/client.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/helpscript/clearall.go",
+		"/Users/everettjf/Golang/basegopath/src/github.com/everettjf/gossdb/queue.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Chrome/LinkShare/manifest.json",
+		"/Users/everettjf/Bitbucket/LinkShare/Doc/bookmarks_15_6_8.html",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/controllers/tag.go",
+		"/Users/everettjf/Golang/basegopath/src/github.com/opesun/goquery/goquery.go",
+		"/Users/everettjf/Golang/basegopath/src/github.com/ssdb/gossdb/ssdb/ssdb.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/static/bower.json",
+		"/Users/everettjf/Bitbucket/LinkShare/Chrome/bower.json",
+		"/usr/local/Cellar/go/1.4.2/libexec/src/fmt/print.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/models/global.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/main.go",
+		"/Users/everettjf/Golang/workspace/src/LSServer/controllers/main.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/static/js/signup.js",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/views/partials/link-detail.html",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/views/partials/signin.html",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/views/partials/signup.html",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/views/base/foot.html",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/views/base/head.html",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/views/base/top.html",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/views/signup.html",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/views/signin.html",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/static/js/signin.js",
+		"/Users/everettjf/Golang/basegopath/src/github.com/astaxie/beego/context/output.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/views/my.html",
+		"/Users/everettjf/Bitbucket/LinkShare/.gitignore",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/utils/mail/mail.go",
+		"/Users/everettjf/Golang/workspace/src/common/mail.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Doc/domain.md",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/static/css/signup.css",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/static/css/signin.css",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/controllers/square.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/views/register.html",
+		"/Users/everettjf/Bitbucket/LinkShare/Doc/Task.md",
+		"/Users/everettjf/Golang/workspace/src/common/gettitle.go",
+		"/usr/local/Cellar/go/1.4.2/libexec/src/io/ioutil/ioutil.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/controllers/html.go",
+		"/usr/local/Cellar/go/1.4.2/libexec/src/io/io.go",
+		"/usr/local/Cellar/go/1.4.2/libexec/src/net/http/request.go",
+		"/usr/local/Cellar/go/1.4.2/libexec/src/net/http/client.go",
+		"/Users/everettjf/Golang/workspace/src/common/tags.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/utils/tags/global.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/utils/tags/userdict.txt",
+		"/Users/everettjf/Golang/workspace/src/common/userdict.txt",
+		"/Users/everettjf/Golang/basegopath/src/github.com/everettjf/jiebago/analyse/tag_extracker.go",
+		"/Users/everettjf/Golang/basegopath/src/github.com/wangbin/jiebago/analyse/tag_extracker.go",
+		"/Users/everettjf/Golang/workspace/src/common/jieba.go",
+		"/Users/everettjf/Golang/basegopath/src/github.com/wangbin/jiebago/jieba.go",
+		"/Users/everettjf/Golang/workspace/src/common/split.go",
+		"/usr/local/Cellar/go/1.4.2/libexec/src/regexp/regexp.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Doc/Database.md",
+		"/Users/everettjf/Golang/workspace/src/common/json.go",
+		"/usr/local/Cellar/go/1.4.2/libexec/src/encoding/json/encode.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/static/js/filters.js",
+		"/Users/everettjf/Golang/basegopath/src/github.com/astaxie/beego/config.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/helpscript/reconstructlink.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/helpscript/removemore.go",
+		"/Users/everettjf/Golang/basegopath/src/github.com/everettjf/gossdb/examples/test2.go",
+		"/Users/everettjf/Library/Application Support/Sublime Text 3/Packages/JSLint/JSLint.sublime-settings",
+		"/Users/everettjf/Library/Application Support/Sublime Text 3/Packages/User/JSLint.sublime-settings",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/views/public.html",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/views/admin.html",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/views/user.html",
+		"/Users/everettjf/Bitbucket/LinkShare/Chrome/.bowerrc",
+		"/Users/everettjf/Bitbucket/LinkShare/Chrome/LinkShare/popup.js",
+		"/Users/everettjf/Golang/basegopath/src/github.com/astaxie/beego/controller.go",
+		"/Users/everettjf/Golang/workspace/src/LSServer/models/global.go",
+		"/Users/everettjf/Golang/basegopath/src/github.com/seefan/goerr/goerr.go",
+		"/Users/everettjf/Golang/stuff/samples-master/todo/controllers/task.go",
+		"/Users/everettjf/Golang/stuff/samples-master/todo/main.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/logs/app.log",
+		"/Users/everettjf/Golang/basegopath/src/github.com/everettjf/gossdb/connectors.go",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/controllers/default.go",
+		"/Users/everettjf/Golang/workspace/src/common/gossdbtest.go",
+		"/Users/everettjf/Library/Application Support/Sublime Text 3/Packages/GoSublime/USAGE.md",
+		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/models/link_test.go"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"%s",
+			"signup",
+			"KDB",
+			"signin",
+			"百度",
+			"谷歌",
+			"百度",
+			"linkApp",
+			"kDB",
+			"'",
+			"ctrl+shift+p"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "linkhub.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"_vintageous_last_buffer_search": "localhost",
+		"_vintageous_last_buffer_search_command": "vi_slash",
+		"_vintageous_last_char_search_command": "vi_f",
+		"_vintageous_last_character_search": "<",
+		"_vintageous_reset_during_init": true,
+		"vintage":
+		{
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 298.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
