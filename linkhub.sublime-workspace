@@ -377,8 +377,6 @@
 	"expanded_folders":
 	[
 		"/Users/everettjf/GitHub/LinkHub",
-		"/Users/everettjf/GitHub/LinkHub/Chrome",
-		"/Users/everettjf/GitHub/LinkHub/Chrome/LinkHub",
 		"/Users/everettjf/GitHub/LinkHub/Chrome/LinkHub/components",
 		"/Users/everettjf/GitHub/LinkHub/Chrome/LinkHub/components/angular",
 		"/Users/everettjf/GitHub/LinkHub/Chrome/LinkHub/components/angular-cookies",
@@ -389,24 +387,18 @@
 		"/Users/everettjf/GitHub/LinkHub/Chrome/LinkHub/components/jquery/dist",
 		"/Users/everettjf/GitHub/LinkHub/Chrome/LinkHub/css",
 		"/Users/everettjf/GitHub/LinkHub/Chrome/LinkHub/js",
-		"/Users/everettjf/GitHub/LinkHub/Server",
 		"/Users/everettjf/GitHub/LinkHub/Server/LSServer",
 		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/conf",
 		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/routers",
-		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/static",
-		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/static/css",
 		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/static/js",
-		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/utils",
 		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/utils/tags",
 		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views",
 		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views/common",
-		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views/partials",
-		"/Users/everettjf/Golang/basegopath/src/github.com/everettjf/jiebago",
-		"/Users/everettjf/Golang/basegopath/src/github.com/everettjf/jiebago/analyse",
-		"/Users/everettjf/Golang/basegopath/src/github.com/everettjf/jiebago/posseg"
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views/partials"
 	],
 	"file_history":
 	[
+		"/Users/everettjf/GitHub/LinkHub/README.md",
 		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views/partials/signin.html",
 		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views/partials/my.html",
 		"/Users/everettjf/GitHub/LinkHub/Chrome/LinkHub/popup.html",
@@ -425,7 +417,6 @@
 		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/utils/util.go",
 		"/Users/everettjf/Golang/workspace/src/LSServer/utils/util.go",
 		"/Users/everettjf/Golang/workspace/src/common/md5.go",
-		"/Users/everettjf/GitHub/LinkHub/README.md",
 		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/views/welcome.html",
 		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/static/js/controllers.js",
 		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/conf/app.conf",
