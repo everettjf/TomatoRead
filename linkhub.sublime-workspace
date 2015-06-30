@@ -303,6 +303,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "Server/LSServer/static/js/controllers.js",
+			"settings":
+			{
+				"buffer_size": 10315,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -379,10 +387,18 @@
 		"/Users/everettjf/GitHub/LinkHub",
 		"/Users/everettjf/GitHub/LinkHub/Server",
 		"/Users/everettjf/GitHub/LinkHub/Server/LSServer",
-		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/conf"
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/conf",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/models",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/static",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/static/css",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/static/js",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views/partials"
 	],
 	"file_history":
 	[
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views/welcome.html",
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views/index.html",
 		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/conf/app.conf",
 		"/Users/everettjf/GitHub/LinkHub/README.md",
 		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views/partials/signin.html",
@@ -390,10 +406,8 @@
 		"/Users/everettjf/GitHub/LinkHub/Chrome/LinkHub/popup.html",
 		"/Users/everettjf/GitHub/LinkHub/Chrome/LinkHub/manifest.json",
 		"/Users/everettjf/GitHub/LinkHub/Chrome/LinkHub/js/popup.js",
-		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views/welcome.html",
 		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views/common/tongji.html",
 		"/Users/everettjf/GitHub/LinkHub/.gitignore",
-		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views/index.html",
 		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views/common/duoshuo.html",
 		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/static/js/controllers.js",
 		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/controllers/user.go",
@@ -556,8 +570,52 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "Server/LSServer/static/js/controllers.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 10315,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								837,
+								837
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"vintage":
+							{
+								"action": null,
+								"action_count": "",
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"must_capture_register_name": false,
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 0
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 204.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -633,7 +691,7 @@
 	"selected_group": 0,
 	"settings":
 	{
-		"_vintageous_last_buffer_search": "localhost",
+		"_vintageous_last_buffer_search": "redirect",
 		"_vintageous_last_buffer_search_command": "vi_slash",
 		"_vintageous_last_char_search_command": "vi_f",
 		"_vintageous_last_character_search": "<",
