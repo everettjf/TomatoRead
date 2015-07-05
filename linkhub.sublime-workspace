@@ -303,14 +303,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "Server/LSServer/static/js/controllers.js",
-			"settings":
-			{
-				"buffer_size": 10315,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -393,10 +385,14 @@
 		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/static/css",
 		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/static/js",
 		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views",
-		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views/partials"
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views/partials",
+		"/Users/everettjf/Golang/basegopath/src/github.com/everettjf",
+		"/Users/everettjf/Golang/basegopath/src/github.com/everettjf/gossdb"
 	],
 	"file_history":
 	[
+		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/models/link.go",
+		"/Users/everettjf/Golang/basegopath/src/github.com/everettjf/gossdb/hset.go",
 		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views/welcome.html",
 		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/views/index.html",
 		"/Users/everettjf/GitHub/LinkHub/Server/LSServer/conf/app.conf",
@@ -427,7 +423,6 @@
 		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/models/link.go",
 		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/controllers/link.go",
 		"/Users/everettjf/Golang/workspace/src/LSServer/models/link.go",
-		"/Users/everettjf/Golang/basegopath/src/github.com/everettjf/gossdb/hset.go",
 		"/Users/everettjf/Golang/workspace/src/LSServer/models/const.go",
 		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/routers/router.go",
 		"/Users/everettjf/Golang/basegopath/src/github.com/everettjf/gossdb/value.go",
@@ -523,8 +518,7 @@
 		"/Users/everettjf/Golang/basegopath/src/github.com/everettjf/gossdb/connectors.go",
 		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/controllers/default.go",
 		"/Users/everettjf/Golang/workspace/src/common/gossdbtest.go",
-		"/Users/everettjf/Library/Application Support/Sublime Text 3/Packages/GoSublime/USAGE.md",
-		"/Users/everettjf/Bitbucket/LinkShare/Server/LSServer/models/link_test.go"
+		"/Users/everettjf/Library/Application Support/Sublime Text 3/Packages/GoSublime/USAGE.md"
 	],
 	"find":
 	{
@@ -542,6 +536,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"MultiHget",
 			"%s",
 			"signup",
 			"KDB",
@@ -570,52 +565,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "Server/LSServer/static/js/controllers.js",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 10315,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								837,
-								837
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true,
-							"vintage":
-							{
-								"action": null,
-								"action_count": "",
-								"mode": "mode_normal",
-								"motion": null,
-								"motion_count": "",
-								"must_capture_register_name": false,
-								"partial_sequence": "",
-								"register": "\"",
-								"sequence": "",
-								"xpos": 0
-							}
-						},
-						"translation.x": 0.0,
-						"translation.y": 204.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
