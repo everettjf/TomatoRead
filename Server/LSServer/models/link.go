@@ -177,7 +177,7 @@ func (m *LinkManager) TopClickLinks(n int64) ([]*TinyLinkWithClick, error) {
 		return nil, fmt.Errorf("links click count get failed :%v", err)
 	}
 
-	_, values, err := c.MultiHget(dbLinks, keys...)
+	_, values, err := c.MultiHgetSlice(dbLinks, keys...)
 	if err != nil {
 		return nil, fmt.Errorf("links multiget failed :%v", err)
 	}
@@ -212,7 +212,7 @@ func (m *LinkManager) TopNeverClickLinks(n int64) ([]*TinyLinkWithClickTime, err
 		return nil, fmt.Errorf("links click count get failed :%v", err)
 	}
 
-	_, values, err := c.MultiHget(dbLinks, keys...)
+	_, values, err := c.MultiHgetSlice(dbLinks, keys...)
 	if err != nil {
 		return nil, fmt.Errorf("links multiget failed :%v", err)
 	}
@@ -241,7 +241,7 @@ func (m *LinkManager) All() ([]*TinyLink, error) {
 	defer c.Close()
 
 	dbLinks := DBBuildKey(KDBUserLinks, m.userID)
-	result, err := c.Hrscan(dbLinks, "", "", 100)
+	result, err := c.Hscan(dbLinks, "", "", 100)
 	if err != nil {
 		return nil, fmt.Errorf("links scan failed : %v", err)
 	}
@@ -269,7 +269,7 @@ func (m *LinkManager) AllTags() ([]*TinyTag, error) {
 	defer c.Close()
 
 	dbLinksTags := DBBuildKey(KDBUserLinksTags, m.userID)
-	result, err := c.Hrscan(dbLinksTags, "", "", 500)
+	result, err := c.Hscan(dbLinksTags, "", "", 500)
 	if err != nil {
 		return nil, fmt.Errorf("linkstags scan failed : %v", err)
 	}
