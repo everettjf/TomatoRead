@@ -3,9 +3,9 @@
 - 目标：链接收藏、分享的微社区
 - QQ群：157422249
 
-# **已改用PHP编写**
+**注意：已改用PHP编写**
 https://github.com/everettjf/LinkHubPHP
->原因：想法应该先快速出原型，再考虑数据库选型（ssdb）、性能（golang）等。
+> 原因：想法应该先快速出原型，再考虑数据库选型（ssdb）、性能（golang）等。
 
 
 # 背景
