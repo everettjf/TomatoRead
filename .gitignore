@@ -2,3 +2,4 @@
 /Server/LSServer/logs
 /Server/LSServer/LSServer
 *.log
+*.sublime-workspace
