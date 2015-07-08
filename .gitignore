@@ -3,3 +3,4 @@
 /Server/LSServer/LSServer
 *.log
 *.sublime-workspace
+.idea/
