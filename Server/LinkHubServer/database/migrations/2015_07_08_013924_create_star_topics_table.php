@@ -15,6 +15,8 @@ class CreateStarTopicsTable extends Migration
         Schema::create('star_topics', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+
+            $table->integer('topic_id')->unique();
         });
     }
 

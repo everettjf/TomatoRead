@@ -15,6 +15,8 @@ class CreateStarLinksTable extends Migration
         Schema::create('star_links', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+
+            $table->integer('link_id')->unique();
         });
     }
 

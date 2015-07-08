@@ -15,6 +15,10 @@ class CreateTipoffsTable extends Migration
         Schema::create('tipoffs', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+
+            $table->integer('link_id'); // 链接ID
+            $table->string('reason');   // 举报原因
+            $table->integer('user_id'); // 用户ID
         });
     }
 

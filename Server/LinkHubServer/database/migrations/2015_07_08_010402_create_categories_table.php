@@ -15,6 +15,10 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+
+            $table->string('title');                    // 分类名称
+            $table->integer('order')->default(0);       // 辅助排序
+            $table->tinyInteger('state')->default(0);   // 状态：0未审核，1审核
         });
     }
 

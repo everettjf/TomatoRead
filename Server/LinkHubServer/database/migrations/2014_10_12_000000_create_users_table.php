@@ -14,11 +14,22 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->timestamps();
+
             $table->string('email')->unique();
             $table->string('password', 60);
             $table->rememberToken();
-            $table->timestamps();
+
+            $table->string('name')->unique();       // 昵称
+            $table->tinyInteger('sex')->default(0); // 性别：0未设置，1男，2女
+            $table->string('mark')->nullable();     // 简介
+            $table->string('image')->nullable();    // 头像
+
+            $table->integer('score')->default(0);   // 积分（分享得积分）
+
+            $table->string('wechat_bind')->nullable();
+            $table->string('weibo_bind')->nullable();
+            $table->string('qq_bind')->nullable();
         });
     }
 

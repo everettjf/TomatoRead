@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTagsTable extends Migration
+class CreateLogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,17 @@ class CreateTagsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tags', function (Blueprint $table) {
+        Schema::create('logs', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+
+            /*
+             * 0 管理员登录日志
+             * 1 用户登录日志
+             */
+            $table->tinyInteger('type');
+            $table->string('content');
+            $table->integer('belong_id')->default(0);
         });
     }
 
@@ -25,6 +33,6 @@ class CreateTagsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('tags');
+        Schema::drop('logs');
     }
 }

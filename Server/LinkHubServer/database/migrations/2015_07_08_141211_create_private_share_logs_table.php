@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePrivateGroupsTable extends Migration
+class CreatePrivateShareLogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,12 @@ class CreatePrivateGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('private_groups', function (Blueprint $table) {
+        Schema::create('private_share_logs', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
 
-            $table->string('name');
-            $table->integer('order')->default(0);
+            $table->integer('user_id');
+            $table->integer('link_id');
         });
     }
 
@@ -28,6 +28,6 @@ class CreatePrivateGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('private_groups');
+        Schema::drop('private_share_logs');
     }
 }
