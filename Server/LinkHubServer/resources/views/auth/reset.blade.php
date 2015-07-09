@@ -5,20 +5,22 @@
         body > .grid {
             height: 100%;
         }
+        .image {
+            margin-top: -100px;
+        }
         .column {
             max-width: 450px;
         }
     </style>
-    @endsection
+@endsection
 
 
 @section('content')
-
-
     <div class="ui middle aligned center aligned grid">
         <div class="column">
-            <form class="ui large form" method="post" action="{{ url('/auth/login') }}">
+            <form class="ui large form" method="post" action="{{url('/password/reset')}}">
                 {!! csrf_field() !!}
+                <input type="hidden" name="token" value="{{ $token }}">
 
                 <div class="ui stacked segment">
                     <div class="field">
@@ -33,17 +35,15 @@
                             <input type="password" name="password" placeholder="密码">
                         </div>
                     </div>
-
                     <div class="field">
-
-                    <div class="ui slider checkbox">
-                        <input type="checkbox" name="remember">
-                        <label>记住我</label>
+                        <div class="ui left icon input">
+                            <i class="lock icon"></i>
+                            <input type="password" name="password_confirmation" placeholder="确认密码">
+                        </div>
                     </div>
-                    </div>
-
-                    <button type="submit" class="ui fluid button green">登录</button>
+                    <button type="submit" class="ui fluid button green">重置密码</button>
                 </div>
+
             </form>
             @if (count($errors) > 0)
                 <div class="ui error message">
@@ -54,15 +54,12 @@
                     </ul>
                 </div>
             @endif
-
-            <div class="ui message">
-                没有账号？ <a href="{{ url('home/register') }}">注册</a> &nbsp;&nbsp;
-                <a class="btn btn-link" href="{{ url('/password/email') }}">忘记密码？</a>
-            </div>
         </div>
+
     </div>
 @endsection
 
 @section('endofbody')
 
-    @endsection
+
+@endsection
