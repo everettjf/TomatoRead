@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\PrivateCategory;
 use Input,Redirect;
+use DB;
 
 class CategoryController extends Controller
 {
@@ -18,7 +19,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('user.category.index')->with('categories',PrivateCategory::all());
+        $cates = DB::table('private_categories')
+            ->orderBy('order','desc')
+            ->orderBy('created_at','desc')
+            ->get();
+        return view('user.category.index')->with('categories',$cates);
     }
 
     /**
@@ -80,9 +85,19 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update($id,Request $request)
     {
-        //
+        $this->validate($request,[
+            'name'=>'required|max:20'
+        ]);
+
+        $cate = PrivateCategory::find($id);
+        $cate->name = Input::get('name');
+        if(!$cate->save()){
+            return Redirect::back()->withErrors('修改出错。');
+        }
+
+        return Redirect::back();
     }
 
     /**
@@ -93,6 +108,19 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cate = PrivateCategory::find($id);
+        $cate->delete();
+        return Redirect::back();
+    }
+
+    public function orderInc($id)
+    {
+        DB::table('private_categories')->where('id',$id)->increment('order',1);
+        return Redirect::back();
+    }
+    public function orderDec($id)
+    {
+        DB::table('private_categories')->where('id',$id)->decrement('order',1);
+        return Redirect::back();
     }
 }

@@ -17,7 +17,7 @@ class CreateTopicsTable extends Migration
             $table->timestamps();
 
             $table->integer('category_id'); // 分类
-            $table->string('title');        // 主题名称
+            $table->string('name');        // 主题名称
             $table->string('mark');         // 简介
             $table->tinyInteger('state')->default(0);   // 状态：0未审核，1审核
         });

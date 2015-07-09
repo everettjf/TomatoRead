@@ -18,6 +18,9 @@ Route::group(['prefix'=>'home','namespace'=>'User','middleware'=>'auth'],functio
     Route::get('','IndexController@index');
 
     Route::resource('category','CategoryController');
+    Route::post('category/{id}/order/inc','CategoryController@orderInc');
+    Route::post('category/{id}/order/dec','CategoryController@orderDec');
+
     Route::resource('group','GroupController');
     Route::resource('link','LinkController');
 
