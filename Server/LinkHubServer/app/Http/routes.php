@@ -15,7 +15,13 @@ Route::get('','IndexController@index');
 Route::get('topic','TopicController@index');
 
 Route::group(['prefix'=>'home','namespace'=>'User','middleware'=>'auth'],function(){
-    Route::resource('','IndexController');
+    Route::get('','IndexController@index');
+
+    Route::resource('category','CategoryController');
+    Route::resource('group','GroupController');
+    Route::resource('link','LinkController');
+
+    Route::get('setting','SettingController@index');
 });
 
 Route::controllers([

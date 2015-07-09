@@ -16,6 +16,7 @@ class LinkController extends Controller
      */
     public function index()
     {
+        return view('user.link.index');
     }
 
     /**

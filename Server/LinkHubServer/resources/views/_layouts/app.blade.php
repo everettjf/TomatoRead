@@ -14,28 +14,6 @@
     <link href="/static/css/app.css" rel="stylesheet">
     <link href="/static/components/semantic/dist/semantic.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="/static/components/semantic/dist/components/reset.css">
-    <link rel="stylesheet" type="text/css" href="/static/components/semantic/dist/components/site.css">
-
-    <link rel="stylesheet" type="text/css" href="/static/components/semantic/dist/components/container.css">
-    <link rel="stylesheet" type="text/css" href="/static/components/semantic/dist/components/grid.css">
-    <link rel="stylesheet" type="text/css" href="/static/components/semantic/dist/components/header.css">
-    <link rel="stylesheet" type="text/css" href="/static/components/semantic/dist/components/image.css">
-    <link rel="stylesheet" type="text/css" href="/static/components/semantic/dist/components/menu.css">
-
-    <link rel="stylesheet" type="text/css" href="/static/components/semantic/dist/components/divider.css">
-    <link rel="stylesheet" type="text/css" href="/static/components/semantic/dist/components/list.css">
-    <link rel="stylesheet" type="text/css" href="/static/components/semantic/dist/components/segment.css">
-    <link rel="stylesheet" type="text/css" href="/static/components/semantic/dist/components/dropdown.css">
-    <link rel="stylesheet" type="text/css" href="/static/components/semantic/dist/components/icon.css">
-
-
-    <link rel="stylesheet" type="text/css" href="/static/components/semantic/dist/components/form.css">
-    <link rel="stylesheet" type="text/css" href="/static/components/semantic/dist/components/input.css">
-    <link rel="stylesheet" type="text/css" href="/static/components/semantic/dist/components/button.css">
-    <link rel="stylesheet" type="text/css" href="/static/components/semantic/dist/components/message.css">
-
-
     @yield('endofhead')
 
 </head>
@@ -51,21 +29,22 @@
     <a href="{{url('home')}}" class="item">我的链接 </a>
     @endif
     <div class="right menu">
+
         @if(Auth::guest())
             <a href="{{url('auth/login')}}" class="item">登录 </a>
             <a href="{{url('auth/register')}}" class="item">注册 </a>
         @else
-            <div class="ui right dropdown item">
+            <div class="ui dropdown item">
                 个人中心
                 <i class="dropdown icon"></i>
                 <div class="menu">
-                    <div class="item"><a href="{{ url('home/links') }}">链接</a></div>
-                    <div class="item"><a href="{{ url('home/groups') }}">分组</a></div>
-                    <div class="item"><a href="{{ url('home/categories') }}">分类</a></div>
+                    <a href="{{ url('home/link') }}" class="item">链接</a>
+                    <a href="{{ url('home/group') }}" class="item">分组</a>
+                    <a href="{{ url('home/category') }}" class="item">分类</a>
                     <div class="divider"></div>
-                    <div class="item"><a href="{{ url('home/settings') }}">设置</a></div>
+                    <a href="{{ url('home/setting') }}" class="item">设置</a>
                     <div class="divider"></div>
-                    <div class="item"><a href="{{ url('auth/logout') }}">退出</a></div>
+                    <a href="{{ url('auth/logout') }}" class="item">退出</a>
                 </div>
             </div>
         @endif
