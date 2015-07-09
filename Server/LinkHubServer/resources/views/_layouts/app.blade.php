@@ -38,11 +38,7 @@
                 个人中心
                 <i class="dropdown icon"></i>
                 <div class="menu">
-                    <a href="{{ url('home/link') }}" class="item">链接</a>
-                    <a href="{{ url('home/group') }}" class="item">分组</a>
-                    <a href="{{ url('home/category') }}" class="item">分类</a>
-                    <div class="divider"></div>
-                    <a href="{{ url('home/setting') }}" class="item">设置</a>
+                    <a href="{{ url('home/link') }}" class="item">管理</a>
                     <div class="divider"></div>
                     <a href="{{ url('auth/logout') }}" class="item">退出</a>
                 </div>

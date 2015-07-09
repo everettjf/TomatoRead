@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\PrivateCategory;
+use Input,Redirect;
 
 class CategoryController extends Controller
 {
@@ -16,7 +18,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('user.category.index');
+        return view('user.category.index')->with('categories',PrivateCategory::all());
     }
 
     /**
@@ -32,11 +34,22 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
+     * @param Request $request
      * @return Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name'=>'required|max:20',
+        ]);
+
+        $cate = new PrivateCategory();
+        $cate->name = Input::get('name');
+
+        if(!$cate->save()){
+            return Redirect::back()->withInput()->withErrors('保存出错。');
+        }
+        return Redirect::back();
     }
 
     /**

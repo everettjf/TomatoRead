@@ -16,7 +16,7 @@ class CreatePrivateGroupsTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
-            $table->string('name');
+            $table->string('name')->unique();
             $table->integer('order')->default(0);
         });
     }

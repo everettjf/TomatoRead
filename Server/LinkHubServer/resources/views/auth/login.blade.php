@@ -56,7 +56,7 @@
             @endif
 
             <div class="ui message">
-                没有账号？ <a href="{{ url('home/register') }}">注册</a> &nbsp;&nbsp;
+                没有账号？ <a href="{{ url('auth/register') }}">注册</a> &nbsp;&nbsp;
                 <a class="btn btn-link" href="{{ url('/password/email') }}">忘记密码？</a>
             </div>
         </div>
