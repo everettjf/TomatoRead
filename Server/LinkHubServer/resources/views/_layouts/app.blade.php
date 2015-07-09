@@ -40,6 +40,7 @@
 
 </head>
 <body>
+
 <div class="ui top attached tabular menu">
     <div class="item">
         <img src="/static/img/favicon.ico">
@@ -51,6 +52,20 @@
     <div class="right menu">
         <a href="{{url('my/login')}}" class="item">登录 </a>
         <a href="{{url('my/register')}}" class="item">注册 </a>
+
+        <div class="ui right dropdown item">
+            个人中心
+            <i class="dropdown icon"></i>
+            <div class="menu">
+                <div class="item"><a href="{{ url('my/links') }}">链接</a></div>
+                <div class="item"><a href="{{ url('my/groups') }}">分组</a></div>
+                <div class="item"><a href="{{ url('my/categories') }}">分类</a></div>
+                <div class="divider"></div>
+                <div class="item"><a href="{{ url('my/settings') }}">设置</a></div>
+                <div class="divider"></div>
+                <div class="item"><a href="{{ url('my/logout') }}">退出</a></div>
+            </div>
+        </div>
     </div>
 </div>
 <div class="ui bottom attached segment">
