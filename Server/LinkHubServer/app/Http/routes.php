@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('','IndexController@index');
+Route::get('topic','TopicController@index');
+
+Route::group(['prefix'=>'my','namespace'=>'User'],function(){
+    Route::resource('','IndexController');
+    Route::get('login','IndexController@getLogin');
+    Route::get('register','IndexController@getRegister');
 });
