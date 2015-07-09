@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\PrivateGroup;
+use Input,DB,Redirect;
 
 class GroupController extends Controller
 {
@@ -16,7 +18,11 @@ class GroupController extends Controller
      */
     public function index()
     {
-        return view('user.group.index');
+        $groups = DB::table('private_groups')
+            ->orderBy('order','desc')
+            ->orderBy('created_at','desc')
+            ->get();
+        return view('user.group.index')->with('groups',$groups);
     }
 
     /**
@@ -34,10 +40,19 @@ class GroupController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        //
-    }
+        $this->validate($request,[
+            'name'=>'required|max:20',
+        ]);
+
+        $group = new PrivateGroup();
+        $group->name = Input::get('name');
+
+        if(!$group->save()){
+            return Redirect::back()->withInput()->withErrors('保存出错。');
+        }
+        return Redirect::back();    }
 
     /**
      * Display the specified resource.
@@ -67,9 +82,19 @@ class GroupController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update($id,Request $request)
     {
-        //
+        $this->validate($request,[
+            'name'=>'required|max:20'
+        ]);
+
+        $group = PrivateGroup::find($id);
+        $group->name = Input::get('name');
+        if(!$group->save()){
+            return Redirect::back()->withErrors('修改出错。');
+        }
+
+        return Redirect::back();
     }
 
     /**
@@ -80,6 +105,19 @@ class GroupController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $group = PrivateGroup::find($id);
+        $group->delete();
+        return Redirect::back();
+    }
+
+    public function orderInc($id)
+    {
+        DB::table('private_groups')->where('id',$id)->increment('order',1);
+        return Redirect::back();
+    }
+    public function orderDec($id)
+    {
+        DB::table('private_groups')->where('id',$id)->decrement('order',1);
+        return Redirect::back();
     }
 }
