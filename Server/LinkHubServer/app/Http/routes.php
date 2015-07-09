@@ -14,8 +14,11 @@
 Route::get('','IndexController@index');
 Route::get('topic','TopicController@index');
 
-Route::group(['prefix'=>'my','namespace'=>'User'],function(){
+Route::group(['prefix'=>'home','namespace'=>'User','middleware'=>'auth'],function(){
     Route::resource('','IndexController');
-    Route::get('login','IndexController@getLogin');
-    Route::get('register','IndexController@getRegister');
 });
+
+Route::controllers([
+    'auth'=>'Auth\AuthController',
+    'password'=>'Auth\PasswordController'
+]);

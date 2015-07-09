@@ -19,16 +19,6 @@ class IndexController extends Controller
         return view('user.index');
     }
 
-    public function getLogin()
-    {
-        return view('user.login');
-    }
-
-    public function getRegister()
-    {
-        return view('user.register');
-    }
-
     /**
      * Show the form for creating a new resource.
      *

@@ -1,4 +1,4 @@
-<?php
+ 么么么么<?php
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;

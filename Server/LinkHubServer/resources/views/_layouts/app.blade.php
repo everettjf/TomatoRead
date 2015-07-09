@@ -47,25 +47,28 @@
     </div>
     <a href="{{url('')}}" class="item active">首页 </a>
     <a href="{{url('topic')}}" class="item">话题 </a>
-    <a href="{{url('my')}}" class="item">我的链接 </a>
-
+    @if(!Auth::guest())
+    <a href="{{url('home')}}" class="item">我的链接 </a>
+    @endif
     <div class="right menu">
-        <a href="{{url('my/login')}}" class="item">登录 </a>
-        <a href="{{url('my/register')}}" class="item">注册 </a>
-
-        <div class="ui right dropdown item">
-            个人中心
-            <i class="dropdown icon"></i>
-            <div class="menu">
-                <div class="item"><a href="{{ url('my/links') }}">链接</a></div>
-                <div class="item"><a href="{{ url('my/groups') }}">分组</a></div>
-                <div class="item"><a href="{{ url('my/categories') }}">分类</a></div>
-                <div class="divider"></div>
-                <div class="item"><a href="{{ url('my/settings') }}">设置</a></div>
-                <div class="divider"></div>
-                <div class="item"><a href="{{ url('my/logout') }}">退出</a></div>
+        @if(Auth::guest())
+            <a href="{{url('auth/login')}}" class="item">登录 </a>
+            <a href="{{url('auth/register')}}" class="item">注册 </a>
+        @else
+            <div class="ui right dropdown item">
+                个人中心
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                    <div class="item"><a href="{{ url('home/links') }}">链接</a></div>
+                    <div class="item"><a href="{{ url('home/groups') }}">分组</a></div>
+                    <div class="item"><a href="{{ url('home/categories') }}">分类</a></div>
+                    <div class="divider"></div>
+                    <div class="item"><a href="{{ url('home/settings') }}">设置</a></div>
+                    <div class="divider"></div>
+                    <div class="item"><a href="{{ url('auth/logout') }}">退出</a></div>
+                </div>
             </div>
-        </div>
+        @endif
     </div>
 </div>
 <div class="ui bottom attached segment">
@@ -78,10 +81,6 @@
 <script src="/static/components/jquery/dist/jquery.min.js"></script>
 <script src="/static/components/semantic/dist/semantic.min.js"></script>
 <script src="/static/js/app.js"></script>
-
-
-<script src="/static/components/semantic/dist/components/form.js"></script>
-<script src="/static/components/semantic/dist/components/transition.js"></script>
 
 @yield('endofbody')
 
