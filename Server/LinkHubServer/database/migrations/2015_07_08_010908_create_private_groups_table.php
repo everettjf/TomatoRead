@@ -15,6 +15,7 @@ class CreatePrivateGroupsTable extends Migration
         Schema::create('private_groups', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            $table->integer('user_id');
 
             $table->string('name')->unique();
             $table->integer('order')->default(0);

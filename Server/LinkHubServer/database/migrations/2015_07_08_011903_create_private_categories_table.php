@@ -15,6 +15,7 @@ class CreatePrivateCategoriesTable extends Migration
         Schema::create('private_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            $table->integer('user_id');
 
             $table->string('name')->unique();
             $table->integer('order')->default(0);

@@ -7,8 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\PrivateCategory;
-use Input,Redirect;
-use DB;
+use Input,DB,Redirect,Auth;
 
 class CategoryController extends Controller
 {
@@ -50,6 +49,7 @@ class CategoryController extends Controller
 
         $cate = new PrivateCategory();
         $cate->name = Input::get('name');
+        $cate->user_id = Auth::user()->id;
 
         if(!$cate->save()){
             return Redirect::back()->withInput()->withErrors('保存出错。');
@@ -93,6 +93,7 @@ class CategoryController extends Controller
 
         $cate = PrivateCategory::find($id);
         $cate->name = Input::get('name');
+
         if(!$cate->save()){
             return Redirect::back()->withErrors('修改出错。');
         }

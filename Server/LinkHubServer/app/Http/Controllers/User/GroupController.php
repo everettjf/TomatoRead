@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\PrivateGroup;
-use Input,DB,Redirect;
+use Input,DB,Redirect,Auth;
 
 class GroupController extends Controller
 {
@@ -48,6 +48,7 @@ class GroupController extends Controller
 
         $group = new PrivateGroup();
         $group->name = Input::get('name');
+        $group->user_id = Auth::user()->id;
 
         if(!$group->save()){
             return Redirect::back()->withInput()->withErrors('保存出错。');
