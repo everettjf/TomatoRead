@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+
+  "name": "LinkHubChrome",
+  "description": "Build your internet links.",
+  "version": "0.2",
+
+  "browser_action": {
+    "default_icon": {
+    	"38":"image/icon.png"
+	},
+    "default_popup": "popup.html",
+    "default_title" : "Save or Share links"
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "bookmarks",
+    "http://127.0.0.1/",
+    "http://linkhub.pub/",
+    "http://lianjie.pub/",
+    "http://urls.pub/",
+    "http://127.0.0.1:8086/",
+    "http://linkhub.pub:8086/",
+    "http://lianjie.pub:8086/",
+    "http://urls.pub:8086/"
+  ]
+}
