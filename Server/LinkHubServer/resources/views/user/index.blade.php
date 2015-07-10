@@ -1,24 +1,61 @@
 @extends('_layouts.app')
 
 @section('content')
-    <div class="ui main container">
-        <div class="ui grid">
-            @foreach($groups as $group)
-            <div class="three wide column">
-                <table class="ui red table">
-                    <thead><th>{{$group->name}}</th></thead>
-                    <tbody>
-                    <tr><td>111111322322222222</td></tr>
-                    <tr><td>111111322322222222</td></tr>
-                    <tr><td>111111322322222222</td></tr>
-                    <tr><td>111111322322222222</td></tr>
-                    <tr><td>111111322322222222</td></tr>
-                    <tr><td>111111322322222222</td></tr>
-                    <tr><td>111111322322222222</td></tr>
-                    </tbody>
-                </table>
-            </div>
-                @endforeach
-        </div>
-    </div>
+    <table class="ui green table">
+        <thead>
+            <th width="150px">统计</th>
+            <th>链接</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>点击次数最多</td>
+                <td>
+                    @for($i = 0; $i < 20; $i++)
+                        <a href="#">链接项目</a>
+                    @endfor
+                </td>
+            </tr>
+
+            <tr>
+                <td>最近点击</td>
+                <td>
+                    @for($i = 0; $i < 20; $i++)
+                        <a href="#">链接项目</a>
+                    @endfor
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>最不经常点击</td>
+                <td>
+                    @for($i = 0; $i < 20; $i++)
+                        <a href="#">链接项目</a>
+                    @endfor
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="ui pink table">
+        <thead>
+            <th width="150px">分组</th>
+            <th>链接</th>
+        </thead>
+        <tbody>
+        @foreach($groups as $group)
+            <tr>
+                <td>
+                    <strong>{{$group->name}}</strong>
+                </td>
+                <td>
+                    @for($i = 0; $i < 20; $i++)
+                    <a href="#">链接项目</a>
+                    @endfor
+                </td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+
 @endsection
