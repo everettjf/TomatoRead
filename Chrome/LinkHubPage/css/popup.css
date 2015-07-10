@@ -1,0 +1,14 @@
+body {
+	font-size: 100%;
+	max-width: 800px;
+	min-width: 400px;
+}
+
+
+
+#title {
+	/* avoid an excessively wide status text */
+	white-space: pre;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
