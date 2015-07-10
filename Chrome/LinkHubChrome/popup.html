@@ -16,13 +16,59 @@
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/filters.js"></script>
+
+
+    <style type="text/css">
+        .column {
+            max-width: 350px;
+        }
+    </style>
 </head>
 <body ng-controller="LinkIndexCtrl">
-<div>
 
+<div class="ui middle aligned center aligned grid" ng-hide="hasSession">
+    <div class="column">
+        <form class="ui large form" >
+
+            <div class="ui stacked segment">
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input type="text" name="email" placeholder="Email地址" ng-model="email">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <input type="password" name="password" placeholder="密码" ng-model="password">
+                    </div>
+                </div>
+
+                <div class="field">
+
+                    <div class="ui slider checkbox">
+                        <input type="checkbox" name="remember" ng-model="remember">
+                        <label>记住我</label>
+                    </div>
+                </div>
+
+                <button type="button" class="ui fluid button green" ng-click="login()">登录</button>
+            </div>
+        </form>
+        <div class="ui error message" ng-show="errorMessage != '' ">
+            <ul class="list">
+                <li>{{errorMessage}}</li>
+            </ul>
+        </div>
+
+        <div class="ui message">
+            没有账号？ <a href="#">注册</a> &nbsp;&nbsp;
+            <a class="btn btn-link" href="#">忘记密码？</a>
+        </div>
+    </div>
 </div>
 
-<div>
+<div ng-show="hasSession">
 <div class="ui secondary pointing menu">
     <a class="item active">
         收藏当前页

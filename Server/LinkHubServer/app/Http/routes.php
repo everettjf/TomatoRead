@@ -34,3 +34,8 @@ Route::controllers([
     'auth'=>'Auth\AuthController',
     'password'=>'Auth\PasswordController'
 ]);
+
+Route::group(['prefix'=>'api','namespace'=>'Api'],function(){
+    Route::post("login","AuthController@login");
+
+});

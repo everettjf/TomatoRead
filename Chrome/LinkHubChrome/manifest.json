@@ -16,13 +16,7 @@
     "activeTab",
     "tabs",
     "bookmarks",
-    "http://127.0.0.1/",
     "http://linkhub.pub/",
-    "http://lianjie.pub/",
-    "http://urls.pub/",
-    "http://127.0.0.1:8086/",
-    "http://linkhub.pub:8086/",
-    "http://lianjie.pub:8086/",
-    "http://urls.pub:8086/"
+    "http://linkhub.app:8080/"
   ]
 }
