@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Input,DB,Redirect,Auth;
 
 class IndexController extends Controller
 {
@@ -16,7 +17,14 @@ class IndexController extends Controller
      */
     public function index()
     {
-        return view('user.index');
+        $groups = DB::table('private_groups')
+            ->orderBy('order','desc')
+            ->orderBy('created_at','desc')
+            ->get();
+
+        return view('user.index')
+            ->with('groups',$groups)
+            ;
     }
 
     /**

@@ -17,7 +17,7 @@ class CreatePrivateLinksTable extends Migration
             $table->timestamps();
             $table->integer('user_id');
 
-            $table->tinyInteger('type');                // 0链接，1公众号，2书籍，3生活
+            $table->tinyInteger('type');                // 0链接，1公众号，2书籍，3生活，4经验（坑）
             $table->string('name');                     // 标题
             $table->string('url');                      // 地址
             $table->string('mark')->nullable();         // 简介

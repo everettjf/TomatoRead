@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\PrivateLink;
+use DB,Input,Auth,Redirect;
 
 class LinkController extends Controller
 {
@@ -16,7 +18,12 @@ class LinkController extends Controller
      */
     public function index()
     {
-        return view('user.link.index');
+        $links = DB::table('private_links')
+            ->simplePaginate(100)
+            ;
+        return view('user.link.index')
+            ->with('links',$links)
+            ;
     }
 
     /**
