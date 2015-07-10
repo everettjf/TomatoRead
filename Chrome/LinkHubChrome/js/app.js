@@ -16,17 +16,13 @@ linkApp.config(['$routeProvider',
                 templateUrl: 'partials/single.html',
                 controller: 'LinkSingleCtrl'
             }).
-            when('/login', {
-                templateUrl: 'partials/login.html',
-                controller: 'LinkLoginCtrl'
-            }).
             when('/tab', {
                 templateUrl: 'partials/tab.html',
                 controller: 'LinkTabCtrl'
             }).
-            when('/import', {
-                templateUrl: 'partials/import.html',
-                controller: 'LinkImportCtrl'
+            when('/more', {
+                templateUrl: 'partials/more.html',
+                controller: 'LinkMoreCtrl'
             }).
             otherwise({
                 redirectTo: '/'

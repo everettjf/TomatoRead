@@ -5,16 +5,16 @@
 
 var linkControllers = angular.module('linkControllers',[]);
 
-
-linkControllers.controller('LinkSingleCtrl',['$scope','$http',function($scope,$http){
+linkControllers.controller('LinkIndexCtrl',['$scope','$http',function($scope,$http){
 
 }]);
-linkControllers.controller('LinkLoginCtrl',['$scope','$http',function($scope,$http){
+
+linkControllers.controller('LinkSingleCtrl',['$scope','$http',function($scope,$http){
 
 }]);
 linkControllers.controller('LinkTabCtrl',['$scope','$http',function($scope,$http){
 
 }]);
-linkControllers.controller('LinkImportCtrl',['$scope','$http',function($scope,$http){
+linkControllers.controller('LinkMoreCtrl',['$scope','$http',function($scope,$http){
 
 }]);

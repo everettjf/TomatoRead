@@ -17,9 +17,33 @@
     <script src="js/controllers.js"></script>
     <script src="js/filters.js"></script>
 </head>
-<body>
+<body ng-controller="LinkIndexCtrl">
+<div>
 
+</div>
+
+<div>
+<div class="ui secondary pointing menu">
+    <a class="item active">
+        收藏当前页
+    </a>
+    <a class="item">
+        收藏标签页
+    </a>
+    <a class="item">
+        更多功能
+    </a>
+    <div class="right menu">
+        <a class="ui item">
+            广场
+        </a>
+        <a class="ui item">
+            我的链接
+        </a>
+    </div>
+</div>
 <div ng-view></div>
+</div>
 
 </body>
 </html>
