@@ -26,7 +26,7 @@
 </head>
 <body ng-controller="LinkIndexCtrl">
 
-<div class="ui middle aligned center aligned grid" ng-hide="hasSession">
+<div id="helpForScopeGetter" class="ui middle aligned center aligned grid" ng-hide="hasSession">
     <div class="column">
         <form class="ui large form" >
 
@@ -69,26 +69,26 @@
 </div>
 
 <div ng-show="hasSession">
-<div class="ui secondary pointing menu">
-    <a class="item active">
-        收藏当前页
-    </a>
-    <a class="item">
-        收藏标签页
-    </a>
-    <a class="item">
-        更多功能
-    </a>
-    <div class="right menu">
-        <a class="ui item">
-            广场
+    <div class="ui secondary pointing menu">
+        <a class="item active" href="#/">
+            收藏当前页
         </a>
-        <a class="ui item">
-            我的链接
+        <a class="item" href="#/tab">
+            收藏标签页
         </a>
+        <a class="item" href="#/more">
+            更多功能
+        </a>
+        <div class="right menu">
+            <a class="ui item" href="http://linkhub.app:8080/">
+                LinkHub首页
+            </a>
+            <a class="ui item" href="http://linkhub.app:8080/home">
+                我的链接
+            </a>
+        </div>
     </div>
-</div>
-<div ng-view></div>
+    <div ng-view></div>
 </div>
 
 </body>

@@ -22,5 +22,25 @@ class AuthController extends Controller
         }
         return response()->json(['result'=>'ok']);
     }
+    public function logout()
+    {
+        Auth::logout();
+        return response()->json(['result'=>'ok']);
+    }
+
+    public function userInfo()
+    {
+        if(!Auth::check()){
+            return response()->json(['result'=>'error','msg'=>'未登录']);
+        }
+        $user = Auth::user();
+        if(! isset($user)){
+            return response()->json(['result'=>'error','msg'=>'没有登录']);
+        }
+        return response()->json([
+            'result'=>'ok',
+            'email'=>$user->email
+        ]);
+    }
 
 }

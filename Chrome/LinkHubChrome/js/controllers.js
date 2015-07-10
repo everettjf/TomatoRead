@@ -9,11 +9,29 @@ linkControllers.controller('LinkIndexCtrl',['$scope','$http',function($scope,$ht
     $scope.email = '';
     $scope.password = '';
     $scope.remember = true;
-    $scope.hasSession = false;
     $scope.errorMessage = '';
 
+    $scope.hasSession = false;
+    $scope.sessionEmail = '';
+
+    var changeToLogoutState = function () {
+        $scope.hasSession = false;
+        $scope.sessionEmail = '';
+    }
+    $scope.changeToLogout = function () {
+        changeToLogoutState();
+    };
+
     // check login
-    // todo
+    $http.post(serverURL('/api/userinfo'),{
+        reserved:0
+    }).success(function (data, status) {
+        if(data.result == 'ok'){
+            $scope.sessionEmail = data.email;
+            $scope.hasSession = true;
+        }
+    }).error(function(data,status){
+    });
 
     $scope.login = function () {
         if($scope.email == '' || $scope.password == ''){
@@ -29,7 +47,7 @@ linkControllers.controller('LinkIndexCtrl',['$scope','$http',function($scope,$ht
                 $scope.hasSession = true;
                 $scope.errorMessage = '';
             }else{
-                $scope.hasSession = false;
+                changeToLogoutState();
                 $scope.errorMessage = '登录出错：' + data.msg;
             }
         }).error(function(data,status){
@@ -46,10 +64,22 @@ linkControllers.controller('LinkTabCtrl',['$scope','$http',function($scope,$http
 
 }]);
 linkControllers.controller('LinkMoreCtrl',['$scope','$http',function($scope,$http){
-
+    $scope.logout = function () {
+        $http.post(serverURL('/api/logout'),{
+            reserved:0
+        }).success(function (data, status) {
+            if(data.result == 'ok'){
+                indexCtrlScope().changeToLogout();
+            }
+        }).error(function(data,status){
+        });
+    }
 }]);
 
 
+function indexCtrlScope(){
+    return angular.element(document.getElementById('helpForScopeGetter')).scope();
+}
 var logError = function(data,status){
     console.log('code' + status + ':' + data);
 };

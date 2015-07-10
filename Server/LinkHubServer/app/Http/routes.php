@@ -36,6 +36,7 @@ Route::controllers([
 ]);
 
 Route::group(['prefix'=>'api','namespace'=>'Api'],function(){
-    Route::post("login","AuthController@login");
-
+    Route::post('login','AuthController@login');
+    Route::post('logout','AuthController@logout');
+    Route::post('userinfo','AuthController@userInfo');
 });
