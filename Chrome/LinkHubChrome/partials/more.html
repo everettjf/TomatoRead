@@ -1,4 +1,35 @@
-import
+<table class="ui celled table">
+    <tbody>
+    <tr>
+        <td>导入浏览器收藏夹</td>
+    </tr>
+    <tr>
+        <td>
+            <div class="ui progress success" data-percent="{{importPercent}}">
+            <div class="bar" style="transition-duration: 300ms; -webkit-transition-duration: 300ms; width: {{importPercent}}%;">
+                <div class="progress">{{importPercent}}%</div>
+            </div>
+            <div class="label"> {{importMsg}}</div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button class="ui fluid blue button" type="button" ng-click="importLink()">导入</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<table class="ui celled table">
+    <tbody>
+    <tr>
+        <td>账号</td>
+    </tr>
+    <tr>
+        <td>
+            <button class="ui red button" ng-click="logout()">注销</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
 
-<div class="ui divider"></div>
-<button class="ui red button" ng-click="logout()">注销</button>

@@ -19,8 +19,8 @@ class CreatePrivateLinksTable extends Migration
 
             $table->tinyInteger('type');                // 0链接，1公众号，2书籍，3生活，4经验（坑）
             $table->string('name');                     // 标题
-            $table->string('url');                      // 地址
-            $table->string('mark')->nullable();         // 简介
+            $table->text('url');                      // 地址
+            $table->text('mark')->nullable();         // 简介
             $table->string('image')->nullable();        // 图标、二维码、书面、图片
             $table->string('tags')->nullable();         // 标签（逗号分隔）
 

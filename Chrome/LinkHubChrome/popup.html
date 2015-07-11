@@ -57,8 +57,8 @@
         </div>
 
         <div class="ui message">
-            没有账号？ <a href="#">注册</a> &nbsp;&nbsp;
-            <a class="btn btn-link" href="#">忘记密码？</a>
+            没有账号？ <a class="btn btn-link" ng-click="openTabSite('/auth/register')">注册</a> &nbsp;&nbsp;
+            <a class="btn btn-link" ng-click="openTabSite('/password/email')">忘记密码？</a>
         </div>
     </div>
 </div>
@@ -66,20 +66,20 @@
 <div ng-show="hasSession">
     <div class="ui secondary pointing menu">
         <a class="item active" href="#/">
-            收藏当前页
+            当前页
         </a>
         <a class="item" href="#/tab">
-            收藏标签页
+            标签页
         </a>
         <a class="item" href="#/more">
-            更多功能
+            更多
         </a>
         <div class="right menu">
-            <a class="ui item" href="http://linkhub.app:8080/">
-                LinkHub首页
+            <a class="ui item" ng-click="openTabSite('/')">
+                >首页
             </a>
-            <a class="ui item" href="http://linkhub.app:8080/home">
-                我的链接
+            <a class="ui item" ng-click="openTabSite('/home')">
+                >我的
             </a>
         </div>
     </div>

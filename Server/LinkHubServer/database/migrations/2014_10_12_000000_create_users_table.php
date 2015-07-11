@@ -21,17 +21,17 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
 
             $table->string('name')->unique()->nullable();       // 昵称
-            $table->tinyInteger('sex')->default(0); // 性别：0未设置，1男，2女
-            $table->string('mark')->nullable();     // 简介
-            $table->string('image')->nullable();    // 头像
+            $table->tinyInteger('sex')->default(0);             // 性别：0未设置，1男，2女
+            $table->text('mark')->nullable();                   // 简介
+            $table->string('image')->nullable();                // 头像
 
-            $table->integer('score')->default(0);   // 积分（分享得积分）
+            $table->integer('score')->default(0);               // 积分（分享得积分）
 
             $table->string('wechat_bind')->nullable();
             $table->string('weibo_bind')->nullable();
             $table->string('qq_bind')->nullable();
 
-            $table->tinyInteger('admin')->default(0); // 0普通用户，1管理员
+            $table->tinyInteger('admin')->default(0);           // 0普通用户，1管理员
         });
     }
 

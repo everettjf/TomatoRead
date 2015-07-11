@@ -21,7 +21,7 @@ class CreateLogsTable extends Migration
              * 1 用户登录日志
              */
             $table->tinyInteger('type');
-            $table->string('content');
+            $table->text('content');
             $table->integer('belong_id')->default(0);
         });
     }

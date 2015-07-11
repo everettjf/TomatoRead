@@ -3,6 +3,13 @@
  */
 'use strict';
 
+
+var serverURL = function(partialURL){
+    //var baseUrl = 'http://linkhub.pub';
+    var baseUrl = 'http://linkhub.app:8080';
+    return baseUrl + partialURL;
+}
+
 var linkControllers = angular.module('linkControllers',[]);
 
 linkControllers.controller('LinkIndexCtrl',['$scope','$http',function($scope,$http){
@@ -57,9 +64,9 @@ linkControllers.controller('LinkIndexCtrl',['$scope','$http',function($scope,$ht
         });
     };
 
-    $scope.openTab = function(fullURL) {
+    $scope.openTabSite = function(partialURL) {
         chrome.tabs.create({
-            url: fullURL
+            url: serverURL(partialURL)
         }, function (tab) {
         });
     }
@@ -138,8 +145,33 @@ linkControllers.controller('LinkTabCtrl',['$scope','$http',function($scope,$http
         });
     }
 }]);
+
+var linkMoreScope = null;
+var linkMoreHttp = null;
+var linkImportedBookmarksCount = 0;
 linkControllers.controller('LinkMoreCtrl',['$scope','$http',function($scope,$http){
     console.log('controller more');
+    linkMoreScope = $scope;
+    linkMoreHttp = $http;
+    linkImportedBookmarksCount = 0;
+
+    $scope.importPercent = 0;
+    $scope.importMsg = '点击导入按钮，将开始导入所有浏览器书签';
+    $scope.importLink = function () {
+        linkImportedBookmarksCount = 0;
+        $scope.importPercent = 1;
+        $scope.importMsg = '正在准备导入...';
+
+        chrome.bookmarks.getTree(function(treeNodeArray){
+            var $scope = linkMoreScope;
+
+            sendAllBookmarks($http,$scope,treeNodeArray);
+
+            $scope.importPercent = 100;
+            $scope.importMsg = '成功导入 ' + linkImportedBookmarksCount + ' 个书签';
+            $scope.$apply();
+        });
+    }
 
     $scope.logout = function () {
         $http.post(serverURL('/api/logout'),{
@@ -153,6 +185,34 @@ linkControllers.controller('LinkMoreCtrl',['$scope','$http',function($scope,$htt
     }
 }]);
 
+function sendAllBookmarks($http,$scope,treeNodeArray){
+    var nodeLinks = [];
+    for(var index in treeNodeArray){
+        var node = treeNodeArray[index];
+        if(node.children != undefined){
+            sendAllBookmarks($http,$scope,node.children);
+        }else{
+            var name = node.title;
+            var url = node.url;
+
+            nodeLinks.push({
+                name:name,
+                url:url,
+                tags:''
+            });
+        }
+    }
+    $http.post(serverURL('/api/savelinkbatch'),{
+        links:nodeLinks
+    }).success(function (data, status) {
+        linkImportedBookmarksCount += nodeLinks.length;
+        $scope.importMsg = '已导入 ' + linkImportedBookmarksCount + ' 个书签';
+        $scope.$apply();
+    }).error(function (data, status) {
+        $scope.importMsg = '导入出错：' + data;
+        $scope.$apply();
+    });
+}
 
 function indexCtrlScope(){
     return angular.element(document.getElementById('helpForScopeGetter')).scope();
@@ -161,10 +221,6 @@ var logError = function(data,status){
     console.log('code' + status + ':' + data);
 };
 
-var serverURL = function(partialURL){
-    // return 'http://linkhub.pub' + partialURL;
-    return 'http://linkhub.app:8080' + partialURL;
-}
 
 function getCurrentTabUrl(callback) {
     var queryInfo = {

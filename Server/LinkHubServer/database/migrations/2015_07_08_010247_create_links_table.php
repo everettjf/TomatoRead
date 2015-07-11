@@ -20,8 +20,8 @@ class CreateLinksTable extends Migration
             $table->integer('topic_id');                // 所属主题，一个链接有且只属于一个主题。
 
             $table->string('name');                     // 标题
-            $table->string('url');                      // 地址
-            $table->string('mark')->nullable();         // 简介
+            $table->text('url');                        // 地址
+            $table->text('mark')->nullable();           // 简介
             $table->string('image')->nullable();        // 图标、二维码、书面、图片
             $table->string('tags')->nullable();         // 标签（逗号分隔）
 
