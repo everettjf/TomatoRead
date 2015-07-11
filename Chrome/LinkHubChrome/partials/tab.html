@@ -1,1 +1,15 @@
-tab
+<div class="ui relaxed divided list">
+
+    <div class="item" ng-repeat="link in links">
+        <i class="large bookmark middle aligned icon"></i>
+        <div class="content">
+            <a class="header">{{link.name}}</a>
+            <div class="description">{{link.url}}</div>
+        </div>
+    </div>
+
+</div>
+
+<button class="ui fluid orange button" type="button" ng-click="saveTabLink()">收藏</button>
+<div class="ui error message" ng-show="errorMsg != '' ">{{errorMsg}}</div>
+<div class="ui info message" ng-show="okMsg != '' ">{{okMsg}}</div>

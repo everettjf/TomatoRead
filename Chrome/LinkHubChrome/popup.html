@@ -13,11 +13,6 @@
     <script src="components/angular-cookies/angular-cookies.min.js"></script>
     <script src="components/semantic/dist/semantic.min.js"></script>
 
-    <script src="js/app.js"></script>
-    <script src="js/controllers.js"></script>
-    <script src="js/filters.js"></script>
-
-
     <style type="text/css">
         .column {
             max-width: 350px;
@@ -88,8 +83,14 @@
             </a>
         </div>
     </div>
-    <div ng-view></div>
+    <div class="ui segment">
+        <div ng-view></div>
+    </div>
 </div>
+
+<script src="js/app.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/filters.js"></script>
 
 </body>
 </html>

@@ -1,1 +1,22 @@
-single
+<form class="ui form">
+    <div class="field">
+        <label>标题</label>
+        <input type="text" placeholder="标题" ng-model="name">
+    </div>
+    <div class="field">
+        <label>地址</label>
+        <input type="text" placeholder="地址" ng-model="url">
+    </div>
+    <div class="field">
+        <label>标签</label>
+        <input type="text" placeholder="标签（多个标签空格分隔）" ng-model="tags">
+    </div>
+    <button class="ui fluid green button" type="button" ng-click="saveLink()">收藏</button>
+</form>
+
+<div class="ui info message" ng-show="okMsg != '' ">
+    {{okMsg}}
+</div>
+<div class="ui error message" ng-show="errorMsg != '' ">
+    {{errorMsg}}
+</div>
