@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "af9683b2368a9f859d6bb868def05782",
+    "hash": "6fd08bf22301bda1af859684884898d8",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -3091,6 +3091,46 @@
             "time": "2015-06-21 13:59:46"
         },
         {
+            "name": "ssdb/phpssdb",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ssdb/phpssdb.git",
+                "reference": "de0ad9942a65f55a1bee82dbf6657ee5eacb55a0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ssdb/phpssdb/zipball/de0ad9942a65f55a1bee82dbf6657ee5eacb55a0",
+                "reference": "de0ad9942a65f55a1bee82dbf6657ee5eacb55a0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SSDB\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Shen Zhenyu",
+                    "email": "zhenyupku@gmail.com"
+                },
+                {
+                    "name": "ideawu",
+                    "email": "ideawu@163.com"
+                }
+            ],
+            "description": "SSDB PHP Client",
+            "time": "2015-03-24 10:43:19"
+        },
+        {
             "name": "symfony/yaml",
             "version": "v2.7.1",
             "source": {
@@ -3142,7 +3182,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "ssdb/phpssdb": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

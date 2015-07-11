@@ -41,3 +41,7 @@ Route::group(['prefix'=>'api','namespace'=>'Api'],function(){
     Route::post('savelink','LinkController@saveLink');
     Route::post('savelinkbatch','LinkController@saveLinkBatch');
 });
+
+Route::group(['prefix'=>'test'],function(){
+    Route::get('ssdb',"TestController@ssdb");
+});

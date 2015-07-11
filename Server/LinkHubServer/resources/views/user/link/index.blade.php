@@ -11,6 +11,11 @@
         </div>
     @endif
 
+    <div class="ui info message">
+        <p>
+            共计 {{$count}} 条链接
+        </p>
+    </div>
 
     <table class="ui pink table">
         <thead>
@@ -28,9 +33,21 @@
         <tr>
             <td>{{$link->id}}</td>
             <td>{{$link->type}}</td>
-            <td>{{$link->name}}</td>
-            <td><input type='text' value='{{$link->url}}'/></td>
-            <td>{{$link->tags}}</td>
+            <td>
+                <div class="ui input">
+                    <input type="text" readonly value="{{$link->name}}">
+                </div>
+            </td>
+            <td>
+                <div class="ui input">
+                    <input type='text' readonly value='{{$link->url}}'/>
+                </div>
+            </td>
+            <td>
+                <div class="ui input">
+                    <input type='text' readonly value='{{$link->tags}}'/>
+                </div>
+            </td>
             <td>{{$link->click_count}}</td>
             <td>{{$link->last_click_time}}</td>
             <td>

@@ -18,10 +18,12 @@ class LinkController extends Controller
      */
     public function index()
     {
+        $count = DB::table('private_links')->count();
         $links = DB::table('private_links')
-            ->simplePaginate(100)
+            ->simplePaginate(50)
             ;
         return view('user.link.index')
+            ->with('count',$count)
             ->with('links',$links)
             ;
     }

@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\PrivateGroup;
 use Input,DB,Redirect,Auth;
+use Mockery\CountValidator\Exception;
 
 class GroupController extends Controller
 {
@@ -46,11 +47,16 @@ class GroupController extends Controller
             'name'=>'required|max:20',
         ]);
 
-        $group = new PrivateGroup();
-        $group->name = Input::get('name');
-        $group->user_id = Auth::user()->id;
+        try{
+            $group = new PrivateGroup();
+            $group->name = Input::get('name');
+            $group->user_id = Auth::user()->id;
 
-        if(!$group->save()){
+            if(!$group->save()){
+                return Redirect::back()->withInput()->withErrors('保存出错。');
+            }
+        }catch(Exception $e){
+            Log::info($e->getMessage());
             return Redirect::back()->withInput()->withErrors('保存出错。');
         }
         return Redirect::back();    }

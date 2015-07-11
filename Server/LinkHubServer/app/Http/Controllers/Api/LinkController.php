@@ -11,9 +11,26 @@ use App\PrivateLink;
 
 class LinkController extends Controller
 {
+    private function ssdbConn()
+    {
+        $ssdb = new \SSDB\Client('127.0.0.1',8888);
+        return $ssdb;
+    }
+    private function linkSetName()
+    {
+        $setName = 'link.user:'.Auth::user()->id;
+        return $setName;
+    }
+
     public function saveLink()
     {
         $req = json_decode(Input::getContent());
+        $ssdb = $this->ssdbConn();
+        $setName = $this->linkSetName();
+        if($ssdb->hexists($setName,$req->url)->data){
+            Log::info('link existed:'.$req->url.' - '.$setName.' # ');
+            return response()->json(['result'=>'ok','msg'=>'已存在']);
+        }
 
         $link = new PrivateLink();
         $link->user_id = Auth::user()->id;
@@ -22,9 +39,12 @@ class LinkController extends Controller
         $link->url = $req->url;
         $link->tags = $req->tags;
 
+
         if(! $link->save()){
             return response()->json(['result'=>'error','msg'=>'保存出错']);
         }
+
+        $ssdb->hset($setName,$link->url,$link->id);
 
         return response()->json(['result'=>'ok']);
     }
@@ -34,9 +54,16 @@ class LinkController extends Controller
         $req = json_decode(Input::getContent());
         Log::info('save link batch='.Input::getContent());
 
+        $ssdb = $this->ssdbConn();
+        $setName = $this->linkSetName();
+
         $totalCount = count($req);
         $errorCount = 0;
         foreach($req->links as $item){
+            if($ssdb->hexists($setName,$item->url)){
+                continue;
+            }
+
             $link = new PrivateLink();
             $link->user_id = Auth::user()->id;
             $link->type = 0;
@@ -46,7 +73,10 @@ class LinkController extends Controller
 
             if(! $link->save()) {
                 ++$errorCount;
+                continue;
             }
+
+            $ssdb->hset($setName,$link->url,$link->id);
         }
         if($totalCount == $errorCount){
             return response()->json(['result'=>'error','msg'=>'所有项目保存出错']);
