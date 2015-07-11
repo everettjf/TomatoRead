@@ -6,6 +6,7 @@
 var linkControllers = angular.module('linkControllers',[]);
 
 linkControllers.controller('LinkIndexCtrl',['$scope','$http',function($scope,$http){
+    console.log('controller index');
     $scope.email = '';
     $scope.password = '';
     $scope.remember = true;
@@ -66,6 +67,7 @@ linkControllers.controller('LinkIndexCtrl',['$scope','$http',function($scope,$ht
 
 var linkSingleScope = null;
 linkControllers.controller('LinkSingleCtrl',['$scope','$http',function($scope,$http){
+    console.log('controller single');
     linkSingleScope = $scope;
     $scope.okMsg = '';
     $scope.errorMsg = '';
@@ -104,14 +106,18 @@ linkControllers.controller('LinkSingleCtrl',['$scope','$http',function($scope,$h
 
 var linkTabScope = null;
 linkControllers.controller('LinkTabCtrl',['$scope','$http',function($scope,$http){
+    console.log('controller tab');
     linkTabScope = $scope;
+
     $scope.links = [];
     $scope.okMsg = '';
     $scope.errorMsg = '';
 
+
     getAllTabUrl(function (links) {
-        $scope = linkTabScope;
+        var $scope = linkTabScope;
         $scope.links = links;
+        $scope.$apply();
     });
 
     $scope.saveTabLink = function () {
@@ -133,6 +139,8 @@ linkControllers.controller('LinkTabCtrl',['$scope','$http',function($scope,$http
     }
 }]);
 linkControllers.controller('LinkMoreCtrl',['$scope','$http',function($scope,$http){
+    console.log('controller more');
+
     $scope.logout = function () {
         $http.post(serverURL('/api/logout'),{
             reserved:0
