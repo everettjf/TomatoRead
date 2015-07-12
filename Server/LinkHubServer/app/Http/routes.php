@@ -16,12 +16,14 @@ Route::get('topic','TopicController@index');
 
 Route::group(['prefix'=>'home','namespace'=>'User','middleware'=>'auth'],function(){
     Route::get('','IndexController@index');
+    Route::get('dashboard','DashboardController@index');
 
     Route::resource('group','GroupController');
     Route::post('group/{id}/order/inc','GroupController@orderInc');
     Route::post('group/{id}/order/dec','GroupController@orderDec');
 
     Route::resource('link','LinkController');
+
 
     Route::get('setting','SettingController@index');
 });

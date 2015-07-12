@@ -27,7 +27,7 @@ class LinkController extends Controller
         $req = json_decode(Input::getContent());
         $ssdb = $this->ssdbConn();
         $setName = $this->linkSetName();
-        if($ssdb->hexists($setName,$req->url)->data){
+        if($ssdb->hexists($setName,md5($req->url))->data){
             Log::info('link existed:'.$req->url.' - '.$setName.' # ');
             return response()->json(['result'=>'ok','msg'=>'已存在']);
         }
@@ -44,7 +44,7 @@ class LinkController extends Controller
             return response()->json(['result'=>'error','msg'=>'保存出错']);
         }
 
-        $ssdb->hset($setName,$link->url,$link->id);
+        $ssdb->hset($setName,md5($link->url),$link->id);
 
         return response()->json(['result'=>'ok']);
     }
@@ -60,7 +60,7 @@ class LinkController extends Controller
         $totalCount = count($req);
         $errorCount = 0;
         foreach($req->links as $item){
-            if($ssdb->hexists($setName,$item->url)){
+            if($ssdb->hexists($setName,md5($item->url))->data) {
                 continue;
             }
 
@@ -76,7 +76,7 @@ class LinkController extends Controller
                 continue;
             }
 
-            $ssdb->hset($setName,$link->url,$link->id);
+            $ssdb->hset($setName,md5($link->url),$link->id);
         }
         if($totalCount == $errorCount){
             return response()->json(['result'=>'error','msg'=>'所有项目保存出错']);

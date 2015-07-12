@@ -34,12 +34,13 @@
             <a href="{{url('auth/login')}}" class="item">登录 </a>
             <a href="{{url('auth/register')}}" class="item">注册 </a>
         @else
+            <a href="{{url('home/dashboard')}}" class="item">个人中心 </a>
+
+
             <div class="ui dropdown item">
-                个人中心
+                更多
                 <i class="dropdown icon"></i>
                 <div class="menu">
-                    <a href="{{ url('home/link') }}" class="item">管理</a>
-                    <div class="divider"></div>
                     <a href="{{ url('auth/logout') }}" class="item">退出</a>
                 </div>
             </div>
