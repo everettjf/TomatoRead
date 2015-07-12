@@ -1,6 +1,19 @@
 @extends('_layouts.user')
 
 @section('subcontent')
+
+
+    <div class="ui info message">
+        <p>
+            共计 {{$count}} 条链接
+        </p>
+    </div>
+    <div class="ui fluid icon input">
+        <input type="text" placeholder="过滤">
+        <i class="circular search link icon"></i>
+    </div>
+
+
     @if(count($errors) > 0)
         <div class="ui error message">
             <ul class="list">
@@ -11,11 +24,6 @@
         </div>
     @endif
 
-    <div class="ui info message">
-        <p>
-            共计 {{$count}} 条链接
-        </p>
-    </div>
 
     <table class="ui pink table">
         <thead>

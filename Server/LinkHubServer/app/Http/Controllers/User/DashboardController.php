@@ -20,7 +20,7 @@ class DashboardController extends Controller
     {
         $count = DB::table('private_links')->count();
         $links = DB::table('private_links')
-            ->simplePaginate(50)
+            ->simplePaginate(10)
         ;
         return view('user.dashboard.index')
             ->with('count',$count)
