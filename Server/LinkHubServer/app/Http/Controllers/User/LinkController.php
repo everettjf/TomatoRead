@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\PrivateGroup;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -18,10 +19,24 @@ class LinkController extends Controller
      */
     public function index()
     {
-        $count = DB::table('private_links')->count();
-        $links = DB::table('private_links')
-            ->simplePaginate(50)
+        $keyword = Input::get('filterKeyword');
+
+        if(isset($keyword)){
+            $obj = DB::table('private_links')
+                ->where('name','like','%'.$keyword.'%')
+                ->orWhere('url','like','%'.$keyword.'%')
+                ->orWhere('tags','like','%'.$keyword.'%')
+                ;
+            $count = $obj->count();
+            $links = $obj->simplePaginate(50)
             ;
+
+        }else{
+            $count = DB::table('private_links')->count();
+            $links = DB::table('private_links')
+                ->simplePaginate(50)
+            ;
+        }
         return view('user.link.index')
             ->with('count',$count)
             ->with('links',$links)
@@ -76,9 +91,33 @@ class LinkController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update($id,Request $request)
     {
-        //
+        $this->validate($request,[
+                'name'=>'required',
+                'url'=>'required',
+                'tags'=>'required',
+                'type'=>'required',
+                'group'=>'required'
+            ]
+        );
+
+        $tagArray = array_unique(explode(' ',trim(Input::get('tags'))));
+
+        $link = PrivateLink::find($id);
+        $link->name = Input::get('name');
+        $link->url = Input::get('url');
+        $link->tags = implode(' ',$tagArray);
+        $link->type = Input::get('type');
+        $link->group_id = Input::get('group');
+
+        $link->confirmed = 1;
+
+        if(!$link->save()){
+            return Redirect::back()->withErrors('保存出错。');
+        }
+
+        return Redirect::back();
     }
 
     /**

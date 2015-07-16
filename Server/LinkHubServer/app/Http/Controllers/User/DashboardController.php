@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB,Input,Auth,Redirect;
+use App\PrivateGroup;
 
 
 class DashboardController extends Controller
@@ -18,13 +19,22 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $count = DB::table('private_links')->count();
-        $links = DB::table('private_links')
-            ->simplePaginate(10)
-        ;
+        $count_all = DB::table('private_links')->count();
+        $count_in_queue = DB::table('private_links')->where('confirmed',0)->count();
+        $links_in_queue = DB::table('private_links')->where('confirmed',0)->take(5)->orderBy('id','asc')->get();
+        $groups = PrivateGroup::all();
+
+        $link_first = null;
+        if($count_in_queue > 0){
+            $link_first = $links_in_queue[0];
+        }
+
         return view('user.dashboard.index')
-            ->with('count',$count)
-            ->with('links',$links)
+            ->with('count_all',$count_all)
+            ->with('count_in_queue',$count_in_queue)
+            ->with('links_in_queue',$links_in_queue)
+            ->with('groups',$groups)
+            ->with('link_first',$link_first)
             ;
     }
 

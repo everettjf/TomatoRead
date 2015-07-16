@@ -29,6 +29,7 @@ class CreatePrivateLinksTable extends Migration
 
             $table->integer('group_id')->default(0);
             $table->integer('category_id')->default(0);
+            $table->tinyInteger('confirmed')->default(0); // 已经确认（整理）
         });
     }
 

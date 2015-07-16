@@ -8,10 +8,13 @@
             共计 {{$count}} 条链接
         </p>
     </div>
-    <div class="ui fluid icon input">
-        <input type="text" placeholder="过滤">
-        <i class="circular search link icon"></i>
-    </div>
+
+    <form id="filterForm" method="get" action="{{url('home/link')}}">
+        <div class="ui fluid icon input">
+            <input type="text" placeholder="过滤" name="filterKeyword">
+            <i class="circular search link icon" id="filterLink"></i>
+        </div>
+    </form>
 
 
     @if(count($errors) > 0)
@@ -27,14 +30,11 @@
 
     <table class="ui pink table">
         <thead>
-        <tr><th>#</th>
-            <th>类型</th>
-            <th>标题</th>
-            <th>地址</th>
-            <th>标签</th>
-            <th>点击次数</th>
-            <th>最后点击时间</th>
-            <th>操作</th>
+        <tr><th width="20px">#</th>
+            <th width="60px">类型</th>
+            <th width="65%">标题/地址/标签</th>
+            <th>点击次数/最后点击时间</th>
+            <th>-</th>
         </tr></thead><tbody>
 
         @foreach($links as $link)
@@ -42,22 +42,19 @@
             <td>{{$link->id}}</td>
             <td>{{$link->type}}</td>
             <td>
-                <div class="ui input">
+                <div class="ui fluid transparent input">
                     <input type="text" readonly value="{{$link->name}}">
                 </div>
-            </td>
-            <td>
-                <div class="ui input">
-                    <input type='text' readonly value='{{$link->url}}'/>
+                <div class="ui fluid transparent input">
+                    <input type="text" readonly value="{{$link->url}}">
+                </div>
+                <div class="ui fluid transparent input">
+                    <input type="text" readonly value="{{$link->tags}}">
                 </div>
             </td>
-            <td>
-                <div class="ui input">
-                    <input type='text' readonly value='{{$link->tags}}'/>
-                </div>
+            <td>{{$link->click_count}}<br/>
+            {{$link->last_click_time}}
             </td>
-            <td>{{$link->click_count}}</td>
-            <td>{{$link->last_click_time}}</td>
             <td>
                 <button class="ui red button">删除</button>
             </td>
@@ -69,3 +66,12 @@
     {!! $links->render() !!}
 
 @endsection
+
+@section('endofbody')
+    <script>
+        $('#filterLink').click(function () {
+            $('#filterForm').submit();
+        });
+
+    </script>
+    @endsection
