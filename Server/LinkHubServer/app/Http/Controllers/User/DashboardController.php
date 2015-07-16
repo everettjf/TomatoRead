@@ -24,9 +24,9 @@ class DashboardController extends Controller
         $links_in_queue = DB::table('private_links')->where('confirmed',0)->take(5)->orderBy('id','asc')->get();
         $groups = PrivateGroup::all();
 
-        $link_first = null;
+        $link_item = null;
         if($count_in_queue > 0){
-            $link_first = $links_in_queue[0];
+            $link_item = $links_in_queue[0];
         }
 
         return view('user.dashboard.index')
@@ -34,7 +34,7 @@ class DashboardController extends Controller
             ->with('count_in_queue',$count_in_queue)
             ->with('links_in_queue',$links_in_queue)
             ->with('groups',$groups)
-            ->with('link_first',$link_first)
+            ->with('link_item',$link_item)
             ;
     }
 

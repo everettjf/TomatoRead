@@ -19,28 +19,7 @@ class LinkController extends Controller
      */
     public function index()
     {
-        $keyword = Input::get('filterKeyword');
 
-        if(isset($keyword)){
-            $obj = DB::table('private_links')
-                ->where('name','like','%'.$keyword.'%')
-                ->orWhere('url','like','%'.$keyword.'%')
-                ->orWhere('tags','like','%'.$keyword.'%')
-                ;
-            $count = $obj->count();
-            $links = $obj->simplePaginate(50)
-            ;
-
-        }else{
-            $count = DB::table('private_links')->count();
-            $links = DB::table('private_links')
-                ->simplePaginate(50)
-            ;
-        }
-        return view('user.link.index')
-            ->with('count',$count)
-            ->with('links',$links)
-            ;
     }
 
     /**
