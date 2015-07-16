@@ -86,7 +86,7 @@
                 <div class="inline fields">
                     <div class="field">
                         <div class="ui radio checkbox">
-                            <input type="radio" name="group" @if($link_item->group_id == 0)checked=""@endif tabindex="0" class="hidden" value="0">
+                            <input type="radio" name="group" @if($link_item->private_group_id == 0)checked=""@endif tabindex="0" class="hidden" value="0">
                             <label>无分组</label>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                     @foreach($groups as $group)
                     <div class="field">
                         <div class="ui radio checkbox">
-                            <input type="radio" name="group" @if($link_item->group_id == $group->id)checked=""@endif tabindex="0" class="hidden" value="{{$group->id}}">
+                            <input type="radio" name="group" @if($link_item->private_group_id == $group->id)checked=""@endif tabindex="0" class="hidden" value="{{$group->id}}">
                             <label>{{$group->name}}</label>
                         </div>
                     </div>

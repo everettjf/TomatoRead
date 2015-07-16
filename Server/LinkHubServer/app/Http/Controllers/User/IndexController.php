@@ -29,7 +29,6 @@ class IndexController extends Controller
                 ->orWhere('url','like','%'.$keyword.'%')
                 ->orWhere('tags','like','%'.$keyword.'%')
             ;
-            ;
         }else{
             $table_filter_links = $table_private_links;
         }
@@ -54,10 +53,7 @@ class IndexController extends Controller
             ->take(20)
             ->get();
 
-        $groups = DB::table('private_groups')
-            ->orderBy('order','desc')
-            ->orderBy('created_at','desc')
-            ->get();
+        $groups = PrivateGroup::all();
 
         return view('user.index')
             ->with('groups',$groups)

@@ -101,10 +101,12 @@
                     <td>
                         <h5 class="ui header">{{$group->name}}</h5>
                         <p>
-                            @for($i = 0; $i < 20; $i++)
-                                <i class="send outline icon"></i>
-                                <a href="#">链接项目</a>
-                            @endfor
+                            @foreach($group->links as $link)
+                            <i class="send outline icon"></i>
+                            <a class="userlink" link_id="{{$link->id}}" href="{{$link->url}}" target="_blank">
+                                {{$link->name}}
+                            </a>
+                            @endforeach
                         </p>
                     </td>
                 </tr>
@@ -135,6 +137,11 @@
     <script>
         $('#filterLink').click(function () {
             $('#filterForm').submit();
+        });
+
+        $('.userlink').click(function () {
+            var linkId = $(this).attr('link_id');
+
         });
 
     </script>

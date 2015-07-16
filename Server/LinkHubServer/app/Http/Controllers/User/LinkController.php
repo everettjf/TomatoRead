@@ -88,7 +88,7 @@ class LinkController extends Controller
         $link->url = Input::get('url');
         $link->tags = implode(' ',$tagArray);
         $link->type = Input::get('type');
-        $link->group_id = Input::get('group');
+        $link->private_group_id = Input::get('group');
 
         $link->confirmed = 1;
 
