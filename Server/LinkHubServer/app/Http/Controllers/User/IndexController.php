@@ -34,7 +34,7 @@ class IndexController extends Controller
         }
 
         $links_count = $table_filter_links->count();
-        $links = $table_filter_links->simplePaginate(20);
+        $links = $table_filter_links->simplePaginate(80);
 
         $links_by_click_count = $table_filter_links
             ->orderBy('click_count','desc')

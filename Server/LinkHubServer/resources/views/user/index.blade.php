@@ -22,10 +22,7 @@
                         <h5 class="ui header">点击次数最多</h5>
                         <p>
                             @foreach($links_by_click_count as $link)
-                                <i class="send outline icon"></i>
-                                <a class="userlink" link_id="{{$link->id}}" href="{{$link->url}}" target="_blank">
-                                {{$link->name}}
-                                </a>
+                                @include('_layouts.userlink')
                             @endforeach
                         </p>
                     </td>
@@ -41,10 +38,7 @@
                         <h5 class="ui header">最近点击</h5>
                         <p>
                             @foreach($links_by_last_click_time as $link)
-                                <i class="send outline icon"></i>
-                                <a class="userlink" link_id="{{$link->id}}" href="{{$link->url}}" target="_blank">
-                                    {{$link->name}}
-                                </a>
+                                @include('_layouts.userlink')
                             @endforeach
                         </p>
                     </td>
@@ -60,10 +54,7 @@
                         <h5 class="ui header">最近添加</h5>
                         <p>
                             @foreach($links_by_created_at as $link)
-                                <i class="send outline icon"></i>
-                                <a class="userlink" link_id="{{$link->id}}" href="{{$link->url}}" target="_blank">
-                                    {{$link->name}}
-                                </a>
+                                @include('_layouts.userlink')
                             @endforeach
                         </p>
                     </td>
@@ -79,10 +70,7 @@
                         <h5 class="ui header">最不经常点击</h5>
                         <p>
                             @foreach($links_not_offen_click as $link)
-                                <i class="send outline icon"></i>
-                                <a class="userlink" link_id="{{$link->id}}" href="{{$link->url}}" target="_blank">
-                                    {{$link->name}}
-                                </a>
+                                @include('_layouts.userlink')
                             @endforeach
                         </p>
                     </td>
@@ -102,10 +90,7 @@
                         <h5 class="ui header">{{$group->name}}</h5>
                         <p>
                             @foreach($group->links as $link)
-                            <i class="send outline icon"></i>
-                            <a class="userlink" link_id="{{$link->id}}" href="{{$link->url}}" target="_blank">
-                                {{$link->name}}
-                            </a>
+                                @include('_layouts.userlink')
                             @endforeach
                         </p>
                     </td>
@@ -121,10 +106,7 @@
         <h5 class="ui header">共计 {{$links_count}} 条链接</h5>
         <p>
             @foreach($links as $link)
-            <i class="send outline icon"></i>
-            <a class="userlink" link_id="{{$link->id}}" href="{{$link->url}}" target="_blank">
-                {{$link->name}}
-            </a>
+                @include('_layouts.userlink')
             @endforeach
         </p>
     </div>
@@ -137,7 +119,7 @@
     <script>
         $('#filterLink').click(function () {
             $('#filterForm').submit();
-        });
+        })
 
         $('.userlink').click(function () {
             var linkId = $(this).attr('link_id');
@@ -147,7 +129,17 @@
                     function(data,status){
                 console.log(data);
             });
-        });
+        })
+
+        $('.userlink').mouseenter(function(){
+            $(this).find('.linkmore').show();
+
+        })
+        $('.userlink').mouseleave(function(){
+            $(this).find('.linkmore').hide();
+
+        })
+
 
     </script>
 @endsection
