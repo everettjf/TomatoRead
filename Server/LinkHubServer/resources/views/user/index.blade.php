@@ -152,6 +152,44 @@
         </tr></tfoot>
     </table>
 
+    <div class="linkeditmodal ui modal">
+        <i class="close icon"></i>
+        <div class="header">
+            编辑链接
+        </div>
+        <div class="content">
+            edit
+        </div>
+        <div class="actions">
+            <div class="ui black deny button">
+                取消
+            </div>
+            <div class="ui positive right labeled icon button">
+                确定
+                <i class="checkmark icon"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="linksharemodal ui modal">
+        <i class="close icon"></i>
+        <div class="header">
+            分享
+        </div>
+        <div class="content">
+            share
+        </div>
+        <div class="actions">
+            <div class="ui black deny button">
+                取消
+            </div>
+            <div class="ui positive right labeled icon button">
+                分享
+                <i class="checkmark icon"></i>
+            </div>
+        </div>
+    </div>
+
 @endsection
 
 
@@ -178,6 +216,16 @@
         $('.linkpoint').mouseleave(function(){
             $(this).find('.linkmore').hide();
 
+        })
+        $('.linkedit').click(function(){
+            $('.linkeditmodal.ui.modal')
+                    .modal('show')
+            ;
+        })
+        $('.linkshare').click(function(){
+            $('.linksharemodal.ui.modal')
+                    .modal('show')
+            ;
         })
 
 
