@@ -172,7 +172,7 @@
                 </div>
                 <div class="field">
                     <label>标签（空格分隔）</label>
-                    <input id="linktags" type="text" name="tags">
+                    <input type="text" name="tags" id="linktags">
                     <div class="ui segment">
                         <p id='commonTags'>
                             常用标签：<a>编程</a> <a>C++</a> <a>PHP</a> <a>微信开发</a> <a>Chrome</a><br/>
@@ -293,14 +293,20 @@
             var linkId = $(this).attr('link_id');
             $('#linkeditform').attr('action','{{url('home/link')}}' + '/' + linkId);
 
-            $.get('/api/private/linkinfo/' + linkId,function(){
-                
+            $.get('/api/private/linkinfo/' + linkId,function(data,status){
+                if(data.result == 'ok'){
+                    var l = data.data;
+                    $('#linkname').val(l.name);
+                    $('#linkurl').val(l.url);
+                    $('#linktags').val(l.tags);
+
+                    $('.linkeditmodal.ui.modal')
+                            .modal('show')
+                    ;
+                }else{
+                    alert('获取链接信息出错了。');
+                }
             })
-
-
-            $('.linkeditmodal.ui.modal')
-                    .modal('show')
-            ;
         })
         $('.linkshare').click(function(){
             $('.linksharemodal.ui.modal')
@@ -318,5 +324,10 @@
                 $('#linktags').val( $('#linktags').val()+ ' ' + $(this).text());
             });
         });
+
+
+        $('.ui.radio.checkbox')
+                .checkbox()
+        ;
     </script>
 @endsection
