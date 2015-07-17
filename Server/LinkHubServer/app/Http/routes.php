@@ -40,9 +40,16 @@ Route::group(['prefix'=>'api','namespace'=>'Api'],function(){
     Route::post('userinfo','AuthController@userInfo');
 
     // link
-    Route::post('savelink','LinkController@saveLink');
-    Route::post('savelinkbatch','LinkController@saveLinkBatch');
-    Route::post('click/{id}','LinkController@clickLink');
+    Route::group(['prefix'=>'private'],function(){
+        Route::post('savelink','LinkController@saveLink');
+        Route::post('savelinkbatch','LinkController@saveLinkBatch');
+        Route::post('click/{id}','LinkController@clickLink');
+        Route::get('linkinfo/{id}','LinkController@linkInfo');
+    });
+
+    Route::group(['prefix'=>'public'],function(){
+
+    });
 });
 
 Route::group(['prefix'=>'test'],function(){

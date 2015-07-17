@@ -158,7 +158,79 @@
             编辑链接
         </div>
         <div class="content">
-            edit
+            <form id="linkeditform" class="ui form" method="post">
+                {!! csrf_field() !!}
+                <input type="hidden" name="_method" value="PUT">
+
+                <div class="field">
+                    <label>标题</label>
+                    <input type="text" name="name" id="linkname">
+                </div>
+                <div class="field">
+                    <label>地址（建议不修改）</label>
+                    <input type="text" name="url" id="linkurl">
+                </div>
+                <div class="field">
+                    <label>标签（空格分隔）</label>
+                    <input id="linktags" type="text" name="tags">
+                    <div class="ui segment">
+                        <p id='commonTags'>
+                            常用标签：<a>编程</a> <a>C++</a> <a>PHP</a> <a>微信开发</a> <a>Chrome</a><br/>
+                            自动提取：<a>编程</a> <a>C++</a> <a>PHP</a> <a>微信开发</a> <a>Chrome</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>类型</label>
+                    <div class="inline fields">
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="type" checked="" tabindex="0" class="hidden" value="0">
+                                <label>链接</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="type" tabindex="0" class="hidden" value="1">
+                                <label>公众号</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="type" tabindex="0" class="hidden" value="2">
+                                <label>书籍</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="type" tabindex="0" class="hidden" value="3">
+                                <label>生活</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>分组</label>
+                    <div class="inline fields">
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="group" checked="" tabindex="0" class="hidden" value="0">
+                                <label>无分组</label>
+                            </div>
+                        </div>
+
+                        @foreach($groups as $group)
+                            <div class="field">
+                                <div class="ui radio checkbox">
+                                    <input type="radio" name="group" tabindex="0" class="hidden" value="{{$group->id}}">
+                                    <label>{{$group->name}}</label>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </form>
         </div>
         <div class="actions">
             <div class="ui black deny button">
@@ -166,7 +238,7 @@
             </div>
             <div class="ui positive right labeled icon button">
                 确定
-                <i class="checkmark icon"></i>
+                <i class="checkmark icon" id="confirmLinkEdit"></i>
             </div>
         </div>
     </div>
@@ -203,7 +275,7 @@
             var linkId = $(this).attr('link_id');
             console.log('click:'+ linkId);
 
-            $.post('{{url('api/click')}}' + '/' + linkId,
+            $.post('{{url('api/private/click')}}' + '/' + linkId,
                     function(data,status){
                 console.log(data);
             });
@@ -218,6 +290,14 @@
 
         })
         $('.linkedit').click(function(){
+            var linkId = $(this).attr('link_id');
+            $('#linkeditform').attr('action','{{url('home/link')}}' + '/' + linkId);
+
+            $.get('/api/private/linkinfo/' + linkId,function(){
+                
+            })
+
+
             $('.linkeditmodal.ui.modal')
                     .modal('show')
             ;
@@ -228,6 +308,15 @@
             ;
         })
 
+        $('#confirmLinkEdit').click(function () {
+            $('#linkeditform').submit();
+        })
 
+
+        $(function(){
+            $('p#commonTags a').click(function () {
+                $('#linktags').val( $('#linktags').val()+ ' ' + $(this).text());
+            });
+        });
     </script>
 @endsection

@@ -5,8 +5,8 @@
             {{$link->name}}
         </a>
         <span class="linkmore" style="display:none">
-            <i class="edit icon linkedit"></i>
-            <i class="share alternate icon linkshare"></i>
+            <i class="edit icon linkedit" link_id="{{$link->id}}" ></i>
+            <i class="share alternate icon linkshare" link_id="{{$link->id}}" ></i>
         </span>
     </div>
 </div>

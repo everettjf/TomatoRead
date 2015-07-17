@@ -93,7 +93,7 @@ linkControllers.controller('LinkSingleCtrl',['$scope','$http',function($scope,$h
             return;
         }
 
-        $http.post(serverURL('/api/savelink'),{
+        $http.post(serverURL('/api/private/savelink'),{
             name:$scope.name,
             url:$scope.url,
             tags:$scope.tags
@@ -132,7 +132,7 @@ linkControllers.controller('LinkTabCtrl',['$scope','$http',function($scope,$http
             return;
         }
 
-        $http.post(serverURL('/api/savelinkbatch'),{
+        $http.post(serverURL('/api/private/savelinkbatch'),{
             links:$scope.links
         }).success(function (data, status) {
             if(data.result == 'ok'){
@@ -202,7 +202,7 @@ function sendAllBookmarks($http,$scope,treeNodeArray){
             });
         }
     }
-    $http.post(serverURL('/api/savelinkbatch'),{
+    $http.post(serverURL('/api/private/savelinkbatch'),{
         links:nodeLinks
     }).success(function (data, status) {
         linkImportedBookmarksCount += nodeLinks.length;

@@ -119,4 +119,13 @@ class LinkController extends Controller
 
         return response()->json(['result'=>'ok']);
     }
+
+    public function linkInfo($id)
+    {
+        $link = PrivateLink::find($id);
+        if(!isset($link)){
+            return response()->json(['result'=>'error','msg'=>'没有找到此链接']);
+        }
+        return response()->json(['result'=>'ok','data'=>$link]);
+    }
 }

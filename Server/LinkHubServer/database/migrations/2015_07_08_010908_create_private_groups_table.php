@@ -19,6 +19,7 @@ class CreatePrivateGroupsTable extends Migration
 
             $table->string('name')->unique();
             $table->integer('order')->default(0);
+            $table->tinyInteger('show_index')->default(0); // 0首页显示，1首页不显示
         });
     }
 
