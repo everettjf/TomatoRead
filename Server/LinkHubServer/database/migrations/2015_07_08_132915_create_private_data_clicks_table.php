@@ -16,8 +16,8 @@ class CreatePrivateDataClicksTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
+            $table->integer('user_id');
             $table->integer('link_id');
-            $table->timestamp('event_time');
         });
     }
 

@@ -122,7 +122,7 @@
         <p>
             @foreach($links as $link)
             <i class="send outline icon"></i>
-            <a class="userlink" href="{{$link->url}}" target="_blank">
+            <a class="userlink" link_id="{{$link->id}}" href="{{$link->url}}" target="_blank">
                 {{$link->name}}
             </a>
             @endforeach
@@ -141,7 +141,12 @@
 
         $('.userlink').click(function () {
             var linkId = $(this).attr('link_id');
+            console.log('click:'+ linkId);
 
+            $.post('{{url('api/click')}}' + '/' + linkId,
+                    function(data,status){
+                console.log(data);
+            });
         });
 
     </script>

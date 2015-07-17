@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Api;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth,DB,Input,Redirect,Log;
 use App\PrivateLink;
+use App\PrivateDataClick;
 
 class LinkController extends Controller
 {
@@ -19,6 +21,11 @@ class LinkController extends Controller
     private function linkSetName()
     {
         $setName = 'link.user:'.Auth::user()->id;
+        return $setName;
+    }
+    private function linkClickSetName($linkid)
+    {
+        $setName = 'link.user:'.Auth::user()->id.':click:'.$linkid;
         return $setName;
     }
 
@@ -81,6 +88,33 @@ class LinkController extends Controller
         if($totalCount == $errorCount){
             return response()->json(['result'=>'error','msg'=>'所有项目保存出错']);
         }
+
+        return response()->json(['result'=>'ok']);
+    }
+
+    public function clickLink($id)
+    {
+        $ssdb = $this->ssdbConn();
+        $setName = $this->linkClickSetName($id);
+
+        if($ssdb->exists($setName)->data){
+            return;
+        }
+
+        $link = PrivateLink::find($id);
+        $link->click_count = $link->click_count + 1;
+        $link->last_click_time = Carbon::now();
+        if(!$link->save()){
+            return response()->json(['result'=>'error','msg'=>'保存出错']);
+        }
+
+        // 60s内重复点击不计数
+        $ssdb->setx($setName,60);
+
+        $dataClick = new PrivateDataClick();
+        $dataClick->user_id = Auth::user()->id;
+        $dataClick->link_id = $id;
+        $dataClick->save();
 
         return response()->json(['result'=>'ok']);
     }

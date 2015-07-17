@@ -53,7 +53,7 @@ class IndexController extends Controller
             ->take(20)
             ->get();
 
-        $groups = PrivateGroup::all();
+        $groups = PrivateGroup::orderBy('order','desc')->get();
 
         return view('user.index')
             ->with('groups',$groups)

@@ -42,6 +42,7 @@ Route::group(['prefix'=>'api','namespace'=>'Api'],function(){
     // link
     Route::post('savelink','LinkController@saveLink');
     Route::post('savelinkbatch','LinkController@saveLinkBatch');
+    Route::post('click/{id}','LinkController@clickLink');
 });
 
 Route::group(['prefix'=>'test'],function(){
