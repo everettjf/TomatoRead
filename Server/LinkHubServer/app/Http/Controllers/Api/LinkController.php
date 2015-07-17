@@ -77,6 +77,7 @@ class LinkController extends Controller
             $link->name = $item->name;
             $link->url = $item->url;
             $link->tags = $item->tags;
+            $link->last_click_time = Carbon::now(); // 添加时，也作为一次点击
 
             if(! $link->save()) {
                 ++$errorCount;

@@ -141,16 +141,10 @@
                 <div class="ui right floated pagination menu">
                     <a class="item">共计 {{$links_count}} 条链接</a>
                     <a class="item">第 {{$page}} 页</a>
-                    <a class="icon item"
-                       @if($page > 1)
-                       href="{{url('home').'/?page='.($page - 1)}}"
-                       @else
-                       href="{{url('home')}}"
-                       @endif
-                            >
+                    <a class="icon item" href="{{url('home').'/?page='.($page - 1 < 1 ? 1 : ($page - 1)).($keyword == '' ? '' : ('&keyword='.$keyword)) }}">
                         <i class="left chevron icon"></i>
                     </a>
-                    <a class="icon item" href="{{url('home').'/?page='.($page + 1)}}">
+                    <a class="icon item" href="{{url('home').'/?page='.($page + 1).($keyword == '' ? '' : ('&keyword='.$keyword))}}">
                         <i class="right chevron icon"></i>
                     </a>
                 </div>
