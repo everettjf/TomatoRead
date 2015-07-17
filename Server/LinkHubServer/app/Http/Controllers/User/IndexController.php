@@ -34,23 +34,25 @@ class IndexController extends Controller
         }
 
         $links_count = $table_filter_links->count();
-        $links = $table_filter_links->simplePaginate(80);
+        $links = $table_filter_links->simplePaginate(40);
+
+        $take_count = 10;
 
         $links_by_click_count = $table_filter_links
             ->orderBy('click_count','desc')
-            ->take(20)
+            ->take($take_count)
             ->get();
         $links_by_last_click_time = $table_filter_links
             ->orderBy('last_click_time','desc')
-            ->take(20)
+            ->take($take_count)
             ->get();
         $links_by_created_at = $table_filter_links
             ->orderBy('created_at','desc')
-            ->take(20)
+            ->take($take_count)
             ->get();
         $links_not_offen_click = $table_filter_links
             ->orderBy('last_click_time','asc')
-            ->take(20)
+            ->take($take_count)
             ->get();
 
         $groups = PrivateGroup::orderBy('order','desc')->get();

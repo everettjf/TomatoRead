@@ -21,9 +21,11 @@
                     <td>
                         <h5 class="ui header">点击次数最多</h5>
                         <p>
+                            <div class="ui list">
                             @foreach($links_by_click_count as $link)
                                 @include('_layouts.userlink')
                             @endforeach
+                            </div>
                         </p>
                     </td>
                 </tr>
@@ -37,9 +39,11 @@
                     <td>
                         <h5 class="ui header">最近点击</h5>
                         <p>
+                            <div class="ui list">
                             @foreach($links_by_last_click_time as $link)
                                 @include('_layouts.userlink')
                             @endforeach
+                            </div>
                         </p>
                     </td>
                 </tr>
@@ -53,9 +57,11 @@
                     <td>
                         <h5 class="ui header">最近添加</h5>
                         <p>
+                            <div class="ui list">
                             @foreach($links_by_created_at as $link)
                                 @include('_layouts.userlink')
                             @endforeach
+                            </div>
                         </p>
                     </td>
                 </tr>
@@ -69,9 +75,11 @@
                     <td>
                         <h5 class="ui header">最不经常点击</h5>
                         <p>
+                            <div class="ui list">
                             @foreach($links_not_offen_click as $link)
                                 @include('_layouts.userlink')
                             @endforeach
+                            </div>
                         </p>
                     </td>
                 </tr>
@@ -89,9 +97,11 @@
                     <td>
                         <h5 class="ui header">{{$group->name}}</h5>
                         <p>
+                            <div class="ui list">
                             @foreach($group->links as $link)
                                 @include('_layouts.userlink')
                             @endforeach
+                            </div>
                         </p>
                     </td>
                 </tr>
@@ -131,11 +141,11 @@
             });
         })
 
-        $('.userlink').mouseenter(function(){
+        $('.linkpoint').mouseenter(function(){
             $(this).find('.linkmore').show();
 
         })
-        $('.userlink').mouseleave(function(){
+        $('.linkpoint').mouseleave(function(){
             $(this).find('.linkmore').hide();
 
         })
