@@ -57,16 +57,24 @@ class IndexController extends Controller
 
         $groups = PrivateGroup::orderBy('order','desc')->get();
 
+        $page = Input::get('page');
+        if(!isset($page)) $page = 1;
+
         return view('user.index')
             ->with('groups',$groups)
             ->with('links_count',$links_count)
-            ->with('links',$links)
             ->with('keyword',$keyword)
             ->with('links_by_click_count',$links_by_click_count)
             ->with('links_by_last_click_time',$links_by_last_click_time)
             ->with('links_by_created_at',$links_by_created_at)
             ->with('links_not_offen_click',$links_not_offen_click)
             ->with('keyword',$keyword)
+            ->with('links',$links)
+            ->with('links_column1',$links->slice(0,10))
+            ->with('links_column2',$links->slice(10,10))
+            ->with('links_column3',$links->slice(20,10))
+            ->with('links_column4',$links->slice(30,10))
+            ->with('page',$page)
             ;
     }
 

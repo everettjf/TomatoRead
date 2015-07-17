@@ -111,16 +111,52 @@
         @endforeach
     </div>
 
-
-    <div class="ui yellow segment">
-        <h5 class="ui header">共计 {{$links_count}} 条链接</h5>
-        <p>
-            @foreach($links as $link)
-                @include('_layouts.userlink')
-            @endforeach
-        </p>
-    </div>
-    {!! $links->render() !!}
+    <table class="ui yellow table">
+        <tbody>
+        <tr>
+            <td width="25%">
+                @foreach($links_column1 as $link)
+                    @include('_layouts.userlink')
+                @endforeach
+            </td>
+            <td width="25%">
+                @foreach($links_column2 as $link)
+                    @include('_layouts.userlink')
+                @endforeach
+            </td>
+            <td width="25%">
+                @foreach($links_column3 as $link)
+                    @include('_layouts.userlink')
+                @endforeach
+            </td>
+            <td width="25%">
+                @foreach($links_column4 as $link)
+                    @include('_layouts.userlink')
+                @endforeach
+            </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr><th colspan="4">
+                <div class="ui right floated pagination menu">
+                    <a class="item">共计 {{$links_count}} 条链接</a>
+                    <a class="item">第 {{$page}} 页</a>
+                    <a class="icon item"
+                       @if($page > 1)
+                       href="{{url('home').'/?page='.($page - 1)}}"
+                       @else
+                       href="{{url('home')}}"
+                       @endif
+                            >
+                        <i class="left chevron icon"></i>
+                    </a>
+                    <a class="icon item" href="{{url('home').'/?page='.($page + 1)}}">
+                        <i class="right chevron icon"></i>
+                    </a>
+                </div>
+            </th>
+        </tr></tfoot>
+    </table>
 
 @endsection
 
