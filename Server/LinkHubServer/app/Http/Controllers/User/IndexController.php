@@ -53,7 +53,9 @@ class IndexController extends Controller
             ->take($take_count)
             ->get();
 
-        $groups = PrivateGroup::orderBy('order','desc')->get();
+        $groups = PrivateGroup::where('hide',0)
+            ->orderBy('order','desc')
+            ->get();
 
         $page = Input::get('page');
         if(!isset($page)) $page = 1;

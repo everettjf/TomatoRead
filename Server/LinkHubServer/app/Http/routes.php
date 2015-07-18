@@ -21,6 +21,7 @@ Route::group(['prefix'=>'home','namespace'=>'User','middleware'=>'auth'],functio
     Route::resource('group','GroupController');
     Route::post('group/{id}/order/inc','GroupController@orderInc');
     Route::post('group/{id}/order/dec','GroupController@orderDec');
+    Route::post('group/{id}/hide','GroupController@hideToggle');
 
     Route::resource('link','LinkController');
 

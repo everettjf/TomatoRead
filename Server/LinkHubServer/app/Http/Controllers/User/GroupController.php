@@ -127,4 +127,13 @@ class GroupController extends Controller
         DB::table('private_groups')->where('id',$id)->decrement('order',1);
         return Redirect::back();
     }
+    public function hideToggle($id)
+    {
+        $group = PrivateGroup::find($id);
+        if($group->hide == 0) $group->hide = 1;
+        else $group->hide = 0;
+
+        $group->save();
+        return Redirect::back();
+    }
 }

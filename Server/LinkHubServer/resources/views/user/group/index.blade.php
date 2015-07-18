@@ -39,6 +39,7 @@
         <thead>
         <tr><th>名称</th>
             <th>排序</th>
+            <th>首页显示</th>
             <th>操作</th>
         </tr>
         </thead>
@@ -61,6 +62,12 @@
                             </button>
                         </form>
                     @endif
+                </td>
+                <td>
+                    <form method="post" action="{{ url('home/group/'.$group->id.'/hide') }}" style="display: inline;">
+                        {!! csrf_field() !!}
+                        <button type="submit" class="mini ui blue button">{{$group->hide ? '不显示在首页' : '显示在首页'}}</button>
+                    </form>
                 </td>
                 <td>
                     <button class="mini ui orange button" onclick="showModify({{$group->id}},'{{$group->name}}');">修改</button>
