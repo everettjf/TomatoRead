@@ -98,7 +98,7 @@
                         <h5 class="ui header">{{$group->name}}</h5>
                         <p>
                             <div class="ui list">
-                            @foreach($group->links as $link)
+                            @foreach($group->linksKeyword($keyword) as $link)
                                 @include('_layouts.userlink')
                             @endforeach
                             </div>
@@ -262,6 +262,10 @@
         </div>
     </div>
 
+    <div class="linkinfopopup ui popup">
+        Hello
+    </div>
+
 @endsection
 
 
@@ -344,6 +348,12 @@
 
         $('.ui.radio.checkbox')
                 .checkbox()
+        ;
+
+        $('.linkinfo')
+                .popup({
+                    setFluidWidth:true
+                })
         ;
     </script>
 @endsection

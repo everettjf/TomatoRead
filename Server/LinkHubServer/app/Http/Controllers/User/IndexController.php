@@ -19,7 +19,7 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $table_private_links = DB::table('private_links');
+        $table_private_links = PrivateLink::whereRaw('1=1');
 
         $table_filter_links = null;
         $keyword = Input::get('keyword');
