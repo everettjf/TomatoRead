@@ -12,12 +12,12 @@
     <h4 class="ui header">链接信息</h4>
     <div class="ui info message">
         <p>
-            {{$count_all}} 条私有链接，{{$count_in_queue}} 等待整理，分享 N 条链接。
+            {{$count_all}} 条私有链接，{{$count_in_queue}} 等待整理（没有标签或标题长度大于40），分享 N 条链接。
         </p>
     </div>
 
     @if(count($links_in_queue) > 0)
-        <h5 class="ui header">快速整理</h5>
+        <h5 class="ui header">请为以下链接添加标签、精简标题</h5>
 
         @if(count($errors) > 0)
             <div class="ui error message">
@@ -35,7 +35,7 @@
             <input type="hidden" name="_method" value="PUT">
 
             <div class="field">
-                <label>标题</label>
+                <label>标题（精简）</label>
                 <input type="text" name="name" value="{{$link_item->name}}">
             </div>
             <div class="field">
@@ -105,7 +105,7 @@
         </form>
     </div>
 
-    <h5 class="ui header">队列中</h5>
+    <h5 class="ui header">队列中，还有 {{$count_in_queue}} 条链接</h5>
     <table class="ui pink table">
         <thead>
         <tr><th width="20px">#</th>

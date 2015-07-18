@@ -163,7 +163,7 @@
                 <input type="hidden" name="_method" value="PUT">
 
                 <div class="field">
-                    <label>标题</label>
+                    <label>标题（简单）</label>
                     <input type="text" name="name" id="linkname">
                 </div>
                 <div class="field">
@@ -185,25 +185,25 @@
                     <div class="inline fields">
                         <div class="field">
                             <div class="ui radio checkbox">
-                                <input type="radio" name="type" checked="" tabindex="0" class="hidden" value="0">
+                                <input type="radio" name="type" tabindex="0" class="hidden linktype" value="0">
                                 <label>链接</label>
                             </div>
                         </div>
                         <div class="field">
                             <div class="ui radio checkbox">
-                                <input type="radio" name="type" tabindex="0" class="hidden" value="1">
+                                <input type="radio" name="type" tabindex="0" class="hidden linktype" value="1">
                                 <label>公众号</label>
                             </div>
                         </div>
                         <div class="field">
                             <div class="ui radio checkbox">
-                                <input type="radio" name="type" tabindex="0" class="hidden" value="2">
+                                <input type="radio" name="type" tabindex="0" class="hidden linktype" value="2">
                                 <label>书籍</label>
                             </div>
                         </div>
                         <div class="field">
                             <div class="ui radio checkbox">
-                                <input type="radio" name="type" tabindex="0" class="hidden" value="3">
+                                <input type="radio" name="type" tabindex="0" class="hidden linktype" value="3">
                                 <label>生活</label>
                             </div>
                         </div>
@@ -215,7 +215,7 @@
                     <div class="inline fields">
                         <div class="field">
                             <div class="ui radio checkbox">
-                                <input type="radio" name="group" checked="" tabindex="0" class="hidden" value="0">
+                                <input type="radio" name="group" tabindex="0" class="hidden linkgroup" value="0">
                                 <label>无分组</label>
                             </div>
                         </div>
@@ -223,7 +223,7 @@
                         @foreach($groups as $group)
                             <div class="field">
                                 <div class="ui radio checkbox">
-                                    <input type="radio" name="group" tabindex="0" class="hidden" value="{{$group->id}}">
+                                    <input type="radio" name="group" tabindex="0" class="hidden linkgroup" value="{{$group->id}}">
                                     <label>{{$group->name}}</label>
                                 </div>
                             </div>
@@ -236,9 +236,9 @@
             <div class="ui black deny button">
                 取消
             </div>
-            <div class="ui positive right labeled icon button">
+            <div class="ui positive right labeled icon button" id="submitlinkeditform">
                 确定
-                <i class="checkmark icon" id="confirmLinkEdit"></i>
+                <i class="checkmark icon" ></i>
             </div>
         </div>
     </div>
@@ -300,6 +300,22 @@
                     $('#linkurl').val(l.url);
                     $('#linktags').val(l.tags);
 
+                    $('.linktype').each(function(index,element){
+                        if($(this).val() == l.type){
+                            $(this).attr('checked','');
+                        }else{
+                            $(this).removeAttr('checked');
+                        }
+                    });
+                    $('.linkgroup').each(function(index,element){
+                        console.log('group this val = ' + $(this).val() + ' |vs| group id = ' + l.private_group_id);
+                        if($(this).val() == l.private_group_id){
+                            $(this).attr('checked','');
+                        }else{
+                            $(this).removeAttr('checked');
+                        }
+                    });
+
                     $('.linkeditmodal.ui.modal')
                             .modal('show')
                     ;
@@ -314,7 +330,7 @@
             ;
         })
 
-        $('#confirmLinkEdit').click(function () {
+        $('#submitlinkeditform').click(function () {
             $('#linkeditform').submit();
         })
 

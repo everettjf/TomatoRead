@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB,Input,Auth,Redirect;
 use App\PrivateGroup;
+use App\PrivateLink;
 
 
 class DashboardController extends Controller
@@ -19,9 +20,12 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $count_all = DB::table('private_links')->count();
-        $count_in_queue = DB::table('private_links')->where('confirmed',0)->count();
-        $links_in_queue = DB::table('private_links')->where('confirmed',0)->take(5)->orderBy('id','asc')->get();
+        $count_all = PrivateLink::count();
+        $queue_links = PrivateLink::where('tags','')
+            ->orWhereRaw('length(name) > 40')
+            ;
+        $count_in_queue = $queue_links->count();
+        $links_in_queue = $queue_links->take(5)->orderBy('id','asc')->get();
         $groups = PrivateGroup::all();
 
         $link_item = null;

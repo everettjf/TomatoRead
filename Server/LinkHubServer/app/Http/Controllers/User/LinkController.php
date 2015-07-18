@@ -75,7 +75,6 @@ class LinkController extends Controller
         $this->validate($request,[
                 'name'=>'required',
                 'url'=>'required',
-                'tags'=>'required',
                 'type'=>'required',
                 'group'=>'required'
             ]
@@ -89,8 +88,6 @@ class LinkController extends Controller
         $link->tags = implode(' ',$tagArray);
         $link->type = Input::get('type');
         $link->private_group_id = Input::get('group');
-
-        $link->confirmed = 1;
 
         if(!$link->save()){
             return Redirect::back()->withErrors('保存出错。');

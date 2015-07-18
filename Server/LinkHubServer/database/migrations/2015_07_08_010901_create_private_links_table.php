@@ -28,7 +28,6 @@ class CreatePrivateLinksTable extends Migration
             $table->timestamp('last_click_time'); // 最后点击时间
 
             $table->integer('private_group_id')->default(0);
-            $table->tinyInteger('confirmed')->default(0); // 已经确认（整理）
         });
     }
 
