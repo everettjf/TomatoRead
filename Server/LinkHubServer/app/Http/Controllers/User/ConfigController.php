@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class LogController extends Controller
+class ConfigController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class LogController extends Controller
      */
     public function index()
     {
-        //
+        return view('user.config');
     }
 
     /**

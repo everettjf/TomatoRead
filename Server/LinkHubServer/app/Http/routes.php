@@ -14,33 +14,56 @@
 Route::get('','IndexController@index');
 Route::get('topic','TopicController@index');
 
-Route::group(['prefix'=>'home','namespace'=>'User','middleware'=>'auth'],function(){
-    Route::get('','IndexController@index');
-    Route::get('dashboard','DashboardController@index');
+// home
+Route::group(['prefix'=>'home','middleware'=>'auth'],function(){
+    // User
+    Route::group(['namespace'=>'User'],function(){
+        Route::get('','IndexController@index');
+        Route::get('dashboard','DashboardController@index');
 
-    Route::resource('group','GroupController');
-    Route::post('group/{id}/order/inc','GroupController@orderInc');
-    Route::post('group/{id}/order/dec','GroupController@orderDec');
-    Route::post('group/{id}/hide','GroupController@hideToggle');
+        Route::resource('group','GroupController');
+        Route::post('group/{id}/order/inc','GroupController@orderInc');
+        Route::post('group/{id}/order/dec','GroupController@orderDec');
+        Route::post('group/{id}/hide','GroupController@hideToggle');
 
-    Route::resource('link','LinkController');
+        Route::resource('link','LinkController');
+        Route::resource('config','ConfigController');
+        Route::resource('share','ShareController');
+        Route::resource('report','ReportController');
+    });
 
+    // Admin User
+    Route::group(['prefix'=>'inkmind','namespace'=>'Admin'],function(){
+        Route::resource('dashboard','DashboardController');
 
-    Route::get('setting','SettingController@index');
+        Route::resource('category','CategoryController');
+        Route::resource('link','LinkController');
+        Route::get('linkapprove','LinkController@getLinkApprove');
+
+        Route::resource('log','LogController');
+        Route::resource('topic','TopicController');
+        Route::resource('user','UserController');
+        Route::resource('tipoff','TipoffController');
+        Route::resource('report','ReportController');
+        Route::resource('config','ConfigController');
+    });
 });
 
+
+// auth
 Route::controllers([
     'auth'=>'Auth\AuthController',
     'password'=>'Auth\PasswordController'
 ]);
 
+// api
 Route::group(['prefix'=>'api','namespace'=>'Api'],function(){
     // user
     Route::post('login','AuthController@login');
     Route::post('logout','AuthController@logout');
     Route::post('userinfo','AuthController@userInfo');
 
-    // link
+    // private link
     Route::group(['prefix'=>'private'],function(){
         Route::post('savelink','LinkController@saveLink');
         Route::post('savelinkbatch','LinkController@saveLinkBatch');
@@ -48,11 +71,13 @@ Route::group(['prefix'=>'api','namespace'=>'Api'],function(){
         Route::get('linkinfo/{id}','LinkController@linkInfo');
     });
 
+    // public link
     Route::group(['prefix'=>'public'],function(){
 
     });
 });
 
+// test
 Route::group(['prefix'=>'test'],function(){
     Route::get('ssdb',"TestController@ssdb");
 });

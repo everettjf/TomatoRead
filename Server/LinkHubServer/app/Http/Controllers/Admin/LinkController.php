@@ -16,7 +16,7 @@ class LinkController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.link');
     }
 
     /**
@@ -81,5 +81,10 @@ class LinkController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getLinkApprove()
+    {
+        return view('admin.linkapprove');
     }
 }

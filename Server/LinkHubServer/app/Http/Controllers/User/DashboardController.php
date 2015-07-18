@@ -33,7 +33,7 @@ class DashboardController extends Controller
             $link_item = $links_in_queue[0];
         }
 
-        return view('user.dashboard.index')
+        return view('user.dashboard')
             ->with('count_all',$count_all)
             ->with('count_in_queue',$count_in_queue)
             ->with('links_in_queue',$links_in_queue)

@@ -2,5 +2,5 @@
 
 @section('subcontent')
 
-    setting
+    report for admin
 @endsection

@@ -23,7 +23,7 @@ class GroupController extends Controller
             ->orderBy('order','desc')
             ->orderBy('created_at','desc')
             ->get();
-        return view('user.group.index')->with('groups',$groups);
+        return view('user.group')->with('groups',$groups);
     }
 
     /**
