@@ -11,15 +11,21 @@ class PrivateGroup extends Model
     }
 
     public function linksKeyword($keyword){
+        $data = null;
         if(!isset($keyword) || $keyword == ''){
-            return $this->hasMany('App\PrivateLink')->get();
-        }
-        return $this->hasMany('App\PrivateLink')
-            ->where(function($query) use($keyword){
-                $query->where('name','like','%'.$keyword.'%')
-                ->orWhere('url','like','%'.$keyword.'%')
-                ->orWhere('tags','like','%'.$keyword.'%')
+            $data = $this->hasMany('App\PrivateLink');
+        }else {
+            $data = $this->hasMany('App\PrivateLink')
+                ->where(function ($query) use ($keyword) {
+                    $query->where('name', 'like', '%' . $keyword . '%')
+                        ->orWhere('url', 'like', '%' . $keyword . '%')
+                        ->orWhere('tags', 'like', '%' . $keyword . '%')
                     ;
-            })->get();
+                });
+        }
+        return $data
+            ->orderBy('click_count', 'desc')
+            ->orderBy('last_click_time', 'desc')
+            ->get();
     }
 }

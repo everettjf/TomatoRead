@@ -28,6 +28,10 @@ class CreatePrivateLinksTable extends Migration
             $table->timestamp('last_click_time'); // 最后点击时间
 
             $table->integer('private_group_id')->default(0);
+
+            $table->string('bgcolor')->nullable(); // 背景色
+            $table->integer('fontsize')->default(0); // 字体大小
+            $table->tinyInteger('bold')->default(0); // 加粗
         });
     }
 

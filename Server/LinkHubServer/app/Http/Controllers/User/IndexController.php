@@ -12,6 +12,16 @@ use App\PrivateGroup;
 
 class IndexController extends Controller
 {
+    private function newFilterPrivateLinks($keyword){
+        if(!isset($keyword) || $keyword==''){
+            return PrivateLink::whereRaw('1=1');
+        }
+
+        return PrivateLink::where('name','like','%'.$keyword.'%')
+            ->orWhere('url','like','%'.$keyword.'%')
+            ->orWhere('tags','like','%'.$keyword.'%')
+            ;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -19,38 +29,26 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $table_private_links = PrivateLink::whereRaw('1=1');
-
-        $table_filter_links = null;
+        $take_count = 10;
         $keyword = Input::get('keyword');
-        if(isset($keyword)){
-            $table_filter_links = $table_private_links
-                ->where('name','like','%'.$keyword.'%')
-                ->orWhere('url','like','%'.$keyword.'%')
-                ->orWhere('tags','like','%'.$keyword.'%')
-            ;
-        }else{
-            $table_filter_links = $table_private_links;
-        }
 
+        $table_filter_links = $this->newFilterPrivateLinks($keyword);
         $links_count = $table_filter_links->count();
         $links = $table_filter_links->simplePaginate(40);
 
-        $take_count = 10;
-
-        $links_by_click_count = $table_filter_links
+        $links_by_click_count = $this->newFilterPrivateLinks($keyword)
             ->orderBy('click_count','desc')
             ->take($take_count)
             ->get();
-        $links_by_last_click_time = $table_filter_links
+        $links_by_last_click_time = $this->newFilterPrivateLinks($keyword)
             ->orderBy('last_click_time','desc')
             ->take($take_count)
             ->get();
-        $links_by_created_at = $table_filter_links
+        $links_by_created_at = $this->newFilterPrivateLinks($keyword)
             ->orderBy('created_at','desc')
             ->take($take_count)
             ->get();
-        $links_not_offen_click = $table_filter_links
+        $links_not_offen_click = $this->newFilterPrivateLinks($keyword)
             ->orderBy('last_click_time','asc')
             ->take($take_count)
             ->get();

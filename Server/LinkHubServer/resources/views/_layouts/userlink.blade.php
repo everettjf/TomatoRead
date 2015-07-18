@@ -6,6 +6,7 @@
                类型：{{$link->typeString()}}<br/>
                点击次数：{{$link->click_count}}<br/>
                最后点击时间：{{$link->last_click_time}}<br/>
+               添加时间：{{$link->created_at}}<br/>
                标签：{{$link->tags}}
            </div>
            "></i>
