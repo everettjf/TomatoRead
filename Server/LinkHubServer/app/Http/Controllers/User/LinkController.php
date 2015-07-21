@@ -104,6 +104,10 @@ class LinkController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $link = PrivateLink::find($id);
+        if(isset($link)){
+            $link->delete();
+        }
+        return Redirect::back();
     }
 }

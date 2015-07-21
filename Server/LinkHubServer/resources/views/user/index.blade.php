@@ -233,6 +233,13 @@
             </form>
         </div>
         <div class="actions">
+            <form method="post" id="deletelinkform">
+                {!! csrf_field() !!}
+                <input type="hidden" name="_method" value="DELETE"/>
+            </form>
+            <div class="ui red button" id="deletelinkbutton">
+                删除
+            </div>
             <div class="ui black deny button">
                 取消
             </div>
@@ -297,6 +304,9 @@
             var linkId = $(this).attr('link_id');
             $('#linkeditform').attr('action','{{url('home/link')}}' + '/' + linkId);
 
+            // delete form
+            $('#deletelinkform').attr('action','{{url('home/link')}}' + '/' + linkId);
+
             $.get('/api/private/linkinfo/' + linkId,function(data,status){
                 if(data.result == 'ok'){
                     var l = data.data;
@@ -336,6 +346,10 @@
 
         $('#submitlinkeditform').click(function () {
             $('#linkeditform').submit();
+        })
+
+        $('#deletelinkbutton').click(function(){
+            $('#deletelinkform').submit();
         })
 
 
