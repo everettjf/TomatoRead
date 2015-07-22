@@ -13,6 +13,7 @@
 
 Route::get('','IndexController@index');
 Route::get('topic','TopicController@index');
+Route::get('about','IndexController@about');
 
 // home
 Route::group(['prefix'=>'home','middleware'=>'auth'],function(){
@@ -41,6 +42,9 @@ Route::group(['prefix'=>'home','middleware'=>'auth'],function(){
         Route::resource('category','CategoryController');
         Route::resource('link','LinkController');
         Route::get('linkapprove','LinkController@getLinkApprove');
+        Route::post('linkapprove/{id}','LinkController@postLinkApprove');
+        Route::get('linkrefuse','LinkController@getLinkRefuse');
+        Route::post('linkrefuse/{id}','LinkController@postLinkRefuse');
 
         Route::resource('log','LogController');
         Route::resource('topic','TopicController');
@@ -75,6 +79,8 @@ Route::group(['prefix'=>'api','namespace'=>'Api'],function(){
 
     // public link
     Route::group(['prefix'=>'public'],function(){
+        // is shared
+
 
     });
 });

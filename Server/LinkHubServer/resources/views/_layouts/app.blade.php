@@ -28,6 +28,9 @@
     @if(!Auth::guest())
     <a href="{{url('home')}}" class="item">我的链接</a>
     @endif
+
+    <a href="{{url('about')}}" class="item">关于/留言</a>
+
     <div class="right menu">
 
         @if(Auth::guest())

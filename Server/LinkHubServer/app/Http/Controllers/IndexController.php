@@ -60,4 +60,9 @@ class IndexController extends Controller
             ->with('keyword',$keyword)
             ;
     }
+
+    public function about()
+    {
+        return view('about');
+    }
 }
