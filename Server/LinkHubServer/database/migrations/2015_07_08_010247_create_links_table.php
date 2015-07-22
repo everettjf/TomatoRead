@@ -25,8 +25,10 @@ class CreateLinksTable extends Migration
             $table->string('image')->nullable();        // 图标、二维码、书面、图片
             $table->string('tags')->nullable();         // 标签（逗号分隔）
 
+            $table->integer('favo')->default(0);        // 收藏数
             $table->integer('greet')->default(0);       // 点赞数
             $table->integer('disgreet')->default(0);    // 反对数
+            $table->integer('click_count')->default(0);    // 点击数
 
             $table->tinyInteger('state')->default(0);   // 状态：0未审核，1审核，2拒绝
             $table->string('state_info')->nullable();   // 拒绝理由

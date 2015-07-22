@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Category;
+use Input,Redirect;
 
 class CategoryController extends Controller
 {
@@ -34,9 +36,18 @@ class CategoryController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name'=>'required'
+        ]);
+
+        $cate = new Category();
+        $cate->name = Input::get('name');
+        if(!$cate->save()){
+            return Redirect::back()->withErrors('保存出错');
+        }
+        return Redirect::back();
     }
 
     /**

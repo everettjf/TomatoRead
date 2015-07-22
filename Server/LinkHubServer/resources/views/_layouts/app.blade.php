@@ -23,10 +23,10 @@
     <div class="item">
         <img src="/static/img/favicon.ico">
     </div>
-    <a href="{{url('')}}" class="item active">首页 </a>
-    <a href="{{url('topic')}}" class="item">话题 </a>
+    <a href="{{url('')}}" class="item active">首页</a>
+    <a href="{{url('topic')}}" class="item">主题</a>
     @if(!Auth::guest())
-    <a href="{{url('home')}}" class="item">我的链接 </a>
+    <a href="{{url('home')}}" class="item">我的链接</a>
     @endif
     <div class="right menu">
 

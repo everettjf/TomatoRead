@@ -18,7 +18,7 @@ class CreateCategoriesTable extends Migration
 
             $table->string('name');                    // 分类名称
             $table->integer('order')->default(0);       // 辅助排序
-            $table->tinyInteger('state')->default(0);   // 状态：0未审核，1审核
+            $table->integer('parent_id')->default(0);   // 上级分类
         });
     }
 

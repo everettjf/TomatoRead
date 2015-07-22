@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTopicsTable extends Migration
+class CreateWhiteUrlPrefixesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,12 @@ class CreateTopicsTable extends Migration
      */
     public function up()
     {
-        Schema::create('topics', function (Blueprint $table) {
+        Schema::create('white_url_prefixes', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
 
-            $table->integer('category_id')->default(0); // 分类
-            $table->string('name');        // 主题名称
-            $table->text('mark')->nullable();         // 简介
+            $table->string('prefix');
+            $table->text('mark')->nullable();
         });
     }
 
@@ -29,6 +28,6 @@ class CreateTopicsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('topics');
+        Schema::drop('white_url_prefixes');
     }
 }
