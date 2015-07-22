@@ -2,16 +2,30 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Link;
 use App\PrivateGroup;
+use App\PrivateShareLog;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\PrivateLink;
+use App\User;
 use DB,Input,Auth,Redirect;
 
 class LinkController extends Controller
 {
+    private function ssdbConn()
+    {
+        $ssdb = new \SSDB\Client('127.0.0.1',8888);
+        return $ssdb;
+    }
+    private function linkSetName()
+    {
+        $setName = 'linkurl';
+        return $setName;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -109,5 +123,56 @@ class LinkController extends Controller
             $link->delete();
         }
         return Redirect::back();
+    }
+
+    public function share($id,Request $request){
+        $this->validate($request,[
+            'name'=>'required'
+        ]);
+
+        $private_link = PrivateLink::find($id);
+
+        $ssdb = $this->ssdbConn();
+        $setName = $this->linkSetName();
+        if($ssdb->hexists($setName,md5($private_link->url))->data){
+            // share already
+            return Redirect::back();
+        }
+
+        $public_link = new Link();
+        $public_link->name = Input::get('name');
+        $public_link->url = $private_link->url;
+        $public_link->tags = Input::get('tags');
+        $public_link->share_user_id = Auth::user()->id;
+        $public_link->mark = Input::get('mark');
+
+        if(! $public_link->save()){
+            return Redirect::back()->withErrors('分享出错');
+        }
+
+        $private_link->shared = 1;
+        $public_link->save();
+
+        $share_log = new PrivateShareLog();
+        $share_log->user_id = Auth::user()->id;
+        $share_log->private_link_id = $private_link->id;
+        $share_log->public_link_id = $public_link->id;
+        $share_log->save();
+
+        User::where('id',Auth::user()->id)->increment('score',10);
+
+        return Redirect::back()->with('shared_name',$public_link->name);
+    }
+
+    public function isShared(Request $request){
+        $req = json_decode(Input::getContent());
+
+        $ssdb = $this->ssdbConn();
+        $setName = $this->linkSetName();
+        if($ssdb->hexists($setName,md5($req->url))->data){
+            Log::info('link existed:'.$req->url.' - '.$setName.' # ');
+            return response()->json(['result'=>'ok','msg'=>'已存在']);
+        }
+        return response()->json(['result'=>'error','msg'=>'不存在']);
     }
 }

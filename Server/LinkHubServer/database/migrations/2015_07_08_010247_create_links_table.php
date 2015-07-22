@@ -16,8 +16,8 @@ class CreateLinksTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
-            $table->tinyInteger('type');                // 0链接，1公众号，2书籍，3生活
-            $table->integer('topic_id');                // 所属主题，一个链接有且只属于一个主题。
+            $table->tinyInteger('type')->default(0);    // 0链接，1公众号，2书籍，3生活
+            $table->integer('topic_id')->default(0);    // 所属主题，一个链接有且只属于一个主题。
 
             $table->string('name');                     // 标题
             $table->text('url');                        // 地址
@@ -28,7 +28,8 @@ class CreateLinksTable extends Migration
             $table->integer('greet')->default(0);       // 点赞数
             $table->integer('disgreet')->default(0);    // 反对数
 
-            $table->tinyInteger('state')->default(0);   // 状态：0未审核，1审核
+            $table->tinyInteger('state')->default(0);   // 状态：0未审核，1审核，2拒绝
+            $table->string('state_info')->nullable();   // 拒绝理由
 
             $table->integer('share_user_id');           // 首次分享的用户ID
         });

@@ -5,7 +5,7 @@
     <h4 class="ui header">个人信息</h4>
     <div class="ui info message">
         <p>
-            积分：99999 分。称号：分享小兵。
+            积分：{{ Auth::user()->score }} 分。称号：分享小兵。
         </p>
     </div>
 

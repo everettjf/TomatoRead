@@ -12,6 +12,12 @@
         </div>
     </div>
 
+    @if(isset($shared_name))
+        <div class="ui info segment">
+            已分享 {{ $shared_name }}
+        </div>
+        @endif
+
 
     <div class="ui stackable four column grid">
         <div class="column">
@@ -140,7 +146,7 @@
         <tr><th colspan="4">
                 <div class="ui right floated pagination menu">
                     <a class="item">共计 {{$links_count}} 条链接</a>
-                    <a class="item">第 {{$page}} 页</a>
+                    <a class="item">第 {{$page}} 页 / 共 {{intval($links_count / 40 + 1)}} 页</a>
                     <a class="icon item" href="{{url('home').'/?page='.($page - 1 < 1 ? 1 : ($page - 1)).($keyword == '' ? '' : ('&keyword='.$keyword)) }}">
                         <i class="left chevron icon"></i>
                     </a>
@@ -256,21 +262,36 @@
             分享
         </div>
         <div class="content">
-            share
+            <form id="linkshareform" class="ui form" method="post">
+                {!! csrf_field() !!}
+                <div class="ui fluid transparent input">
+                    <input type="text" name="name" id="linksharename">
+                </div>
+                <div class="ui fluid transparent input">
+                    <input type="text" readonly id="linkshareurl">
+                </div>
+                <div class="ui fluid transparent input">
+                    <input type="text" name="tags" id="linksharetags">
+                </div>
+
+                <div class="field">
+                    <label>简介（可为空）</label>
+                    <input type="text" name="mark">
+                </div>
+            </form>
+            <p>
+                （分享的链接，通过平台审核后就可以在首页看到了。）
+            </p>
         </div>
         <div class="actions">
             <div class="ui black deny button">
                 取消
             </div>
-            <div class="ui positive right labeled icon button">
+            <div class="ui positive right labeled icon button" id="linksharebutton">
                 分享
                 <i class="checkmark icon"></i>
             </div>
         </div>
-    </div>
-
-    <div class="linkinfopopup ui popup">
-        Hello
     </div>
 
 @endsection
@@ -339,9 +360,22 @@
             })
         })
         $('.linkshare').click(function(){
-            $('.linksharemodal.ui.modal')
-                    .modal('show')
-            ;
+            var linkId = $(this).attr('link_id');
+            $('#linkshareform').attr('action','{{url('home/linkshare')}}' + '/' + linkId);
+            $.get('/api/private/linkinfo/' + linkId,function(data,status){
+                if(data.result == 'ok'){
+                    var l = data.data;
+                    $('#linksharename').val(l.name);
+                    $('#linkshareurl').val(l.url);
+                    $('#linksharetags').val(l.tags);
+
+                    $('.linksharemodal.ui.modal')
+                            .modal('show')
+                    ;
+                }else{
+                    alert('获取链接信息出错了。');
+                }
+            })
         })
 
         $('#submitlinkeditform').click(function () {
@@ -350,6 +384,10 @@
 
         $('#deletelinkbutton').click(function(){
             $('#deletelinkform').submit();
+        })
+
+        $('#linksharebutton').click(function(){
+            $('#linkshareform').submit();
         })
 
 

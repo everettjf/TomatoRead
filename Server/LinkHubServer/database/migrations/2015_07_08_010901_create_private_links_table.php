@@ -32,6 +32,8 @@ class CreatePrivateLinksTable extends Migration
             $table->string('bgcolor')->nullable(); // 背景色
             $table->integer('fontsize')->default(0); // 字体大小
             $table->tinyInteger('bold')->default(0); // 加粗
+
+            $table->tinyInteger('shared')->default(0); // 0未分享，1已分享
         });
     }
 

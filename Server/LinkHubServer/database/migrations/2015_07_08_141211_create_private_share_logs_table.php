@@ -17,7 +17,8 @@ class CreatePrivateShareLogsTable extends Migration
             $table->timestamps();
 
             $table->integer('user_id');
-            $table->integer('link_id');
+            $table->integer('private_link_id');
+            $table->integer('public_link_id');
         });
     }
 

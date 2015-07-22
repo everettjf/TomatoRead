@@ -27,6 +27,8 @@ Route::group(['prefix'=>'home','middleware'=>'auth'],function(){
         Route::post('group/{id}/hide','GroupController@hideToggle');
 
         Route::resource('link','LinkController');
+        Route::post('linkshare/{id}','LinkController@share');
+
         Route::resource('config','ConfigController');
         Route::resource('share','ShareController');
         Route::resource('report','ReportController');
