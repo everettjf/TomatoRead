@@ -30,6 +30,7 @@
     @endif
 
     <a href="{{url('about')}}" class="item">关于/留言</a>
+    <a href="https://github.com/everettjf/LinkHub" target="_blank" class="item">GitHub</a>
 
     <div class="right menu">
 
