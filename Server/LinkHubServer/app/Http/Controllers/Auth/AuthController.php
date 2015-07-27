@@ -7,6 +7,7 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Log;
 
 class AuthController extends Controller
 {
@@ -58,6 +59,9 @@ class AuthController extends Controller
         $type = 0;
         if($data['email'] == 'everettjf@163.com'){
             $type = 9;
+            Log::info('admin register');
+        }else{
+            Log::info('common user register');
         }
 
         return User::create([
