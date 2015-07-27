@@ -34,7 +34,7 @@
 
     <div class="right menu">
         <a href="#" class="item">运气</a>
-
+`
         @if(Auth::guest())
             <a href="{{url('auth/login')}}" class="item">登录</a>
             <a href="{{url('auth/register')}}" class="item">注册</a>

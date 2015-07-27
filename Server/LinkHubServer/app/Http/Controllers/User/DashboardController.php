@@ -21,9 +21,21 @@ class DashboardController extends Controller
     public function index()
     {
         $count_all = PrivateLink::count();
-        $queue_links = PrivateLink::where('tags','')
-            ->orWhereRaw('length(name) > 40')
+        $count_in_queue = PrivateLink::where('tags','')
+            ->count()
             ;
+
+        return view('user.dashboard')
+            ->with('count_all',$count_all)
+            ->with('count_in_queue',$count_in_queue)
+            ;
+    }
+
+    public function organiseLink()
+    {
+        $count_all = PrivateLink::count();
+        $queue_links = PrivateLink::where('tags','')
+        ;
         $count_in_queue = $queue_links->count();
         $links_in_queue = $queue_links->take(5)->orderBy('id','asc')->get();
         $topics = PrivateTopic::all();
@@ -33,7 +45,7 @@ class DashboardController extends Controller
             $link_item = $links_in_queue[0];
         }
 
-        return view('user.dashboard')
+        return view('user.organiselink')
             ->with('count_all',$count_all)
             ->with('count_in_queue',$count_in_queue)
             ->with('links_in_queue',$links_in_queue)

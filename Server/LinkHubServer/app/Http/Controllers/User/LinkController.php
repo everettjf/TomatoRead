@@ -90,7 +90,7 @@ class LinkController extends Controller
                 'name'=>'required',
                 'url'=>'required',
                 'type'=>'required',
-                'group'=>'required'
+                'topic'=>'required'
             ]
         );
 
@@ -101,7 +101,7 @@ class LinkController extends Controller
         $link->url = Input::get('url');
         $link->tags = implode(' ',$tagArray);
         $link->type = Input::get('type');
-        $link->private_group_id = Input::get('group');
+        $link->private_topic_id = Input::get('topic');
 
         if(!$link->save()){
             return Redirect::back()->withErrors('保存出错。');

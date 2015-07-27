@@ -21,6 +21,7 @@ Route::group(['prefix'=>'home','middleware'=>'auth'],function(){
     Route::group(['namespace'=>'User'],function(){
         Route::get('','IndexController@index');
         Route::get('dashboard','DashboardController@index');
+        Route::get('organiselink','DashboardController@organiseLink');
 
         Route::resource('topic','TopicController');
         Route::post('topic/{id}/order/inc','TopicController@orderInc');
