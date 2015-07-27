@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Link;
-use App\PrivateGroup;
+use App\PrivateTopic;
 use App\PrivateShareLog;
 use Illuminate\Http\Request;
 

@@ -22,10 +22,10 @@ Route::group(['prefix'=>'home','middleware'=>'auth'],function(){
         Route::get('','IndexController@index');
         Route::get('dashboard','DashboardController@index');
 
-        Route::resource('group','GroupController');
-        Route::post('group/{id}/order/inc','GroupController@orderInc');
-        Route::post('group/{id}/order/dec','GroupController@orderDec');
-        Route::post('group/{id}/hide','GroupController@hideToggle');
+        Route::resource('topic','TopicController');
+        Route::post('topic/{id}/order/inc','TopicController@orderInc');
+        Route::post('topic/{id}/order/dec','TopicController@orderDec');
+        Route::post('topic/{id}/hide','TopicController@hideToggle');
 
         Route::resource('link','LinkController');
         Route::post('linkshare/{id}','LinkController@share');

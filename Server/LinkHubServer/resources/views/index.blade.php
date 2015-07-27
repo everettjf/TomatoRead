@@ -9,6 +9,7 @@
             <input type="text" name="keyword" placeholder="输入想知道的任何内容..." value="{{$keyword}}">
             <i class="search icon"></i>
         </div>
+        <button class="ui orange button">碰碰运气</button>
     </div>
 
     <div class="ui segments">

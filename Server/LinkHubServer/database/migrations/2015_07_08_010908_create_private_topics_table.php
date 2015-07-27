@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePrivateGroupsTable extends Migration
+class CreatePrivateTopicsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreatePrivateGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('private_groups', function (Blueprint $table) {
+        Schema::create('private_topics', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->integer('user_id');
@@ -20,6 +20,7 @@ class CreatePrivateGroupsTable extends Migration
             $table->string('name')->unique();
             $table->integer('order')->default(0);
             $table->tinyInteger('hide')->default(0); // 0显示，1隐藏（首页不显示）
+            $table->text('mark')->nullable(); // 简介
         });
     }
 
@@ -30,6 +31,6 @@ class CreatePrivateGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('private_groups');
+        Schema::drop('private_topics');
     }
 }

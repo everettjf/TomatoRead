@@ -6,7 +6,7 @@
         <div class="two wide column">
             <div class="ui vertical fluid tabular menu">
                 <a href="{{ url('home/dashboard') }}" class="item active">概览</a>
-                <a href="{{ url('home/group') }}" class="item">分组</a>
+                <a href="{{ url('home/topic') }}" class="item">主题</a>
                 <a href="{{ url('home/share') }}" class="item">分享</a>
                 <a href="{{ url('home/report') }}" class="item">统计</a>
                 <a href="{{ url('home/config') }}" class="item">设置</a>

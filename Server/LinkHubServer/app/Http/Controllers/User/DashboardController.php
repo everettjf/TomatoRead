@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB,Input,Auth,Redirect;
-use App\PrivateGroup;
+use App\PrivateTopic;
 use App\PrivateLink;
 
 
@@ -26,7 +26,7 @@ class DashboardController extends Controller
             ;
         $count_in_queue = $queue_links->count();
         $links_in_queue = $queue_links->take(5)->orderBy('id','asc')->get();
-        $groups = PrivateGroup::all();
+        $topics = PrivateTopic::all();
 
         $link_item = null;
         if($count_in_queue > 0){
@@ -37,7 +37,7 @@ class DashboardController extends Controller
             ->with('count_all',$count_all)
             ->with('count_in_queue',$count_in_queue)
             ->with('links_in_queue',$links_in_queue)
-            ->with('groups',$groups)
+            ->with('topics',$topics)
             ->with('link_item',$link_item)
             ;
     }

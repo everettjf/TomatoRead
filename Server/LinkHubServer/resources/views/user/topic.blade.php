@@ -12,10 +12,10 @@
         </div>
     @endif
 
-    <form method="post" action="{{ url('home/group') }}">
+    <form method="post" action="{{ url('home/topic') }}">
         <div class="ui fluid action input">
             {!! csrf_field() !!}
-            <input type="text" name="name" placeholder="要添加的分组名称">
+            <input type="text" name="name" placeholder="要添加的主题名称">
             <button type="submit" class="ui orange button">添加</button>
         </div>
     </form>
@@ -45,18 +45,18 @@
         </thead>
 
         <tbody>
-        @foreach($groups as $group)
+        @foreach($topics as $topic)
             <tr>
-                <td>{{$group->name}}</td>
-                <td>{{$group->order}}
+                <td>{{$topic->name}}</td>
+                <td>{{$topic->order}}
 
-                    <form method="post" action="{{ url('home/group/'.$group->id.'/order/inc') }}" style="display: inline;">
+                    <form method="post" action="{{ url('home/topic/'.$topic->id.'/order/inc') }}" style="display: inline;">
                         {!! csrf_field() !!}
                         <button typeo="submit" class="circular mini ui icon button"><i class="plus icon"></i>
                         </button>
                     </form>
-                    @if($group->order > 0)
-                        <form method="post" action="{{ url('home/group/'.$group->id.'/order/dec') }}" style="display: inline;">
+                    @if($topic->order > 0)
+                        <form method="post" action="{{ url('home/topic/'.$topic->id.'/order/dec') }}" style="display: inline;">
                             {!! csrf_field() !!}
                             <button class="circular mini ui icon button"><i class="minus icon"></i>
                             </button>
@@ -64,15 +64,15 @@
                     @endif
                 </td>
                 <td>
-                    <form method="post" action="{{ url('home/group/'.$group->id.'/hide') }}" style="display: inline;">
+                    <form method="post" action="{{ url('home/topic/'.$topic->id.'/hide') }}" style="display: inline;">
                         {!! csrf_field() !!}
-                        <button type="submit" class="mini ui blue button">{{$group->hide ? '不显示在首页' : '显示在首页'}}</button>
+                        <button type="submit" class="mini ui blue button">{{$topic->hide ? '不显示在首页' : '显示在首页'}}</button>
                     </form>
                 </td>
                 <td>
-                    <button class="mini ui orange button" onclick="showModify({{$group->id}},'{{$group->name}}');">修改</button>
+                    <button class="mini ui orange button" onclick="showModify({{$topic->id}},'{{$topic->name}}');">修改</button>
 
-                    <form method="post" action="{{ url('home/group/'.$group->id) }}" style="display: inline;">
+                    <form method="post" action="{{ url('home/topic/'.$topic->id) }}" style="display: inline;">
                         {!! csrf_field() !!}
                         <input name="_method" type="hidden" value="DELETE">
                         <button type="submit" class="mini ui danger button" onclick="return confirmDelete();">删除</button>
@@ -95,7 +95,7 @@
             return true;
         }
         function showModify(id,name){
-            var url = '{{ url('home/group') }}';
+            var url = '{{ url('home/topic') }}';
             $('#modifyForm').attr('action', url + '/' + id);
             $('#modifyName').val(name);
             $('.ui.modal')

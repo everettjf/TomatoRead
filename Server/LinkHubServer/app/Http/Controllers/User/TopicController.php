@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\PrivateGroup;
+use App\PrivateTopic;
 use Input,DB,Redirect,Auth;
 use Mockery\CountValidator\Exception;
 
-class GroupController extends Controller
+class TopicController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,11 +19,11 @@ class GroupController extends Controller
      */
     public function index()
     {
-        $groups = DB::table('private_groups')
+        $topics = DB::table('private_topics')
             ->orderBy('order','desc')
             ->orderBy('created_at','desc')
             ->get();
-        return view('user.group')->with('groups',$groups);
+        return view('user.topic')->with('topics',$topics);
     }
 
     /**
@@ -48,11 +48,11 @@ class GroupController extends Controller
         ]);
 
         try{
-            $group = new PrivateGroup();
-            $group->name = Input::get('name');
-            $group->user_id = Auth::user()->id;
+            $topic = new PrivateTopic();
+            $topic->name = Input::get('name');
+            $topic->user_id = Auth::user()->id;
 
-            if(!$group->save()){
+            if(!$topic->save()){
                 return Redirect::back()->withInput()->withErrors('保存出错。');
             }
         }catch(Exception $e){
@@ -95,9 +95,9 @@ class GroupController extends Controller
             'name'=>'required|max:20'
         ]);
 
-        $group = PrivateGroup::find($id);
-        $group->name = Input::get('name');
-        if(!$group->save()){
+        $topic = PrivateTopic::find($id);
+        $topic->name = Input::get('name');
+        if(!$topic->save()){
             return Redirect::back()->withErrors('修改出错。');
         }
 
@@ -112,28 +112,28 @@ class GroupController extends Controller
      */
     public function destroy($id)
     {
-        $group = PrivateGroup::find($id);
-        $group->delete();
+        $topic = PrivateTopic::find($id);
+        $topic->delete();
         return Redirect::back();
     }
 
     public function orderInc($id)
     {
-        DB::table('private_groups')->where('id',$id)->increment('order',1);
+        DB::table('private_topics')->where('id',$id)->increment('order',1);
         return Redirect::back();
     }
     public function orderDec($id)
     {
-        DB::table('private_groups')->where('id',$id)->decrement('order',1);
+        DB::table('private_topics')->where('id',$id)->decrement('order',1);
         return Redirect::back();
     }
     public function hideToggle($id)
     {
-        $group = PrivateGroup::find($id);
-        if($group->hide == 0) $group->hide = 1;
-        else $group->hide = 0;
+        $topic = PrivateTopic::find($id);
+        if($topic->hide == 0) $topic->hide = 1;
+        else $topic->hide = 0;
 
-        $group->save();
+        $topic->save();
         return Redirect::back();
     }
 }

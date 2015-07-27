@@ -535,7 +535,7 @@ $.fn.form = function(parameters) {
 
         // set at run-time
         $field,
-        $group,
+        $topic,
         $message,
         $prompt,
         $submit,

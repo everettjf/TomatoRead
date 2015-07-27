@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Input,DB,Redirect,Auth;
 use App\PrivateLink;
-use App\PrivateGroup;
+use App\PrivateTopic;
 
 class IndexController extends Controller
 {
@@ -53,7 +53,7 @@ class IndexController extends Controller
             ->take($take_count)
             ->get();
 
-        $groups = PrivateGroup::where('hide',0)
+        $groups = PrivateTopic::where('hide',0)
             ->orderBy('order','desc')
             ->get();
 
