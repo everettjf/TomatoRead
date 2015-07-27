@@ -14,6 +14,8 @@
 Route::get('','IndexController@index');
 Route::get('topic','TopicController@index');
 Route::get('about','IndexController@about');
+Route::get('help','IndexController@help');
+Route::get('link/{id}','IndexController@linkDetail');
 
 // home
 Route::group(['prefix'=>'home','middleware'=>'auth'],function(){
@@ -31,6 +33,7 @@ Route::group(['prefix'=>'home','middleware'=>'auth'],function(){
         Route::resource('link','LinkController');
         Route::post('linkshare/{id}','LinkController@share');
 
+        Route::resource('lucky','LuckyController');
         Route::resource('config','ConfigController');
         Route::resource('share','ShareController');
         Route::resource('report','ReportController');

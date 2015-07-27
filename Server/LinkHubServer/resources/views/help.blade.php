@@ -4,12 +4,24 @@
 @section('content')
     <div class="ui main container">
 
-        <div class="ui segment">
-            欢迎关注微信公众号 everettjf0x ，程序员的所想所记，不定期更新。
+        <div class="ui segments">
+            <div class="ui  segment">
+                Chrome插件
+            </div>
+            <div class="ui yellow segment">
+                分享
+            </div>
+            <div class="ui yellow segment">
+                主题
+            </div>
+
         </div>
 
+
+
+
         <!-- 多说评论框 start -->
-        <div class="ds-thread" data-thread-key="about" data-title="留言" data-url="{{url('about')}}"></div>
+        <div class="ds-thread" data-thread-key="help" data-title="帮助" data-url="{{url('help')}}"></div>
         <!-- 多说评论框 end -->
         <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
         <script type="text/javascript">

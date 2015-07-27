@@ -31,7 +31,7 @@ class CreateUsersTable extends Migration
             $table->string('weibo_bind')->nullable();
             $table->string('qq_bind')->nullable();
 
-            $table->tinyInteger('admin')->default(0);           // 0普通用户，1管理员
+            $table->tinyInteger('type')->default(0);           // 0普通用户，2可信用户（分享不需审核），9管理员，
             $table->tinyInteger('email_verified')->default(0);  // email是否验证
             $table->string('invite_code')->nullable();           // 邀请码
         });

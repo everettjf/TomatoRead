@@ -68,13 +68,5 @@
         </div>
     </div>
 
-    <div class="ui vertical footer segment">
-        <div class="ui center aligned container">
-
-            <div class="ui horizontal small divided link list">
-                <a class="item" href="http://inkmind.xyz">联系我们</a>
-            </div>
-        </div>
-    </div>
 
 @endsection

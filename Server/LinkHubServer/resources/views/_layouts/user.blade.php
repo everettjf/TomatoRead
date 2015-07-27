@@ -12,7 +12,7 @@
                 <a href="{{ url('home/report') }}" class="item">统计</a>
                 <a href="{{ url('home/config') }}" class="item">设置</a>
 
-                @if(Auth::user()->admin == 1)
+                @if(Auth::user()->type == 9)
                 <div class="ui divider"></div>
                 <a href="{{ url('home/inkmind/dashboard') }}" class="item">系统概览</a>
                 <a href="{{ url('home/inkmind/linkapprove') }}" class="item">审核链接</a>

@@ -30,10 +30,10 @@
     @endif
 
     <a href="{{url('about')}}" class="item">留言</a>
-    <a href="https://github.com/everettjf/LinkHub" target="_blank" class="item">GitHub</a>
+    <a href="{{url('help')}}" class="item">使用帮助</a>
 
     <div class="right menu">
-        <a href="#" class="item">运气</a>
+        <a href="#" class="item">试试运气</a>
 `
         @if(Auth::guest())
             <a href="{{url('auth/login')}}" class="item">登录</a>
@@ -56,6 +56,17 @@
 
 @yield('content')
 
+
+
+    <div class="ui vertical footer segment">
+        <div class="ui center aligned container">
+
+            <div class="ui horizontal small divided link list">
+                <a class="item" href="http://inkmind.xyz">联系我</a>
+                <a href="https://github.com/everettjf/LinkHub" target="_blank" class="item">GitHub</a>
+            </div>
+        </div>
+    </div>
 </div>
 
 

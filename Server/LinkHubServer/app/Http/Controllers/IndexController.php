@@ -61,8 +61,20 @@ class IndexController extends Controller
             ;
     }
 
+    public function linkDetail($id)
+    {
+        $link = Link::find($id);
+        return view('linkdetail')
+            ->with('link',$link)
+            ;
+    }
     public function about()
     {
         return view('about');
     }
+    public function help()
+    {
+        return view('help');
+    }
+
 }

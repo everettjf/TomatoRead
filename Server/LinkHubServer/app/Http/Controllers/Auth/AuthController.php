@@ -55,15 +55,15 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        $admin = 0;
+        $type = 0;
         if($data['email'] == 'everettjf@163.com'){
-            $admin = 1;
+            $type = 9;
         }
 
         return User::create([
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'admin' => $admin,
+            'type' => $type,
         ]);
     }
 }

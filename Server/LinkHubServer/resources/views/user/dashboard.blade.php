@@ -5,7 +5,14 @@
     <h4 class="ui header">个人信息</h4>
     <div class="ui info message">
         <p>
-            账号：{{Auth::user()->email }} 积分：{{ Auth::user()->score }} 分。称号：分享小兵。
+            @if(Auth::user()->type == 0) 普通用户
+            @elseif(Auth::user()->type == 1) 可信用户
+            @elseif(Auth::user()->type == 9) 管理员
+            @else 未知用户
+            @endif
+                {{Auth::user()->email }}
+            <br/>
+            积分：{{ Auth::user()->score }} 分。称号：分享小兵。
         </p>
     </div>
 
