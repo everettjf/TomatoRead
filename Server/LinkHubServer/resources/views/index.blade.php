@@ -10,7 +10,6 @@
             <i class="search icon"></i>
         </div>
     </div>
-
     <div class="ui segments">
         <div class="ui segment">
             <p>

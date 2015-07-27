@@ -25,7 +25,6 @@
     </div>
     <a href="{{url('')}}" class="item active">首页</a>
     <a href="{{url('topic')}}" class="item">主题</a>
-    <a href="#" class="item">运气</a>
     @if(!Auth::guest())
     <a href="{{url('home')}}" class="item">我的链接</a>
     @endif
@@ -34,12 +33,13 @@
     <a href="https://github.com/everettjf/LinkHub" target="_blank" class="item">GitHub</a>
 
     <div class="right menu">
+        <a href="#" class="item">运气</a>
 
         @if(Auth::guest())
-            <a href="{{url('auth/login')}}" class="item">登录 </a>
-            <a href="{{url('auth/register')}}" class="item">注册 </a>
+            <a href="{{url('auth/login')}}" class="item">登录</a>
+            <a href="{{url('auth/register')}}" class="item">注册</a>
         @else
-            <a href="{{url('home/dashboard')}}" class="item">个人中心 </a>
+            <a href="{{url('home/dashboard')}}" class="item">个人中心</a>
 
 
             <div class="ui dropdown item">
