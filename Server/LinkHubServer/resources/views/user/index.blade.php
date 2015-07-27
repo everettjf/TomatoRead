@@ -95,16 +95,16 @@
     </div>
 
     <div class="ui stackable four column grid">
-        @foreach($groups as $group)
+        @foreach($topics as $topic)
         <div class="column">
             <table class="ui pink table">
                 <tbody>
                 <tr>
                     <td>
-                        <h5 class="ui header">{{$group->name}}</h5>
+                        <h5 class="ui header">{{$topic->name}}</h5>
                         <p>
                             <div class="ui list">
-                            @foreach($group->linksKeyword($keyword) as $link)
+                            @foreach($topic->linksKeyword($keyword) as $link)
                                 @include('_layouts.userlink')
                             @endforeach
                             </div>
@@ -221,16 +221,16 @@
                     <div class="inline fields">
                         <div class="field">
                             <div class="ui radio checkbox">
-                                <input type="radio" name="group" tabindex="0" class="hidden linkgroup" value="0">
+                                <input type="radio" name="topic" tabindex="0" class="hidden linktopic" value="0">
                                 <label>无分组</label>
                             </div>
                         </div>
 
-                        @foreach($groups as $group)
+                        @foreach($topics as $topic)
                             <div class="field">
                                 <div class="ui radio checkbox">
-                                    <input type="radio" name="group" tabindex="0" class="hidden linkgroup" value="{{$group->id}}">
-                                    <label>{{$group->name}}</label>
+                                    <input type="radio" name="topic" tabindex="0" class="hidden linktopic" value="{{$topic->id}}">
+                                    <label>{{$topic->name}}</label>
                                 </div>
                             </div>
                         @endforeach
@@ -342,9 +342,9 @@
                             $(this).removeAttr('checked');
                         }
                     });
-                    $('.linkgroup').each(function(index,element){
-                        console.log('group this val = ' + $(this).val() + ' |vs| group id = ' + l.private_group_id);
-                        if($(this).val() == l.private_group_id){
+                    $('.linktopic').each(function(index,element){
+                        console.log('topic this val = ' + $(this).val() + ' |vs| topic id = ' + l.private_topic_id);
+                        if($(this).val() == l.private_topic_id){
                             $(this).attr('checked','');
                         }else{
                             $(this).removeAttr('checked');

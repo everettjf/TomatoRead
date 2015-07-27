@@ -53,7 +53,7 @@ class IndexController extends Controller
             ->take($take_count)
             ->get();
 
-        $groups = PrivateTopic::where('hide',0)
+        $topics = PrivateTopic::where('hide',0)
             ->orderBy('order','desc')
             ->get();
 
@@ -61,7 +61,7 @@ class IndexController extends Controller
         if(!isset($page)) $page = 1;
 
         return view('user.index')
-            ->with('groups',$groups)
+            ->with('topics',$topics)
             ->with('links_count',$links_count)
             ->with('keyword',$keyword)
             ->with('links_by_click_count',$links_by_click_count)

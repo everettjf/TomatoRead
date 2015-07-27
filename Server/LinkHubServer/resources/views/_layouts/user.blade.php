@@ -8,6 +8,7 @@
                 <a href="{{ url('home/dashboard') }}" class="item active">概览</a>
                 <a href="{{ url('home/topic') }}" class="item">主题</a>
                 <a href="{{ url('home/share') }}" class="item">分享</a>
+                <a href="{{ url('home/lucky') }}" class="item">运气</a>
                 <a href="{{ url('home/report') }}" class="item">统计</a>
                 <a href="{{ url('home/config') }}" class="item">设置</a>
 

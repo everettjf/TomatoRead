@@ -12,6 +12,7 @@ return array(
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreatePrivateDataClicksTable' => $baseDir . '/database/migrations/2015_07_08_132915_create_private_data_clicks_table.php',
     'CreatePrivateLinksTable' => $baseDir . '/database/migrations/2015_07_08_010901_create_private_links_table.php',
+    'CreatePrivateLuckiesTable' => $baseDir . '/database/migrations/2015_07_27_050450_create_private_luckies_table.php',
     'CreatePrivateShareLogsTable' => $baseDir . '/database/migrations/2015_07_08_141211_create_private_share_logs_table.php',
     'CreatePrivateTopicsTable' => $baseDir . '/database/migrations/2015_07_08_010908_create_private_topics_table.php',
     'CreateStarLinksTable' => $baseDir . '/database/migrations/2015_07_08_013930_create_star_links_table.php',

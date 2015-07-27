@@ -25,11 +25,12 @@
     </div>
     <a href="{{url('')}}" class="item active">首页</a>
     <a href="{{url('topic')}}" class="item">主题</a>
+    <a href="#" class="item">运气</a>
     @if(!Auth::guest())
     <a href="{{url('home')}}" class="item">我的链接</a>
     @endif
 
-    <a href="{{url('about')}}" class="item">关于/留言</a>
+    <a href="{{url('about')}}" class="item">留言</a>
     <a href="https://github.com/everettjf/LinkHub" target="_blank" class="item">GitHub</a>
 
     <div class="right menu">
