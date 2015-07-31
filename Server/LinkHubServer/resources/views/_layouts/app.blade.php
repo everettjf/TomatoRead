@@ -27,6 +27,7 @@
     <a href="{{url('topic')}}" class="item @if(isset($active) && $active=='topic') active @endif">主题</a>
     <a href="{{url('lucky')}}" class="item @if(isset($active) && $active=='lucky') active @endif">运气</a>
     <a href="{{url('about')}}" class="item @if(isset($active) && $active=='about') active @endif">留言/帮助</a>
+    <a href="https://github.com/everettjf/LinkHub" target="_blank" class="item">GitHub</a>
 
     <div class="right menu">
 `

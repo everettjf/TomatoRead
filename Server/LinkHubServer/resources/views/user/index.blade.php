@@ -217,12 +217,12 @@
                 </div>
 
                 <div class="field">
-                    <label>分组</label>
+                    <label>主题</label>
                     <div class="inline fields">
                         <div class="field">
                             <div class="ui radio checkbox">
                                 <input type="radio" name="topic" tabindex="0" class="hidden linktopic" value="0">
-                                <label>无分组</label>
+                                <label>无</label>
                             </div>
                         </div>
 
