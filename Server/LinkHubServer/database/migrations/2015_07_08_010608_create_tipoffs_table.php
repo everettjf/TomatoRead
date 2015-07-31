@@ -17,7 +17,7 @@ class CreateTipoffsTable extends Migration
             $table->timestamps();
 
             $table->integer('link_id'); // 链接ID
-            $table->text('reason');   // 举报原因
+            $table->text('reason')->nullable();   // 举报原因
             $table->integer('user_id'); // 用户ID
         });
     }

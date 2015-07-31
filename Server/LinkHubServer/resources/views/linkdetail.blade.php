@@ -1,5 +1,42 @@
 @extends('_layouts.app')
-@section('endofhead')
+@section('endofbody')
+    <script>
+        $(function () {
+            $('#addFavorite').click(function () {
+                var linkId = $('#linkId').val();
+                $.post('{{url('link/favorite')}}' + '/' + linkId,{
+                }, function (data) {
+                    if(data.result == 'ok'){
+                        location.reload();
+                    }else if(data.result == 'error'){
+                        location.reload();
+                    }
+                })
+            })
+            $('#addGreet').click(function () {
+                var linkId = $('#linkId').val();
+                $.post('{{url('link/greet')}}' + '/' + linkId,{
+                }, function (data) {
+                    if(data.result == 'ok'){
+                        location.reload();
+                    }else if(data.result == 'error'){
+                        location.reload();
+                    }
+                })
+            })
+            $('#addDisgreet').click(function () {
+                var linkId = $('#linkId').val();
+                $.post('{{url('link/disgreet')}}' + '/' + linkId,{
+                }, function (data) {
+                    if(data.result == 'ok'){
+                        location.reload();
+                    }else if(data.result == 'error'){
+                        location.reload();
+                    }
+                })
+            })
+        })
+    </script>
 
 @endsection
 
@@ -14,10 +51,12 @@
     <div class="ui info message">
         <p>
             <a class="ui red button" href="{{$link->url}}" target="_blank">访问</a>
-            <a class="ui yellow button">收藏</a>
-            <a class="ui green button">点赞</a>
-            <a class="ui gray button">反对</a>
-            <a class="ui gray button">举报</a>
+            <a class="ui yellow button" id="addFavorite">收藏</a>
+            <a class="ui green button" id="addGreet">点赞</a>
+            <a class="ui gray button" id="addDisgreet">反对</a>
+            <a class="ui gray button" href="{{url('link/tipoff').'/'.$link->id}}" target="_blank">举报</a>
+
+            <input type="hidden" id="linkId" value="{{$link->id}}">
         </p>
 
         <ul class="list">

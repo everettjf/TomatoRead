@@ -13,12 +13,26 @@
 
 Route::get('','IndexController@index');
 Route::get('topic','TopicController@index');
+
 Route::get('about','IndexController@about');
 Route::get('help','IndexController@help');
-Route::get('link/{id}','IndexController@linkDetail');
+
+
+Route::group(['prefix'=>'link','middleware'=>'auth'],function() {
+    Route::get('{id}','IndexController@linkDetail');
+
+    Route::post('favorite/{id}','LinkController@favorite');
+    Route::post('greet/{id}','LinkController@greet');
+    Route::post('disgreet/{id}','LinkController@disgreet');
+
+    Route::get('tipoff/{id}','LinkController@getTipoff');
+    Route::post('tipoff/{id}','LinkController@postTipOff');
+});
+
 
 // home
 Route::group(['prefix'=>'home','middleware'=>'auth'],function(){
+
     // User
     Route::group(['namespace'=>'User'],function(){
         Route::get('','IndexController@index');
@@ -31,12 +45,13 @@ Route::group(['prefix'=>'home','middleware'=>'auth'],function(){
         Route::post('topic/{id}/hide','TopicController@hideToggle');
 
         Route::resource('link','LinkController');
-        Route::post('linkshare/{id}','LinkController@share');
-
         Route::resource('lucky','LuckyController');
         Route::resource('config','ConfigController');
         Route::resource('share','ShareController');
         Route::resource('report','ReportController');
+
+        Route::post('linkshare/{id}','LinkController@share');
+
     });
 
     // Admin User

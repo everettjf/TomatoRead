@@ -15,17 +15,6 @@ use DB,Input,Auth,Redirect;
 
 class LinkController extends Controller
 {
-    private function ssdbConn()
-    {
-        $ssdb = new \SSDB\Client('127.0.0.1',8888);
-        return $ssdb;
-    }
-    private function linkSetName()
-    {
-        $setName = 'linkurl';
-        return $setName;
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -132,8 +121,8 @@ class LinkController extends Controller
 
         $private_link = PrivateLink::find($id);
 
-        $ssdb = $this->ssdbConn();
-        $setName = $this->linkSetName();
+        $ssdb = \LinkSSDB::ssdbConn();
+        $setName = \LinkSSDB::linkSetName();
         if($ssdb->hexists($setName,md5($private_link->url))->data){
             // share already
             return Redirect::back();
@@ -167,8 +156,8 @@ class LinkController extends Controller
     public function isShared(Request $request){
         $req = json_decode(Input::getContent());
 
-        $ssdb = $this->ssdbConn();
-        $setName = $this->linkSetName();
+        $ssdb = \LinkSSDB::ssdbConn();
+        $setName = \LinkSSDB::linkSetName();
         if($ssdb->hexists($setName,md5($req->url))->data){
             Log::info('link existed:'.$req->url.' - '.$setName.' # ');
             return response()->json(['result'=>'ok','msg'=>'已存在']);

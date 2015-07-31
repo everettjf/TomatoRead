@@ -17,4 +17,5 @@ return array(
     $vendorDir . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
     $vendorDir . '/laravel/framework/src/Illuminate/Support/helpers.php',
     $vendorDir . '/guzzlehttp/guzzle/src/functions_include.php',
+    $baseDir . '/thirdparty/linkssdb.php',
 );

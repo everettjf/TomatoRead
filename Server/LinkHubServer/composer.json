@@ -22,7 +22,10 @@
         ],
         "psr-4": {
             "App\\": "app/"
-        }
+        },
+        "files":[
+            "thirdparty/linkssdb.php"
+        ]
     },
     "autoload-dev": {
         "classmap": [
