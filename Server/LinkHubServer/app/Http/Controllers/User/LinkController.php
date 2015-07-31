@@ -150,7 +150,7 @@ class LinkController extends Controller
         $share_log = new PrivateShareLog();
         $share_log->user_id = Auth::user()->id;
         $share_log->private_link_id = $private_link->id;
-        $share_log->public_link_id = $public_link->id;
+        $share_log->link_id = $public_link->id;
         $share_log->save();
 
         User::where('id',Auth::user()->id)->increment('score',10);

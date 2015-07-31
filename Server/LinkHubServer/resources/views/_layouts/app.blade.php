@@ -33,7 +33,7 @@
     <a href="{{url('help')}}" class="item">使用帮助</a>
 
     <div class="right menu">
-        <a href="#" class="item">试试运气</a>
+        <a href="{{url('lucky')}}" class="item">试试运气</a>
 `
         @if(Auth::guest())
             <a href="{{url('auth/login')}}" class="item">登录</a>

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\User;
 
+use App\PrivateShareLog;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Input,Redirect,Log;
 
 class ShareController extends Controller
 {
@@ -16,7 +18,18 @@ class ShareController extends Controller
      */
     public function index()
     {
-        return view('user.share');
+        $shares = PrivateShareLog::orderBy('created_at','desc')
+            ->simplePaginate(20);
+        $share_count = PrivateShareLog::count();
+
+        $page = Input::get('page');
+        if(!isset($page)) $page = 1;
+
+        return view('user.share')
+            ->with('shares',$shares)
+            ->with('share_count',$share_count)
+            ->with('page',$page)
+            ;
     }
 
     /**

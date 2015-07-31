@@ -17,6 +17,7 @@ class CreateTopicsTable extends Migration
             $table->timestamps();
 
             $table->string('name');        // 主题名称
+            $table->text('tags')->nullable();         // 标签
             $table->text('mark')->nullable();         // 简介
         });
     }

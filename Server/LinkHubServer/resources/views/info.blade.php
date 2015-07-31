@@ -4,7 +4,7 @@
 @section('content')
     <div class="ui main container">
         <div class="ui info message">
-            {{info}}
+            {{$info}}
         </div>
     </div>
 

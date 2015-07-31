@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Input,Redirect,Log;
-use App\Tipoff;
 
-class TipoffController extends Controller
+class LuckyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,17 +16,7 @@ class TipoffController extends Controller
      */
     public function index()
     {
-        $tips = Tipoff::simplePaginate(20);
-        $tip_count = Tipoff::count();
-
-        $page = Input::get('page');
-        if(!isset($page)) $page = 1;
-
-        return view('admin.tipoff')
-            ->with('tipoffs',$tips)
-            ->with('tip_count',$tip_count)
-            ->with('page',$page)
-            ;
+        return view('lucky');
     }
 
     /**

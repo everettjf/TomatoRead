@@ -16,7 +16,7 @@
             <i class="share alternate icon linkshare" link_id="{{$link->id}}"></i>
         </span>
         <a class="userlink" link_id="{{$link->id}}" href="{{$link->url}}" target="_blank">
-            {{$link->name}}
+            {{ str_limit($link->name,30)}}
         </a>
     </div>
 </div>

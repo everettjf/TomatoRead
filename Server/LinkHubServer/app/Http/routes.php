@@ -13,6 +13,7 @@
 
 Route::get('','IndexController@index');
 Route::get('topic','TopicController@index');
+Route::get('lucky','LuckyController@index');
 
 Route::get('about','IndexController@about');
 Route::get('help','IndexController@help');

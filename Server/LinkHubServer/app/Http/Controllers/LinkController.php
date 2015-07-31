@@ -75,11 +75,11 @@ class LinkController extends Controller
     }
     public function postTipoff($id)
     {
-        Tipoff::create([
-            'link_id'=>$id,
-            'reason'=>Input::get('reason'),
-            'user_id'=>Auth::user()->id,
-        ]);
+        $tip = new Tipoff();
+        $tip->link_id = $id;
+        $tip->reason = Input::get('reason');
+        $tip->user_id = Auth::user()->id;
+        $tip->save();
 
         return view('info')->with('info','已举报，我们会尽快审查这条链接。');
     }
