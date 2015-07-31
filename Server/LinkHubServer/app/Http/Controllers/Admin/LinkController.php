@@ -109,7 +109,6 @@ class LinkController extends Controller
     {
         $this->validate($request,[
             'name'=>'required',
-            'tags'=>'required'
         ]);
 
         $link = Link::find($id);

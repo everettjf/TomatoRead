@@ -9,7 +9,7 @@
     <meta name="author" content="everettjf">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>LinkHub - My favorite link manager</title>
+    <title>LinkHub - 我最喜爱的收藏管理工具</title>
     <link rel="icon" href="/static/img/favicon.ico">
     <link href="/static/css/app.css" rel="stylesheet">
     <link href="/static/components/semantic/dist/semantic.min.css" rel="stylesheet">

@@ -13,13 +13,17 @@ class IndexController extends Controller
 {
     private function newFilterLinks($keyword){
         if(!isset($keyword) || $keyword == ''){
-            return Link::whereRaw('1=1');
+            return Link::where('state',1);
         }
 
-        return Link::where('name','like','%'.$keyword.'%')
-            ->orWhere('url','like','%'.$keyword.'%')
-            ->orWhere('tags','like','%'.$keyword.'%')
-            ;
+        return Link::where('state',1)
+            ->where(function($query) use($keyword){
+                $query
+                    ->orWhere('name','like','%'.$keyword.'%')
+                    ->orWhere('url','like','%'.$keyword.'%')
+                    ->orWhere('tags','like','%'.$keyword.'%')
+                    ;
+            });
     }
 
     public function index()
