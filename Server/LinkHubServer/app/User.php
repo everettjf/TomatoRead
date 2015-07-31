@@ -32,4 +32,18 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+
+    public function privateLinks(){
+        return $this->hasMany('App\PrivateLink');
+    }
+    public function links(){
+        return $this->hasMany('App\Link');
+    }
+    public function typeString(){
+        if($this->type == 0) return '普通用户';
+        else if($this->type == 2) return '可信用户';
+        else if($this->type == 9) return '管理员';
+        else return 'ERROR';
+    }
 }

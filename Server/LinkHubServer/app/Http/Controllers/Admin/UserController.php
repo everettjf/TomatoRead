@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\User;
+use Input,Redirect,Log;
 
 class UserController extends Controller
 {
@@ -16,7 +18,17 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.user');
+        $users = User::simplePaginate(20);
+        $user_count = User::count();
+
+        $page = Input::get('page');
+        if(!isset($page)) $page = 1;
+
+        return view('admin.user')
+            ->with('users',$users)
+            ->with('user_count',$user_count)
+            ->with('page',$page)
+            ;
     }
 
     /**

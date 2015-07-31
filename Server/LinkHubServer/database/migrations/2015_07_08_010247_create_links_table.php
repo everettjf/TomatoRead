@@ -33,7 +33,7 @@ class CreateLinksTable extends Migration
             $table->tinyInteger('state')->default(0);   // 状态：0未审核，1审核，2拒绝
             $table->string('state_info')->nullable();   // 拒绝理由
 
-            $table->integer('share_user_id');           // 首次分享的用户ID
+            $table->integer('user_id');           // 首次分享的用户ID
         });
     }
 
