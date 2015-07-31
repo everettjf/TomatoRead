@@ -122,7 +122,7 @@ class LinkController extends Controller
         $private_link = PrivateLink::find($id);
 
         $ssdb = \LinkSSDB::ssdbConn();
-        $setName = \LinkSSDB::linkSetName();
+        $setName = \LinkSSDB::linkPublicSetName();
         if($ssdb->hexists($setName,md5($private_link->url))->data){
             // share already
             return Redirect::back();
@@ -132,12 +132,17 @@ class LinkController extends Controller
         $public_link->name = Input::get('name');
         $public_link->url = $private_link->url;
         $public_link->tags = Input::get('tags');
-        $public_link->share_user_id = Auth::user()->id;
+        $public_link->user_id = Auth::user()->id;
         $public_link->mark = Input::get('mark');
+
+        if(Auth::user()->type == 1 || Auth::user()->type == 9){
+            $public_link->state = 1;
+        }
 
         if(! $public_link->save()){
             return Redirect::back()->withErrors('分享出错');
         }
+        $ssdb->hset($setName,md5($private_link->url));
 
         $private_link->shared = 1;
         $public_link->save();
@@ -157,7 +162,7 @@ class LinkController extends Controller
         $req = json_decode(Input::getContent());
 
         $ssdb = \LinkSSDB::ssdbConn();
-        $setName = \LinkSSDB::linkSetName();
+        $setName = \LinkSSDB::linkPrivateSetName();
         if($ssdb->hexists($setName,md5($req->url))->data){
             Log::info('link existed:'.$req->url.' - '.$setName.' # ');
             return response()->json(['result'=>'ok','msg'=>'已存在']);

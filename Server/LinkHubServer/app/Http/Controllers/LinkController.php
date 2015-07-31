@@ -18,7 +18,7 @@ class LinkController extends Controller
         $link = Link::find($id);
 
         $ssdb = \LinkSSDB::ssdbConn();
-        $setName = \LinkSSDB::linkSetName();
+        $setName = \LinkSSDB::linkPrivateSetName();
         $urlhash = md5($link->url);
 
         $setFavoName = \LinkSSDB::linkFavoriteSetName();

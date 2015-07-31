@@ -1,6 +1,7 @@
 <div class="item linkpoint">
     <div class="content" >
-        <i class="linkinfo send outline icon"
+        <i class="linkinfo linkshare send outline icon"
+           link_id="{{$link->id}}"
            data-html="
            <div class='content' style='min-width: 300px;'>
                类型：{{$link->typeString()}}<br/>
@@ -10,12 +11,12 @@
                标签：{{$link->tags}}
            </div>
            "></i>
+        <span class="linkmore" style="display:none">
+            <i class="edit icon linkedit" link_id="{{$link->id}}" ></i>
+            <i class="share alternate icon linkshare" link_id="{{$link->id}}"></i>
+        </span>
         <a class="userlink" link_id="{{$link->id}}" href="{{$link->url}}" target="_blank">
             {{$link->name}}
         </a>
-        <span class="linkmore" style="display:none">
-            <i class="edit icon linkedit" link_id="{{$link->id}}" ></i>
-            <i class="share alternate icon linkshare" link_id="{{$link->id}}" ></i>
-        </span>
     </div>
 </div>

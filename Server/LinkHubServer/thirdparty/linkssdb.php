@@ -15,7 +15,15 @@ class LinkSSDB{
         $ssdb = new \SSDB\Client('127.0.0.1',8888);
         return $ssdb;
     }
-    public static function linkSetName()
+
+    // public
+    public static function linkPublicSetName()
+    {
+        return 'link.public';
+    }
+
+    // user
+    public static function linkPrivateSetName()
     {
         $setName = 'link.user:'.Auth::user()->id;
         return $setName;

@@ -17,7 +17,7 @@ class LinkController extends Controller
     {
         $req = json_decode(Input::getContent());
         $ssdb = \LinkSSDB::ssdbConn();
-        $setName = \LinkSSDB::linkSetName();
+        $setName = \LinkSSDB::linkPrivateSetName();
         if($ssdb->hexists($setName,md5($req->url))->data){
             Log::info('link existed:'.$req->url.' - '.$setName.' # ');
             return response()->json(['result'=>'ok','msg'=>'已存在']);
@@ -45,7 +45,7 @@ class LinkController extends Controller
         Log::info('save link batch='.Input::getContent());
 
         $ssdb = \LinkSSDB::ssdbConn();
-        $setName = \LinkSSDB::linkSetName();
+        $setName = \LinkSSDB::linkPrivateSetName();
 
         $totalCount = count($req);
         $errorCount = 0;
