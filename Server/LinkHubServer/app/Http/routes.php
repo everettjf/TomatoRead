@@ -14,9 +14,7 @@
 Route::get('','IndexController@index');
 Route::get('topic','TopicController@index');
 Route::get('lucky','LuckyController@index');
-
 Route::get('about','IndexController@about');
-Route::get('help','IndexController@help');
 
 
 Route::group(['prefix'=>'link','middleware'=>'auth'],function() {
@@ -105,7 +103,3 @@ Route::group(['prefix'=>'api','namespace'=>'Api'],function(){
     });
 });
 
-// test
-Route::group(['prefix'=>'test'],function(){
-    Route::get('ssdb',"TestController@ssdb");
-});

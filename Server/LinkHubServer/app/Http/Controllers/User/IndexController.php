@@ -75,6 +75,7 @@ class IndexController extends Controller
             ->with('links_column3',$links->slice(20,10))
             ->with('links_column4',$links->slice(30,10))
             ->with('page',$page)
+            ->with('active','home')
             ;
     }
 

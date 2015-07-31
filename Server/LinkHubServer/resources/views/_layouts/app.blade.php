@@ -21,34 +21,21 @@
 
 <div class="ui top attached tabular menu">
     <div class="item">
-        <img src="/static/img/favicon.ico">
+        <img src="/static/img/favicon.ico">LinkHub 链接宝库
     </div>
-    <a href="{{url('')}}" class="item active">首页</a>
-    <a href="{{url('topic')}}" class="item">主题</a>
-    @if(!Auth::guest())
-    <a href="{{url('home')}}" class="item">我的链接</a>
-    @endif
-
-    <a href="{{url('about')}}" class="item">留言</a>
-    <a href="{{url('help')}}" class="item">使用帮助</a>
+    <a href="{{url('')}}" class="item @if(isset($active) && $active=='') active @endif">广场</a>
+    <a href="{{url('topic')}}" class="item @if(isset($active) && $active=='topic') active @endif">主题</a>
+    <a href="{{url('lucky')}}" class="item @if(isset($active) && $active=='lucky') active @endif">运气</a>
+    <a href="{{url('about')}}" class="item @if(isset($active) && $active=='about') active @endif">留言/帮助</a>
 
     <div class="right menu">
-        <a href="{{url('lucky')}}" class="item">试试运气</a>
 `
         @if(Auth::guest())
             <a href="{{url('auth/login')}}" class="item">登录</a>
             <a href="{{url('auth/register')}}" class="item">注册</a>
         @else
+            <a href="{{url('home')}}" class="item @if(isset($active) && $active=='home') active @endif">我的链接</a>
             <a href="{{url('home/dashboard')}}" class="item">个人中心</a>
-
-
-            <div class="ui dropdown item">
-                更多
-                <i class="dropdown icon"></i>
-                <div class="menu">
-                    <a href="{{ url('auth/logout') }}" class="item">退出</a>
-                </div>
-            </div>
         @endif
     </div>
 </div>
@@ -56,13 +43,10 @@
 
 @yield('content')
 
-
-
     <div class="ui vertical footer segment">
         <div class="ui center aligned container">
-
             <div class="ui horizontal small divided link list">
-                <a class="item" href="http://inkmind.xyz">联系我</a>
+                <a class="item" href="http://inkmind.xyz" target="_blank">联系我</a>
                 <a href="https://github.com/everettjf/LinkHub" target="_blank" class="item">GitHub</a>
             </div>
         </div>

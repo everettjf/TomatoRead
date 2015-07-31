@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\PrivateLucky;
+use Input,Redirect,Log;
+use App\PrivateLink;
+use App\Link;
 
 class LuckyController extends Controller
 {
@@ -16,7 +20,22 @@ class LuckyController extends Controller
      */
     public function index()
     {
-        return view('lucky');
+        $count = Link::count();
+        $value = rand(1,$count);
+        $link = Link::find($value);
+
+        $lucky_name = '黑洞，可以穿越星球';
+        $lucky_url = '';
+        if(isset($link)){
+            $lucky_name = $link->name;
+            $lucky_url = $link->url;
+        }
+
+        return view('lucky')
+            ->with('lucky_name',$lucky_name)
+            ->with('lucky_url',$lucky_url)
+            ->with('active','lucky')
+            ;
     }
 
     /**

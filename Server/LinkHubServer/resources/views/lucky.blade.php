@@ -6,18 +6,13 @@
         <div class="ui segments">
             <div class="ui segment">
                 <div class="ui header">
-                    <center>一不小心遇到如下链接：</center>
+                    <center>一不小心遇到：</center>
                 </div>
             </div>
 
             <div class="ui green segment">
                 <div class="ui header">
-                    <center>百度</center>
-                    </div>
-            </div>
-            <div class="ui red segment">
-                <div class="ui header">
-                    <center>百度</center>
+                    <center><a href="{{$lucky_url}}" target="_blank">{{$lucky_name}}</a> </center>
                     </div>
             </div>
         </div>

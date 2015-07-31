@@ -62,6 +62,7 @@ class IndexController extends Controller
             ->with('links_count',$links_count)
             ->with('page',$page)
             ->with('keyword',$keyword)
+            ->with('active','')
             ;
     }
 
@@ -74,11 +75,8 @@ class IndexController extends Controller
     }
     public function about()
     {
-        return view('about');
+        return view('about')
+            ->with('active','about')
+            ;
     }
-    public function help()
-    {
-        return view('help');
-    }
-
 }

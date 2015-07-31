@@ -16,7 +16,9 @@ class TopicController extends Controller
      */
     public function index()
     {
-        return view('topic');
+        return view('topic')
+            ->with('active','topic')
+            ;
     }
 
     /**
