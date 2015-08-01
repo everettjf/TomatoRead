@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Topic;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -26,6 +27,14 @@ class IndexController extends Controller
             });
     }
 
+    private function newFilterTopics($keyword)
+    {
+        if (!isset($keyword) || $keyword == '') {
+            return Topic::whereRaw('1=1');
+        }
+        return Topic::where('name','like','%'.$keyword.'%');
+    }
+
     public function index()
     {
         $take_count = 20;
@@ -46,13 +55,17 @@ class IndexController extends Controller
             ->take($take_count)
             ->get();
 
+        $latest_topics = $this->newFilterTopics($keyword)
+            ->orderBy('created_at','desc')
+            ->take($take_count)
+            ->get();
+
         $links_filter = $this->newFilterLinks($keyword);
         $links_count = $links_filter->count();
         $links = $links_filter->simplePaginate(40);
 
         $page = Input::get('page');
         if(!isset($page)) $page = 1;
-
 
         return view('index')
             ->with('links_top_greet',$links_top_greet)
@@ -62,6 +75,7 @@ class IndexController extends Controller
             ->with('links_count',$links_count)
             ->with('page',$page)
             ->with('keyword',$keyword)
+            ->with('latest_topics',$latest_topics)
             ->with('active','')
             ;
     }

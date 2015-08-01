@@ -15,6 +15,10 @@
         <div class="ui segment">
             <p>
                 最新主题：
+                @foreach($latest_topics as $topic)
+                    <i class="tasks icon"></i>
+                    <a href="{{url('topic').'/'.$topic->id}}">{{$topic->name}}</a>
+                @endforeach
             </p>
         </div>
     </div>
