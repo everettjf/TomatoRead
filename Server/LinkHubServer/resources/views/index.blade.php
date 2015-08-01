@@ -10,14 +10,16 @@
             <i class="search icon"></i>
         </div>
     </div>
+
     <div class="ui segments">
         <div class="ui segment">
             <p>
                 最新主题：
-
             </p>
         </div>
-        <div class="ui yellow segment">
+    </div>
+    <div class="ui segments">
+        <div class="ui segment">
             <p>
                 点赞最多：
                 @foreach($links_top_greet as $link)

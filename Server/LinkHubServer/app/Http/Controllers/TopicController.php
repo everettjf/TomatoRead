@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Topic;
+use Log,Input,Redirect;
 
 class TopicController extends Controller
 {
@@ -16,7 +18,16 @@ class TopicController extends Controller
      */
     public function index()
     {
+        $topics = Topic::simplePaginate(100);
+        $topic_count = Topic::count();
+
+        $page = Input::get('page');
+        if(!isset($page)) $page = 1;
+
         return view('topic')
+            ->with('topics',$topics)
+            ->with('topic_count',$topic_count)
+            ->with('page',$page)
             ->with('active','topic')
             ;
     }
@@ -49,7 +60,11 @@ class TopicController extends Controller
      */
     public function show($id)
     {
-        //
+        $topic = Topic::find($id);
+
+        return view('topicdetail')
+            ->with('topic',$topic)
+            ;
     }
 
     /**

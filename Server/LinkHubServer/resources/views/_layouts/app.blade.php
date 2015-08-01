@@ -30,12 +30,10 @@
     <a href="https://github.com/everettjf/LinkHub" target="_blank" class="item">GitHub</a>
 
     <div class="right menu">
-`
+        <a href="{{url('home')}}" class="item @if(isset($active) && $active=='home') active @endif">我的链接</a>
         @if(Auth::guest())
-            <a href="{{url('auth/login')}}" class="item">登录</a>
             <a href="{{url('auth/register')}}" class="item">注册</a>
         @else
-            <a href="{{url('home')}}" class="item @if(isset($active) && $active=='home') active @endif">我的链接</a>
             <a href="{{url('home/dashboard')}}" class="item">个人中心</a>
         @endif
     </div>
