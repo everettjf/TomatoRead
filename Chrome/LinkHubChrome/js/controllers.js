@@ -5,8 +5,8 @@
 
 
 var serverURL = function(partialURL){
-    //var baseUrl = 'http://linkhub.pub';
-    var baseUrl = 'http://linkhub.app:8080';
+    var baseUrl = 'http://linkhub.pub';
+    //var baseUrl = 'http://linkhub.app:8080';
     return baseUrl + partialURL;
 }
 
@@ -74,12 +74,17 @@ linkControllers.controller('LinkIndexCtrl',['$scope','$http',function($scope,$ht
 }]);
 
 var linkSingleScope = null;
+var linkSingleHttp = null;
 linkControllers.controller('LinkSingleCtrl',['$scope','$http',function($scope,$http){
     console.log('controller single');
     linkSingleScope = $scope;
+    linkSingleHttp = $http;
+
     $scope.okMsg = '';
     $scope.errorMsg = '';
     $scope.topics = [];
+    $scope.linkExisted = false;
+
 
     $http.post(serverURL('/api/private/topic'),{
     }).success(function(data,status){
@@ -99,6 +104,15 @@ linkControllers.controller('LinkSingleCtrl',['$scope','$http',function($scope,$h
         $scope.url = url;
         $scope.tags = '';
         $scope.$apply();
+
+        linkSingleHttp.post(serverURL('/api/private/isexisted'),{
+            url:url
+        }).success(function(data,status){
+            if(data.result == 'existed'){
+                var $scope = linkSingleScope;
+                $scope.linkExisted = true;
+            }
+        });
     });
 
     $scope.saveLink = function () {

@@ -1,3 +1,4 @@
+
 <form class="ui form">
     <div class="field">
         <label>标题</label>
@@ -28,7 +29,12 @@
             </div>
         </div>
     </div>
-    <button class="ui fluid green button" type="button" ng-click="saveLink()" ng-hide="okMsg != '' ">收藏</button>
+
+    <div class="ui info message" ng-show="linkExisted">
+        已经收藏
+    </div>
+
+    <button class="ui fluid green button" type="button" ng-click="saveLink()" ng-hide="okMsg != '' || linkExisted ">收藏</button>
 </form>
 
 <div class="ui info message" ng-show="okMsg != '' ">

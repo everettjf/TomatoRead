@@ -112,4 +112,16 @@ class LinkController extends Controller
         }
         return response()->json(['result'=>'ok','data'=>$link]);
     }
+
+    public function isExisted()
+    {
+        $req = json_decode(Input::getContent());
+        $ssdb = \LinkSSDB::ssdbConn();
+        $setName = \LinkSSDB::linkPrivateSetName();
+        if($ssdb->hexists($setName,md5($req->url))->data){
+            Log::info('link existed:'.$req->url.' - '.$setName.' # ');
+            return response()->json(['result'=>'existed']);
+        }
+        return response()->json(['result'=>'error']);
+    }
 }

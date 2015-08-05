@@ -100,13 +100,9 @@ Route::group(['prefix'=>'api','namespace'=>'Api'],function(){
         Route::get('linkinfo/{id}','LinkController@linkInfo');
 
         Route::post('topic','TopicController@getTopics');
+
+        Route::post('isexisted','LinkController@isExisted');
     });
 
-    // public link
-    Route::group(['prefix'=>'public'],function(){
-        // is shared
-
-
-    });
 });
 
