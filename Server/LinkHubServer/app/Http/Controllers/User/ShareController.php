@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Input,Redirect,Log;
+use Auth;
 
 class ShareController extends Controller
 {
