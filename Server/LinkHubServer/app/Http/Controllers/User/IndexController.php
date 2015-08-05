@@ -14,12 +14,15 @@ class IndexController extends Controller
 {
     private function newFilterPrivateLinks($keyword){
         if(!isset($keyword) || $keyword==''){
-            return PrivateLink::whereRaw('1=1');
+            return PrivateLink::where('user_id',Auth::user()->id);
         }
 
-        return PrivateLink::where('name','like','%'.$keyword.'%')
-            ->orWhere('url','like','%'.$keyword.'%')
-            ->orWhere('tags','like','%'.$keyword.'%')
+        return PrivateLink::where('user_id',Auth::user()->id)
+            ->where(function($query) use ($keyword) {
+                $query->orWhere('name','like','%'.$keyword.'%')
+                    ->orWhere('url','like','%'.$keyword.'%')
+                    ->orWhere('tags','like','%'.$keyword.'%');
+            })
             ;
     }
     /**
@@ -54,6 +57,7 @@ class IndexController extends Controller
             ->get();
 
         $topics = PrivateTopic::where('hide',0)
+            ->where('user_id',Auth::user()->id)
             ->orderBy('order','desc')
             ->get();
 

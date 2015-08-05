@@ -11,7 +11,7 @@ use App\PrivateTopic;
 class TopicController extends Controller
 {
     public function getTopics(){
-        $topics = PrivateTopic::all();
+        $topics = PrivateTopic::where('user_id',Auth::user()->id)->get();
 
         return response()->json([
             'topics'=>$topics,

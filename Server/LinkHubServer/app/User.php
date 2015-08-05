@@ -37,6 +37,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function privateLinks(){
         return $this->hasMany('App\PrivateLink');
     }
+    public function privateTopics(){
+        return $this->hasMany('App\PrivateTopic');
+    }
+
     public function links(){
         return $this->hasMany('App\Link');
     }
