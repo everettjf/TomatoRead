@@ -1,6 +1,19 @@
 @extends('_layouts.app')
 
 @section('content')
+
+
+    @if($links_count == 0)
+    <div class="ui info message">
+        <center>
+                还没有链接？
+            <a href="/static/LinkHubChrome.crx" target="_blank">点击这里下载Chrome扩展，通过Chrome扩展收藏链接。</a>
+            <br/>
+            <a href="http://jingyan.baidu.com/article/e5c39bf56286ae39d6603374.html" target="_blank">点击这里查看安装方法。</a>
+        </center>
+    </div>
+    @endif
+
     <div class="ui two column centered grid">
         <div class="column">
             <form id="filterForm" method="get" action="{{url('home')}}">
@@ -158,17 +171,6 @@
         </tr></tfoot>
     </table>
 
-
-    <div class="ui info message">
-        <center>
-        @if($links_count == 0)
-            还没有链接？
-        @endif
-        <a href="/static/LinkHubChrome.crx" target="_blank">点击这里下载Chrome扩展，通过Chrome扩展收藏链接。</a>
-            <br/>
-        <a href="http://jingyan.baidu.com/article/e5c39bf56286ae39d6603374.html" target="_blank">点击这里查看安装方法。</a>
-        </center>
-    </div>
 
     <div class="linkeditmodal ui modal">
         <i class="close icon"></i>

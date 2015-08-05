@@ -27,7 +27,6 @@
     <a href="{{url('topic')}}" class="item @if(isset($active) && $active=='topic') active @endif">主题</a>
     <a href="{{url('lucky')}}" class="item @if(isset($active) && $active=='lucky') active @endif">运气</a>
     <a href="{{url('about')}}" class="item @if(isset($active) && $active=='about') active @endif">留言/帮助</a>
-    <a href="https://github.com/everettjf/LinkHub" target="_blank" class="item">GitHub</a>
 
     <div class="right menu">
         <a href="{{url('home')}}" class="item @if(isset($active) && $active=='home') active @endif">我的链接</a>
@@ -59,6 +58,15 @@
 
 @yield('endofbody')
 
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?0631731d00cc2933952c1a60433cdf91";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
 
 </body>
 
