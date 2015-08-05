@@ -18,7 +18,8 @@ class ShareController extends Controller
      */
     public function index()
     {
-        $shares = PrivateShareLog::orderBy('created_at','desc')
+        $shares = PrivateShareLog::where('user_id',Auth::user()->id)
+            ->orderBy('created_at','desc')
             ->simplePaginate(20);
         $share_count = PrivateShareLog::count();
 
