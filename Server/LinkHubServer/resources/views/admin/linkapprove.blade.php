@@ -1,5 +1,13 @@
 @extends('_layouts.user')
 
+@section('endofbody')
+    <script>
+        $('.ui.radio.checkbox')
+                .checkbox()
+        ;
+    </script>
+    @endsection
+
 @section('subcontent')
 
 

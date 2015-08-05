@@ -92,7 +92,10 @@ class TopicController extends Controller
      */
     public function update($id)
     {
-        //
+        $topic = Topic::find($id);
+        $topic->name = Input::get('name');
+        $topic->save();
+        return Redirect::back();
     }
 
     /**
@@ -103,6 +106,8 @@ class TopicController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $topic = Topic::find($id);
+        $topic->delete();
+        return Redirect::back();
     }
 }

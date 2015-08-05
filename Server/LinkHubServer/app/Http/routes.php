@@ -65,6 +65,10 @@ Route::group(['prefix'=>'home','middleware'=>'auth'],function(){
         Route::get('linkrefuse','LinkController@getLinkRefuse');
         Route::post('linkrefuse/{id}','LinkController@postLinkRefuse');
 
+        Route::get('linknotopic','LinkController@getLinkNoTopic');
+        Route::post('linknotopic/{id}','LinkController@postLinkNoTopic');
+
+
         Route::resource('log','LogController');
         Route::resource('topic','TopicController');
         Route::resource('user','UserController');

@@ -66,7 +66,6 @@
                 <i class="thumbs outline down icon"></i>{{$link->disgreet}}
             </li>
             <li>标签：{{$link->tags}}</li>
-            <li>简介：{{$link->mark}}</li>
         </ul>
     </div>
 

@@ -28,7 +28,7 @@
                 <input name="_method" type="hidden" value="PUT">
 
                 <div class="ui fluid action input">
-                    <input id="modifyName" type="text" name="name" placeholder="类别名称">
+                    <input id="modifyName" type="text" name="name" placeholder="名称">
                     <button type="submit" class="ui orange button">确认</button>
                 </div>
             </form>

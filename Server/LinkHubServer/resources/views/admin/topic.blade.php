@@ -1,5 +1,24 @@
 @extends('_layouts.user')
+@section('endofbody')
 
+    <script language="javascript">
+        function confirmDelete(){
+            if(!confirm('确认删除吗？')){
+                return false;
+            }
+            return true;
+        }
+        function showModify(id,name){
+            var url = '{{ url('home/inkmind/topic') }}';
+            $('#modifyForm').attr('action', url + '/' + id);
+            $('#modifyName').val(name);
+            $('.ui.modal')
+                    .modal('show')
+            ;
+        }
+    </script>
+
+    @endsection
 @section('subcontent')
 
     @if(count($errors) > 0)
@@ -11,6 +30,22 @@
             </ul>
         </div>
     @endif
+
+    <div class="ui modal">
+        <div class="header">修改</div>
+        <div class="content">
+            <form id="modifyForm" method="post" style="display: inline;">
+                {!! csrf_field() !!}
+                <input name="_method" type="hidden" value="PUT">
+
+                <div class="ui fluid action input">
+                    <input id="modifyName" type="text" name="name" placeholder="名称">
+                    <button type="submit" class="ui orange button">确认</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
 
     <div class="ui pink segment">
         <form method="post" action="{{url('home/inkmind/topic')}}">
@@ -35,8 +70,13 @@
                 <td>{{$topic->name}}</td>
                 <td>{{$topic->links->count()}}</td>
                 <td>
-                    <i class="remove icon"></i>
-                    <i class="edit icon"></i>
+                    <button class="mini ui orange button" onclick="showModify({{$topic->id}},'{{$topic->name}}');">修改</button>
+
+                    <form method="post" action="{{ url('home/inkmind/topic/'.$topic->id) }}" style="display: inline;">
+                        {!! csrf_field() !!}
+                        <input name="_method" type="hidden" value="DELETE">
+                        <button type="submit" class="mini ui danger button" onclick="return confirmDelete();">删除</button>
+                    </form>
                 </td>
             </tr>
                 @endforeach

@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Link;
 use Input,Redirect,Log,Auth;
+use App\Topic;
 
 class LinkController extends Controller
 {
@@ -123,7 +124,9 @@ class LinkController extends Controller
 
     public function getLinkRefuse()
     {
-        return view('admin.linkrefuse');
+
+        return view('admin.linkrefuse')
+            ;
     }
     public function postLinkRefuse($id)
     {
@@ -134,4 +137,51 @@ class LinkController extends Controller
         }
         return Redirect::back();
     }
+
+    public function getLinkNoTopic()
+    {
+        $count = Link::where('topic_id',0)->count();
+        $links = Link::where('topic_id',0)->take(1)->get();
+        $link = null;
+        if(count($links) > 0){
+            $link = $links[0];
+        }
+        $topics = Topic::all();
+
+        return view('admin.linknotopic')
+            ->with('topics',$topics)
+            ->with('count',$count)
+            ->with('link',$link)
+            ;
+    }
+
+
+    public function postLinkNoTopic($id,Request $request)
+    {
+        $this->validate($request,[
+            'name'=>'required',
+        ]);
+
+        $link = Link::find($id);
+        $link->name = Input::get('name');
+        $link->tags = Input::get('tags');
+        $link->state = 1;
+
+        $topic_id = Input::get('topic');
+        if($topic_id == 0){
+            $topic = new Topic();
+            $topic->name = Input::get('topic_name');
+            $topic->save();
+
+            $topic_id = $topic->id;
+        }
+
+        $link->topic_id = $topic_id;
+
+        if(!$link->save()){
+            return Redirect::back()->withErrors('保存出错');
+        }
+        return Redirect::back();
+    }
+
 }

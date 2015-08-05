@@ -12,7 +12,8 @@
                 @if(Auth::user()->type == 9)
                 <div class="ui divider"></div>
                 <a href="{{ url('home/inkmind/dashboard') }}" class="item">系统概览</a>
-                <a href="{{ url('home/inkmind/linkapprove') }}" class="item">审核链接</a>
+                <a href="{{ url('home/inkmind/linkapprove') }}" class="item">待审核链接</a>
+                <a href="{{ url('home/inkmind/linknotopic') }}" class="item">无主题链接</a>
                 <a href="{{ url('home/inkmind/topic') }}" class="item">主题管理</a>
                 <a href="{{ url('home/inkmind/user') }}" class="item">用户管理</a>
                 <a href="{{ url('home/inkmind/tipoff') }}" class="item">举报管理</a>

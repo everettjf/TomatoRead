@@ -274,10 +274,6 @@
                     <input type="text" name="tags" id="linksharetags">
                 </div>
 
-                <div class="field">
-                    <label>简介（可为空）</label>
-                    <input type="text" name="mark">
-                </div>
             </form>
             <p>
                 （分享的链接，通过平台审核后就可以在首页看到了。）
