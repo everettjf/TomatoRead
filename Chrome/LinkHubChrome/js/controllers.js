@@ -70,6 +70,7 @@ linkControllers.controller('LinkIndexCtrl',['$scope','$http',function($scope,$ht
         }, function (tab) {
         });
     }
+
 }]);
 
 var linkSingleScope = null;
@@ -78,6 +79,18 @@ linkControllers.controller('LinkSingleCtrl',['$scope','$http',function($scope,$h
     linkSingleScope = $scope;
     $scope.okMsg = '';
     $scope.errorMsg = '';
+    $scope.topics = [];
+
+    $http.post(serverURL('/api/private/topic'),{
+    }).success(function(data,status){
+        var $scope = linkSingleScope;
+        $scope.topics = data.topics;
+        $scope.$apply();
+
+        $('.ui.radio.checkbox')
+            .checkbox()
+        ;
+    });
 
     getCurrentTabUrl(function(title,url) {
         var $scope = linkSingleScope;
@@ -93,10 +106,19 @@ linkControllers.controller('LinkSingleCtrl',['$scope','$http',function($scope,$h
             return;
         }
 
+        var topic_id = 0;
+        $("input[name='topic']").each(function(index,elem){
+            if($(elem).attr('checked') != 'undefined'){
+                topic_id = $(elem).val();
+            }
+        });
+        console.log('topic=' + topic_id);
+
         $http.post(serverURL('/api/private/savelink'),{
             name:$scope.name,
             url:$scope.url,
-            tags:$scope.tags
+            tags:$scope.tags,
+            topic:topic_id
         }).success(function (data, status) {
             if(data.result='ok'){
                 $scope.okMsg = '已收藏';
@@ -107,8 +129,6 @@ linkControllers.controller('LinkSingleCtrl',['$scope','$http',function($scope,$h
             $scope.errorMsg = '收藏出错：服务器错误';
         });
     };
-
-
 }]);
 
 var linkTabScope = null;

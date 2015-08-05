@@ -29,6 +29,7 @@ class LinkController extends Controller
         $link->name = $req->name;
         $link->url = $req->url;
         $link->tags = $req->tags;
+        $link->private_topic_id = $req->topic;
 
         if(! $link->save()){
             return response()->json(['result'=>'error','msg'=>'保存出错']);

@@ -98,6 +98,8 @@ Route::group(['prefix'=>'api','namespace'=>'Api'],function(){
         Route::post('savelinkbatch','LinkController@saveLinkBatch');
         Route::post('click/{id}','LinkController@clickLink');
         Route::get('linkinfo/{id}','LinkController@linkInfo');
+
+        Route::post('topic','TopicController@getTopics');
     });
 
     // public link

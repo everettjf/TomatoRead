@@ -11,7 +11,24 @@
         <label>标签</label>
         <input type="text" placeholder="标签（多个标签空格分隔）" ng-model="tags">
     </div>
-    <button class="ui fluid green button" type="button" ng-click="saveLink()">收藏</button>
+    <div class="field">
+        <label>主题</label>
+        <div class="inline fields">
+            <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="topic" checked="" tabindex="0" class="hidden" value="0">
+                    <label>暂不分配</label>
+                </div>
+            </div>
+            <div class="field" ng-repeat="topic in topics">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="topic"  tabindex="0" class="hidden" value="{{topic.id}}">
+                    <label>{{topic.name}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="ui fluid green button" type="button" ng-click="saveLink()" ng-hide="okMsg != '' ">收藏</button>
 </form>
 
 <div class="ui info message" ng-show="okMsg != '' ">

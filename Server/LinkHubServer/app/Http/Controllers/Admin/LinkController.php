@@ -171,6 +171,9 @@ class LinkController extends Controller
         if($topic_id == 0){
             $topic = new Topic();
             $topic->name = Input::get('topic_name');
+            if($topic->name == ''){
+                return Redirect::back()->withErrors('新建主题名称不能为空');
+            }
             $topic->save();
 
             $topic_id = $topic->id;
