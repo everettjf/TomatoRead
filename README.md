@@ -1,45 +1,39 @@
-**Project Developing**
+*Project Under Developing*
+
 # LinkHub
-- 开源，免费，好用，永不关停的小众服务
-- 目标
-    + 想点击的链接就在首页
-    + 容易找到某一领域的“权威”链接（网站、公众号等）
-    + 分享
-- QQ群：157422249
 
-# 吹牛
-- 第-1代搜索引擎
-- 现有搜索引擎的替代品（百度、Google）
+**Link Bookmark Sharing Community**
 
-# 背景
-- 网址收藏越来越多，却找不到一个好的管理工具。
-- Chrome等浏览器内置的收藏夹管理工具不好用。
-- 想知道网址的点击次数。
-- 想知道哪些网址很久不点击了。
-- 裸辞在家，向往着自由职业，自己写一个吧。
+# Feature
 
-# 功能
-- 收藏网址，自动添加Tag。
-- 记录网址点击次数。
-- 记录网址最后点击时间。
-- Chrome插件
-    + 添加活动tab
-    + 添加所有tab
-    + 导入收藏夹
+- Link personal blog
+- Add link from Chrome extension
+- Link click count remember
+- Link recommand system
+- Link tag system
 
-- 网址广场
-    + 网址点赞、点反对、举报
-    + 网址评论
+# Technique
 
-# 使用技术
-- mysql
-- ssdb
-- php (laravel)
-- chrome extension
-- angularjs
-- jquery
-- semantic
+- Flask
+- MongoDB
+- AngularJS
+
+# Todo
+
+- [X] Readme rewrite
+- [ ] Basic skeleton
+- [ ] Users register or just connect to GitHub
+- [ ] Chrome extension 
+- [ ] Index page
+- [ ] Personal links page
+- [ ] More...
 
 
----
-[关于我](http://inkmind.xyz)
+# History versions
+
+- The 1st release is based on Beego
+- The 2nd release is based on Laravel
+
+These two pre-releases are the designed too complex , and written when I was not so familar with web development. So these are just releases at my first attempt.
+And now , I will bring the 3rd release which is very simple ,and it is written with KISS in mind.
+Let's go!
