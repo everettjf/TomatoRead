@@ -21,8 +21,8 @@
 # Todo
 
 - [X] Readme rewrite
-- [ ] Basic skeleton
-- [ ] Users register or just connect to GitHub
+- [X] Basic skeleton
+- [ ] Users register / login /logout
 - [ ] Chrome extension 
 - [ ] Index page
 - [ ] Personal links page

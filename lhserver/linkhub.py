@@ -3,6 +3,7 @@ from mongoengine import connect,errors
 from model import model
 import hashlib
 
+
 app = Flask(__name__)
 app.config.from_object('config')
 
@@ -21,7 +22,6 @@ def user_list():
 
 @app.route('/u/<blog_id>')
 def user_index(blog_id):
-    print 'blog id= ' + blog_id
     return render_template('user_index.html')
 
 
