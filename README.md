@@ -28,6 +28,17 @@
 - [ ] Personal links page
 - [ ] More...
 
+# Setup
+
+1. Install MongoDB
+
+2. App
+```
+pip install flask
+pip install mongoengine
+```
+3. ...
+
 
 # History versions
 
