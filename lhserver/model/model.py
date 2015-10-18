@@ -3,8 +3,8 @@ import datetime
 
 
 class User(Document):
-    email = StringField(required=True)
-    blog_id = StringField(required=True, max_length=100)
+    email = StringField(required=True, unique=True)
+    blog_id = StringField(required=True, max_length=100, unique=True)
     password = StringField(required=True, max_length=100)
 
 
@@ -16,9 +16,8 @@ class Post(Document):
     created_at = DateTimeField(default=datetime.datetime.now)
 
 
-
 class LinkPost(Post):
-    link_url = StringField()
+    link_url = StringField(unique_with='author')
     click_count = IntField()
 
 

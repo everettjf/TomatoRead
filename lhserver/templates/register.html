@@ -5,6 +5,13 @@
     <title></title>
 </head>
 <body>
-register
+<h2>Register</h2>
+{% if error %}<p>{{ error }}</p>{% endif %}
+
+<form action="{{ url_for('register') }}" method="post">
+    Email:<input type="email" name="email"/> <br/>
+    Password:<input type="password" name="password"><br/>
+    <input type="submit" value="Register"/>
+</form>
 </body>
 </html>
