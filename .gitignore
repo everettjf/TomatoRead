@@ -1,6 +1,2 @@
-*.pem
-/Server/LSServer/logs
-/Server/LSServer/LSServer
-*.log
-*.sublime-workspace
 .idea/
+*.pyc

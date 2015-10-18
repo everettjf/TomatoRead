@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<p>
+    Hello LinkHub
+</p>
+<p>
+    {% if not session.logged_in %}
+    <a href="{{ url_for('login') }}">Login</a>
+    {% else %}
+    <a href="{{ url_for('logout') }}">Login</a>
+    {% endif %}
+
+    <a href="{{ url_for('register') }}">Register</a>
+</p>
+
+</body>
+</html>
