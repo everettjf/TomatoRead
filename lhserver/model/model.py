@@ -17,19 +17,11 @@ class Post(Document):
 
 
 class LinkPost(Post):
-    link_url = StringField(unique_with='author')
-    click_count = IntField()
+    link_url = StringField(unique_with=['author', 'title'])
+    click_events = ListField(DateTimeField(default=datetime.datetime.now))
 
 
 class TextPost(Post):
-    content = StringField()
+    content = StringField(max_length=100, unique_with=['author', 'title'])
 
-
-class Event(Document):
-    meta = {'allow_inheritance': True}
-    created_at = DateTimeField(default=datetime.datetime.now)
-
-
-class ClickEvent(Event):
-    pass
 
