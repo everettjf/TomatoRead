@@ -9,6 +9,8 @@
 {% if error %}<p>{{ error }}</p>{% endif %}
 
 <form action="{{ url_for('register') }}" method="post">
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+
     Email:<input type="email" name="email"/> <br/>
     Password:<input type="password" name="password"><br/>
     <input type="submit" value="Register"/>

@@ -1,4 +1,5 @@
 from flask import Flask,request,session,g,redirect,url_for,abort,render_template,flash
+from flask.ext.seasurf import SeaSurf
 from mongoengine import connect,errors
 from model import model
 import hashlib
@@ -6,8 +7,9 @@ import hashlib
 
 app = Flask(__name__)
 app.config.from_object('config')
+csrf = SeaSurf(app)
 
-connect('linkhub')
+connect(app.config['DB_NAME'])
 
 
 @app.route('/')
