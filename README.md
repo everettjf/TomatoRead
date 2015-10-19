@@ -2,7 +2,7 @@
 
 # LinkHub
 
-**Link Bookmark Sharing Community**
+**Most Simplest Link Bookmark Sharing Community**
 
 # Feature
 
@@ -22,10 +22,10 @@
 
 - [X] Readme rewrite
 - [X] Basic skeleton
-- [ ] Users register / login /logout
+- [X] Users register / login /logout
 - [ ] Chrome extension 
-- [ ] Index page
 - [ ] Personal links page
+- [ ] Index page
 - [ ] More...
 
 # Setup

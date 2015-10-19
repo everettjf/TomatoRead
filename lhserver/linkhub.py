@@ -22,12 +22,18 @@ login_manager.init_app(app)
 connect(app.config['DB_NAME'])
 
 
+# For Login
 @login_manager.user_loader
 def load_user(user_id):
     users = model.User.objects(id=user_id)
     if len(users) == 0:
         return None
     return users[0]
+
+
+# Util
+def password_hash(password):
+    return hashlib.sha1(hashlib.sha1(password + app.config['PASSWORD_SALT']).hexdigest()).hexdigest()
 
 
 # Routes
@@ -50,31 +56,31 @@ def user_index(blog_id):
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    error = None
-    if request.method == 'POST':
+    register_form = form.RegisterForm(request.form)
+    if request.method == 'POST' and register_form.validate():
         user = model.User()
         user.email = request.form['email']
-        user.password = request.form['password']
-
+        user.password = password_hash(request.form['password'])
         user.blog_id = hashlib.md5(user.email).hexdigest()
+
         try:
             user.save()
             flash('Register succeed')
             return redirect(url_for('login'))
         except errors.NotUniqueError, err:
-            error = 'Save error (Email existed) :' + err.message
+            flash('Email existed')
         except errors.OperationError, err:
-            error = 'Save error : ' + err.message
+            flash('Save Error')
 
-    return render_template('register.html', error=error)
+    return render_template('register.html', form=register_form)
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     login_form = form.LoginForm(request.form)
     if request.method == 'POST' and login_form.validate():
-        users = model.User.objects(email=login_form.email.data,
-                           password=login_form.password.data)
+        password = password_hash(login_form.password.data)
+        users = model.User.objects(email=login_form.email.data, password=password)
         if len(users) > 0:
             user = users[0]
             login_user(user)
