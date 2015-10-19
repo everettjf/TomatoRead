@@ -6,6 +6,10 @@
 </head>
 <body>
 <h2>Register</h2>
+{% for message in get_flashed_messages() %}
+    <p>{{ message }}</p>
+{% endfor %}
+
 {% if error %}<p>{{ error }}</p>{% endif %}
 
 <form action="{{ url_for('register') }}" method="post">

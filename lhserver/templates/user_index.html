@@ -5,9 +5,21 @@
     <title></title>
 </head>
 <body>
+<h1>My all links </h1>
+
 {% for message in get_flashed_messages() %}
     <p>{{ message }}</p>
 {% endfor %}
-user index
+
+
+{% if current_user.is_authenticated %}
+  Hi {{ current_user.email }}!
+{% endif %}
+
+
+<p>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</p>
+
 </body>
 </html>
