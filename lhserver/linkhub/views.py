@@ -1,25 +1,10 @@
-from flask import Flask,request,session,g,redirect,url_for,abort,render_template,flash
-from flask.ext.seasurf import SeaSurf
-from flask.ext.login import LoginManager, login_required, login_user, logout_user
-from mongoengine import connect,errors
+from flask import request,session,g,redirect,url_for,abort,render_template,flash
+from flask.ext.login import login_required, login_user, logout_user
+from mongoengine import errors
+from . import app, login_manager
 import forms
 import models
 import hashlib
-
-
-# App
-app = Flask(__name__)
-app.config.from_object('config')
-
-# CSRF Protect
-csrf = SeaSurf(app)
-
-# Login Manager
-login_manager = LoginManager()
-login_manager.init_app(app)
-
-# MongoDB
-connect(app.config['DB_NAME'])
 
 
 # For Login
@@ -104,6 +89,4 @@ def logout():
 # UpdateLink
 #
 
-if __name__ == '__main__':
-    app.run()
 
