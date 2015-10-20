@@ -33,7 +33,7 @@ def user_list():
     return 'Hi'
 
 
-@app.route('/u/<blog_id>')
+@app.route('/u/<string:blog_id>')
 @login_required
 def user_index(blog_id):
     return render_template('user_index.html')

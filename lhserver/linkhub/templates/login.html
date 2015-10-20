@@ -10,13 +10,16 @@
 {% endfor %}
 
 {% from "_formhelper.html" import render_field %}
+
 <form action="{{ url_for('login') }}" method="post">
-    <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
-  <dl>
-    {{ render_field(form.email) }}
-    {{ render_field(form.password) }}
-  </dl>
-  <p><input type="submit" value="Login">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+    <dl>
+        {{ render_field(form.email) }}
+        {{ render_field(form.password) }}
+    </dl>
+    <p>
+        <input type="submit" value="Login">
+    </p>
 </form>
 </body>
 </html>
