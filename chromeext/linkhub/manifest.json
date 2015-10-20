@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+
+  "name": "LinkHub",
+  "description": "Share your links",
+  "version": "0.3",
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "page_action": {
+    "default_icon": "image/on.png",
+    "default_popup" : "app.html",
+    "default_title" : "Save Link"
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "http://0.0.0.0:5000/"
+  ],
+  "icons":{
+    "48":"image/on.png",
+    "128":"image/on.png"
+  }
+}
