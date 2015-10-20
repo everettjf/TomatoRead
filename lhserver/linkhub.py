@@ -2,8 +2,8 @@ from flask import Flask,request,session,g,redirect,url_for,abort,render_template
 from flask.ext.seasurf import SeaSurf
 from flask.ext.login import LoginManager, login_required, login_user, logout_user
 from mongoengine import connect,errors
-from form import form
-from model import model
+import forms
+import models
 import hashlib
 
 
@@ -25,7 +25,7 @@ connect(app.config['DB_NAME'])
 # For Login
 @login_manager.user_loader
 def load_user(user_id):
-    users = model.User.objects(id=user_id)
+    users = models.User.objects(id=user_id)
     if len(users) == 0:
         return None
     return users[0]
@@ -56,9 +56,9 @@ def user_index(blog_id):
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    register_form = form.RegisterForm(request.form)
+    register_form = forms.RegisterForm(request.form)
     if request.method == 'POST' and register_form.validate():
-        user = model.User()
+        user = models.User()
         user.email = request.form['email']
         user.password = password_hash(request.form['password'])
         user.blog_id = hashlib.md5(user.email).hexdigest()
@@ -77,10 +77,10 @@ def register():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    login_form = form.LoginForm(request.form)
+    login_form = forms.LoginForm(request.form)
     if request.method == 'POST' and login_form.validate():
         password = password_hash(login_form.password.data)
-        users = model.User.objects(email=login_form.email.data, password=password)
+        users = models.User.objects(email=login_form.email.data, password=password)
         if len(users) > 0:
             user = users[0]
             login_user(user)
