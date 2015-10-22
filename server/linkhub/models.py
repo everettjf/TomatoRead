@@ -18,8 +18,8 @@ class Post(Document):
 
 
 class LinkPost(Post):
-    link_url = StringField(unique_with=['user', 'title'])
-    click_events = ListField(DateTimeField(default=datetime.datetime.now))
+    url = StringField(unique_with=['user', 'title'])
+    clicks = ListField(DateTimeField(default=datetime.datetime.now))
 
 
 class TextPost(Post):
