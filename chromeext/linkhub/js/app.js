@@ -10,11 +10,18 @@ linkhubApp.controller('linkhubCtrl',['$scope','$http',function($scope,$http){
     console.log('controller');
     linkhubScope = $scope;
 
-    // Check login status
+    // 0 checking login state
+    // 1 did login
+    // 2 not login
+    $scope.loginState = 0;
+
+    // Check login state
     apiCurrentUser(function(user){
         console.log('succeed=' + user.email);
+        $scope.loginState = 1;
     }, function () {
         console.log('fail check login');
+        $scope.loginState = 2;
     });
 
 }]);
