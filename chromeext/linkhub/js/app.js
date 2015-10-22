@@ -2,9 +2,6 @@
  * Created by everettjf on 10/22/15.
  */
 
-function serverUrl(partialUrl){
-    return 'http://0.0.0.0:5000/' + partialUrl;
-}
 
 var linkhubApp = angular.module('linkhubApp',[]);
 var linkhubScope = null;
@@ -14,19 +11,12 @@ linkhubApp.controller('linkhubCtrl',['$scope','$http',function($scope,$http){
     linkhubScope = $scope;
 
     // Check login status
-    $.ajax({
-        type:'POST',
-        url:serverUrl('api/get_current_user'),
-        data:JSON.stringify({
-            endpoint:'chrome'
-        }),
-        dataType:'json',
-        contentType:'application/json; charset=utf-8'
-    }).done(function(data){
-        console.log('succeed=' + data.email);
-    }).fail(function(){
+    apiCurrentUser(function(user){
+        console.log('succeed=' + user.email);
+    }, function () {
         console.log('fail check login');
     });
+
 }]);
 
 

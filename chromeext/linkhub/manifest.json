@@ -5,7 +5,11 @@
   "description": "Share your links",
   "version": "0.3",
   "background": {
-    "scripts": ["js/background.js"]
+    "scripts": [
+      "vendor/jquery-2.1.4.min.js",
+      "js/common.js",
+      "js/background.js"
+    ]
   },
   "page_action": {
     "default_icon": "image/on.png",

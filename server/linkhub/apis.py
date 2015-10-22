@@ -4,7 +4,7 @@ from flask.ext.login import login_required, login_user, logout_user,current_user
 
 
 @csrf.exempt
-@app.route('/api/get_current_user', methods=['POST'])
+@app.route('/api/user/current_user', methods=['POST'])
 @login_required
 def api_get_current_user():
     req = request.json
