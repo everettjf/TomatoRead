@@ -15,5 +15,28 @@ def api_get_current_user():
                    )
 
 
+@csrf.exempt
+@app.route('/api/link/add', methods=['POST'])
+@login_required
+def api_add_link():
+    req = request.get_json()
+    print req
+    print req['title']
+    print req['url']
+    print req['tags']
+
+    return jsonify(succeed=True)
+
+
+@csrf.exempt
+@app.route('/api/link/exist', methods=['POST'])
+@login_required
+def api_is_exist_link():
+    req = request.get_json()
+    print req
+
+    return jsonify(exist=False)
+
+
 
 

@@ -12,17 +12,24 @@ class User(Document, UserMixin):
 class Post(Document):
     meta = {'allow_inheritance': True}
     title = StringField(required=True, max_length=100)
-    author = ReferenceField(User)
+    user = ReferenceField(User)
     tags = ListField(StringField(max_length=50))
     created_at = DateTimeField(default=datetime.datetime.now)
 
 
 class LinkPost(Post):
-    link_url = StringField(unique_with=['author', 'title'])
+    link_url = StringField(unique_with=['user', 'title'])
     click_events = ListField(DateTimeField(default=datetime.datetime.now))
 
 
 class TextPost(Post):
-    content = StringField(max_length=100, unique_with=['author', 'title'])
+    content = StringField(max_length=100, unique_with=['user', 'title'])
+
+
+class Tag(Document):
+    name = StringField(required=True, max_length=50)
+    user = ReferenceField(User, required=True, unique_with=['name'])
+    posts = ListField(ReferenceField(User))
+    created_at = DateTimeField(default=datetime.datetime.now)
 
 

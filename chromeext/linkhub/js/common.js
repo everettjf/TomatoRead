@@ -16,8 +16,8 @@ function jsonPost(relativeUrl,parameter,done,fail){
     }).done(function(data){
         console.log('succeed:' + relativeUrl);
         done(data);
-    }).fail(function(){
-        console.log('fail:' + relativeUrl);
+    }).fail(function(resp){
+        console.log('fail('+ resp.status + '):' + relativeUrl);
         fail();
     });
 }
@@ -26,5 +26,24 @@ function jsonPost(relativeUrl,parameter,done,fail){
 function apiCurrentUser(done,fail){
     jsonPost('api/user/current_user',{
         endpoint:'chrome'
-    },done,fail);
+    },
+        done,
+        fail
+    );
+}
+
+function apiAddLink(req,done,fail){
+    jsonPost('api/link/add',
+        req,
+        done,
+        fail
+    );
+}
+
+function apiIsExistLink(req,done,fail){
+    jsonPost('api/link/exist',
+        req,
+        done,
+        fail
+    );
 }

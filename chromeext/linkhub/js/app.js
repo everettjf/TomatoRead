@@ -53,8 +53,27 @@ function initPageInfo(){
 
             // if added ,load it
             // else if not added , try add it
+            apiIsExistLink({
+                url:tab.url
+            },function(result){
+                if(result.exist){
+                    console.log('url is exist:' + tab.url);
 
-
+                }else{
+                    // Add
+                    apiAddLink({
+                        title:tab.title,
+                        url:tab.url,
+                        tags:''
+                    },function (result) {
+                        // Succeed
+                    },function(){
+                        // Error
+                    });
+                }
+            },function(){
+                // Error
+            });
 
         }, function () {
             console.log('fail check login');
@@ -63,7 +82,6 @@ function initPageInfo(){
 
             currentUser = null;
         });
-
     });
 }
 
