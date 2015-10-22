@@ -5,7 +5,7 @@
   "description": "Share your links",
   "version": "0.3",
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["js/background.js"]
   },
   "page_action": {
     "default_icon": "image/on.png",
