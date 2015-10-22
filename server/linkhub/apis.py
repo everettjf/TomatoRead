@@ -18,6 +18,26 @@ def api_get_current_user():
 
 
 @csrf.exempt
+@app.route('/api/link/exist', methods=['POST'])
+@login_required
+def api_is_exist_link():
+    req = request.get_json()
+    print req
+    url = req['url']
+
+    users = models.User.objects(id=current_user.id)
+    if len(users) == 0:
+        return jsonify(succeed=False)
+    user = users[0]
+
+    search_links = models.LinkPost.objects(user=user, url=url)
+    if len(search_links) > 0:
+        return jsonify(exist=True)
+
+    return jsonify(exist=False)
+
+
+@csrf.exempt
 @app.route('/api/link/add', methods=['POST'])
 @login_required
 def api_add_link():
@@ -35,39 +55,64 @@ def api_add_link():
 
     users = models.User.objects(id=current_user.id)
     if len(users) == 0:
-        return jsonify(succeed=False)
-
+        return jsonify(succeed=False,
+                       reason='User not exist')
     user = users[0]
+
+    clicks = []
+    # if exist , update
+    search_links = models.LinkPost.objects(user=user, url=url)
+    if len(search_links) > 0:
+        old_link = search_links[0]
+        tags += old_link.tags
+        tags = list(set(tags))
+
+        clicks += old_link.clicks
 
     link = models.LinkPost()
     link.title = title
     link.user = user
     link.tags = tags
     link.url = url
-    link.clicks = []
+    link.clicks = clicks
 
+    link_save_succeed = False
     try:
         link.save()
-
-        return jsonify(succeed=True)
     except errors.NotUniqueError, err:
-        return jsonify(succeed=False)
+        pass
     except errors.OperationError, err:
+        pass
+
+    if not link_save_succeed:
         return jsonify(succeed=False)
 
+    for tag in tags:
+        try:
+            search_tags = models.Tag.objects(user=user, name=tag)
+            if len(search_tags) > 0:
+                # Update
+                tag_model = search_tags[0]
+                tag_model.posts.append(link)
+                tag_model.save()
+            else:
+                # Add
+                tag_model = models.Tag()
+                tag_model.name = tag
+                tag_model.user = user
+                tag_model.posts = [link]
+                tag_model.save()
+        except errors.NotUniqueError, err:
+            pass
+        except errors.OperationError, err:
+            pass
 
-    return jsonify(succeed=False)
+    return jsonify(succeed=True)
 
 
 @csrf.exempt
-@app.route('/api/link/exist', methods=['POST'])
+@app.route('/api/link/edit', methods=['POST'])
 @login_required
-def api_is_exist_link():
-    req = request.get_json()
-    print req
-
-    return jsonify(exist=False)
-
-
-
+def api_edit_link():
+    pass
 
