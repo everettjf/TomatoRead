@@ -24,6 +24,12 @@ linkhubApp.controller('linkhubCtrl',['$scope','$http',function($scope,$http){
         $scope.loginState = 2;
     });
 
+    $scope.openNewTab = function (relativeUrl) {
+        chrome.tabs.create({
+            url:serverUrl(relativeUrl)
+        },function(tab){
+        });
+    };
 }]);
 
 

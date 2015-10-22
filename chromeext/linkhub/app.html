@@ -25,7 +25,9 @@
     <a href="#">Remove</a>
 </div>
 <div ng-show="loginState == 2">
-    <a href="#">Login OR Register</a>
+    <a href="#" ng-click="openNewTab('login')">Login</a>
+    OR
+    <a href="#" ng-click="openNewTab('register')">Register</a>
 </div>
 
 <script src="js/common.js"></script>
