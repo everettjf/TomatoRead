@@ -6,6 +6,8 @@
 var linkhubApp = angular.module('linkhubApp',[]);
 var linkhubScope = null;
 
+var currentUser = null;
+
 linkhubApp.controller('linkhubCtrl',['$scope','$http',function($scope,$http){
     console.log('controller');
     linkhubScope = $scope;
@@ -15,14 +17,6 @@ linkhubApp.controller('linkhubCtrl',['$scope','$http',function($scope,$http){
     // 2 not login
     $scope.loginState = 0;
 
-    // Check login state
-    apiCurrentUser(function(user){
-        console.log('succeed=' + user.email);
-        $scope.loginState = 1;
-    }, function () {
-        console.log('fail check login');
-        $scope.loginState = 2;
-    });
 
     $scope.openNewTab = function (relativeUrl) {
         chrome.tabs.create({
@@ -49,10 +43,26 @@ function initPageInfo(){
         linkhubScope.linkFavicon = tab.favIconUrl;
         linkhubScope.$apply();
 
+        // Check login state
+        apiCurrentUser(function(user){
+            console.log('succeed=' + user.email);
+            linkhubScope.loginState = 1;
+            linkhubScope.$apply();
+
+            currentUser = user;
+
+            // if added ,load it
+            // else if not added , try add it
 
 
-        // Check if added , otherwise try add it
 
+        }, function () {
+            console.log('fail check login');
+            linkhubScope.loginState = 2;
+            linkhubScope.$apply();
+
+            currentUser = null;
+        });
 
     });
 }
