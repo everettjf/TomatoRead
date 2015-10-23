@@ -6,6 +6,14 @@ function serverUrl(partialUrl){
     return 'http://0.0.0.0:5000/' + partialUrl;
 }
 
+function logInfo(prefix,content){
+    console.log(prefix + '|' + content);
+}
+
+var clog=function(content){
+    logInfo('common',content);
+};
+
 function jsonPost(relativeUrl,parameter,done,fail){
     $.ajax({
         type:'POST',
@@ -14,10 +22,10 @@ function jsonPost(relativeUrl,parameter,done,fail){
         dataType:'json',
         contentType:'application/json; charset=utf-8'
     }).done(function(data){
-        console.log('succeed:' + relativeUrl);
+        clog('succeed:' + relativeUrl);
         done(data);
     }).fail(function(resp){
-        console.log('fail('+ resp.status + '):' + relativeUrl);
+        clog('fail('+ resp.status + '):' + relativeUrl);
         fail();
     });
 }

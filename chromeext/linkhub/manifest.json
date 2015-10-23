@@ -12,7 +12,7 @@
     ]
   },
   "page_action": {
-    "default_icon": "image/on.png",
+    "default_icon": "image/off.png",
     "default_popup" : "app.html",
     "default_title" : "Save Link"
   },

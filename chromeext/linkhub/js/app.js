@@ -1,7 +1,8 @@
-/**
- * Created by everettjf on 10/22/15.
- */
 
+// override global clog
+clog = function(content){
+    logInfo('app',content);
+};
 
 var linkhubApp = angular.module('linkhubApp',[]);
 var linkhubScope = null;
@@ -9,7 +10,7 @@ var linkhubScope = null;
 var currentUser = null;
 
 linkhubApp.controller('linkhubCtrl',['$scope','$http',function($scope,$http){
-    console.log('controller');
+    clog('controller');
     linkhubScope = $scope;
 
     // 0 checking login state
@@ -34,7 +35,7 @@ function initPageInfo(){
     };
 
     chrome.tabs.query(queryInfo, function(tabs){
-        console.log('active tab got');
+        clog('active tab got');
         var tab = tabs[0];
 
         // Update UI
@@ -45,7 +46,7 @@ function initPageInfo(){
 
         // Check login state
         apiCurrentUser(function(user){
-            console.log('succeed=' + user.email);
+            clog('succeed=' + user.email);
             linkhubScope.loginState = 1;
             linkhubScope.$apply();
 
@@ -57,14 +58,13 @@ function initPageInfo(){
                 url:tab.url
             },function(result){
                 if(result.exist){
-                    console.log('url is exist:' + tab.url);
+                    clog('url is exist:' + tab.url);
 
                 }else{
-                    // Add
+                    // Add (Fast add without tags)
                     apiAddLink({
                         title:tab.title,
-                        url:tab.url,
-                        tags:''
+                        url:tab.url
                     },function (result) {
                         // Succeed
                     },function(){
@@ -76,7 +76,7 @@ function initPageInfo(){
             });
 
         }, function () {
-            console.log('fail check login');
+            clog('fail check login');
             linkhubScope.loginState = 2;
             linkhubScope.$apply();
 
@@ -86,7 +86,7 @@ function initPageInfo(){
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('dom loaded');
+    clog('dom loaded');
 
     initPageInfo();
 });
