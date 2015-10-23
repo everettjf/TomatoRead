@@ -67,6 +67,11 @@ function initPageInfo(){
                         url:tab.url
                     },function (result) {
                         // Succeed
+                        chrome.pageAction.setIcon({
+                            tabId:tab.id,
+                            path:'image/on.png',
+                        },function(){
+                        });
                     },function(){
                         // Error
                     });
