@@ -20,6 +20,8 @@ linkhubApp.controller('linkhubCtrl',['$scope','$http',function($scope,$http){
     $scope.loginState = 0;
 
     $scope.linkUrl = '';
+    $scope.linkTags = '';
+    $scope.linkTitle = '';
 
 
     $scope.openNewTab = function (relativeUrl) {
@@ -38,6 +40,18 @@ linkhubApp.controller('linkhubCtrl',['$scope','$http',function($scope,$http){
                 path:'image/off.png',
             },function(){
             });
+            window.close();
+        },function(){
+        });
+    };
+
+    $scope.updateLink = function () {
+        apiUpdateLink({
+            title:$scope.linkTitle,
+            url:$scope.linkUrl,
+            tags:$scope.linkTags,
+        }, function (result) {
+            window.close();
         },function(){
         });
     };

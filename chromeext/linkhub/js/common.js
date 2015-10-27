@@ -63,3 +63,8 @@ function apiRemoveLink(req,done,fail){
         fail
     );
 }
+
+function apiUpdateLink(req,done,fail){
+    jsonPost('api/link/update',
+    req,done,fail);
+}
