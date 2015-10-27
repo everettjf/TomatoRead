@@ -30,13 +30,26 @@ def index():
 @app.route('/u')
 @login_required
 def user_list():
-    return 'Hi'
+    return 'Hi,you should visit /u/your_blog_id'
 
 
-@app.route('/u/<string:blog_id>')
+@app.route('/u/<string:blog_id>' , methods=['GET'])
 @login_required
 def user_index(blog_id):
-    return render_template('user_index.html')
+    user = models.User.objects(blog_id=blog_id).first()
+    if user is None:
+        return 'Blog not found'
+
+    posts = models.LinkPost.objects(user=user)
+    if len(posts) == 0:
+        return 'No links'
+
+    posts_data = [dict(
+        title=post.title,
+        url=post.url,
+    ) for post in posts]
+
+    return render_template('user_index.html', posts=posts_data)
 
 
 @app.route('/register', methods=['GET', 'POST'])

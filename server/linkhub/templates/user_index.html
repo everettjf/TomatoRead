@@ -1,25 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-<h1>My all links </h1>
+{% extends "user_layout.html" %}
+{% block body %}
 
-{% for message in get_flashed_messages() %}
-    <p>{{ message }}</p>
-{% endfor %}
+    {% for post in posts %}
+        <a href="{{ post.url }}" target="_blank">
+        {{ post.title }}
+        </a>
+        &nbsp;&nbsp;
+    {% endfor %}
 
-
-{% if current_user.is_authenticated %}
-  Hi {{ current_user.email }}!
-{% endif %}
-
-
-<p>
-    <a href="{{ url_for('logout') }}">Logout</a>
-</p>
-
-</body>
-</html>
+{% endblock %}
