@@ -55,3 +55,11 @@ function apiIsExistLink(req,done,fail){
         fail
     );
 }
+
+function apiRemoveLink(req,done,fail){
+    jsonPost('api/link/remove',
+        req,
+        done,
+        fail
+    );
+}

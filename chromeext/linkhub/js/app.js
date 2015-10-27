@@ -8,6 +8,7 @@ var linkhubApp = angular.module('linkhubApp',[]);
 var linkhubScope = null;
 
 var currentUser = null;
+var currentTabID = null;
 
 linkhubApp.controller('linkhubCtrl',['$scope','$http',function($scope,$http){
     clog('controller');
@@ -18,11 +19,26 @@ linkhubApp.controller('linkhubCtrl',['$scope','$http',function($scope,$http){
     // 2 not login
     $scope.loginState = 0;
 
+    $scope.linkUrl = '';
+
 
     $scope.openNewTab = function (relativeUrl) {
         chrome.tabs.create({
             url:serverUrl(relativeUrl)
         },function(tab){
+        });
+    };
+
+    $scope.removeLink = function(){
+        apiRemoveLink({
+            url:$scope.linkUrl
+        },function(result){
+            chrome.pageAction.setIcon({
+                tabId:currentTabID,
+                path:'image/off.png',
+            },function(){
+            });
+        },function(){
         });
     };
 }]);
@@ -37,6 +53,7 @@ function initPageInfo(){
     chrome.tabs.query(queryInfo, function(tabs){
         clog('active tab got');
         var tab = tabs[0];
+        currentTabID = tab.id;
 
         // Update UI
         linkhubScope.linkTitle = tab.title;

@@ -155,7 +155,6 @@ def api_update_link():
     return jsonify(succeed=True)
 
 
-
 @csrf.exempt
 @app.route('/api/link/info', methods=['GET'])
 @login_required
@@ -170,11 +169,10 @@ def api_get_link_info():
     print tags
     print url
 
-    users = models.User.objects(id=current_user.id)
-    if len(users) == 0:
+    user = models.User.objects(id=current_user.id).first()
+    if user is None:
         return jsonify(succeed=False,
                        reason='User not exist')
-    user = users[0]
 
     # if exist , update
     search_links = models.LinkPost.objects(user=user, url=url)
@@ -190,5 +188,31 @@ def api_get_link_info():
                    title=link.title,
                    tags=tag_string
                    )
+
+
+@csrf.exempt
+@app.route('/api/link/remove', methods=['POST'])
+@login_required
+def api_remove_link():
+    req = request.get_json()
+    print req
+    url = req['url']
+
+    user = models.User.objects(id=current_user.id).first()
+    if user is None:
+        return jsonify(succeed=False,
+                       reason='User not exist')
+
+    link = models.LinkPost.objects(url=url).first()
+    if link is None:
+        return jsonify(succeed=True,
+                       reason='Link not exist')
+
+    try:
+        link.delete()
+        return jsonify(succeed=True)
+    except:
+        return jsonify(succeed=False,
+                       reason='Delete error')
 
 
