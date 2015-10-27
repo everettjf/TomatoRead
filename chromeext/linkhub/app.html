@@ -10,24 +10,35 @@
 </head>
 <body ng-controller="linkhubCtrl">
 
-<div ng-show="errorInfo != ''">
+<div class="alert alert-warning" role="alert" ng-show="errorInfo != ''">
     {{ errorInfo }}
 </div>
 
-<div ng-show="loginState == 0">
+<div class="alert alert-info" role="alert" ng-show="loginState == 0">
     Checking login state...
 </div>
+
 <div ng-show="loginState == 1">
-    Name:<input type="text" value="Name" ng-model="linkTitle"/>
-    <br/>
-    Tags:<input type="text" value="Tag" ng-model="linkTags"/>
-    <br/>
-    URL: {{ linkUrl }}
-    Favicon: {{ linkFavicon }}
-    <br/>
-    <a href="#" ng-click="updateLink()">Confirm</a>
-    <a href="#" ng-click="removeLink()">Remove</a>
+    <form>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" placeholder="Title" ng-model="linkTitle">
+      </div>
+      <div class="form-group">
+        <label for="tags">Tags</label>
+        <input type="text" class="form-control" id="tags" placeholder="Tags" ng-model="linkTags">
+      </div>
+    </form>
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+      <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default" ng-click="removeLink()">Remove</button>
+      </div>
+      <div class="btn-group" role="group">
+          <button type="button" class="btn btn-primary" ng-click="updateLink()">Update</button>
+      </div>
+    </div>
 </div>
+
 <div ng-show="loginState == 2">
     <a href="#" ng-click="openNewTab('login')">Login</a>
     OR

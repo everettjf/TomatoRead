@@ -9,13 +9,13 @@
     Hello LinkHub
 </p>
 <p>
-    {% if not session.logged_in %}
-    <a href="{{ url_for('login') }}">Login</a>
+    {% if not current_user.is_authenticated %}
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('register') }}">Register</a>
     {% else %}
-    <a href="{{ url_for('logout') }}">Login</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
     {% endif %}
 
-    <a href="{{ url_for('register') }}">Register</a>
 </p>
 
 </body>
