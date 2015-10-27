@@ -19,6 +19,8 @@ linkhubApp.controller('linkhubCtrl',['$scope','$http',function($scope,$http){
     // 2 not login
     $scope.loginState = 0;
 
+    $scope.errorInfo = '';
+
     $scope.linkUrl = '';
     $scope.linkTags = '';
     $scope.linkTitle = '';
@@ -42,6 +44,7 @@ linkhubApp.controller('linkhubCtrl',['$scope','$http',function($scope,$http){
             });
             window.close();
         },function(){
+            $scope.errorInfo = 'Failed to remove';
         });
     };
 
@@ -53,6 +56,7 @@ linkhubApp.controller('linkhubCtrl',['$scope','$http',function($scope,$http){
         }, function (result) {
             window.close();
         },function(){
+            $scope.errorInfo = 'Failed to update';
         });
     };
 }]);
