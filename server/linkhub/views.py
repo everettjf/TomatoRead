@@ -44,12 +44,12 @@ def user_index(blog_id):
     if len(posts) == 0:
         return 'No links'
 
-    posts_data = [dict(
-        title=post.title,
-        url=post.url,
-    ) for post in posts]
+    tags = models.Tag.objects(user=user)
 
-    return render_template('user_index.html', posts=posts_data)
+    return render_template('user_index.html',
+                           posts=posts,
+                           tags=tags
+                           )
 
 
 @app.route('/register', methods=['GET', 'POST'])
