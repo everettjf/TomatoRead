@@ -22,10 +22,10 @@ document.addEventListener('DOMContentLoaded', function() {
         apiCurrentUser(function(user){
             clog('succeed=' + user.email);
 
-            apiIsExistLink({
+            apiLinkInfo({
                 url:tab.url
             },function(result){
-                if(result.exist){
+                if(result.succeed){
                     clog('url is exist:' + tab.url);
                     chrome.pageAction.setIcon({
                         tabId:tabId,

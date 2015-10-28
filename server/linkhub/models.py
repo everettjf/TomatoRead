@@ -9,27 +9,26 @@ class User(Document, UserMixin):
     password = StringField(required=True, max_length=100)
 
 
+class Tag(Document):
+    name = StringField(required=True, max_length=50)
+    user = ReferenceField(User, required=True, unique_with=['name'])
+    created_at = DateTimeField(default=datetime.datetime.now)
+
+
 class Post(Document):
     meta = {'allow_inheritance': True}
     title = StringField(required=True, max_length=100)
     user = ReferenceField(User)
-    tags = ListField(StringField(max_length=50))
+    tags = ListField(ReferenceField(Tag))
     created_at = DateTimeField(default=datetime.datetime.now)
 
 
 class LinkPost(Post):
-    url = StringField(unique_with=['user', 'title'])
+    url = StringField(unique_with=['user'])
     clicks = ListField(DateTimeField(default=datetime.datetime.now))
 
 
 class TextPost(Post):
-    content = StringField(max_length=100, unique_with=['user', 'title'])
-
-
-class Tag(Document):
-    name = StringField(required=True, max_length=50)
-    user = ReferenceField(User, required=True, unique_with=['name'])
-    posts = ListField(ReferenceField(User))
-    created_at = DateTimeField(default=datetime.datetime.now)
+    content = StringField(max_length=100, unique_with=['user'])
 
 

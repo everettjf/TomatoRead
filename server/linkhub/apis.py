@@ -16,27 +16,6 @@ def api_get_current_user():
                    blog_id=current_user.blog_id
                    )
 
-
-@csrf.exempt
-@app.route('/api/link/exist', methods=['POST'])
-@login_required
-def api_is_exist_link():
-    req = request.get_json()
-    print req
-    url = req['url']
-
-    users = models.User.objects(id=current_user.id)
-    if len(users) == 0:
-        return jsonify(succeed=False)
-    user = users[0]
-
-    search_links = models.LinkPost.objects(user=user, url=url)
-    if len(search_links) == 0:
-        return jsonify(exist=False)
-
-    return jsonify(exist=True)
-
-
 @csrf.exempt
 @app.route('/api/link/add', methods=['POST'])
 @login_required
@@ -101,73 +80,55 @@ def api_update_link():
     print tags
     print url
 
-    users = models.User.objects(id=current_user.id)
-    if len(users) == 0:
+    user = models.User.objects(id=current_user.id).first()
+    if user is None:
         return jsonify(succeed=False,
                        reason='User not exist')
-    user = users[0]
 
-    # if exist , update
-    search_links = models.LinkPost.objects(user=user, url=url)
-    if len(search_links) == 0:
+    link = models.LinkPost.objects(user=user, url=url).first()
+    if link is None:
         return jsonify(succeed=False,
                        reason='URL not exist'
                        )
-    link = search_links[0]
 
-    error_occur = False
-    link.title = title
-    link.tags = tags
-    try:
-        link.save()
-    except:
-        error_occur = True
-
-    if error_occur:
-        return jsonify(succeed=False,
-                       reason='Update link failed'
-                       )
-
+    tags_data = []
+    print 'tags=', tags
     for tag in tags:
         try:
-            search_tags = models.Tag.objects(user=user, name=tag)
-            if len(search_tags) > 0:
-                # Update
-                tag_model = search_tags[0]
-                tag_model.posts.append(link)
-                tag_model.save()
-            else:
-                # Add
-                tag_model = models.Tag()
-                tag_model.name = tag
-                tag_model.user = user
-                tag_model.posts = [link]
-                tag_model.save()
-        except:
-            error_occur = True
-            pass
+            cur_tag = models.Tag.objects(user=user, name=tag).first()
+            if cur_tag is None:
+                cur_tag = models.Tag()
+                cur_tag.name = tag
+                cur_tag.user = user
+                cur_tag.save()
 
-    if error_occur:
+            tags_data.append(cur_tag)
+        except Exception, e:
+            print 'update tag error :', e.message
+            return jsonify(succeed=False,
+                           reason='Update tags failed'
+                           )
+
+    link.title = title
+    link.tags = tags_data
+    try:
+        link.save()
+    except Exception, e:
+        print 'link save error : ', e.message
         return jsonify(succeed=False,
-                       reason='Update tags failed'
+                       reason='Update link failed'
                        )
 
     return jsonify(succeed=True)
 
 
 @csrf.exempt
-@app.route('/api/link/info', methods=['GET'])
+@app.route('/api/link/info', methods=['POST'])
 @login_required
-def api_get_link_info():
+def api_link_info():
     req = request.get_json()
     print req
     url = req['url']
-
-    tags = list(set(req['tags'].replace(',', ' ').split(' ')))
-    tags = [tag.strip() for tag in tags if tag.strip()]
-
-    print tags
-    print url
 
     user = models.User.objects(id=current_user.id).first()
     if user is None:
@@ -175,14 +136,13 @@ def api_get_link_info():
                        reason='User not exist')
 
     # if exist , update
-    search_links = models.LinkPost.objects(user=user, url=url)
-    if len(search_links) == 0:
+    link = models.LinkPost.objects(user=user, url=url).first()
+    if link is None:
         return jsonify(succeed=False,
                        reason='URL not exist'
                        )
-    link = search_links[0]
-
-    tag_string = link.tags.join(' ')
+    tag_names = [tag.name for tag in link.tags]
+    tag_string = " ".join(tag_names)
 
     return jsonify(succeed=True,
                    title=link.title,

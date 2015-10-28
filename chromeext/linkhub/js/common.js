@@ -48,14 +48,6 @@ function apiAddLink(req,done,fail){
     );
 }
 
-function apiIsExistLink(req,done,fail){
-    jsonPost('api/link/exist',
-        req,
-        done,
-        fail
-    );
-}
-
 function apiRemoveLink(req,done,fail){
     jsonPost('api/link/remove',
         req,
@@ -66,5 +58,10 @@ function apiRemoveLink(req,done,fail){
 
 function apiUpdateLink(req,done,fail){
     jsonPost('api/link/update',
+    req,done,fail);
+}
+
+function apiLinkInfo(req,done,fail){
+    jsonPost('api/link/info',
     req,done,fail);
 }

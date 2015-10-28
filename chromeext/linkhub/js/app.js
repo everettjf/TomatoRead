@@ -89,12 +89,15 @@ function initPageInfo(){
 
             // if added ,load it
             // else if not added , try add it
-            apiIsExistLink({
+            apiLinkInfo({
                 url:tab.url
             },function(result){
-                if(result.exist){
-                    clog('url is exist:' + tab.url);
+                if(result.succeed){
+                    clog('url is exist:' + result.title);
 
+                    linkhubScope.linkTitle = result.title;
+                    linkhubScope.linkTags = result.tags;
+                    linkhubScope.$apply();
                 }else{
                     // Add (Fast add without tags)
                     apiAddLink({
