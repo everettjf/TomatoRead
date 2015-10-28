@@ -6,7 +6,10 @@ import datetime
 class User(Document, UserMixin):
     email = StringField(required=True, unique=True)
     blog_id = StringField(required=True, max_length=100, unique=True)
-    password = StringField(required=True, max_length=100)
+    github_url = StringField()
+    github_name = StringField()
+    github_login = StringField()
+    github_avatar_url = StringField()
 
 
 class Tag(Document):
