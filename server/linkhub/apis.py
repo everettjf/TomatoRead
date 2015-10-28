@@ -34,7 +34,6 @@ def api_add_link():
                        reason='User not exist')
     user = users[0]
 
-    clicks = []
     # if exist , update
     search_links = models.LinkPost.objects(user=user, url=url)
     if len(search_links) > 0:
@@ -47,7 +46,7 @@ def api_add_link():
     link.user = user
     link.tags = []
     link.url = url
-    link.clicks = clicks
+    link.click_events = []
 
     link_save_succeed = False
     try:
@@ -70,15 +69,11 @@ def api_add_link():
 def api_update_link():
     req = request.get_json()
     print req
-    title = req['title']
     url = req['url']
 
+    title = req['title']
     tags = list(set(req['tags'].replace(',', ' ').split(' ')))
     tags = [tag.strip() for tag in tags if tag.strip()]
-
-    print title
-    print tags
-    print url
 
     user = models.User.objects(id=current_user.id).first()
     if user is None:
@@ -90,9 +85,7 @@ def api_update_link():
         return jsonify(succeed=False,
                        reason='URL not exist'
                        )
-
     tags_data = []
-    print 'tags=', tags
     for tag in tags:
         try:
             cur_tag = models.Tag.objects(user=user, name=tag).first()
