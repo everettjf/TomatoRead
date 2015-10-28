@@ -9,10 +9,8 @@ from .utils import password_hash
 
 @app.route('/')
 def index():
-    if 'github_token' in session:
-        # me = github.get('user')
-        # return 'Logged on : ' + current_user.email
-        pass
+    if current_user.is_authenticated:
+        return redirect(url_for('user_index', blog_id=current_user.blog_id))
 
     return render_template('index.html')
 
@@ -42,7 +40,6 @@ def authorized():
 
     info = me.data
     email = info['email']
-    print email
 
     user = models.User.objects(email=email).first()
     if user is None:
@@ -63,8 +60,7 @@ def authorized():
     login_user(user)
     flash('Logged in successfully.')
 
-    # return redirect(url_for('user_index', blog_id=user.blog_id))
-    return 'Hello ' + user.email
+    return redirect(url_for('index'))
 
 
 @github.tokengetter
@@ -77,11 +73,6 @@ def get_github_oauth_token():
 def load_user(user_id):
     return models.User.objects(id=user_id).first()
 
-
-@app.route('/u')
-@login_required
-def user_list():
-    return redirect(url_for('user_index', blog_id=current_user.blog_id))
 
 
 @app.route('/u/<string:blog_id>', methods=['GET'])
