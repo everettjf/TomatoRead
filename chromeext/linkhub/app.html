@@ -28,6 +28,11 @@
         <label for="tags">Tags</label>
         <input type="text" class="form-control" id="tags" placeholder="Tags" ng-model="linkTags">
       </div>
+        <div class="form-group">
+            <span ng-repeat="tag in recommendTags">
+                <a href="#" ng-click="appendTag(tag)">{{ tag }}</a>
+            </span>
+        </div>
     </form>
     <div class="btn-group btn-group-justified" role="group" aria-label="...">
       <div class="btn-group" role="group">

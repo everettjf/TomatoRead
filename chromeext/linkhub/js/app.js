@@ -24,7 +24,18 @@ linkhubApp.controller('linkhubCtrl',['$scope','$http',function($scope,$http){
     $scope.linkUrl = '';
     $scope.linkTags = '';
     $scope.linkTitle = '';
+    $scope.recommendTags = [];
 
+    apiTagsRecommend(function(result){
+        if(result.succeed){
+            $scope.recommendTags = result.tags;
+        }
+    },function(){
+    });
+
+    $scope.appendTag = function (tag) {
+        $scope.linkTags += ' ' + tag;
+    };
 
     $scope.openNewTab = function (relativeUrl) {
         chrome.tabs.create({

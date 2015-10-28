@@ -4,7 +4,7 @@ from mongoengine import errors
 from . import app, login_manager
 import forms
 import models
-import hashlib
+from .utils import password_hash
 
 
 # For Login
@@ -14,42 +14,6 @@ def load_user(user_id):
     if len(users) == 0:
         return None
     return users[0]
-
-
-# Util
-def password_hash(password):
-    return hashlib.sha1(hashlib.sha1(password + app.config['PASSWORD_SALT']).hexdigest()).hexdigest()
-
-
-# Routes
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-
-@app.route('/u')
-@login_required
-def user_list():
-    return 'Hi,you should visit /u/your_blog_id'
-
-
-@app.route('/u/<string:blog_id>' , methods=['GET'])
-@login_required
-def user_index(blog_id):
-    user = models.User.objects(blog_id=blog_id).first()
-    if user is None:
-        return 'Blog not found'
-
-    posts = models.LinkPost.objects(user=user)
-    if len(posts) == 0:
-        return 'No links'
-
-    tags = models.Tag.objects(user=user)
-
-    return render_template('user_index.html',
-                           posts=posts,
-                           tags=tags
-                           )
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -97,9 +61,34 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
-# AddLink
-# ClickLink
-# UpdateLink
-#
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
+@app.route('/u')
+@login_required
+def user_list():
+    return 'Hi,you should visit /u/your_blog_id'
+
+
+@app.route('/u/<string:blog_id>' , methods=['GET'])
+@login_required
+def user_index(blog_id):
+    user = models.User.objects(blog_id=blog_id).first()
+    if user is None:
+        return 'Blog not found'
+
+    posts = models.LinkPost.objects(user=user)
+    if len(posts) == 0:
+        return 'No links'
+
+    tags = models.Tag.objects(user=user)
+
+    return render_template('user_index.html',
+                           posts=posts,
+                           tags=tags
+                           )
 
 

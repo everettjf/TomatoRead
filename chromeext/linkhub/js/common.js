@@ -30,6 +30,22 @@ function jsonPost(relativeUrl,parameter,done,fail){
     });
 }
 
+function jsonGet(relativeUrl,parameter,done,fail){
+    $.ajax({
+        type:'GET',
+        url:serverUrl(relativeUrl),
+        data:parameter,
+        dataType:'json',
+        contentType:'application/json; charset=utf-8'
+    }).done(function(data){
+        clog('succeed:' + relativeUrl);
+        done(data);
+    }).fail(function(resp){
+        clog('fail('+ resp.status + '):' + relativeUrl);
+        fail();
+    });
+}
+
 // Helper
 function apiCurrentUser(done,fail){
     jsonPost('api/user/current_user',{
@@ -64,4 +80,8 @@ function apiUpdateLink(req,done,fail){
 function apiLinkInfo(req,done,fail){
     jsonPost('api/link/info',
     req,done,fail);
+}
+
+function apiTagsRecommend(done,fail){
+    jsonGet('api/tags/recommend',{},done,fail);
 }

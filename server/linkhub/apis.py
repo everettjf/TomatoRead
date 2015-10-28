@@ -3,6 +3,7 @@ from flask import json,jsonify,json_available, request
 from flask.ext.login import login_required, login_user, logout_user,current_user
 from mongoengine import errors
 import models
+import utils
 
 
 @csrf.exempt
@@ -168,4 +169,20 @@ def api_remove_link():
         return jsonify(succeed=False,
                        reason='Delete error')
 
+
+@csrf.exempt
+@app.route('/api/tags/recommend', methods=['GET'])
+@login_required
+def api_tags_recommend():
+    user = models.User.objects(id=current_user.id).first()
+    if user is None:
+        return jsonify(succeed=False,
+                       reason='User not exist')
+    tags = models.Tag.objects(user=user)
+    tag_list = [tag.name for tag in tags]
+
+    return utils.json_response({
+        'succeed': True,
+        'tags': tag_list
+    })
 
