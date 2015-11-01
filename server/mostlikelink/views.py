@@ -9,8 +9,8 @@ from .utils import password_hash
 
 @app.route('/')
 def index():
-    if current_user.is_authenticated:
-        return redirect(url_for('user_index', blog_id=current_user.blog_id))
+    # if current_user.is_authenticated:
+    #     return redirect(url_for('user_index', blog_id=current_user.blog_id))
 
     return render_template('index.html')
 
@@ -75,7 +75,6 @@ def load_user(user_id):
 
 
 @app.route('/u/<string:blog_id>', methods=['GET'])
-@login_required
 def user_index(blog_id):
     user = models.User.objects(blog_id=blog_id).first()
     if user is None:

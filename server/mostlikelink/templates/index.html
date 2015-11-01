@@ -17,12 +17,12 @@
 
 <p>
     {% if not current_user.is_authenticated %}
-        <a href="{{ url_for('login') }}">Login With GitHub</a>
+        <a href="{{ url_for('login') }}">login with GitHub</a>
     {% else %}
-        <a href="{{ url_for('logout') }}">Logout</a>
+        <a href="{{ url_for('user_index', blog_id=current_user.blog_id)}}">enter</a>
+        <a href="{{ url_for('logout') }}">logout</a>
     {% endif %}
 </p>
-
 
 <p>
     {% for message in get_flashed_messages() %}
