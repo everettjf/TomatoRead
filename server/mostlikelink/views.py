@@ -80,15 +80,9 @@ def user_index(blog_id):
     if user is None:
         return 'Blog not found'
 
-    posts = models.LinkPost.objects(user=user)
-    if len(posts) == 0:
-        return 'No links'
-
-    tags = models.Tag.objects(user=user)
-
     return render_template('user.html',
-                           posts=posts,
-                           tags=tags
+                           user_name=user.github_name,
+                           blog_id=blog_id
                            )
 
 

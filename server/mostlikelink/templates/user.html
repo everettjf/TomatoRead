@@ -1,34 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="mostlikelinkApp">
 <head>
     <meta charset="UTF-8">
-    <title>my mostlike.link</title>
+    <title>{{ user_name }} mostlike.link</title>
 
     <link rel="stylesheet" href="{{ url_for('static',filename='vendor/bootstrap-3.3.5-dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
     <script src="{{ url_for('static',filename='vendor/jquery-2.1.4.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='vendor/angular.min.js') }}"></script>
 
 </head>
-<body>
+<body ng-controller="mostlikelinkCtrl">
 
-{% for message in get_flashed_messages() %}
-    <br/> {{ message }}
-{% endfor %}
-
-{% for tag in tags %}
-    {{ tag.name }}
+<h6>Tags</h6>
+<span ng-repeat="tag in allTags">
+    <a href="#">[[ tag.name ]]</a>
     &nbsp;&nbsp;
-{% endfor %}
+</span>
 
-
-<hr/>
-
-{% for post in posts %}
-    <a href="{{ post.url }}" target="_blank">
-        {{ post.title }}
-    </a>
+<h6>Links</h6>
+<span ng-repeat="link in allLinks">
+    <a href="[[ link.url ]]">[[link.title]]</a>
     &nbsp;&nbsp;
-{% endfor %}
+</span>
+
+<script>
+    var blog_id='{{ blog_id }}';
+</script>
+<script src="{{ url_for('static',filename='js/app.js')}}"></script>
 
 </body>
 </html>
