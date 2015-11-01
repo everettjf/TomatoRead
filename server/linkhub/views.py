@@ -74,7 +74,6 @@ def load_user(user_id):
     return models.User.objects(id=user_id).first()
 
 
-
 @app.route('/u/<string:blog_id>', methods=['GET'])
 @login_required
 def user_index(blog_id):
