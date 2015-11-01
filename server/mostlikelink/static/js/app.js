@@ -18,8 +18,13 @@ mostlikelinkApp.config(['$interpolateProvider', function($interpolateProvider) {
   $interpolateProvider.endSymbol(']]');
 }]);
 
-mostlikelinkApp.controller('mostlikelinkCtrl',['$scope','$http',function($scope,$http){
+mostlikelinkApp.controller('mostlikelinkCtrl',['$scope','$http','$window',function($scope,$http,$window){
     clog('blog id = ' + blog_id);
+
+    if(blog_id == undefined){
+        clog('return when undefined');
+        return;
+    }
 
     $scope.allTags = [];
     $scope.filterTags = [];
@@ -41,4 +46,21 @@ mostlikelinkApp.controller('mostlikelinkCtrl',['$scope','$http',function($scope,
     }).error(function(data,status){
     });
 
+    $scope.clickLink = function (link) {
+        clog(link.title);
+        $window.open(link.url, '_blank');
+
+        $http.post(serverUrl('api/blog/link/click'),{
+            blog_id:blog_id,
+            link_id:link.id
+        }).success(function (data, status) {
+            clog('click = ' + data.succeed);
+        }).error(function (data, status) {
+        });
+    }
+
+    $scope.clickTag = function (tag) {
+        clog(tag.name);
+
+    }
 }]);

@@ -8,7 +8,7 @@ import utils
 
 @csrf.exempt
 @app.route('/api/blog/index', methods=['POST'])
-def api_tags_all():
+def api_blog_index():
     req = request.get_json()
     print req
     blog_id = req['blog_id']
@@ -36,3 +36,38 @@ def api_tags_all():
         'all_tags': all_tags_list,
         'all_links': all_links_list
     })
+
+
+@csrf.exempt
+@app.route('/api/blog/link/click', methods=['POST'])
+def api_blog_link_click():
+    req = request.get_json()
+    print req
+    blog_id = req['blog_id']
+    link_id = req['link_id']
+
+    user = models.User.objects(blog_id=blog_id).first()
+    if user is None:
+        return jsonify(succeed=False,
+                       reason='User not exist')
+
+    link = models.LinkPost.objects(id=link_id).first()
+    if link is None:
+        return jsonify(succeed=False,
+                       reason='Link not exist'
+                       )
+
+    event = models.ClickEvent()
+    event.user = user
+    try:
+        event.save()
+        link.click_events.append(event)
+        link.save()
+    except Exception, e:
+        print 'link save error : ', e.message
+        return jsonify(succeed=False,
+                       reason='Update link failed'
+                       )
+
+    return jsonify(succeed=True)
+
