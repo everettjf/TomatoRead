@@ -4,15 +4,15 @@ clog = function(content){
     logInfo('app',content);
 };
 
-var linkhubApp = angular.module('linkhubApp',[]);
-var linkhubScope = null;
+var mostlikelinkApp = angular.module('mostlikelinkApp',[]);
+var mostlikelink = null;
 
 var currentUser = null;
 var currentTabID = null;
 
-linkhubApp.controller('linkhubCtrl',['$scope','$http',function($scope,$http){
+mostlikelinkApp.controller('mostlikelinkCtrl',['$scope','$http',function($scope,$http){
     clog('controller');
-    linkhubScope = $scope;
+    mostlikelink = $scope;
 
     // 0 checking login state
     // 1 did login
@@ -85,16 +85,16 @@ function initPageInfo(){
         currentTabID = tab.id;
 
         // Update UI
-        linkhubScope.linkTitle = tab.title;
-        linkhubScope.linkUrl = tab.url;
-        linkhubScope.linkFavicon = tab.favIconUrl;
-        linkhubScope.$apply();
+        mostlikelink.linkTitle = tab.title;
+        mostlikelink.linkUrl = tab.url;
+        mostlikelink.linkFavicon = tab.favIconUrl;
+        mostlikelink.$apply();
 
         // Check login state
         apiCurrentUser(function(user){
             clog('succeed=' + user.email);
-            linkhubScope.loginState = 1;
-            linkhubScope.$apply();
+            mostlikelink.loginState = 1;
+            mostlikelink.$apply();
 
             currentUser = user;
 
@@ -106,9 +106,9 @@ function initPageInfo(){
                 if(result.succeed){
                     clog('url is exist:' + result.title);
 
-                    linkhubScope.linkTitle = result.title;
-                    linkhubScope.linkTags = result.tags;
-                    linkhubScope.$apply();
+                    mostlikelink.linkTitle = result.title;
+                    mostlikelink.linkTags = result.tags;
+                    mostlikelink.$apply();
                 }else{
                     // Add (Fast add without tags)
                     apiAddLink({
@@ -131,8 +131,8 @@ function initPageInfo(){
 
         }, function () {
             clog('fail check login');
-            linkhubScope.loginState = 2;
-            linkhubScope.$apply();
+            mostlikelink.loginState = 2;
+            mostlikelink.$apply();
 
             currentUser = null;
         });

@@ -1,7 +1,7 @@
 
-from linkhub import app
-from linkhub.views import *
-from linkhub.apis import *
+from mostlikelink import app
+from mostlikelink.views import *
+from mostlikelink.apis import *
 
 if __name__ == '__main__':
     app.run()

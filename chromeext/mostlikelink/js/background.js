@@ -43,8 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         }, function () {
             clog('fail check login');
-            linkhubScope.loginState = 2;
-            linkhubScope.$apply();
 
             currentUser = null;
         });
