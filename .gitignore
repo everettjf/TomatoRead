@@ -1,5 +1,4 @@
 .idea/
 *.pyc
-instance/
 *.pem
 *.crx
