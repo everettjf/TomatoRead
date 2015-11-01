@@ -21,7 +21,8 @@ def api_tags_all():
     all_links = models.LinkPost.objects(user=user)
     all_links_list = [dict(
         id=str(link.id),
-        title=link.title
+        title=link.title,
+        url=link.url
     ) for link in all_links];
 
     all_tags = models.Tag.objects(user=user)
