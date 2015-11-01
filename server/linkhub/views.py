@@ -87,7 +87,7 @@ def user_index(blog_id):
 
     tags = models.Tag.objects(user=user)
 
-    return render_template('user_index.html',
+    return render_template('user.html',
                            posts=posts,
                            tags=tags
                            )

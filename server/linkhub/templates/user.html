@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My LinkHub</title>
+    <title>my mostlike.link</title>
 
     <link rel="stylesheet" href="{{ url_for('static',filename='vendor/bootstrap-3.3.5-dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
@@ -15,8 +15,21 @@
     <br/> {{ message }}
 {% endfor %}
 
-{% block body %}
-{% endblock %}
+{% for tag in tags %}
+    {{ tag.name }}
+    &nbsp;&nbsp;
+{% endfor %}
+
+
+<hr/>
+
+{% for post in posts %}
+    <a href="{{ post.url }}" target="_blank">
+        {{ post.title }}
+    </a>
+    &nbsp;&nbsp;
+{% endfor %}
 
 </body>
 </html>
+
