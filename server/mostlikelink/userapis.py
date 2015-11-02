@@ -82,11 +82,18 @@ def api_blog_index():
         name=tag.name
     ) for tag in all_tags]
 
+    most_click_links_list = []
+    latest_click_links_list = []
+    never_click_links_list = []
+
     return utils.json_response({
         'succeed': True,
         'top_links': top_links_list,
         'all_tags': all_tags_list,
-        'all_links': all_links_list
+        'all_links': all_links_list,
+        'most_click_links': most_click_links_list,
+        'latest_click_links_list': latest_click_links_list,
+        'never_click_links_list': never_click_links_list,
     })
 
 

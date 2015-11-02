@@ -37,14 +37,17 @@ mostlikelinkApp.controller('mostlikelinkCtrl',['$scope','$http','$window',functi
     $scope.neverClickLinks = [];
 
     $http.post(serverUrl('api/blog/index'), {
-        blog_id: blog_id
+        blog_id: blog_id,
+        filter_tags: $scope.filterTags
     }).success(function (data, status) {
         if(data.succeed){
             $scope.topLinks = data.top_links;
-            clog($scope.topLinks);
 
             $scope.allTags = data.all_tags;
             $scope.allLinks = data.all_links;
+            $scope.mostClickLinks = data.most_click_links;
+            $scope.latestClickLinks = data.latest_click_links;
+            $scope.neverClickLinks = data.never_click_links;
         }else{
             clog(data.reason);
         }
