@@ -87,9 +87,23 @@ def api_blog_index():
         name=tag.name
     ) for tag in all_tags]
 
-    most_click_links_list = []
-    latest_click_links_list = []
-    never_click_links_list = []
+    most_click_links_list = [dict(
+        id=str(link.id),
+        title=link.title,
+        url=link.url
+    ) for link in models.LinkPost.most_click_links(user=user)]
+
+    latest_click_links_list = [dict(
+        id=str(link.id),
+        title=link.title,
+        url=link.url
+    ) for link in models.LinkPost.latest_click_links(user=user)]
+
+    never_click_links_list = [dict(
+        id=str(link.id),
+        title=link.title,
+        url=link.url
+    ) for link in models.LinkPost.never_click_links(user=user)]
 
     return utils.json_response({
         'succeed': True,
@@ -97,8 +111,8 @@ def api_blog_index():
         'all_tags': all_tags_list,
         'all_links': all_links_list,
         'most_click_links': most_click_links_list,
-        'latest_click_links_list': latest_click_links_list,
-        'never_click_links_list': never_click_links_list,
+        'latest_click_links': latest_click_links_list,
+        'never_click_links': never_click_links_list,
     })
 
 

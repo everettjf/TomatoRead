@@ -10,6 +10,7 @@ class User(Document, UserMixin):
     github_name = StringField()
     github_login = StringField()
     github_avatar_url = StringField()
+    invite_code = StringField()
 
 
 class Tag(Document):
@@ -30,6 +31,22 @@ class LinkPost(Post):
     url = StringField(unique_with=['user'])
     click_count = IntField(default=1)
     clicked_at = DateTimeField(default=datetime.datetime.now)
+
+    @queryset_manager
+    def objects(doc_cls, queryset):
+        return queryset.order_by('-created_at')
+
+    @queryset_manager
+    def most_click_links(doc_cls, queryset):
+        return queryset.order_by('-click_count')[:5]
+
+    @queryset_manager
+    def latest_click_links(doc_cls, queryset):
+        return queryset.order_by('-clicked_at')[:5]
+
+    @queryset_manager
+    def never_click_links(doc_cls, queryset):
+        return queryset.order_by('clicked_at')[:5]
 
 
 class TextPost(Post):
