@@ -1,5 +1,4 @@
 
-
 function serverUrl(partialUrl){
     return 'http://0.0.0.0:5000/' + partialUrl;
 }

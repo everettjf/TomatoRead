@@ -1,3 +1,4 @@
+# coding=utf-8
 import hashlib
 from . import app
 from flask import Response

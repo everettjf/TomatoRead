@@ -1,3 +1,5 @@
+# coding=utf-8
+
 from flask import Flask
 from flask.ext.login import LoginManager
 from mongoengine import connect

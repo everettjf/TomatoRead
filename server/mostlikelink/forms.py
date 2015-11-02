@@ -1,3 +1,4 @@
+# coding=utf-8
 from wtforms import Form, StringField, validators, PasswordField
 
 

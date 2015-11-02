@@ -1,3 +1,4 @@
+# coding=utf-8
 from mongoengine import *
 from flask.ext.login import UserMixin
 import datetime

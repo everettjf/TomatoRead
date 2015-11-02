@@ -1,3 +1,4 @@
+# coding=utf-8
 from . import app, login_manager, csrf, red
 from flask import json,jsonify,json_available, request
 from flask.ext.login import login_required, login_user, logout_user,current_user

@@ -1,3 +1,5 @@
+# coding=utf-8
+
 from . import app, login_manager, csrf
 from flask import json,jsonify,json_available, request
 from flask.ext.login import login_required, login_user, logout_user,current_user
@@ -184,9 +186,16 @@ def api_tags_recommend():
     tags = models.Tag.objects(user=user)
     tag_list = [tag.name for tag in tags]
 
+    rec_tags=[
+        u':top',
+        u'每天必看',
+    ]
+
+    print tag_list + rec_tags
+
     return utils.json_response({
         'succeed': True,
-        'tags': tag_list
+        'tags': list(set(tag_list + rec_tags))
     })
 
 

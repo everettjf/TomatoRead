@@ -1,3 +1,4 @@
+# coding=utf-8
 from flask import request,session,g,redirect,url_for,abort,render_template,flash, jsonify
 from flask.ext.login import login_required, login_user, logout_user, current_user
 from mongoengine import errors
