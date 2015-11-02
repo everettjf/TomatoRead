@@ -1,4 +1,4 @@
-from . import app, login_manager, csrf
+from . import app, login_manager, csrf, red
 from flask import json,jsonify,json_available, request
 from flask.ext.login import login_required, login_user, logout_user,current_user
 from mongoengine import errors
@@ -45,6 +45,11 @@ def api_blog_link_click():
     print req
     blog_id = req['blog_id']
     link_id = req['link_id']
+
+    if red.exists(blog_id + link_id):
+        return jsonify(succeed=True)
+
+    red.setex(blog_id+link_id, 1, 60)
 
     user = models.User.objects(blog_id=blog_id).first()
     if user is None:
