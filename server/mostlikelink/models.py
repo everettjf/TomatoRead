@@ -13,7 +13,7 @@ class User(Document, UserMixin):
 
 
 class Tag(Document):
-    name = StringField(required=True, max_length=50)
+    name = StringField(required=True, max_length=100)
     user = ReferenceField(User, required=True, unique_with=['name'])
     created_at = DateTimeField(default=datetime.datetime.now)
 

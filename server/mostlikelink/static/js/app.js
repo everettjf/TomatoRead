@@ -29,15 +29,20 @@ mostlikelinkApp.controller('mostlikelinkCtrl',['$scope','$http','$window',functi
     $scope.allTags = [];
     $scope.filterTags = [];
 
+    $scope.topLinks = [];
+
     $scope.allLinks = [];
-    $scope.topClickLinks = [];
+    $scope.mostClickLinks = [];
+    $scope.latestClickLinks = [];
     $scope.neverClickLinks = [];
-    $scope.recentClickLinks = [];
 
     $http.post(serverUrl('api/blog/index'), {
         blog_id: blog_id
     }).success(function (data, status) {
         if(data.succeed){
+            $scope.topLinks = data.top_links;
+            clog($scope.topLinks);
+
             $scope.allTags = data.all_tags;
             $scope.allLinks = data.all_links;
         }else{
@@ -57,10 +62,15 @@ mostlikelinkApp.controller('mostlikelinkCtrl',['$scope','$http','$window',functi
             clog('click = ' + data.succeed);
         }).error(function (data, status) {
         });
-    }
+    };
 
-    $scope.clickTag = function (tag) {
-        clog(tag.name);
+    $scope.addFilterTag = function (tag) {
+        $scope.filterTags.append(tag);
 
-    }
+        clog($scope.filterTags);
+    };
+
+    $scope.clearFilterTag = function () {
+        $scope.filterTags=[];
+    };
 }]);

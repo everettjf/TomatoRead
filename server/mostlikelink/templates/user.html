@@ -12,6 +12,11 @@
 </head>
 <body ng-controller="mostlikelinkCtrl">
 
+<h6>Top</h6>
+<span ng-repeat="link in topLinks">
+    <button type="button" class="btn btn-link" ng-click="clickLink(link)">[[link.title]]</button>
+</span>
+
 <h6>Tags</h6>
 <span ng-repeat="tag in allTags">
     <button type="button" class="btn btn-link" ng-click="clickTag(tag)">[[tag.name]]</button>
@@ -21,6 +26,12 @@
 <span ng-repeat="link in allLinks">
     <button type="button" class="btn btn-link" ng-click="clickLink(link)">[[link.title]]</button>
 </span>
+
+<h6>Most Clicks</h6>
+
+<h6>Latest Clicks</h6>
+
+<h6>Never Clicks</h6>
 
 <script>
     var blog_id='{{ blog_id }}';
