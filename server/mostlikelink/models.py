@@ -18,11 +18,6 @@ class Tag(Document):
     created_at = DateTimeField(default=datetime.datetime.now)
 
 
-class ClickEvent(Document):
-    user = ReferenceField(User, required=True)
-    created_at = DateTimeField(default=datetime.datetime.now)
-
-
 class Post(Document):
     meta = {'allow_inheritance': True}
     title = StringField(required=True, max_length=100)
@@ -33,10 +28,17 @@ class Post(Document):
 
 class LinkPost(Post):
     url = StringField(unique_with=['user'])
-    click_events = ListField(ReferenceField(ClickEvent))
+    click_count = IntField(default=1)
+    clicked_at = DateTimeField(default=datetime.datetime.now)
 
 
 class TextPost(Post):
     content = StringField(required=True, max_length=100, unique_with=['user'])
+
+
+class ClickEvent(Document):
+    user = ReferenceField(User, required=True)
+    link = ReferenceField(LinkPost, unique_with=['user'])
+    created_at = DateTimeField(default=datetime.datetime.now)
 
 

@@ -4,6 +4,7 @@ from flask.ext.login import login_required, login_user, logout_user,current_user
 from mongoengine import errors
 import models
 import utils
+import datetime
 
 
 @csrf.exempt
@@ -29,18 +30,22 @@ def api_blog_link_click():
         return jsonify(succeed=False,
                        reason='Link not exist'
                        )
-
-    event = models.ClickEvent()
-    event.user = user
+    link.click_count += 1
+    link.clicked_at = datetime.datetime.now()
     try:
-        event.save()
-        link.click_events.append(event)
         link.save()
-    except Exception, e:
-        print 'link save error : ', e.message
+    except Exception, ex:
         return jsonify(succeed=False,
                        reason='Update link failed'
                        )
+
+    event = models.ClickEvent()
+    event.user = user
+    event.link = link
+    try:
+        event.save()
+    except Exception, e:
+        print 'warning:click event save error : ', e.message
 
     return jsonify(succeed=True)
 

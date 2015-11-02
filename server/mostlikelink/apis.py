@@ -17,6 +17,7 @@ def api_get_current_user():
                    blog_id=current_user.blog_id
                    )
 
+
 @csrf.exempt
 @app.route('/api/link/add', methods=['POST'])
 @login_required
@@ -29,15 +30,15 @@ def api_add_link():
     print title
     print url
 
-    users = models.User.objects(id=current_user.id)
-    if len(users) == 0:
+    user = models.User.objects(id=current_user.id).first()
+    if user is None:
+        print 'user not exist : ' + str(current_user.id)
         return jsonify(succeed=False,
                        reason='User not exist')
-    user = users[0]
 
-    # if exist , update
     search_links = models.LinkPost.objects(user=user, url=url)
     if len(search_links) > 0:
+        print 'url exist'
         return jsonify(succeed=False,
                        reason='URL exist'
                        )
@@ -47,19 +48,21 @@ def api_add_link():
     link.user = user
     link.tags = []
     link.url = url
-    link.click_events = []
 
-    link_save_succeed = False
     try:
         link.save()
-    except errors.NotUniqueError, err:
-        pass
-    except errors.OperationError, err:
-        pass
-
-    if not link_save_succeed:
+    except Exception, err:
+        print 'link save error : '+ err.message
         return jsonify(succeed=False,
                        reason='Link save failed')
+
+    click_event = models.ClickEvent()
+    click_event.user = user
+    click_event.link = link
+    try:
+        click_event.save()
+    except Exception, ex:
+        print 'click event save : ' + ex.message
 
     return jsonify(succeed=True)
 
