@@ -72,6 +72,12 @@ mostlikelinkApp.controller('mostlikelinkCtrl',['$scope','$http','$window',functi
     };
 
     $scope.addFilterTag = function (tag) {
+        for(var i=0;i<$scope.filterTags.length;++i){
+            if($scope.filterTags[i].id==tag.id){
+                return;
+            }
+        }
+
         $scope.filterTags.push(tag);
         clog($scope.filterTags);
         refreshPage();

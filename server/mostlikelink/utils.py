@@ -2,6 +2,7 @@ import hashlib
 from . import app
 from flask import Response
 import json
+import datetime
 
 
 def password_hash(password):
@@ -12,3 +13,8 @@ def json_response(dict_data):
     return Response(response=json.dumps(dict_data),
                     status=200,
                     mimetype='application/json')
+
+
+def totimestamp(dt, epoch=datetime.datetime(1970,1,1)):
+    td = dt - epoch
+    return td.total_seconds()

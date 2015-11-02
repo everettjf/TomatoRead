@@ -109,19 +109,22 @@ def api_blog_index():
     most_click_links_list = [dict(
         id=str(link.id),
         title=link.title,
-        url=link.url
+        url=link.url,
+        click_count=link.click_count
     ) for link in most_click_links]
 
     latest_click_links_list = [dict(
         id=str(link.id),
         title=link.title,
-        url=link.url
+        url=link.url,
+        clicked_at=utils.totimestamp(link.clicked_at)
     ) for link in latest_click_links]
 
     never_click_links_list = [dict(
         id=str(link.id),
         title=link.title,
-        url=link.url
+        url=link.url,
+        clicked_at=utils.totimestamp(link.clicked_at)
     ) for link in never_click_links]
 
     return utils.json_response({

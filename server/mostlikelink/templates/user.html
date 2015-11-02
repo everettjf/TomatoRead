@@ -40,22 +40,31 @@
 
 <h6>Links</h6>
 <span ng-repeat="link in allLinks">
-    <button type="button" class="btn btn-link" ng-click="clickLink(link)">[[link.title]]</button>
+    <button type="button" class="btn btn-link" ng-click="clickLink(link)">
+        [[link.title]]
+    </button>
 </span>
 
 <h6>Most Clicks</h6>
 <span ng-repeat="link in mostClickLinks">
-    <button type="button" class="btn btn-link" ng-click="clickLink(link)">[[link.title]]</button>
+    <button type="button" class="btn btn-link" ng-click="clickLink(link)">
+        ([[link.click_count]])
+        [[link.title]]
+    </button>
 </span>
 
 <h6>Latest Clicks</h6>
 <span ng-repeat="link in latestClickLinks">
-    <button type="button" class="btn btn-link" ng-click="clickLink(link)">[[link.title]]</button>
+    <button type="button" class="btn btn-link" ng-click="clickLink(link)">
+        [[link.title]]
+    </button>
 </span>
 
 <h6>Never Clicks</h6>
 <span ng-repeat="link in neverClickLinks">
-    <button type="button" class="btn btn-link" ng-click="clickLink(link)">[[link.title]]</button>
+    <button type="button" class="btn btn-link" ng-click="clickLink(link)">
+        [[link.title]]
+    </button>
 </span>
 
 <script>
