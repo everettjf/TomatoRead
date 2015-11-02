@@ -90,7 +90,7 @@ def api_blog_index():
     latest_click_links = []
     never_click_links = []
     if len(filter_tags_entities) == 0:
-        all_links = models.LinkPost.objects(user=user)
+        all_links = models.LinkPost.objects(user=user)[0:20]
         most_click_links = models.LinkPost.most_click_links(user=user)
         latest_click_links = models.LinkPost.latest_click_links(user=user)
         never_click_links = models.LinkPost.never_click_links(user=user)
