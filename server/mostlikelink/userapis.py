@@ -56,6 +56,7 @@ def api_blog_index():
     req = request.get_json()
     print req
     blog_id = req['blog_id']
+    filter_tags = req['filter_tags']
 
     user = models.User.objects(blog_id=blog_id).first()
     if user is None:
@@ -74,12 +75,9 @@ def api_blog_index():
             url=link.url
         ) for link in top_links]
 
-    all_links = models.LinkPost.objects(user=user)
-    all_links_list = [dict(
-        id=str(link.id),
-        title=link.title,
-        url=link.url
-    ) for link in all_links]
+    filter_tags_ids = [tag['id'] for tag in filter_tags]
+    filter_tags_entities = models.Tag.objects(id__in=filter_tags_ids)
+    print 'filter tags entities len = %d'% len(filter_tags_entities)
 
     all_tags = models.Tag.objects(user=user)
     all_tags_list = [dict(
@@ -87,23 +85,44 @@ def api_blog_index():
         name=tag.name
     ) for tag in all_tags]
 
+    all_links = []
+    most_click_links = []
+    latest_click_links = []
+    never_click_links = []
+    if len(filter_tags_entities) == 0:
+        all_links = models.LinkPost.objects(user=user)
+        most_click_links = models.LinkPost.most_click_links(user=user)
+        latest_click_links = models.LinkPost.latest_click_links(user=user)
+        never_click_links = models.LinkPost.never_click_links(user=user)
+    else:
+        all_links = models.LinkPost.objects(user=user, tags__in=filter_tags_entities)
+        most_click_links = models.LinkPost.most_click_links(user=user, tags__in=filter_tags_entities)
+        latest_click_links = models.LinkPost.latest_click_links(user=user, tags__in=filter_tags_entities)
+        never_click_links = models.LinkPost.never_click_links(user=user, tags__in=filter_tags_entities)
+
+    all_links_list = [dict(
+        id=str(link.id),
+        title=link.title,
+        url=link.url
+    ) for link in all_links]
+
     most_click_links_list = [dict(
         id=str(link.id),
         title=link.title,
         url=link.url
-    ) for link in models.LinkPost.most_click_links(user=user)]
+    ) for link in most_click_links]
 
     latest_click_links_list = [dict(
         id=str(link.id),
         title=link.title,
         url=link.url
-    ) for link in models.LinkPost.latest_click_links(user=user)]
+    ) for link in latest_click_links]
 
     never_click_links_list = [dict(
         id=str(link.id),
         title=link.title,
         url=link.url
-    ) for link in models.LinkPost.never_click_links(user=user)]
+    ) for link in never_click_links]
 
     return utils.json_response({
         'succeed': True,

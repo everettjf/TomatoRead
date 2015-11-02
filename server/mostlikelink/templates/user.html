@@ -17,10 +17,26 @@
     <button type="button" class="btn btn-link" ng-click="clickLink(link)">[[link.title]]</button>
 </span>
 
+<hr/>
+
 <h6>Tags</h6>
 <span ng-repeat="tag in allTags">
-    <button type="button" class="btn btn-link" ng-click="clickTag(tag)">[[tag.name]]</button>
+    <button type="button" class="btn btn-link" ng-click="addFilterTag(tag)">[[tag.name]]</button>
 </span>
+
+<hr/>
+<div ng-if="filterTags.length > 0">
+    <h6>Filter Tags
+        <button type="button" class="btn btn-link" ng-click="clearFilterTag()">
+            :clear
+        </button>
+    </h6>
+    <span ng-repeat="tag in filterTags">
+        <button type="button" class="btn btn-link" ng-click="removeFilterTag(tag)">
+            [[tag.name]]
+        </button>
+    </span>
+</div>
 
 <h6>Links</h6>
 <span ng-repeat="link in allLinks">

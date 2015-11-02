@@ -36,23 +36,27 @@ mostlikelinkApp.controller('mostlikelinkCtrl',['$scope','$http','$window',functi
     $scope.latestClickLinks = [];
     $scope.neverClickLinks = [];
 
-    $http.post(serverUrl('api/blog/index'), {
-        blog_id: blog_id,
-        filter_tags: $scope.filterTags
-    }).success(function (data, status) {
-        if(data.succeed){
-            $scope.topLinks = data.top_links;
+    var refreshPage = function () {
+        $http.post(serverUrl('api/blog/index'), {
+            blog_id: blog_id,
+            filter_tags: $scope.filterTags
+        }).success(function (data, status) {
+            if(data.succeed){
+                $scope.topLinks = data.top_links;
 
-            $scope.allTags = data.all_tags;
-            $scope.allLinks = data.all_links;
-            $scope.mostClickLinks = data.most_click_links;
-            $scope.latestClickLinks = data.latest_click_links;
-            $scope.neverClickLinks = data.never_click_links;
-        }else{
-            clog(data.reason);
-        }
-    }).error(function(data,status){
-    });
+                $scope.allTags = data.all_tags;
+                $scope.allLinks = data.all_links;
+                $scope.mostClickLinks = data.most_click_links;
+                $scope.latestClickLinks = data.latest_click_links;
+                $scope.neverClickLinks = data.never_click_links;
+            }else{
+                clog(data.reason);
+            }
+        }).error(function(data,status){
+        });
+    };
+
+    refreshPage();
 
     $scope.clickLink = function (link) {
         clog(link.title);
@@ -68,12 +72,19 @@ mostlikelinkApp.controller('mostlikelinkCtrl',['$scope','$http','$window',functi
     };
 
     $scope.addFilterTag = function (tag) {
-        $scope.filterTags.append(tag);
-
+        $scope.filterTags.push(tag);
         clog($scope.filterTags);
+        refreshPage();
+    };
+    $scope.removeFilterTag = function (tag) {
+        $scope.filterTags.pop(tag);
+        clog($scope.filterTags);
+        refreshPage();
     };
 
     $scope.clearFilterTag = function () {
         $scope.filterTags=[];
+        refreshPage();
     };
+
 }]);

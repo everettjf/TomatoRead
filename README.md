@@ -1,26 +1,31 @@
-*Project Under Developing*
+*Under Developing*
 
 # mostlike.link
 
-Our Most Like Link
+Most Like Link
 
 # Feature
 
 - Link personal blog
 - Add link from Chrome extension
 - Link click count remember
-- Link recommend system
 - Link tag system
 
-# Technique
+# Future
+
+- Link recommend system
+
+# Based on
 
 - Flask
 - MongoDB
 - AngularJS
+- Redis
 
 # Setup
 
 1. install MongoDB
-2. pip install -r requirements.txt
-3. python run.py
+2. install Redis
+3. pip install -r requirements.txt
+4. python run.py
 
