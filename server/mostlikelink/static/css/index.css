@@ -1,8 +1,3 @@
-/*!
- * Flat UI Free v2.2.0 (http://designmodo.github.io/Flat-UI/)
- * Copyright 2013-2014 Designmodo, Inc.
- */
-
 /* Prettyfy Theme */
 .prettyprint {
   padding: 15px 21px;
@@ -100,16 +95,16 @@ ol.linenums {
 .container {
   width: 970px !important;
   }
-.demo-headline {
+.most-headline {
   padding: 73px 0 110px;
   text-align: center;
   }
-.demo-logo {
+.most-logo {
   margin: 10px 0;
   font: 900 90px/100px "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: -2px;
   }
-.demo-logo .logo {
+.most-logo .logo {
   width: 236px;
   height: 181px;
   margin: 0 auto 26px;
@@ -118,7 +113,7 @@ ol.linenums {
   background: url(/static/img/main.png) center 0 no-repeat;
   background-size: 236px 181px;
   }
-.demo-logo small {
+.most-logo small {
   display: block;
   padding-top: 5px;
   font-size: 22px;

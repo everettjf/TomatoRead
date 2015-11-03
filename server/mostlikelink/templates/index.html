@@ -16,25 +16,29 @@
   </head>
   <body>
     <div class="container">
-      <div class="demo-headline">
-        <h1 class="demo-logo">
+      <div class="most-headline">
+        <h1 class="most-logo">
           <div class="logo"></div>
             MostLike.Link
           <small>最喜爱的链接</small>
         </h1>
+          <h4>
+              {% if not current_user.is_authenticated %}
+                  <a href="{{ url_for('login') }}" class="btn btn-link">Login with GitHub</a>
+              {% else %}
+                  <a href="{{ url_for('user_index', blog_id=current_user.blog_id)}}" class="btn btn-link">
+                      Enter Your MostLike.Link
+                  </a>
+                  <a href="{{ url_for('logout') }}" class="btn btn-link">
+                      Logout
+                  </a>
+              {% endif %}
+
+          <a href="https://github.com/everettjf/mostlike.link/TUTORIAL.md" target="_blank" class="btn btn-link">Tutorial</a>
+          <a href="https://github.com/everettjf/mostlike.link" target="_blank" class="btn btn-link">About</a>
+
+          </h4>
       </div>
-
-    {% if not current_user.is_authenticated %}
-        <a href="{{ url_for('login') }}" class="btn btn-block btn-lg btn-danger">Login with GitHub</a>
-    {% else %}
-        <a href="{{ url_for('user_index', blog_id=current_user.blog_id)}}" class="btn btn-block btn-lg btn-success">
-            Enter Your MostLike.Link
-        </a>
-        <a href="{{ url_for('logout') }}" class="btn btn-block btn-lg btn-danger">
-            Logout
-        </a>
-    {% endif %}
-
     </div>
   </body>
 </html>

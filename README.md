@@ -4,6 +4,10 @@
 
 Most Like Link
 
+# Problem
+
+[请尽情的提issue](https://github.com/everettjf/mostlike.link/issues)
+
 # Feature
 
 - Link personal blog

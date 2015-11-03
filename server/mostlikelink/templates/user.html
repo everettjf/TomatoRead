@@ -12,6 +12,11 @@
 </head>
 <body ng-controller="mostlikelinkCtrl">
 
+<ol class="breadcrumb">
+  <li><a href="{{ url_for('index') }}">MostLike.Link</a></li>
+  <li class="active">{{ user_name }}</li>
+</ol>
+
 <h6>Top</h6>
 <span ng-repeat="link in topLinks">
     <button type="button" class="btn btn-link" ng-click="clickLink(link)">[[link.title]]</button>
