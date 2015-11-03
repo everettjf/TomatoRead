@@ -50,6 +50,7 @@ def api_add_link():
     link.user = user
     link.tags = []
     link.url = url
+    link.color = utils.random_color()
 
     try:
         link.save()
@@ -99,6 +100,7 @@ def api_update_link():
                 cur_tag = models.Tag()
                 cur_tag.name = tag
                 cur_tag.user = user
+                cur_tag.color = utils.random_color()
                 cur_tag.save()
 
             tags_data.append(cur_tag)

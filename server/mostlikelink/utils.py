@@ -4,6 +4,7 @@ from . import app
 from flask import Response
 import json
 import datetime
+import random
 
 
 def password_hash(password):
@@ -19,3 +20,7 @@ def json_response(dict_data):
 def totimestamp(dt, epoch=datetime.datetime(1970,1,1)):
     td = dt - epoch
     return td.total_seconds()
+
+
+def random_color():
+    return random.randint(0, 255)
