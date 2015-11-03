@@ -124,6 +124,9 @@ function initPageInfo(){
                     mostlikelink.linkTitle = result.title;
                     mostlikelink.linkTags = result.tags;
                     mostlikelink.$apply();
+
+                    angular.element('#title').focus();
+                    angular.element('#title').select();
                 }else{
                     // Add (Fast add without tags)
                     apiAddLink({
