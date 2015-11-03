@@ -22,11 +22,11 @@
     <form>
       <div class="form-group">
         <label for="title">Title</label>
-        <input type="text" class="form-control" id="title" placeholder="Title" ng-model="linkTitle">
+        <input type="text" class="form-control" id="title" placeholder="Title" ng-model="linkTitle" ng-keydown="onKeyDownTitle($event)">
       </div>
       <div class="form-group">
         <label for="tags">Tags</label>
-        <input type="text" class="form-control" id="tags" placeholder="Tags" ng-model="linkTags">
+        <input type="text" class="form-control" id="tags" placeholder="Tags" ng-model="linkTags" ng-keydown="onKeyDownTags($event)">
       </div>
         <div class="form-group">
             <span ng-repeat="tag in recommendTags">

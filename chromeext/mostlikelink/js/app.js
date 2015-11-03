@@ -70,6 +70,21 @@ mostlikelinkApp.controller('mostlikelinkCtrl',['$scope','$http',function($scope,
             $scope.errorInfo = 'Failed to update';
         });
     };
+
+    $scope.onKeyDownTags = function(e){
+        var keycode = window.event?e.keyCode:e.which;
+        clog('keycode = ' + keycode);
+        if(keycode==13) {
+            $scope.updateLink();
+        }
+    };
+    $scope.onKeyDownTitle = function(e) {
+        var keycode = window.event?e.keyCode:e.which;
+        clog('keycode = ' + keycode);
+        if(keycode==13) {
+            $scope.updateLink();
+        }
+    };
 }]);
 
 
