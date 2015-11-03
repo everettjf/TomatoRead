@@ -45,6 +45,7 @@
     </button>
 </span>
 
+{% if current_user.is_authenticated %}
 <h6>Most Clicks</h6>
 <span ng-repeat="link in mostClickLinks">
     <button type="button" class="btn btn-link" ng-click="clickLink(link)">
@@ -66,6 +67,8 @@
         [[link.title]]
     </button>
 </span>
+
+{% endif %}
 
 <script>
     var blog_id='{{ blog_id }}';

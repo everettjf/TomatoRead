@@ -59,7 +59,6 @@ def authorized():
             return 'error save user'
 
     login_user(user)
-    flash('Logged in successfully.')
 
     return redirect(url_for('index'))
 

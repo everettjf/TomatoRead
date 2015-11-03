@@ -1,7 +1,7 @@
 # coding=utf-8
 from . import app, login_manager, csrf, red
 from flask import json,jsonify,json_available, request
-from flask.ext.login import login_required, login_user, logout_user,current_user
+from flask.ext.login import login_required, login_user, logout_user,current_user, user_logged_in
 from mongoengine import errors
 import models
 import utils
@@ -87,19 +87,10 @@ def api_blog_index():
     ) for tag in all_tags]
 
     all_links = []
-    most_click_links = []
-    latest_click_links = []
-    never_click_links = []
     if len(filter_tags_entities) == 0:
         all_links = models.LinkPost.objects(user=user)[0:20]
-        most_click_links = models.LinkPost.most_click_links(user=user)
-        latest_click_links = models.LinkPost.latest_click_links(user=user)
-        never_click_links = models.LinkPost.never_click_links(user=user)
     else:
         all_links = models.LinkPost.objects(user=user, tags__in=filter_tags_entities)
-        most_click_links = models.LinkPost.most_click_links(user=user, tags__in=filter_tags_entities)
-        latest_click_links = models.LinkPost.latest_click_links(user=user, tags__in=filter_tags_entities)
-        never_click_links = models.LinkPost.never_click_links(user=user, tags__in=filter_tags_entities)
 
     all_links_list = [dict(
         id=str(link.id),
@@ -107,26 +98,41 @@ def api_blog_index():
         url=link.url
     ) for link in all_links]
 
-    most_click_links_list = [dict(
-        id=str(link.id),
-        title=link.title,
-        url=link.url,
-        click_count=link.click_count
-    ) for link in most_click_links]
+    # Only for yourself
+    most_click_links_list = []
+    latest_click_links_list = []
+    never_click_links_list = []
+    if current_user.is_authenticated and current_user.id == user.id:
+        print 'same user'
+        if len(filter_tags_entities) == 0:
+            most_click_links = models.LinkPost.most_click_links(user=user)
+            latest_click_links = models.LinkPost.latest_click_links(user=user)
+            never_click_links = models.LinkPost.never_click_links(user=user)
+        else:
+            most_click_links = models.LinkPost.most_click_links(user=user, tags__in=filter_tags_entities)
+            latest_click_links = models.LinkPost.latest_click_links(user=user, tags__in=filter_tags_entities)
+            never_click_links = models.LinkPost.never_click_links(user=user, tags__in=filter_tags_entities)
 
-    latest_click_links_list = [dict(
-        id=str(link.id),
-        title=link.title,
-        url=link.url,
-        clicked_at=utils.totimestamp(link.clicked_at)
-    ) for link in latest_click_links]
+        most_click_links_list = [dict(
+            id=str(link.id),
+            title=link.title,
+            url=link.url,
+            click_count=link.click_count
+        ) for link in most_click_links]
 
-    never_click_links_list = [dict(
-        id=str(link.id),
-        title=link.title,
-        url=link.url,
-        clicked_at=utils.totimestamp(link.clicked_at)
-    ) for link in never_click_links]
+        latest_click_links_list = [dict(
+            id=str(link.id),
+            title=link.title,
+            url=link.url,
+            clicked_at=utils.totimestamp(link.clicked_at)
+        ) for link in latest_click_links]
+
+        never_click_links_list = [dict(
+            id=str(link.id),
+            title=link.title,
+            url=link.url,
+            clicked_at=utils.totimestamp(link.clicked_at)
+        ) for link in never_click_links]
 
     return utils.json_response({
         'succeed': True,
