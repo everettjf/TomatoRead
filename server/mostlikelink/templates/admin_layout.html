@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ user_name }} MostLike.Link</title>
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='vendor/bootstrap-3.3.5-dist/css/bootstrap.min.css') }}">
+    <script src="{{ url_for('static',filename='vendor/jquery-2.1.4.min.js') }}"></script>
+
+</head>
+<body>
+
+<ol class="breadcrumb">
+    <li><a href="{{ url_for('index') }}">MostLike.Link</a></li>
+    <li><a href="{{ url_for('user_index', blog_id=current_user.blog_id) }}">{{ current_user.blog_id }}</a></li>
+    <li><a href="#">Admin</a></li>
+    <li class="active">Users</li>
+</ol>
+
+{% if current_user.role == 1 %}
+
+{% block body %}
+{% endblock %}
+
+{% else %}
+    Hi , MostLike.Link !
+{% endif %}
+</body>
+</html>

@@ -78,6 +78,13 @@
 
 {% endif %}
 
+{% if current_user.role == 1 %}
+    <hr/>
+<ol class="breadcrumb">
+    <li><a href="{{ url_for('admin_users') }}">Admin Users</a></li>
+</ol>
+{% endif %}
+
 <script>
     var blog_id='{{ blog_id }}';
 </script>

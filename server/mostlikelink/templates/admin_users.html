@@ -1,0 +1,13 @@
+{% extends 'admin_layout.html' %}
+
+{% block body %}
+    <ul class="list-group">
+        {% for user in users %}
+      <li class="list-group-item">
+        <span class="badge">{{ user.role }}</span>
+        {{ user.github_name }} / {{ user.github_url }} / {{ user.blog_id }} / {{ user.email }}
+      </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

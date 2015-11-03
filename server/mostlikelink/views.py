@@ -52,6 +52,9 @@ def authorized():
         user.github_login = info['login']
         user.github_avatar_url = info['avatar_url']
 
+        if user.github_url == 'https://github.com/everettjf':
+            user.role = 1
+
         try:
             user.save()
         except Exception, e:

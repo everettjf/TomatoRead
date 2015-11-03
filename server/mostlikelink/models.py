@@ -12,6 +12,7 @@ class User(Document, UserMixin):
     github_login = StringField()
     github_avatar_url = StringField()
     invite_code = StringField()
+    role = IntField(default=0)
 
 
 class Tag(Document):
