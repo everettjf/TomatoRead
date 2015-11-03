@@ -1,35 +1,36 @@
-*Under Developing*
-
+*开发中*
 # mostlike.link
 
-Most Like Link
+最喜爱的链接
 
-# Problem
+# Tutorial
 
-[请尽情的提issue](https://github.com/everettjf/mostlike.link/issues)
+[使用方法点击这里](https://github.com/everettjf/mostlike.link/blob/master/TUTORIAL.md)
 
 # Feature
-
-- Link personal blog
-- Add link from Chrome extension
-- Link click count remember
-- Link tag system
+- 链接个人博客
+- 使用Chrome扩展收藏链接
+- 链接点击计数
+- 基于标签查询
 
 # Future
+- 链接推荐系统
+- 点击习惯统计
 
-- Link recommend system
+# Issue
+
+[在这里提问题](https://github.com/everettjf/mostlike.link/issues)
 
 # Based on
-
 - Flask
 - MongoDB
 - AngularJS
 - Redis
 
 # Setup
-
 1. install MongoDB
 2. install Redis
 3. pip install -r requirements.txt
 4. python run.py
+
 
