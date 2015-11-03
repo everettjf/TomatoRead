@@ -51,6 +51,9 @@
 </span>
 
 {% if current_user.is_authenticated %}
+
+<hr/>
+
 <h6>Most Clicks</h6>
 <span ng-repeat="link in mostClickLinks">
     <button type="button" class="btn btn-link" ng-click="clickLink(link)">
