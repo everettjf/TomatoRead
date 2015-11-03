@@ -1,5 +1,0 @@
-# Plan
-
-- EVTCalendar
-- iOS Client
-- ...
