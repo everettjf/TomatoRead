@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
 
     <link rel="stylesheet" href="{{ url_for('static',filename='vendor/bootstrap-3.3.5-dist/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static',filename='vendor/flat-ui/css/flat-ui.min.css')}}">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
     <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css')}}">
     <link rel="shortcut icon" href="{{ url_for('static',filename='img/favicon.ico')}}">
@@ -26,13 +25,14 @@
               {% if not current_user.is_authenticated %}
                   <a href="{{ url_for('login') }}" class="btn btn-link">Login with GitHub</a>
               {% else %}
-                  <a href="{{ url_for('user_index', blog_id=current_user.blog_id)}}" class="btn btn-link">
+                  <a href="{{ url_for('user_index', blog_id=current_user.blog_id)}}" class="btn btn-success">
                       Enter Your MostLike.Link
                   </a>
                   <a href="{{ url_for('logout') }}" class="btn btn-link">
                       Logout
                   </a>
               {% endif %}
+
 
           <a href="https://github.com/everettjf/mostlike.link/TUTORIAL.md" target="_blank" class="btn btn-link">Tutorial</a>
           <a href="https://github.com/everettjf/mostlike.link" target="_blank" class="btn btn-link">About</a>

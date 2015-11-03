@@ -18,6 +18,7 @@ class Tag(Document):
     name = StringField(required=True, max_length=100)
     user = ReferenceField(User, required=True, unique_with=['name'])
     created_at = DateTimeField(default=datetime.datetime.now)
+    color = IntField(default=0)
 
 
 class Post(Document):
@@ -26,6 +27,7 @@ class Post(Document):
     user = ReferenceField(User)
     tags = ListField(ReferenceField(Tag))
     created_at = DateTimeField(default=datetime.datetime.now)
+    color = IntField(default=0)
 
 
 class LinkPost(Post):
