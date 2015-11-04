@@ -4,6 +4,10 @@ from mostlikelink.views import *
 from mostlikelink.adminviews import *
 from mostlikelink.apis import *
 from mostlikelink.userapis import *
+import os
 
 if __name__ == '__main__':
-    app.run()
+    if os.environ.get('MOSTLIKELINK_PRODUCTION') is not None:
+        app.run(port=80)
+    else:
+        app.run(port=5000)
