@@ -6,12 +6,13 @@ from mongoengine import connect
 from flask_wtf.csrf import CsrfProtect
 from flask_oauthlib.client import OAuth
 import redis
+import os
 
 # App
 app = Flask(__name__, instance_relative_config=True)
 app.config.from_object('config')
-app.config.from_pyfile('config.py')
-# app.config.from_envvar('MOSTLIKELINK_CONFIG')
+if os.environ.get('MOSTLIKELINK_PRODUCTION') is not None:
+    app.config.from_pyfile('config.py')
 
 # CSRF Protect
 csrf = CsrfProtect()
