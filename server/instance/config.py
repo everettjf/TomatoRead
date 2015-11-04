@@ -1,5 +1,0 @@
-SECRET_KEY = 'ddl%^&*d[\x0fI\x11O\xa0o\x84@vpp,\xbdOV@*\xd4\xf8\xb1}\x9d%&*jdhks68687k'
-DB_NAME = 'mostlikelink'
-PASSWORD_SALT = 'everettjf%^&*#$%^gdhf4567%^gh3%^3782y86383djhksh%&%&^'
-GITHUB_CLIENT_ID = 'de68bb841fb26324652c'
-GITHUB_CLIENT_SECRET = 'dc4745e6f5a092d9f80c5f5e4f4bd5fd9312a3f4'
