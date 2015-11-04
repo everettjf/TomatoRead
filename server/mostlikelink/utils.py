@@ -17,6 +17,12 @@ def json_response(dict_data):
                     mimetype='application/json')
 
 
+def plaintext_response(string_data):
+    return Response(response=string_data,
+                    status=200,
+                    mimetype='text/plain')
+
+
 def totimestamp(dt, epoch=datetime.datetime(1970,1,1)):
     td = dt - epoch
     return td.total_seconds()

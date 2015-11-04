@@ -1,11 +1,9 @@
 # coding=utf-8
 from flask import request,session,g,redirect,url_for,abort,render_template,flash, jsonify
 from flask.ext.login import login_required, login_user, logout_user, current_user
-from mongoengine import errors
 from . import app, login_manager, oauth, github
-import forms
 import models
-from .utils import password_hash
+from . import utils
 
 
 @app.route('/')
@@ -88,4 +86,26 @@ def user_index(blog_id):
                            blog_id=blog_id
                            )
 
+
+@app.route('/link/export', methods=['GET'])
+@login_required
+def links_export():
+    user = models.User.objects(id=current_user.id).first()
+    if user is None:
+        return 'User not exist'
+
+    all_links = models.LinkPost.objects(user=user)
+
+    result = "MostLike.Link\n0.3\n\n"
+    result += "Links:%d\n" % len(all_links)
+
+    for link in all_links:
+        result += "\n"
+        result += "  Title:%s\n" % link.title
+        result += "  URL:%s\n" % link.url
+        result += "  ClickCount:%s\n" % link.click_count
+        result += "  CreatedAt:%s\n" % str(link.created_at)
+        result += "  Tags:%s\n" % " ".join([tag.name for tag in link.tags])
+
+    return utils.plaintext_response(result)
 

@@ -77,13 +77,18 @@
     </button>
 </span>
 
-{% endif %}
+
+<hr/>
+<ol class="breadcrumb">
+    <li><a href="{{ url_for('links_export') }}" target="_blank">Export</a></li>
+</ol>
 
 {% if current_user.role == 1 %}
-    <hr/>
-<ol class="breadcrumb">
-    <li><a href="{{ url_for('admin_users') }}">Admin Users</a></li>
-</ol>
+    <ol class="breadcrumb">
+        <li><a href="{{ url_for('admin_users') }}">Admin Users</a></li>
+    </ol>
+{% endif %}
+
 {% endif %}
 
 <script>
