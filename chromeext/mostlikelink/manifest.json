@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "mostlike.link",
-  "description": "your most like link",
+  "description": "your most like links",
   "version": "0.3",
   "background": {
     "scripts": [
@@ -14,10 +14,11 @@
   "page_action": {
     "default_icon": "image/off.png",
     "default_popup" : "app.html",
-    "default_title" : "Save Link"
+    "default_title" : "Like"
   },
   "permissions": [
     "tabs",
+    "http://mostlike.link/",
     "http://0.0.0.0:5000/"
   ],
   "icons":{

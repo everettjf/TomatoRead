@@ -2,8 +2,11 @@
  * Created by everettjf on 10/22/15.
  */
 
+var baseURL = 'http://mostlike.link/';
+//var baseURL = 'http://0.0.0.0:5000/';
+
 function serverUrl(partialUrl){
-    return 'http://0.0.0.0:5000/' + partialUrl;
+    return baseURL + partialUrl;
 }
 
 function logInfo(prefix,content){
