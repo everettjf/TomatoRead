@@ -8,6 +8,6 @@ import os
 
 if __name__ == '__main__':
     if os.environ.get('MOSTLIKELINK_PRODUCTION') is not None:
-        app.run(port=80)
+        app.run(host='0.0.0.0', port=80)
     else:
-        app.run(port=5000)
+        app.run(host='0.0.0.0', port=5000)
