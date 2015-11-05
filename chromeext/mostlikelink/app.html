@@ -9,6 +9,11 @@
     <script src="vendor/angular.min.js"></script>
 </head>
 <body ng-controller="mostlikelinkCtrl">
+<div>
+    <button type="button" class="btn btn-link" ng-click="openNewSite('http://mostlike.link')">MostLike.Link</button>
+    <span ng-if="blog_id != '' ">/</span>
+    <button type="button" class="btn btn-link" ng-click="openBlog()" ng-if="blog_id != '' ">{{ blog_id }}</button>
+</div>
 
 <div class="alert alert-warning" role="alert" ng-show="errorInfo != ''">
     {{ errorInfo }}
@@ -45,7 +50,7 @@
 </div>
 
 <div ng-show="loginState == 2">
-    <button type="button" class="btn btn-default" ng-click="openNewTab('login')">通过GitHub账号登录</button>
+    <button id="trylogin" type="button" class="btn btn-success" ng-click="openNewTab('login')">通过GitHub账号登录</button>
 </div>
 
 <script src="js/common.js"></script>

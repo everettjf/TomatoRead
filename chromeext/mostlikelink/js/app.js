@@ -26,6 +26,8 @@ mostlikelinkApp.controller('mostlikelinkCtrl',['$scope','$http',function($scope,
     $scope.linkTitle = '';
     $scope.recommendTags = [];
 
+    $scope.blog_id = '';
+
     apiTagsRecommend(function(result){
         if(result.succeed){
             $scope.recommendTags = result.tags;
@@ -43,6 +45,22 @@ mostlikelinkApp.controller('mostlikelinkCtrl',['$scope','$http',function($scope,
         },function(tab){
         });
     };
+    $scope.openNewSite = function (siteUrl) {
+        chrome.tabs.create({
+            url:siteUrl
+        },function(tab){
+        });
+    };
+    $scope.openBlog = function () {
+        if($scope.blog_id == '')
+            return;
+
+        chrome.tabs.create({
+            url:serverUrl('u/' + $scope.blog_id)
+        },function(tab){
+        });
+    };
+
 
     $scope.removeLink = function(){
         apiRemoveLink({
@@ -107,11 +125,13 @@ function initPageInfo(){
 
         // Check login state
         apiCurrentUser(function(user){
-            clog('succeed=' + user.email);
-            mostlikelink.loginState = 1;
-            mostlikelink.$apply();
-
             currentUser = user;
+
+            clog('succeed=' + user.email);
+
+            mostlikelink.loginState = 1;
+            mostlikelink.blog_id = user.blog_id;
+            mostlikelink.$apply();
 
             // if added ,load it
             // else if not added , try add it
@@ -151,6 +171,8 @@ function initPageInfo(){
             clog('fail check login');
             mostlikelink.loginState = 2;
             mostlikelink.$apply();
+
+            angular.element('#trylogin').focus();
 
             currentUser = null;
         });
