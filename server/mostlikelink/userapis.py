@@ -88,7 +88,7 @@ def api_blog_index():
 
     all_links = []
     if len(filter_tags_entities) == 0:
-        all_links = models.LinkPost.objects(user=user)[0:20]
+        all_links = models.LinkPost.objects(user=user)[0:100]
     else:
         all_links = models.LinkPost.objects(user=user, tags__in=filter_tags_entities)
 
