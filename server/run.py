@@ -1,3 +1,4 @@
+# coding=utf-8
 
 from mostlikelink import app
 from mostlikelink.views import *
