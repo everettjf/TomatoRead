@@ -15,17 +15,17 @@
 </div>
 
 <div class="alert alert-info" role="alert" ng-show="loginState == 0">
-    Checking login state...
+    正在检查登录状态……
 </div>
 
 <div ng-show="loginState == 1">
     <form>
       <div class="form-group">
-        <label for="title">Title</label>
+        <label for="title">标题</label>
         <input type="text" class="form-control" id="title" placeholder="Title" ng-model="linkTitle" ng-keydown="onKeyDownTitle($event)">
       </div>
       <div class="form-group">
-        <label for="tags">Tags</label>
+        <label for="tags">标签</label>
         <input type="text" class="form-control" id="tags" placeholder="Tags" ng-model="linkTags" ng-keydown="onKeyDownTags($event)">
       </div>
         <div class="form-group">
@@ -36,17 +36,16 @@
     </form>
     <div class="btn-group btn-group-justified" role="group" aria-label="...">
       <div class="btn-group" role="group">
-          <button type="button" class="btn btn-default" ng-click="removeLink()">Remove</button>
+          <button type="button" class="btn btn-default" ng-click="removeLink()">删除</button>
       </div>
       <div class="btn-group" role="group">
-          <button type="button" class="btn btn-primary" ng-click="updateLink()">Update</button>
+          <button type="button" class="btn btn-primary" ng-click="updateLink()">更新</button>
       </div>
     </div>
 </div>
 
 <div ng-show="loginState == 2">
-    <button type="button" class="btn btn-default" ng-click="openNewTab('login')">Login</button>
-    <button type="button" class="btn btn-default" ng-click="openNewTab('register')">Register</button>
+    <button type="button" class="btn btn-default" ng-click="openNewTab('login')">通过GitHub账号登录</button>
 </div>
 
 <script src="js/common.js"></script>
