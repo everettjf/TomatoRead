@@ -4,14 +4,8 @@
     <meta charset="UTF-8">
     <title>{{ user_name }} MostLike.Link</title>
 
-{#    <link rel="stylesheet" href="{{ url_for('static',filename='vendor/bootstrap-3.3.5-dist/css/bootstrap.min.css') }}">#}
-{#    <script src="{{ url_for('static',filename='vendor/jquery-2.1.4.min.js') }}"></script>#}
-{#    <script src="{{ url_for('static',filename='vendor/angular.min.js') }}"></script>#}
-
     <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-{#    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">#}
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-{#    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>#}
     <script src="//cdn.bootcss.com/angular.js/1.4.7/angular.min.js"></script>
 
     <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
@@ -24,23 +18,23 @@
   <li class="active">{{ user_name }}</li>
 </ol>
 
-<h6>Top</h6>
+<h6>置顶</h6>
 <span ng-repeat="link in topLinks">
     <button type="button" class="btn btn-link" ng-click="clickLink(link)">[[link.title]]</button>
 </span>
 
 <hr/>
 
-<h6>Tags</h6>
+<h6>标签</h6>
 <span ng-repeat="tag in allTags">
     <button type="button" class="btn btn-link" ng-click="addFilterTag(tag)">[[tag.name]]</button>
 </span>
 
 <hr/>
 <div ng-if="filterTags.length > 0">
-    <h6>Filter Tags
+    <h6>过滤标签
         <button type="button" class="btn btn-link" ng-click="clearFilterTag()">
-            :clear
+           [清空]
         </button>
     </h6>
     <span ng-repeat="tag in filterTags">
@@ -50,7 +44,7 @@
     </span>
 </div>
 
-<h6>Links</h6>
+<h6>链接（仅显示20条）</h6>
 <span ng-repeat="link in allLinks">
     <button type="button" class="btn btn-link" ng-click="clickLink(link)">
         [[link.title]]
@@ -61,7 +55,7 @@
 
 <hr/>
 
-<h6>Most Clicks</h6>
+<h6>点击最多的链接</h6>
 <span ng-repeat="link in mostClickLinks">
     <button type="button" class="btn btn-link" ng-click="clickLink(link)">
         ([[link.click_count]])
@@ -69,14 +63,14 @@
     </button>
 </span>
 
-<h6>Latest Clicks</h6>
+<h6>最近点击的链接</h6>
 <span ng-repeat="link in latestClickLinks">
     <button type="button" class="btn btn-link" ng-click="clickLink(link)">
         [[link.title]]
     </button>
 </span>
 
-<h6>Never Clicks</h6>
+<h6>点击最少的链接</h6>
 <span ng-repeat="link in neverClickLinks">
     <button type="button" class="btn btn-link" ng-click="clickLink(link)">
         [[link.title]]
@@ -86,12 +80,12 @@
 
 <hr/>
 <ol class="breadcrumb">
-    <li><a href="{{ url_for('links_export') }}" target="_blank">Export</a></li>
+    <li><a href="{{ url_for('links_export') }}" target="_blank">导出所有链接</a></li>
 </ol>
 
 {% if current_user.role == 1 %}
     <ol class="breadcrumb">
-        <li><a href="{{ url_for('admin_users') }}">Admin Users</a></li>
+        <li><a href="{{ url_for('admin_users') }}">Admin/Users</a></li>
     </ol>
 {% endif %}
 

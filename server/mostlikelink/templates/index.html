@@ -7,12 +7,7 @@
     <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
 
       <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-      {#    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">#}
       <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-      {#    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>#}
-
-{#    <link rel="stylesheet" href="{{ url_for('static',filename='vendor/bootstrap-3.3.5-dist/css/bootstrap.min.css') }}">#}
-{#      <script src="{{ url_for('static',filename='vendor/jquery-2.1.4.min.js') }}"></script>#}
 
       <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
       <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css')}}">
@@ -27,26 +22,31 @@
             MostLike.Link
           <small>最喜爱的链接</small>
         </h1>
+      <h4>
+      </h4>
+          <a href="https://github.com/everettjf/mostlike.link/raw/master/chromeext/mostlikelink.crx" target="_blank" class="btn btn-link">
+              请首先下载Chrome插件(目前仅支持 Google Chrome 系的浏览器)
+          </a>
           <h4>
               {% if not current_user.is_authenticated %}
-                  <a href="{{ url_for('login') }}" class="btn btn-link">Login with GitHub</a>
+                  <a href="{{ url_for('login') }}" class="btn btn-success">
+                  通过GitHub账号登录
+                  </a>
               {% else %}
-                  <a href="{{ url_for('user_index', blog_id=current_user.blog_id)}}" class="btn btn-success">
-                      Enter Your MostLike.Link
+                  <a href="{{ url_for('user_index', blog_id=current_user.blog_id)}}" class="btn btn-info">
+                      进入你的 MostLike.Link
                   </a>
                   <a href="{{ url_for('logout') }}" class="btn btn-link">
-                      Logout
+                    退出
                   </a>
               {% endif %}
 
 
-          <a href="https://github.com/everettjf/mostlike.link/blob/master/TUTORIAL.md" target="_blank" class="btn btn-link">Tutorial</a>
-          <a href="https://github.com/everettjf/mostlike.link" target="_blank" class="btn btn-link">About</a>
-
+          <a href="https://github.com/everettjf/mostlike.link/blob/master/TUTORIAL.md" target="_blank" class="btn btn-link">使用说明</a>
+          <a href="https://github.com/everettjf/mostlike.link" target="_blank" class="btn btn-link">关于</a>
 
           </h4>
       <h4>
-          <a href="https://github.com/everettjf/mostlike.link/raw/master/chromeext/mostlikelink.crx" target="_blank" class="btn btn-link">Download Chrome Extension</a>
       </h4>
       </div>
     </div>
