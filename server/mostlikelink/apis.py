@@ -187,7 +187,6 @@ def api_tags_recommend():
 
     rec_tags=[
         u':top',
-        u'everyday',
     ]
 
     print tag_list + rec_tags
