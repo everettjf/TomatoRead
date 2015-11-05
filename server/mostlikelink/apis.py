@@ -29,9 +29,6 @@ def api_add_link():
     title = req['title']
     url = req['url']
 
-    print title
-    print url
-
     user = models.User.objects(id=current_user.id).first()
     if user is None:
         print 'user not exist : ' + str(current_user.id)
