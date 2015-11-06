@@ -110,6 +110,6 @@ def links_export():
     return utils.plaintext_response(result)
 
 
-@app.route('/google22c6b4f01e09a765.html', methods=['GET'])
+@app.route('/google22c6b4f01e09a765.html')
 def google_verify():
-    return render_template('google22c6b4f01e09a765.html')
+    return app.send_static_file('google22c6b4f01e09a765.html')
