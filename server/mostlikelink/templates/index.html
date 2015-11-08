@@ -30,34 +30,37 @@ var _hmt = _hmt || [];
         <h1 class="most-logo">
           <div class="logo"></div>
             MostLike.Link
-          <small>最喜爱的链接</small>
+          <small>最喜爱的链接 (beta)</small>
         </h1>
       <h4>
-      </h4>
           <a href="https://github.com/everettjf/mostlike.link/raw/master/chromeext/mostlikelink.crx" target="_blank" class="btn btn-link">
               请首先下载Chrome插件(目前仅支持 Google Chrome 系的浏览器)
           </a>
-          <h4>
-              {% if not current_user.is_authenticated %}
-                  <a href="{{ url_for('login') }}" class="btn btn-success">
-                  通过GitHub账号登录
-                  </a>
-              {% else %}
-                  <a href="{{ url_for('user_index', blog_id=current_user.blog_id)}}" class="btn btn-info">
-                      进入你的 MostLike.Link
-                  </a>
-                  <a href="{{ url_for('logout') }}" class="btn btn-link">
-                    退出登录
-                  </a>
-              {% endif %}
-
-
-          <a href="https://github.com/everettjf/mostlike.link/blob/master/TUTORIAL.md" target="_blank" class="btn btn-link">使用说明</a>
-          <a href="https://github.com/everettjf/mostlike.link" target="_blank" class="btn btn-link">关于</a>
-
-          </h4>
-      <h4>
       </h4>
+
+      <h4>
+          {% if not current_user.is_authenticated %}
+              <a href="{{ url_for('login') }}" class="btn btn-success">
+              通过GitHub账号登录
+              </a>
+          {% else %}
+              <a href="{{ url_for('user_index', blog_id=current_user.blog_id)}}" class="btn btn-info">
+                  进入你的 MostLike.Link
+              </a>
+              <a href="{{ url_for('logout') }}" class="btn btn-link">
+                退出登录
+              </a>
+          {% endif %}
+
+
+      <a href="https://github.com/everettjf/mostlike.link/blob/master/TUTORIAL.md" target="_blank" class="btn btn-link">使用说明</a>
+      <a href="https://github.com/everettjf/mostlike.link" target="_blank" class="btn btn-link">关于</a>
+
+      </h4>
+      <h4>
+          <a href="#" class="btn btn-link">（内部测试中：专题功能迫在眉睫，正在增加……）</a>
+      </h4>
+
       </div>
     </div>
   </body>
