@@ -1,6 +1,7 @@
 # mostlike.link
 
 最喜爱的链接
+[http://mostlike.link](http://mostlike.link)
 
 # 当前版本
 0.3-beta
@@ -14,6 +15,9 @@
 - 使用Chrome扩展收藏链接
 - 链接点击计数
 - 基于标签查询
+
+# 下一版本0.4
+- 专题功能
 
 # 计划
 - 链接推荐系统
