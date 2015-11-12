@@ -35,6 +35,7 @@ class LinkPost(Post):
     url = StringField(unique_with=['user'])
     click_count = IntField(default=1)
     clicked_at = DateTimeField(default=datetime.datetime.now)
+    remark = StringField()
 
     @queryset_manager
     def objects(doc_cls, queryset):
@@ -51,10 +52,6 @@ class LinkPost(Post):
     @queryset_manager
     def never_click_links(doc_cls, queryset):
         return queryset.order_by('clicked_at')[:5]
-
-
-class TextPost(Post):
-    content = StringField(required=True, max_length=100, unique_with=['user'])
 
 
 class ClickEvent(Document):

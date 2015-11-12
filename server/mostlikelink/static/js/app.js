@@ -1,10 +1,7 @@
 
 
-var baseURL = 'http://mostlike.link/';
-//var baseURL = 'http://0.0.0.0:5000/';
-
 function serverUrl(partialUrl){
-    return baseURL + partialUrl;
+    return baseUrl + partialUrl;
 }
 
 function logInfo(prefix,content){
@@ -22,9 +19,7 @@ mostlikelinkApp.config(['$interpolateProvider', function($interpolateProvider) {
 }]);
 
 mostlikelinkApp.controller('mostlikelinkCtrl',['$scope','$http','$window',function($scope,$http,$window){
-    clog('blog id = ' + blog_id);
-
-    if(blog_id == undefined){
+    if(blogId == undefined){
         clog('return when undefined');
         return;
     }
@@ -41,7 +36,7 @@ mostlikelinkApp.controller('mostlikelinkCtrl',['$scope','$http','$window',functi
 
     var refreshPage = function () {
         $http.post(serverUrl('api/blog/index'), {
-            blog_id: blog_id,
+            blog_id: blogId,
             filter_tags: $scope.filterTags
         }).success(function (data, status) {
             if(data.succeed){
@@ -66,7 +61,7 @@ mostlikelinkApp.controller('mostlikelinkCtrl',['$scope','$http','$window',functi
         $window.open(link.url, '_blank');
 
         $http.post(serverUrl('api/blog/link/click'),{
-            blog_id:blog_id,
+            blog_id:blogId,
             link_id:link.id
         }).success(function (data, status) {
             clog('click = ' + data.succeed);

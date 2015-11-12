@@ -4,13 +4,11 @@ from flask.ext.login import login_required, login_user, logout_user, current_use
 from . import app, login_manager, oauth, github
 import models
 from . import utils
+import os
 
 
 @app.route('/')
 def index():
-    # if current_user.is_authenticated:
-    #     return redirect(url_for('user_index', blog_id=current_user.blog_id))
-
     return render_template('index.html')
 
 
@@ -81,9 +79,14 @@ def user_index(blog_id):
     if user is None:
         return 'Blog not found'
 
+    base_url = 'http://0.0.0.0:5000/'
+    if os.environ.get('MOSTLIKELINK_PRODUCTION') is not None:
+        base_url = 'http://mostlike.link/'
+
     return render_template('user.html',
                            user_name=user.github_name,
-                           blog_id=blog_id
+                           blog_id=blog_id,
+                           base_url=base_url
                            )
 
 
@@ -110,6 +113,3 @@ def links_export():
     return utils.plaintext_response(result)
 
 
-@app.route('/google22c6b4f01e09a765.html')
-def google_verify():
-    return app.send_static_file('google22c6b4f01e09a765.html')
