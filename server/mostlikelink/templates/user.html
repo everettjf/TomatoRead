@@ -30,11 +30,12 @@ var _hmt = _hmt || [];
 
 <h6 ng-if="topLinks.length > 0">置顶</h6>
 <span ng-repeat="link in topLinks">
-    <img ng-if="link.favicon != '' " src="[[ link.favicon ]]" alt="" width="16px" height="16px"/>
-    <button type="button" class="btn btn-link" ng-click="clickLink(link)">[[link.title]]</button>
+    <button type="button" class="btn btn-link" ng-click="clickLink(link)">
+        <img ng-if="link.favicon != '' " src="[[ link.favicon ]]" alt="" width="16px" height="16px"/>
+        [[link.title]]
+    </button>
 </span>
-
-<hr/>
+<hr ng-if="topLinks.length > 0" />
 
 <h6>标签</h6>
 <span ng-repeat="tag in allTags">
@@ -58,8 +59,8 @@ var _hmt = _hmt || [];
 <h6>链接</h6>
 <span ng-if="allLinks.length == 0">没有可以显示的链接哦</span>
 <span ng-repeat="link in allLinks">
-    <img ng-if="link.favicon != '' " src="[[ link.favicon ]]" alt="" width="16px" height="16px"/>
     <button type="button" class="btn btn-link" ng-click="clickLink(link)">
+        <img ng-if="link.favicon != '' " src="[[ link.favicon ]]" alt="" width="16px" height="16px"/>
         [[link.title]]
     </button>
 </span>
@@ -70,8 +71,8 @@ var _hmt = _hmt || [];
 
 <h6>点击最多的链接</h6>
 <span ng-repeat="link in mostClickLinks">
-    <img ng-if="link.favicon != '' " src="[[ link.favicon ]]" alt="" width="16px" height="16px"/>
     <button type="button" class="btn btn-link" ng-click="clickLink(link)">
+        <img ng-if="link.favicon != '' " src="[[ link.favicon ]]" alt="" width="16px" height="16px"/>
         ([[link.click_count]])
         [[link.title]]
     </button>
@@ -79,16 +80,16 @@ var _hmt = _hmt || [];
 
 <h6>最近点击的链接</h6>
 <span ng-repeat="link in latestClickLinks">
-    <img ng-if="link.favicon != '' " src="[[ link.favicon ]]" alt="" width="16px" height="16px"/>
     <button type="button" class="btn btn-link" ng-click="clickLink(link)">
+        <img ng-if="link.favicon != '' " src="[[ link.favicon ]]" alt="" width="16px" height="16px"/>
         [[link.title]]
     </button>
 </span>
 
 <h6>点击最少的链接</h6>
 <span ng-repeat="link in neverClickLinks">
-    <img ng-if="link.favicon != '' " src="[[ link.favicon ]]" alt="" width="16px" height="16px"/>
     <button type="button" class="btn btn-link" ng-click="clickLink(link)">
+        <img ng-if="link.favicon != '' " src="[[ link.favicon ]]" alt="" width="16px" height="16px"/>
         [[link.title]]
     </button>
 </span>
