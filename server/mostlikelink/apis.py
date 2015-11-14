@@ -78,6 +78,7 @@ def api_update_link():
     title = req['title']
     tags = list(set(req['tags'].replace(',', ' ').split(' ')))
     tags = [tag.strip() for tag in tags if tag.strip()]
+    description = req['description']
 
     user = models.User.objects(id=current_user.id).first()
     if user is None:
@@ -109,6 +110,7 @@ def api_update_link():
 
     link.title = title
     link.tags = tags_data
+    link.description = description
     try:
         link.save()
     except Exception, e:
@@ -144,7 +146,8 @@ def api_link_info():
 
     return jsonify(succeed=True,
                    title=link.title,
-                   tags=tag_string
+                   tags=tag_string,
+                   description=link.description
                    )
 
 
@@ -186,7 +189,8 @@ def api_tags_recommend():
     tag_list = [tag.name for tag in tags]
 
     rec_tags=[
-        u':top',
+        u':TOP',
+        u':PRIVATE',
     ]
 
     print tag_list + rec_tags

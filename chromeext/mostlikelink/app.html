@@ -9,11 +9,15 @@
     <script src="vendor/angular.min.js"></script>
 </head>
 <body ng-controller="mostlikelinkCtrl">
-<div>
-    <button type="button" class="btn btn-link" ng-click="openNewSite('http://mostlike.link')">MostLike.Link</button>
-    <span ng-if="blog_id != '' ">/</span>
-    <button type="button" class="btn btn-link" ng-click="openBlog()" ng-if="blog_id != '' ">{{ blog_id }}</button>
-</div>
+
+<ol class="breadcrumb">
+    <li>
+        <button type="button" class="btn btn-link" ng-click="openNewSite('http://mostlike.link')">MostLike.Link</button>
+    </li>
+    <li class="active">
+        <button type="button" class="btn btn-link" ng-click="openBlog()" ng-if="blog_id != '' ">{{ blog_id }}</button>
+    </li>
+</ol>
 
 <div class="alert alert-warning" role="alert" ng-show="errorInfo != ''">
     {{ errorInfo }}
@@ -29,14 +33,19 @@
         <label for="title">标题</label>
         <input type="text" class="form-control" id="title" placeholder="Title" ng-model="linkTitle" ng-keydown="onKeyDownTitle($event)">
       </div>
+
       <div class="form-group">
         <label for="tags">标签</label>
         <input type="text" class="form-control" id="tags" placeholder="Tags" ng-model="linkTags" ng-keydown="onKeyDownTags($event)">
       </div>
-        <div class="form-group">
+        <div class="alert alert-success" role="alert">
             <span ng-repeat="tag in recommendTags">
                 <a href="#" ng-click="appendTag(tag)">{{ tag }}</a>
             </span>
+        </div>
+        <div class="form-group">
+            <label for="description">描述</label>
+            <textarea class="form-control" id="description" placeholder="Description" rows="3" ng-model="linkDescription"></textarea>
         </div>
     </form>
     <div class="btn-group btn-group-justified" role="group" aria-label="...">
@@ -44,7 +53,7 @@
           <button type="button" class="btn btn-default" ng-click="removeLink()">删除</button>
       </div>
       <div class="btn-group" role="group">
-          <button type="button" class="btn btn-primary" ng-click="updateLink()">更新</button>
+          <button type="button" class="btn btn-success" ng-click="updateLink()">更新</button>
       </div>
     </div>
 </div>

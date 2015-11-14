@@ -24,6 +24,7 @@ mostlikelinkApp.controller('mostlikelinkCtrl',['$scope','$http',function($scope,
     $scope.linkUrl = '';
     $scope.linkTags = '';
     $scope.linkTitle = '';
+    $scope.linkDescription = '';
     $scope.recommendTags = [];
 
     $scope.blog_id = '';
@@ -78,10 +79,15 @@ mostlikelinkApp.controller('mostlikelinkCtrl',['$scope','$http',function($scope,
     };
 
     $scope.updateLink = function () {
+        if($scope.linkDescription.length > 200){
+            $scope.errorInfo = '描述太长了，最多200字哦';
+            return;
+        }
         apiUpdateLink({
             title:$scope.linkTitle,
             url:$scope.linkUrl,
             tags:$scope.linkTags,
+            description:$scope.linkDescription,
         }, function (result) {
             window.close();
         },function(){
@@ -143,6 +149,7 @@ function initPageInfo(){
 
                     mostlikelink.linkTitle = result.title;
                     mostlikelink.linkTags = result.tags;
+                    mostlikelink.linkDescription = result.description;
                     mostlikelink.$apply();
 
                     angular.element('#title').focus();

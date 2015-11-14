@@ -65,7 +65,7 @@ def api_blog_index():
                        reason='User not exist')
 
     top_links_list = []
-    tag_top = models.Tag.objects(name=':top').first()
+    tag_top = models.Tag.objects(name=':TOP').first()
     if tag_top is not None:
         print 'tag top is = %s'% tag_top.name
         top_links = models.LinkPost.objects(tags__in=[tag_top])

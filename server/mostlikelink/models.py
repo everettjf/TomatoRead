@@ -20,6 +20,7 @@ class Tag(Document):
     user = ReferenceField(User, required=True, unique_with=['name'])
     created_at = DateTimeField(default=datetime.datetime.now)
     color = IntField(default=0)
+    is_topic = BooleanField(default=False)
 
 
 class Post(Document):
@@ -29,13 +30,14 @@ class Post(Document):
     tags = ListField(ReferenceField(Tag))
     created_at = DateTimeField(default=datetime.datetime.now)
     color = IntField(default=0)
+    is_private = BooleanField(default=False)
 
 
 class LinkPost(Post):
     url = StringField(unique_with=['user'])
     click_count = IntField(default=1)
     clicked_at = DateTimeField(default=datetime.datetime.now)
-    remark = StringField()
+    description = StringField(max_length=200, default='')
 
     @queryset_manager
     def objects(doc_cls, queryset):
