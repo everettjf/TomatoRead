@@ -16,9 +16,6 @@
 - 链接点击计数
 - 基于标签查询
 
-# 下一版本0.4
-- 专题功能
-
 # 计划
 - 链接推荐系统
 - 点击习惯统计
@@ -38,5 +35,29 @@
 2. install Redis
 3. pip install -r requirements.txt
 4. python run.py
+
+
+# TODO
+
+- [ ] 私有链接，仅公开视图可看
+- [ ] 描述
+- [ ] UI布局更大方一些
+- [ ] 邀请码
+- [ ] 首页显示最新10个链接、最新10个专题
+- [ ] 专题，特殊的标签，#开头
+- [X] 简单导出
+- [ ] 简单导入
+
+- [ ] EVTCalendar 模仿GitHub Contribution Calendar的iOS
+- [ ] iOS 客户端，内嵌浏览器
+- [ ] Mac/Windows浏览器
+
+- [ ] 链接内容更新定期检测
+
+- [ ] Firefox插件
+- [ ] Safari插件
+- [ ] 链接安全监测
+
+
 
 
