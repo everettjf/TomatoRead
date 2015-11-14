@@ -88,6 +88,7 @@ mostlikelinkApp.controller('mostlikelinkCtrl',['$scope','$http',function($scope,
             url:$scope.linkUrl,
             tags:$scope.linkTags,
             description:$scope.linkDescription,
+            favicon:$scope.linkFavicon
         }, function (result) {
             window.close();
         },function(){
@@ -150,6 +151,7 @@ function initPageInfo(){
                     mostlikelink.linkTitle = result.title;
                     mostlikelink.linkTags = result.tags;
                     mostlikelink.linkDescription = result.description;
+                    mostlikelink.linkFavicon = result.favicon;
                     mostlikelink.$apply();
 
                     angular.element('#title').focus();
@@ -158,7 +160,8 @@ function initPageInfo(){
                     // Add (Fast add without tags)
                     apiAddLink({
                         title:tab.title,
-                        url:tab.url
+                        url:tab.url,
+                        favicon:tab.favIconUrl
                     },function (result) {
                         // Succeed
                         chrome.pageAction.setIcon({

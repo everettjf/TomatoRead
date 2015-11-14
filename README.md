@@ -1,36 +1,36 @@
 # mostlike.link
 
-最喜爱的链接
+MostLike.Link
 [http://mostlike.link](http://mostlike.link)
 
-# 当前版本
+# Current Version
 0.3-beta
 
-# 使用帮助
+# Help
 
-[使用方法点击这里](https://github.com/everettjf/mostlike.link/blob/master/TUTORIAL.md)
+[Click Here For Help](https://github.com/everettjf/mostlike.link/blob/master/TUTORIAL.md)
 
-# 主要功能
+# Feature
 - 链接个人博客
 - 使用Chrome扩展收藏链接
 - 链接点击计数
 - 基于标签查询
 
-# 计划
+# Plan
 - 链接推荐系统
 - 点击习惯统计
 
-# 问题
+# Issue
 
-[在这里提问题](https://github.com/everettjf/mostlike.link/issues)
+[Issue Here](https://github.com/everettjf/mostlike.link/issues)
 
-# 技术
+# Based on
 - Flask
 - MongoDB
 - AngularJS
 - Redis
 
-# 搭建
+# Setup
 1. install MongoDB
 2. install Redis
 3. pip install -r requirements.txt
@@ -47,6 +47,7 @@
 - [ ] 邀请码
 - [X] 简单导出
 - [ ] 简单导入
+- [ ] 同步到DropBox
 
 - [ ] EVTCalendar 模仿GitHub Contribution Calendar的iOS
 - [ ] iOS 客户端，内嵌浏览器
@@ -59,7 +60,7 @@
 - [ ] 链接安全监测
 
 
-# 历史版本
+# History Versions
 
 - 0.3 2015-11-03 based on Flask, mongoDB
 - 0.2 2015-08-06 based on Laravel, ssdb

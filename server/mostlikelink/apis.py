@@ -28,6 +28,7 @@ def api_add_link():
     print req
     title = req['title']
     url = req['url']
+    favicon = req['favicon']
 
     user = models.User.objects(id=current_user.id).first()
     if user is None:
@@ -48,6 +49,7 @@ def api_add_link():
     link.tags = []
     link.url = url
     link.color = utils.random_color()
+    link.favicon = favicon
 
     try:
         link.save()
@@ -79,6 +81,7 @@ def api_update_link():
     tags = list(set(req['tags'].replace(',', ' ').split(' ')))
     tags = [tag.strip() for tag in tags if tag.strip()]
     description = req['description']
+    favicon = req['favicon']
 
     user = models.User.objects(id=current_user.id).first()
     if user is None:
@@ -111,6 +114,7 @@ def api_update_link():
     link.title = title
     link.tags = tags_data
     link.description = description
+    link.favicon = favicon
     try:
         link.save()
     except Exception, e:
@@ -147,7 +151,8 @@ def api_link_info():
     return jsonify(succeed=True,
                    title=link.title,
                    tags=tag_string,
-                   description=link.description
+                   description=link.description,
+                   favicon=link.favicon
                    )
 
 

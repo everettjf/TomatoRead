@@ -57,7 +57,8 @@ class UserController:
             top_links_list = [dict(
                 id=str(link.id),
                 title=link.title,
-                url=link.url
+                url=link.url,
+                favicon=link.favicon,
             ) for link in top_links]
 
         return top_links_list
@@ -86,7 +87,8 @@ class UserController:
         all_links_list = [dict(
             id=str(link.id),
             title=link.title,
-            url=link.url
+            url=link.url,
+            favicon=link.favicon,
         ) for link in all_links]
 
         return all_links_list
@@ -106,6 +108,7 @@ class UserController:
             id=str(link.id),
             title=link.title,
             url=link.url,
+            favicon=link.favicon,
             click_count=link.click_count
         ) for link in most_click_links]
 
@@ -127,6 +130,7 @@ class UserController:
             id=str(link.id),
             title=link.title,
             url=link.url,
+            favicon=link.favicon,
             clicked_at=utils.totimestamp(link.clicked_at)
         ) for link in latest_click_links]
 
@@ -148,6 +152,7 @@ class UserController:
             id=str(link.id),
             title=link.title,
             url=link.url,
+            favicon=link.favicon,
             clicked_at=utils.totimestamp(link.clicked_at)
         ) for link in never_click_links]
 

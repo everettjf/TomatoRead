@@ -38,6 +38,7 @@ class LinkPost(Post):
     click_count = IntField(default=1)
     clicked_at = DateTimeField(default=datetime.datetime.now)
     description = StringField(max_length=200, default='')
+    favicon = StringField(default='')
 
     @queryset_manager
     def objects(doc_cls, queryset):
