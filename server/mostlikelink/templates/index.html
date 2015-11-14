@@ -44,7 +44,7 @@ var _hmt = _hmt || [];
               通过GitHub账号登录
               </a>
           {% else %}
-              <a href="{{ url_for('user_index', blog_id=current_user.blog_id)}}" class="btn btn-info">
+              <a href="{{ url_for('user_index', blog_id=current_user.blog_id)}}" class="btn btn-success">
                   进入你的 MostLike.Link
               </a>
               <a href="{{ url_for('logout') }}" class="btn btn-link">
@@ -52,15 +52,8 @@ var _hmt = _hmt || [];
               </a>
           {% endif %}
 
-
-      <a href="https://github.com/everettjf/mostlike.link/blob/master/TUTORIAL.md" target="_blank" class="btn btn-link">使用说明</a>
       <a href="https://github.com/everettjf/mostlike.link" target="_blank" class="btn btn-link">关于</a>
-
       </h4>
-      <h4>
-          <a href="https://github.com/everettjf/mostlike.link" class="btn btn-link">（内部测试中，点击见TODO）</a>
-      </h4>
-
       </div>
     </div>
   </body>

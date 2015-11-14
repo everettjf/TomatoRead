@@ -69,33 +69,39 @@ var _hmt = _hmt || [];
 
 <hr/>
 
-<h6>点击最多的链接</h6>
-<span ng-repeat="link in mostClickLinks">
-    <button type="button" class="btn btn-link" ng-click="clickLink(link)">
-        <img ng-if="link.favicon != '' " src="[[ link.favicon ]]" alt="" width="16px" height="16px"/>
-        ([[link.click_count]])
-        [[link.title]]
-    </button>
-</span>
 
-<h6>最近点击的链接</h6>
-<span ng-repeat="link in latestClickLinks">
-    <button type="button" class="btn btn-link" ng-click="clickLink(link)">
-        <img ng-if="link.favicon != '' " src="[[ link.favicon ]]" alt="" width="16px" height="16px"/>
-        [[link.title]]
-    </button>
-</span>
+<div class="row">
+    <div class="col-md-4">
+        点击最多的链接：<br/>
+        <span ng-repeat="link in mostClickLinks">
+            <button type="button" class="btn btn-link" ng-click="clickLink(link)">
+                <img ng-if="link.favicon != '' " src="[[ link.favicon ]]" alt="" width="16px" height="16px"/>
+                ([[link.click_count]])
+                [[link.title]]
+            </button>
+        </span>
+    </div>
+    <div class="col-md-4">
+        最近点击的链接：<br/>
+        <span ng-repeat="link in latestClickLinks">
+            <button type="button" class="btn btn-link" ng-click="clickLink(link)">
+                <img ng-if="link.favicon != '' " src="[[ link.favicon ]]" alt="" width="16px" height="16px"/>
+                [[link.title]]
+            </button>
+        </span>
+    </div>
+    <div class="col-md-4">
+        点击最少的链接：<br/>
+        <span ng-repeat="link in neverClickLinks">
+            <button type="button" class="btn btn-link" ng-click="clickLink(link)">
+                <img ng-if="link.favicon != '' " src="[[ link.favicon ]]" alt="" width="16px" height="16px"/>
+                [[link.title]]
+            </button>
+        </span>
 
-<h6>点击最少的链接</h6>
-<span ng-repeat="link in neverClickLinks">
-    <button type="button" class="btn btn-link" ng-click="clickLink(link)">
-        <img ng-if="link.favicon != '' " src="[[ link.favicon ]]" alt="" width="16px" height="16px"/>
-        [[link.title]]
-    </button>
-</span>
+    </div>
+</div>
 
-
-<hr/>
 <ol class="breadcrumb">
     <li><a href="{{ url_for('links_export') }}" target="_blank">导出所有链接</a></li>
 </ol>
