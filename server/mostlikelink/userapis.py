@@ -17,7 +17,12 @@ def api_blog_link_click():
     blog_id = req['blog_id']
     link_id = req['link_id']
 
+    if not (current_user.is_authenticated and current_user.blog_id == blog_id):
+        return jsonify(succeed=True,
+                       reason='')
+
     if red.exists(blog_id + link_id):
+        print 'already clicked in 60 seconds'
         return jsonify(succeed=True)
 
     red.setex(blog_id+link_id, 1, 60)
