@@ -99,7 +99,8 @@ def links_export():
 
     all_links = models.LinkPost.objects(user=user)
 
-    result = "MostLike.Link\n0.3\n\n"
+    result = "MostLike.Link\n0.3\n"
+    result += "--ExportFormatVersion:0.1\n\n"
     result += "Links:%d\n" % len(all_links)
 
     for link in all_links:
@@ -108,7 +109,9 @@ def links_export():
         result += "  URL:%s\n" % link.url
         result += "  ClickCount:%s\n" % link.click_count
         result += "  CreatedAt:%s\n" % str(link.created_at)
-        result += "  Tags:%s\n" % " ".join([tag.name for tag in link.tags])
+        result += "  Tags:%s\n" % " ".join([tag.name for tag in link.tags if hasattr(tag, 'name')])
+        result += "  Favicon:%s\n" % link.favicon
+        result += "  Description:%s\n" % link.description
 
     return utils.plaintext_response(result)
 

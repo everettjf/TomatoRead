@@ -145,7 +145,7 @@ def api_link_info():
         return jsonify(succeed=False,
                        reason='URL not exist'
                        )
-    tag_names = [tag.name for tag in link.tags]
+    tag_names = [tag.name for tag in link.tags if hasattr(tag, 'name')]
     tag_string = " ".join(tag_names)
 
     return jsonify(succeed=True,
