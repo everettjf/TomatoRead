@@ -21,11 +21,12 @@ def api_blog_link_click():
         return jsonify(succeed=True,
                        reason='')
 
-    if red.exists(blog_id + link_id):
-        print 'already clicked in 60 seconds'
-        return jsonify(succeed=True)
-
-    red.setex(blog_id+link_id, 1, 60)
+    # server memory not enough , comment temp
+    # if red.exists(blog_id + link_id):
+    #     print 'already clicked in 60 seconds'
+    #     return jsonify(succeed=True)
+    #
+    # red.setex(blog_id+link_id, 1, 60)
 
     user = models.User.objects(blog_id=blog_id).first()
     if user is None:
