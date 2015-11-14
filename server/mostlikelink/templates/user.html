@@ -28,7 +28,7 @@ var _hmt = _hmt || [];
   <li class="active">{{ user_name }}</li>
 </ol>
 
-<h6>置顶</h6>
+<h6 ng-if="topLinks.length > 0">置顶</h6>
 <span ng-repeat="link in topLinks">
     <button type="button" class="btn btn-link" ng-click="clickLink(link)">[[link.title]]</button>
 </span>
