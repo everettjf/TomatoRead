@@ -32,11 +32,6 @@ var _hmt = _hmt || [];
             MostLike.Link
           <small>最喜爱的链接 (beta)</small>
         </h1>
-      <h4>
-          <a href="https://github.com/everettjf/mostlike.link/raw/master/chromeext/mostlikelink.crx" target="_blank" class="btn btn-link">
-              请首先下载Chrome插件(目前仅支持 Google Chrome 系的浏览器)
-          </a>
-      </h4>
 
       <h4>
           {% if not current_user.is_authenticated %}
@@ -54,6 +49,16 @@ var _hmt = _hmt || [];
 
       <a href="https://github.com/everettjf/mostlike.link" target="_blank" class="btn btn-link">关于</a>
       </h4>
+      <div class="alert alert-success" role="alert">
+          <a href="https://chrome.google.com/webstore/detail/mostlikelink/cmdbeghbiegcpgkgnhcbakkfmdphdcpo" target="_blank">
+              点此通过Chrome Web Store安装扩展
+          </a>
+          或
+          <a href="https://github.com/everettjf/mostlike.link/raw/master/chromeext/mostlikelink.crx" target="_blank">
+              下载Chrome扩展文件
+          </a>
+          拖动到chrome://extensions
+      </div>
       </div>
     </div>
   </body>
