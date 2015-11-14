@@ -59,16 +59,27 @@ def api_blog_index():
     blog_id = req['blog_id']
     filter_tags = req['filter_tags']
 
+    # Find target user
     user = models.User.objects(blog_id=blog_id).first()
     if user is None:
         return jsonify(succeed=False,
                        reason='User not exist')
 
+    # Whether include Private Links
+    except_tags = []
+    if current_user.is_authenticated and current_user.id == user.id:
+        # Yes, include Private Links
+        pass
+    else:
+        tag_private = models.Tag.objects(user=user, name=':PRIVATE').first()
+        except_tags.append(tag_private)
+
+    # TOP Links
     top_links_list = []
-    tag_top = models.Tag.objects(name=':TOP').first()
+    tag_top = models.Tag.objects(user=user, name=':TOP').first()
     if tag_top is not None:
         print 'tag top is = %s'% tag_top.name
-        top_links = models.LinkPost.objects(tags__in=[tag_top])
+        top_links = models.LinkPost.objects(user=user, tags__in=[tag_top], tags__nin=except_tags)
         print 'top links len = %d' % len(top_links)
         top_links_list = [dict(
             id=str(link.id),
@@ -76,21 +87,30 @@ def api_blog_index():
             url=link.url
         ) for link in top_links]
 
+    # Tags for filter
     filter_tags_ids = [tag['id'] for tag in filter_tags]
-    filter_tags_entities = models.Tag.objects(id__in=filter_tags_ids)
+    filter_tags_entities = models.Tag.objects(user=user, id__in=filter_tags_ids)
     print 'filter tags entities len = %d'% len(filter_tags_entities)
 
+    # All Tags
     all_tags = models.Tag.objects(user=user)
     all_tags_list = [dict(
         id=str(tag.id),
         name=tag.name
     ) for tag in all_tags]
 
+    # All Links
     all_links = []
     if len(filter_tags_entities) == 0:
-        all_links = models.LinkPost.objects(user=user)[0:100]
+        all_links = models.LinkPost.objects(user=user,
+                                            tags__nin=except_tags
+                                            )[0:100]
     else:
-        all_links = models.LinkPost.objects(user=user, tags__all=filter_tags_entities)
+        # With filter
+        all_links = models.LinkPost.objects(user=user,
+                                            tags__all=filter_tags_entities,
+                                            tags__nin=except_tags
+                                            )[0:100]
 
     all_links_list = [dict(
         id=str(link.id),
@@ -103,15 +123,14 @@ def api_blog_index():
     latest_click_links_list = []
     never_click_links_list = []
     if current_user.is_authenticated and current_user.id == user.id:
-        print 'same user'
         if len(filter_tags_entities) == 0:
             most_click_links = models.LinkPost.most_click_links(user=user)
             latest_click_links = models.LinkPost.latest_click_links(user=user)
             never_click_links = models.LinkPost.never_click_links(user=user)
         else:
-            most_click_links = models.LinkPost.most_click_links(user=user, tags__in=filter_tags_entities)
-            latest_click_links = models.LinkPost.latest_click_links(user=user, tags__in=filter_tags_entities)
-            never_click_links = models.LinkPost.never_click_links(user=user, tags__in=filter_tags_entities)
+            most_click_links = models.LinkPost.most_click_links(user=user, tags__all=filter_tags_entities)
+            latest_click_links = models.LinkPost.latest_click_links(user=user, tags__all=filter_tags_entities)
+            never_click_links = models.LinkPost.never_click_links(user=user, tags__all=filter_tags_entities)
 
         most_click_links_list = [dict(
             id=str(link.id),

@@ -55,6 +55,7 @@ var _hmt = _hmt || [];
 </div>
 
 <h6>链接</h6>
+<span ng-if="allLinks.length == 0">没有可以显示的链接哦</span>
 <span ng-repeat="link in allLinks">
     <button type="button" class="btn btn-link" ng-click="clickLink(link)">
         [[link.title]]
