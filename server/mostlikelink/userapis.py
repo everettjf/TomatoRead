@@ -1,5 +1,5 @@
 # coding=utf-8
-from . import app, login_manager, csrf, red
+from . import app, login_manager, csrf
 from flask import json,jsonify,json_available, request
 from flask.ext.login import login_required, login_user, logout_user,current_user, user_logged_in
 from mongoengine import errors

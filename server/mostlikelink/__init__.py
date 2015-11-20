@@ -5,7 +5,6 @@ from flask.ext.login import LoginManager
 from mongoengine import connect
 from flask_wtf.csrf import CsrfProtect
 from flask_oauthlib.client import OAuth
-import redis
 import os
 
 # App
@@ -24,11 +23,6 @@ login_manager.init_app(app)
 
 # MongoDB
 connect(app.config['DB_NAME'])
-
-# Redis
-redis_pool = redis.ConnectionPool(host='localhost', port=6379, db=0)
-red = redis.Redis(connection_pool=redis_pool)
-
 
 # OAuth
 oauth = OAuth(app)
