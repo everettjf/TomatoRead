@@ -28,7 +28,9 @@ def api_add_link():
     print req
     title = req['title']
     url = req['url']
-    favicon = req['favicon']
+    favicon = ''
+    if 'favicon' in req:
+        favicon = req['favicon']
 
     user = models.User.objects(id=current_user.id).first()
     if user is None:

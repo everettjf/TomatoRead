@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <title>{{ user_name }} MostLike.Link</title>
 
-    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/semantic-ui/2.1.6/semantic.min.js"></script>
     <script src="//cdn.bootcss.com/angular.js/1.4.7/angular.min.js"></script>
+
+    <link href="//cdn.bootcss.com/semantic-ui/2.1.6/semantic.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
     <link rel="shortcut icon" href="{{ url_for('static',filename='img/favicon.ico')}}">
@@ -23,96 +25,147 @@ var _hmt = _hmt || [];
 </head>
 <body ng-controller="mostlikelinkCtrl">
 
-<ol class="breadcrumb">
-  <li><a href="{{ url_for('index') }}">MostLike.Link</a></li>
-  <li class="active">{{ user_name }}</li>
-</ol>
+<div class="ui grid">
+    <div class="sixteen wide column center aligned">
+        <div class="ui breadcrumb">
+            <a href="{{ url_for('index') }}" class="section">MostLike.Link</a>
+            <div class="divider">/</div>
+            <div class="active section">{{ user_name }}</div>
 
-<h6 ng-if="topLinks.length > 0">置顶</h6>
-<span ng-repeat="link in topLinks">
-    <button type="button" class="btn btn-link" ng-click="clickLink(link)">
-        <img ng-if="link.favicon != '' " src="[[ link.favicon ]]" alt="" width="16px" height="16px"/>
-        [[link.title]]
-    </button>
-</span>
-<hr ng-if="topLinks.length > 0" />
+            {% if current_user.is_authenticated %}
+                <div class="section">
+                    (
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                    | <a href="{{ url_for('links_export') }}" target="_blank">Export</a>
+                    {% if current_user.role == 1 %}
+                        | <a href="{{ url_for('admin_users') }}">Users</a>
+                    {% endif %}
+                    )
+                </div>
+            {% endif %}
+        </div>
+    </div>
 
-<h6>标签</h6>
-<span ng-repeat="tag in allTags">
-    <button type="button" class="btn btn-link" ng-click="addFilterTag(tag)">[[tag.name]]</button>
-</span>
-
-<hr/>
-<div ng-if="filterTags.length > 0">
-    <h6>过滤标签
-        <button type="button" class="btn btn-link" ng-click="clearFilterTag()">
-           [清空]
-        </button>
-    </h6>
-    <span ng-repeat="tag in filterTags">
-        <button type="button" class="btn btn-link" ng-click="removeFilterTag(tag)">
-            [[tag.name]]
-        </button>
-    </span>
 </div>
 
-<h6>链接</h6>
-<span ng-if="allLinks.length == 0">没有可以显示的链接哦</span>
-<span ng-repeat="link in allLinks">
-    <button type="button" class="btn btn-link" ng-click="clickLink(link)">
-        <img ng-if="link.favicon != '' " src="[[ link.favicon ]]" alt="" width="16px" height="16px"/>
-        [[link.title]]
-    </button>
-</span>
-
-{% if current_user.is_authenticated %}
-
-<hr/>
-
-
-<div class="row">
-    <div class="col-md-4">
-        点击最多的链接：<br/>
-        <span ng-repeat="link in mostClickLinks">
-            <button type="button" class="btn btn-link" ng-click="clickLink(link)">
-                <img ng-if="link.favicon != '' " src="[[ link.favicon ]]" alt="" width="16px" height="16px"/>
-                ([[link.click_count]])
-                [[link.title]]
-            </button>
-        </span>
-    </div>
-    <div class="col-md-4">
-        最近点击的链接：<br/>
-        <span ng-repeat="link in latestClickLinks">
-            <button type="button" class="btn btn-link" ng-click="clickLink(link)">
-                <img ng-if="link.favicon != '' " src="[[ link.favicon ]]" alt="" width="16px" height="16px"/>
-                [[link.title]]
-            </button>
-        </span>
-    </div>
-    <div class="col-md-4">
-        点击最少的链接：<br/>
-        <span ng-repeat="link in neverClickLinks">
-            <button type="button" class="btn btn-link" ng-click="clickLink(link)">
-                <img ng-if="link.favicon != '' " src="[[ link.favicon ]]" alt="" width="16px" height="16px"/>
-                [[link.title]]
-            </button>
-        </span>
-
+<div class="ui grid">
+    <div class="sixteen wide column" ng-if="topLinks.length > 0">
+        TOP:
+        <div class="ui mini horizontal divided list">
+          <div class="item">
+            <img class="ui avatar image" src="http://semantic-ui.com/images/avatar/small/helen.jpg">
+            <div class="content">
+              <div class="header">
+                  <a href="#">Helen</a>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+              <img class="ui avatar image" src="http://semantic-ui.com/images/avatar/small/helen.jpg">
+            <div class="content">
+              <div class="header">Christian</div>
+            </div>
+          </div>
+          <div class="item" ng-repeat="link in topLinks">
+              <img class="ui image" src="[[ link.favicon ]] " width="16px" height="16px" ng-if="link.favicon != '' ">
+            <div class="content">
+              <div class="header">[[link.title]]</div>
+            </div>
+          </div>
+        </div>
     </div>
 </div>
 
-<ol class="breadcrumb">
-    <li><a href="{{ url_for('links_export') }}" target="_blank">导出所有链接</a></li>
-</ol>
+<div class="ui grid">
+    <div class="four wide column">
+        <div class="ui violet message" ng-if="filterTags.length > 0">
+            Filter:
+            <a ng-click="clearFilterTag()">
+                [Clear]
+            </a>
 
-{% if current_user.role == 1 %}
-    <ol class="breadcrumb">
-        <li><a href="{{ url_for('admin_users') }}">Admin/Users</a></li>
-    </ol>
-{% endif %}
+            <span ng-repeat="tag in filterTags">
+                <a ng-click="removeFilterTag(tag)">
+                    [[tag.name]]
+                </a>
+            </span>
+        </div>
 
-{% endif %}
+        <div class="ui olive message">
+            Topics:
+
+            <div class="ui bulleted list">
+              <div class="item">Gaining Access</div>
+              <div class="item">Inviting Friends</div>
+              <div class="item">
+                <div>Benefits</div>
+                <div class="list">
+                  <div class="item">Use Anywhere</div>
+                  <div class="item">Rebates</div>
+                  <div class="item">Discounts</div>
+                </div>
+              </div>
+              <div class="item">Warranty</div>
+            </div>
+        </div>
+
+        <div class="ui olive message">
+            Tags:
+            <span ng-repeat="tag in allTags">
+                <a ng-click="addFilterTag(tag)">[[tag.name]]</a>
+            </span>
+        </div>
+
+
+    </div>
+    <div class="twelve wide column">
+        <span ng-if="allLinks.length == 0">没有可以显示的链接哦</span>
+
+        <div class="ui list divided">
+          <div class="item" ng-repeat="link in allLinks">
+              <img class="ui image" src="[[ link.favicon ]] " width="16px" height="16px">
+            <div class="content">
+              <a class="header" ng-click="clickLink(link)">
+                  [[link.title]]
+              </a>
+              <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="ui divider"></div>
+
+<div class="ui three column grid" ng-if="mostClickLinks.length>0 || latestClickLinks.length>0 || neverClickLinks.length>0">
+  <div class="column">
+      MostClick:
+     <div class="item" ng-repeat="link in mostClickLinks">
+         <a ng-click="clickLink(link)">
+             ([[link.click_count]])
+             [[link.title]]
+         </a>
+     </div>
+  </div>
+  <div class="column">
+      LatestClick:
+      <div class="item" ng-repeat="link in latestClickLinks">
+          <a ng-click="clickLink(link)">
+              [[link.title]]
+          </a>
+      </div>
+  </div>
+  <div class="column">
+      NeverClick:
+      <div class="item" ng-repeat="link in neverClickLinks">
+          <a ng-click="clickLink(link)">
+              [[link.title]]
+          </a>
+      </div>
+  </div>
+</div>
+
 
 <script>
     var blogId ='{{ blog_id }}';
