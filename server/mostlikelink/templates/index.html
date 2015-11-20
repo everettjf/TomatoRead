@@ -6,66 +6,147 @@
     <meta name="description" content="Most Like Link"/>
     <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
 
-      <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-      <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/semantic-ui/2.1.6/semantic.min.js"></script>
 
-      <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
-      <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css')}}">
+    <link href="//cdn.bootcss.com/semantic-ui/2.1.6/semantic.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css')}}">
+
     <link rel="shortcut icon" href="{{ url_for('static',filename='img/favicon.ico')}}">
-
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?4b0fdad2c7b0d206cee80aea042cce57";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4b0fdad2c7b0d206cee80aea042cce57";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
   </head>
-  <body>
-    <div class="container">
-      <div class="most-headline">
-        <h1 class="most-logo">
-          <div class="logo"></div>
-            MostLike.Link
-          <small>beta</small>
-        </h1>
+<body>
 
-      <h4>
+<div class="ui equal width padded grid">
+  <div class="row center aligned">
+    <div class="column">
+        <div class="ui huge statistic">
+          <div class="value">
+            2,204
+          </div>
+          <div class="label">MostLike.Link(beta)</div>
+        </div>
+        <br/>
+        <div class="ui breadcrumb">
           {% if not current_user.is_authenticated %}
-              <a href="{{ url_for('login') }}" class="btn btn-success">
-              通过GitHub账号登录
+              <a href="{{ url_for('login') }}" class="section">
+              Login
               </a>
           {% else %}
-              <a href="{{ url_for('user_index', blog_id=current_user.blog_id)}}" class="btn btn-success">
-                  进入你的 MostLike.Link
-              </a>
-              <a href="{{ url_for('logout') }}" class="btn btn-link">
-                退出登录
+              <a href="{{ url_for('user_index', blog_id=current_user.blog_id)}}" class="section">
+              Enter MostLike.Link
               </a>
           {% endif %}
 
-      <a href="https://github.com/everettjf/mostlike.link" target="_blank" class="btn btn-link">关于</a>
-      </h4>
-      <br/>
-      <div class="alert alert-success" role="alert">
-          <a href="https://chrome.google.com/webstore/detail/mostlikelink/cmdbeghbiegcpgkgnhcbakkfmdphdcpo" target="_blank">
-              点此通过Chrome Web Store安装扩展
-          </a>
-          或
-          <a href="https://github.com/everettjf/mostlike.link/raw/master/chromeext/mostlikelink.crx" target="_blank">
-              下载Chrome扩展文件
-          </a>
-          拖动到chrome://extensions
-      </div>
+          <span class="divider">|</span>
 
-          <div class="alert alert-danger" role="alert">
-              内测中，数据随时删除哦
-          </div>
-      </div>
+          <a href="https://chrome.google.com/webstore/detail/mostlikelink/cmdbeghbiegcpgkgnhcbakkfmdphdcpo" target="_blank">
+              Install Chrome Extension
+          </a>
+
+          <span class="divider">|</span>
+          <a href="https://github.com/everettjf/mostlike.link" target="_blank" class="section">About</a>
+
+        </div>
     </div>
+  </div>
+  <div class="row">
+    <div class="column">
+        <div class="ui items divided">
+          <div class="item">
+            <a class="ui tiny image">
+              <img src="http://www.semantic-ui.cn/images/avatar/large/veronika.jpg">
+            </a>
+            <div class="content">
+              <a class="header">Stevie Feliciano</a>
+              <div class="description">
+                <p>Stevie Feliciano is a <a>library scientist</a> living in New York City. She likes to spend her time reading, running, and writing.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="ui list divided">
+          <div class="item">
+            <img class="ui avatar image" src="http://www.semantic-ui.cn/images/avatar/large/veronika.jpg">
+            <div class="content">
+              <a class="header">Rachel</a>
+              <div class="description">刚刚看了 <a><b>Arrested Development</b></a> 。</div>
+            </div>
+          </div>
+          <div class="item">
+            <img class="ui avatar image" src="http://www.semantic-ui.cn/images/avatar/large/veronika.jpg">
+            <div class="content">
+              <a class="header">Lindsay</a>
+              <div class="description">最近看<a><b>Bob's Burgers</b></a> 是10个小时以前。</div>
+            </div>
+          </div>
+          <div class="item">
+            <img class="ui avatar image" src="http://www.semantic-ui.cn/images/avatar/large/veronika.jpg">
+            <div class="content">
+              <a class="header">Matthew</a>
+              <div class="description">最近看 <a><b>The Godfather Part 2</b></a> 是在昨天。</div>
+            </div>
+          </div>
+            <div class="item">
+                <img class="ui avatar image" src="http://www.semantic-ui.cn/images/avatar/large/veronika.jpg">
+                <div class="content">
+                    <a class="header">Matthew</a>
+                    <div class="description">最近看 <a><b>The Godfather Part 2</b></a> 是在昨天。</div>
+                </div>
+            </div>
+            <div class="item">
+                <img class="ui avatar image" src="http://www.semantic-ui.cn/images/avatar/large/veronika.jpg">
+                <div class="content">
+                    <a class="header">Matthew</a>
+                    <div class="description">最近看 <a><b>The Godfather Part 2</b></a> 是在昨天。</div>
+                </div>
+            </div>
+            <div class="item">
+                <img class="ui avatar image" src="http://www.semantic-ui.cn/images/avatar/large/veronika.jpg">
+                <div class="content">
+                    <a class="header">Matthew</a>
+                    <div class="description">最近看 <a><b>The Godfather Part 2</b></a> 是在昨天。</div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+{#    <div class="container">#}
+{#      <div class="most-headline">#}
+{#        <h1 class="most-logo">#}
+{#          <div class="logo"></div>#}
+{#            MostLike.Link#}
+{#          <small>beta</small>#}
+{#        </h1>#}
+{##}
+{#      <h4>#}
+{##}
+{#      </h4>#}
+{#      <br/>#}
+{#      <div class="alert alert-success" role="alert">#}
+{#          拖动到chrome://extensions#}
+{#      </div>#}
+{##}
+{#          <div class="alert alert-danger" role="alert">#}
+{#              内测中，数据随时删除哦#}
+{#          </div>#}
+{#      </div>#}
+{#    </div>#}
   </body>
 </html>
 
