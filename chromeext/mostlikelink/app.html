@@ -12,13 +12,9 @@
 <body ng-controller="mostlikelinkCtrl">
 
 <div class="ui breadcrumb">
-  <a class="section">
-      <a ng-click="openBaseSite()">MostLike.Link</a>
-  </a>
+  <a class="section" ng-click="openBaseSite()">MostLike.Link</a>
   <div class="divider"> / </div>
-  <a class="section">
-      <a ng-click="openBlog()" ng-if="blog_id != '' ">{{ blog_id }}</a>
-  </a>
+  <a class="section" ng-click="openBlog()" ng-if="blog_id != '' ">{{ blog_id }}</a>
 </div>
 
 <div class="ui warning message" ng-show="errorInfo != ''">

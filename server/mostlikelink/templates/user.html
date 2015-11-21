@@ -27,8 +27,15 @@ var _hmt = _hmt || [];
 
 <div class="ui grid">
     <div class="sixteen wide column center aligned">
+        <div class="ui statistic">
+            <div class="value">
+                1,024
+            </div>
+            <div class="label">{{ user_name }} 's MostLike.Link</div>
+        </div>
+        <br/>
         <div class="ui breadcrumb">
-            <a href="{{ url_for('index') }}" class="section">MostLike.Link</a>
+            <a href="{{ url_for('index') }}" class="section">Home</a>
             <div class="divider">/</div>
             <div class="active section">{{ user_name }}</div>
 
@@ -48,17 +55,14 @@ var _hmt = _hmt || [];
 
 </div>
 
-<div class="ui grid">
-    <div class="sixteen wide column" ng-if="topLinks.length > 0">
-        TOP:
-        <div class="ui mini horizontal divided list">
-          <div class="item" ng-repeat="link in topLinks">
-              <img class="ui image" src="[[ link.favicon ]] " width="16px" height="16px" ng-if="link.favicon != '' ">
-            <div class="content">
-              <div class="header">[[link.title]]</div>
-            </div>
-          </div>
+<div class="ui message" ng-if="topLinks.length > 0">
+    <div class="ui mini horizontal divided list">
+      <div class="item" ng-repeat="link in topLinks">
+          <img class="ui image" src="[[ link.favicon ]] " width="16px" height="16px" ng-if="link.favicon != '' ">
+        <div class="content">
+          <div class="header">[[link.title]]</div>
         </div>
+      </div>
     </div>
 </div>
 
@@ -122,9 +126,10 @@ var _hmt = _hmt || [];
     </div>
 </div>
 
-<div class="ui divider"></div>
+<div ng-if="mostClickLinks.length>0 || latestClickLinks.length>0 || neverClickLinks.length>0">
 
-<div class="ui three column grid" ng-if="mostClickLinks.length>0 || latestClickLinks.length>0 || neverClickLinks.length>0">
+<div class="ui divider"></div>
+<div class="ui three column grid" >
   <div class="column">
       MostClick:
      <div class="item" ng-repeat="link in mostClickLinks">
@@ -151,7 +156,14 @@ var _hmt = _hmt || [];
       </div>
   </div>
 </div>
+</div>
 
+<div class="ui divider"></div>
+<div class="ui grid">
+  <div class="sixteen wide column center aligned">
+      MostLike.Link
+  </div>
+</div>
 
 <script>
     var blogId ='{{ blog_id }}';
