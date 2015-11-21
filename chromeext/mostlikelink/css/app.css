@@ -1,7 +1,4 @@
 body {
-    min-width: 500px;
-    max-width: 600px;
-
-    min-height: 300px;
-    max-height: 700px;
+    width: 500px;
+    height: 400px;
 }
