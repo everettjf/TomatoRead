@@ -89,7 +89,11 @@ var _hmt = _hmt || [];
 
 
     </div>
+    {% if current_user.is_authenticated and blog_id == current_user.blog_id %}
+    <div class="eight wide column">
+    {% else %}
     <div class="twelve wide column">
+    {% endif %}
         <span ng-if="allLinks.length == 0">Empty</span>
 
         <div class="ui list divided">
@@ -105,40 +109,39 @@ var _hmt = _hmt || [];
             </div>
           </div>
         </div>
-
     </div>
-</div>
 
-{% if current_user.is_authenticated and blog_id == current_user.blog_id %}
-<div class="ui divider"></div>
-<div class="ui three column grid" >
-  <div class="column">
-      MostClick:
-     <div class="item" ng-repeat="link in mostClickLinks">
-         <a ng-click="clickLink(link)">
-             ([[link.click_count]])
-             [[link.title]]
-         </a>
-     </div>
-  </div>
-  <div class="column">
-      LatestClick:
-      <div class="item" ng-repeat="link in latestClickLinks">
-          <a ng-click="clickLink(link)">
-              [[link.title]]
-          </a>
-      </div>
-  </div>
-  <div class="column">
-      NeverClick:
-      <div class="item" ng-repeat="link in neverClickLinks">
-          <a ng-click="clickLink(link)">
-              [[link.title]]
-          </a>
-      </div>
-  </div>
+    {% if current_user.is_authenticated and blog_id == current_user.blog_id %}
+    <div class="four wide column">
+        <div class="ui green message">
+            MostClick:
+            <div class="item" ng-repeat="link in mostClickLinks">
+                <a ng-click="clickLink(link)">
+                    ([[link.click_count]])
+                    [[link.title]]
+                </a>
+            </div>
+        </div>
+        <div class="ui blue message">
+            LatestClick:
+            <div class="item" ng-repeat="link in latestClickLinks">
+                <a ng-click="clickLink(link)">
+                    [[link.title]]
+                </a>
+            </div>
+        </div>
+        <div class="ui yellow message">
+            NeverClick:
+            <div class="item" ng-repeat="link in neverClickLinks">
+                <a ng-click="clickLink(link)">
+                    [[link.title]]
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
 </div>
-{% endif %}
 
 <div class="ui divider"></div>
 <div class="ui grid">
