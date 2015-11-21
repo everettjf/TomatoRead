@@ -5,11 +5,18 @@ from . import app, login_manager, oauth, github
 import models
 from . import utils
 import os
+from . import controllers
 
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    ctl = controllers.IndexController()
+
+    return render_template('index.html',
+                           total_link_count_string=ctl.get_total_link_count_string(),
+                           star_users=ctl.get_star_users(),
+                           latest_add_links=ctl.get_latest_add_links(),
+                           )
 
 
 @app.route('/login')

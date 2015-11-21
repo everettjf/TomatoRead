@@ -170,3 +170,43 @@ class UserController:
         return never_click_links_list
 
 
+class IndexController:
+    def __init__(self):
+        pass
+
+    def get_total_link_count_string(self):
+        return "{:,}".format(len(models.LinkPost.objects()))
+
+    def get_latest_add_links(self):
+        links = models.LinkPost.objects()[0:10]
+        link_list = [dict(
+            id=str(link.id),
+            title=link.title,
+            url=link.url,
+            favicon=link.favicon,
+            description=link.description
+        ) for link in links]
+        return link_list
+
+    def fetch_user_topics(self, user):
+        all_tags = models.Tag.objects(user=user)
+        all_topics_list = [dict(
+            id=str(tag.id),
+            name=tag.name
+        ) for tag in all_tags if tag.is_topic]
+        return all_topics_list
+
+    def get_user_total_link_count_string(self,user):
+        return "{:,}".format(len(models.LinkPost.objects(user=user)))
+
+    def get_star_users(self):
+        users = models.User.objects()
+        users_list = [dict(
+            blog_id=user.blog_id,
+            github_url=user.github_url,
+            github_name=user.github_name,
+            avatar=user.github_avatar_url,
+            topics=self.fetch_user_topics(user),
+            link_count_string=self.get_user_total_link_count_string(user)
+        ) for user in users]
+        return users_list

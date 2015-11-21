@@ -31,7 +31,7 @@
     <div class="column">
         <div class="ui huge statistic">
           <div class="value">
-            2,204
+              {{ total_link_count_string }}
           </div>
           <div class="label">MostLike.Link(beta)</div>
         </div>
@@ -43,7 +43,7 @@
               </a>
           {% else %}
               <a href="{{ url_for('user_index', blog_id=current_user.blog_id)}}" class="section">
-              Enter MostLike.Link
+              Enter Your MostLike.Link
               </a>
           {% endif %}
 
@@ -61,64 +61,58 @@
   </div>
   <div class="row">
     <div class="column">
+        <div class="ui info message">
+            Enjoy sharing the links !
+        </div>
+
         <div class="ui items divided">
+           {% for user in star_users %}
           <div class="item">
             <a class="ui tiny image">
-              <img src="http://www.semantic-ui.cn/images/avatar/large/veronika.jpg">
+              <img src="{{ user.avatar }}">
             </a>
             <div class="content">
-              <a class="header">Stevie Feliciano</a>
+              <a class="header" href="{{ url_for('user_index',blog_id=user.blog_id) }}">
+                  {{ user.github_name }}
+                    <div class="ui mini horizontal statistic">
+                      <div class="value">
+                          {{ user.link_count_string }}
+                      </div>
+                    </div>
+              </a>
               <div class="description">
-                <p>Stevie Feliciano is a <a>library scientist</a> living in New York City. She likes to spend her time reading, running, and writing.</p>
+                <p>
+                    {% for topic in user.topics %}
+                        <a href="{{ url_for('user_index',blog_id=user.blog_id) }}">
+                        {{ topic.name }}
+                        </a>
+                        &nbsp;
+                    {% endfor %}
+                </p>
               </div>
             </div>
           </div>
+            {% endfor %}
         </div>
     </div>
+  <div class="ui vertical divider">
+      {{ total_link_count_string[-1] }}
+  </div>
     <div class="column">
         <div class="ui list divided">
+          {% for link in latest_add_links %}
           <div class="item">
-            <img class="ui avatar image" src="http://www.semantic-ui.cn/images/avatar/large/veronika.jpg">
+            <img class="ui avatar image" src="{{ link.favicon }}" width="16px" height="16px">
             <div class="content">
-              <a class="header">Rachel</a>
-              <div class="description">刚刚看了 <a><b>Arrested Development</b></a> 。</div>
+              <a class="header" href="{{ link.url }}" target="_blank">
+                  {{ link.title }}
+              </a>
+              <div class="description">
+                  {{ link.description }}
+              </div>
             </div>
           </div>
-          <div class="item">
-            <img class="ui avatar image" src="http://www.semantic-ui.cn/images/avatar/large/veronika.jpg">
-            <div class="content">
-              <a class="header">Lindsay</a>
-              <div class="description">最近看<a><b>Bob's Burgers</b></a> 是10个小时以前。</div>
-            </div>
-          </div>
-          <div class="item">
-            <img class="ui avatar image" src="http://www.semantic-ui.cn/images/avatar/large/veronika.jpg">
-            <div class="content">
-              <a class="header">Matthew</a>
-              <div class="description">最近看 <a><b>The Godfather Part 2</b></a> 是在昨天。</div>
-            </div>
-          </div>
-            <div class="item">
-                <img class="ui avatar image" src="http://www.semantic-ui.cn/images/avatar/large/veronika.jpg">
-                <div class="content">
-                    <a class="header">Matthew</a>
-                    <div class="description">最近看 <a><b>The Godfather Part 2</b></a> 是在昨天。</div>
-                </div>
-            </div>
-            <div class="item">
-                <img class="ui avatar image" src="http://www.semantic-ui.cn/images/avatar/large/veronika.jpg">
-                <div class="content">
-                    <a class="header">Matthew</a>
-                    <div class="description">最近看 <a><b>The Godfather Part 2</b></a> 是在昨天。</div>
-                </div>
-            </div>
-            <div class="item">
-                <img class="ui avatar image" src="http://www.semantic-ui.cn/images/avatar/large/veronika.jpg">
-                <div class="content">
-                    <a class="header">Matthew</a>
-                    <div class="description">最近看 <a><b>The Godfather Part 2</b></a> 是在昨天。</div>
-                </div>
-            </div>
+          {% endfor %}
         </div>
     </div>
   </div>
