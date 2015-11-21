@@ -78,6 +78,9 @@ class UserController:
 
         return all_topics_list, all_tags_list
 
+    def fetch_total_link_count(self):
+        return len(models.LinkPost.objects(user=self.__user))
+
     def fetch_all_links(self):
         all_links = []
         if not self.has_filter_tags():

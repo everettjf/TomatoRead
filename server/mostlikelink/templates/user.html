@@ -29,27 +29,15 @@ var _hmt = _hmt || [];
     <div class="sixteen wide column center aligned">
         <div class="ui statistic">
             <div class="value">
-                1,024
+                [[totalLinkCount]]
             </div>
             <div class="label">{{ user_name }} 's MostLike.Link</div>
         </div>
         <br/>
         <div class="ui breadcrumb">
             <a href="{{ url_for('index') }}" class="section">Home</a>
-            <div class="divider">/</div>
-            <div class="active section">{{ user_name }}</div>
-
-            {% if current_user.is_authenticated %}
-                <div class="section">
-                    (
-                    <a href="{{ url_for('logout') }}">Logout</a>
-                    | <a href="{{ url_for('links_export') }}" target="_blank">Export</a>
-                    {% if current_user.role == 1 %}
-                        | <a href="{{ url_for('admin_users') }}">Users</a>
-                    {% endif %}
-                    )
-                </div>
-            {% endif %}
+            <div class="divider">|</div>
+            <a href="{{ url_for('user_index',blog_id=blog_id) }}" class="section">{{ user_name }}</a>
         </div>
     </div>
 
@@ -70,20 +58,20 @@ var _hmt = _hmt || [];
     <div class="four wide column">
         <div class="ui violet message" ng-if="filterTags.length > 0">
             Filter:
-            <a ng-click="clearFilterTag()">
-                [Clear]
-            </a>
+            <i ng-click="clearFilterTag()" class="remove icon"></i>
 
-            <span ng-repeat="tag in filterTags">
-                <a ng-click="removeFilterTag(tag)">
-                    [[tag.name]]
-                </a>
-            </span>
+            <div class="ui list">
+                <div class="item" ng-repeat="tag in filterTags">
+                    <a ng-click="removeFilterTag(tag)">
+                        [[tag.name]]
+                    </a>
+                </div>
+            </div>
         </div>
 
         <div class="ui purple message" ng-if="allTopics.length > 0 ">
             Topics:
-            <div class="ui bulleted list">
+            <div class="ui list">
               <div class="item" ng-repeat="tag in allTopics">
                   <a ng-click="addFilterTag(tag)">[[tag.name]]</a>
               </div>
@@ -92,15 +80,17 @@ var _hmt = _hmt || [];
 
         <div class="ui olive message">
             Tags:
-            <span ng-repeat="tag in allTags">
-                <a ng-click="addFilterTag(tag)">[[tag.name]]</a>
-            </span>
+            <div class="ui list">
+                <div class="item" ng-repeat="tag in allTags">
+                    <a ng-click="addFilterTag(tag)">[[tag.name]]</a>
+                </div>
+            </div>
         </div>
 
 
     </div>
     <div class="twelve wide column">
-        <span ng-if="allLinks.length == 0">No links</span>
+        <span ng-if="allLinks.length == 0">Empty</span>
 
         <div class="ui list divided">
           <div class="item" ng-repeat="link in allLinks">
@@ -119,8 +109,7 @@ var _hmt = _hmt || [];
     </div>
 </div>
 
-<div ng-if="mostClickLinks.length>0 || latestClickLinks.length>0 || neverClickLinks.length>0">
-
+{% if current_user.is_authenticated and blog_id == current_user.blog_id %}
 <div class="ui divider"></div>
 <div class="ui three column grid" >
   <div class="column">
@@ -149,12 +138,26 @@ var _hmt = _hmt || [];
       </div>
   </div>
 </div>
-</div>
+{% endif %}
 
 <div class="ui divider"></div>
 <div class="ui grid">
   <div class="sixteen wide column center aligned">
-      MostLike.Link
+      <div class="ui breadcrumb">
+          <a href="{{ url_for('index') }}" class="section">MostLike.Link</a>
+          {% if current_user.is_authenticated and blog_id == current_user.blog_id %}
+          <div class="divider">|</div>
+          <a href="{{ url_for('links_export') }}" target="_blank" class="section">Export</a>
+
+          {% if current_user.role == 1 %}
+              <div class="divider">|</div>
+              <a href="{{ url_for('admin_users') }}" class="section">Users</a>
+          {% endif %}
+
+          <div class="divider">|</div>
+          <a href="{{ url_for('logout') }}" class="section">Logout</a>
+          {% endif %}
+      </div>
   </div>
 </div>
 

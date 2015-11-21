@@ -23,6 +23,7 @@ mostlikelinkApp.controller('mostlikelinkCtrl',['$scope','$http','$window',functi
         clog('return when undefined');
         return;
     }
+    $scope.totalLinkCount = '0 Links';
 
     $scope.allTags = [];
     $scope.allTopics = [];
@@ -50,6 +51,8 @@ mostlikelinkApp.controller('mostlikelinkCtrl',['$scope','$http','$window',functi
                 $scope.mostClickLinks = data.most_click_links;
                 $scope.latestClickLinks = data.latest_click_links;
                 $scope.neverClickLinks = data.never_click_links;
+
+                $scope.totalLinkCount = data.total_link_count.toLocaleString();
             }else{
                 clog(data.reason);
             }

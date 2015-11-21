@@ -77,6 +77,7 @@ def api_blog_index():
         'most_click_links': ctl.fetch_most_click_links(),
         'latest_click_links': ctl.fetch_latest_click_links(),
         'never_click_links': ctl.fetch_never_click_links(),
+        'total_link_count': ctl.fetch_total_link_count(),
     })
 
 
