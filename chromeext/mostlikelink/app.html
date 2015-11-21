@@ -3,63 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <title>mostlike.link</title>
-    <link rel="stylesheet" href="vendor/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/semantic/semantic.min.css">
     <link rel="stylesheet" href="css/app.css">
     <script src="vendor/jquery-2.1.4.min.js"></script>
     <script src="vendor/angular.min.js"></script>
+    <script src="vendor/semantic/semantic.min.js"></script>
 </head>
 <body ng-controller="mostlikelinkCtrl">
 
-<ol class="breadcrumb">
-    <li>
-        <button type="button" class="btn btn-link" ng-click="openNewSite('http://mostlike.link')">MostLike.Link</button>
-    </li>
-    <li class="active">
-        <button type="button" class="btn btn-link" ng-click="openBlog()" ng-if="blog_id != '' ">{{ blog_id }}</button>
-    </li>
-</ol>
+<div class="ui breadcrumb">
+  <a class="section">
+      <a ng-click="openBaseSite()">MostLike.Link</a>
+  </a>
+  <div class="divider"> / </div>
+  <a class="section">
+      <a ng-click="openBlog()" ng-if="blog_id != '' ">{{ blog_id }}</a>
+  </a>
+</div>
 
-<div class="alert alert-warning" role="alert" ng-show="errorInfo != ''">
+<div class="ui warning message" ng-show="errorInfo != ''">
     {{ errorInfo }}
 </div>
 
-<div class="alert alert-info" role="alert" ng-show="loginState == 0">
-    正在检查登录状态……
+<div class="ui info message" ng-show="loginState == 0">
+    <button class="ui basic loading button">Checking login status</button>
 </div>
 
-<div ng-show="loginState == 1">
-    <form>
-      <div class="form-group">
-        <label for="title">标题</label>
-        <input type="text" class="form-control" id="title" placeholder="Title" ng-model="linkTitle" ng-keydown="onKeyDownTitle($event)">
-      </div>
-
-      <div class="form-group">
-        <label for="tags">标签</label>
-        <input type="text" class="form-control" id="tags" placeholder="Tags" ng-model="linkTags" ng-keydown="onKeyDownTags($event)">
-      </div>
-        <div class="alert alert-success" role="alert">
-            <span ng-repeat="tag in recommendTags">
-                <a href="#" ng-click="appendTag(tag)">{{ tag }}</a>
-            </span>
-        </div>
-        <div class="form-group">
-            <label for="description">描述</label>
-            <textarea class="form-control" id="description" placeholder="Description" rows="3" ng-model="linkDescription"></textarea>
-        </div>
-    </form>
-    <div class="btn-group btn-group-justified" role="group" aria-label="...">
-      <div class="btn-group" role="group">
-          <button type="button" class="btn btn-default" ng-click="removeLink()">删除</button>
-      </div>
-      <div class="btn-group" role="group">
-          <button type="button" class="btn btn-success" ng-click="updateLink()">更新</button>
-      </div>
+<form class="ui form" ng-show="loginState == 1">
+  <div class="field">
+    <label>Title</label>
+    <input type="text" id="title" placeholder="Title" ng-model="linkTitle" ng-keydown="onKeyDownTitle($event)">
+  </div>
+  <div class="field">
+    <label>Tags</label>
+    <input type="text" id="tags" placeholder="Tags" ng-model="linkTags" ng-keydown="onKeyDownTags($event)">
+  </div>
+    <div class="ui info message">
+        <span ng-repeat="tag in recommendTags">
+            <a href="#" ng-click="appendTag(tag)">{{ tag }}</a>
+        </span>
     </div>
-</div>
+    <div class="field">
+        <label>Description</label>
+        <textarea id="description" placeholder="Description" rows="3" ng-model="linkDescription"></textarea>
+    </div>
+    <div class="ui two column grid">
+        <div class="column">
+            <button type="button" class="ui button" ng-click="removeLink()">Remove</button>
+        </div>
+        <div class="column right aligned">
+            <button type="button" class="ui primary button" ng-click="updateLink()">Update</button>
+        </div>
+    </div>
+</form>
 
 <div ng-show="loginState == 2">
-    <button id="trylogin" type="button" class="btn btn-success" ng-click="openNewTab('login')">通过GitHub账号登录</button>
+    <button id="trylogin" type="button" class="ui primary button" ng-click="openNewTab('login')">Login Through GitHub</button>
 </div>
 
 <script src="js/common.js"></script>

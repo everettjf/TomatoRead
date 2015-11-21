@@ -46,6 +46,12 @@ mostlikelinkApp.controller('mostlikelinkCtrl',['$scope','$http',function($scope,
         },function(tab){
         });
     };
+    $scope.openBaseSite = function (){
+        chrome.tabs.create({
+            url:baseURL
+        },function(tab){
+        });
+    }
     $scope.openNewSite = function (siteUrl) {
         chrome.tabs.create({
             url:siteUrl
