@@ -104,6 +104,7 @@ def api_update_link():
                 cur_tag.name = tag
                 cur_tag.user = user
                 cur_tag.color = utils.random_color()
+                cur_tag.is_topic = tag.startswith('#')
                 cur_tag.save()
 
             tags_data.append(cur_tag)
@@ -193,18 +194,19 @@ def api_tags_recommend():
         return jsonify(succeed=False,
                        reason='User not exist')
     tags = models.Tag.objects(user=user)
-    tag_list = [tag.name for tag in tags]
 
-    rec_tags=[
+    predefined_tags=[
         u':TOP',
         u':PRIVATE',
     ]
 
-    print tag_list + rec_tags
+    tags_list = [tag.name for tag in tags if (not tag.is_topic) and (tag.name not in predefined_tags)]
+    topics_list = [tag.name for tag in tags if tag.is_topic]
 
     return utils.json_response({
         'succeed': True,
-        'tags': list(set(tag_list + rec_tags))
+        'tags': predefined_tags + list(set(tags_list)),
+        'topics': list(set(topics_list))
     })
 
 

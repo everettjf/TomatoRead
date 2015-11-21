@@ -66,10 +66,13 @@ def api_blog_index():
 
     ctl.init_filter_tags(filter_tags)
 
+    all_topics, all_tags = ctl.fetch_all_tags()
+
     return utils.json_response({
         'succeed': True,
         'top_links': ctl.fetch_top_links(),
-        'all_tags': ctl.fetch_all_tags(),
+        'all_topics': all_topics,
+        'all_tags': all_tags,
         'all_links': ctl.fetch_all_links(),
         'most_click_links': ctl.fetch_most_click_links(),
         'latest_click_links': ctl.fetch_latest_click_links(),

@@ -81,21 +81,12 @@ var _hmt = _hmt || [];
             </span>
         </div>
 
-        <div class="ui olive message">
+        <div class="ui purple message" ng-if="allTopics.length > 0 ">
             Topics:
-
             <div class="ui bulleted list">
-              <div class="item">Gaining Access</div>
-              <div class="item">Inviting Friends</div>
-              <div class="item">
-                <div>Benefits</div>
-                <div class="list">
-                  <div class="item">Use Anywhere</div>
-                  <div class="item">Rebates</div>
-                  <div class="item">Discounts</div>
-                </div>
+              <div class="item" ng-repeat="tag in allTopics">
+                  <a ng-click="addFilterTag(tag)">[[tag.name]]</a>
               </div>
-              <div class="item">Warranty</div>
             </div>
         </div>
 
@@ -118,7 +109,9 @@ var _hmt = _hmt || [];
               <a class="header" ng-click="clickLink(link)">
                   [[link.title]]
               </a>
-              <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+              <div class="description">
+                  [[link.description]] &nbsp;
+              </div>
             </div>
           </div>
         </div>

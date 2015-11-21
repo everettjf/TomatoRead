@@ -36,6 +36,11 @@
     <input type="text" id="tags" placeholder="Tags" ng-model="linkTags" ng-keydown="onKeyDownTags($event)">
   </div>
     <div class="ui info message">
+        <span ng-repeat="tag in recommendTopics">
+            <a href="#" ng-click="appendTag(tag)">{{ tag }}</a>
+        </span>
+        <br ng-if="recommendTopics.length > 0"/>
+
         <span ng-repeat="tag in recommendTags">
             <a href="#" ng-click="appendTag(tag)">{{ tag }}</a>
         </span>

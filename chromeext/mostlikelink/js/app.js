@@ -26,12 +26,14 @@ mostlikelinkApp.controller('mostlikelinkCtrl',['$scope','$http',function($scope,
     $scope.linkTitle = '';
     $scope.linkDescription = '';
     $scope.recommendTags = [];
+    $scope.recommendTopics = [];
 
     $scope.blog_id = '';
 
     apiTagsRecommend(function(result){
         if(result.succeed){
             $scope.recommendTags = result.tags;
+            $scope.recommendTopics = result.topics;
         }
     },function(){
     });

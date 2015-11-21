@@ -65,11 +65,18 @@ class UserController:
 
     def fetch_all_tags(self):
         all_tags = models.Tag.objects(user=self.__user)
+
+        all_topics_list = [dict(
+            id=str(tag.id),
+            name=tag.name
+        ) for tag in all_tags if tag.is_topic]
+
         all_tags_list = [dict(
             id=str(tag.id),
             name=tag.name
-        ) for tag in all_tags]
-        return all_tags_list
+        ) for tag in all_tags if not tag.is_topic]
+
+        return all_topics_list, all_tags_list
 
     def fetch_all_links(self):
         all_links = []
@@ -89,6 +96,7 @@ class UserController:
             title=link.title,
             url=link.url,
             favicon=link.favicon,
+            description=link.description
         ) for link in all_links]
 
         return all_links_list

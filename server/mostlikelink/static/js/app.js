@@ -25,6 +25,7 @@ mostlikelinkApp.controller('mostlikelinkCtrl',['$scope','$http','$window',functi
     }
 
     $scope.allTags = [];
+    $scope.allTopics = [];
     $scope.filterTags = [];
 
     $scope.topLinks = [];
@@ -43,6 +44,8 @@ mostlikelinkApp.controller('mostlikelinkCtrl',['$scope','$http','$window',functi
                 $scope.topLinks = data.top_links;
 
                 $scope.allTags = data.all_tags;
+                $scope.allTopics = data.all_topics;
+
                 $scope.allLinks = data.all_links;
                 $scope.mostClickLinks = data.most_click_links;
                 $scope.latestClickLinks = data.latest_click_links;
