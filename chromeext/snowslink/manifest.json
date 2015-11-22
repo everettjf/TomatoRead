@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "mostlike.link",
-  "description": "your most like links",
+  "name": "snows.link",
+  "description": "share your/mine links",
   "version": "0.3",
   "background": {
     "scripts": [
@@ -18,7 +18,7 @@
   },
   "permissions": [
     "tabs",
-    "http://mostlike.link/",
+    "http://snows.link/",
     "http://0.0.0.0:5000/"
   ],
   "icons":{

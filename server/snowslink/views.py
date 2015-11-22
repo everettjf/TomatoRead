@@ -87,8 +87,8 @@ def user_index(blog_id):
         return 'Blog not found'
 
     base_url = 'http://0.0.0.0:5000/'
-    if os.environ.get('MOSTLIKELINK_PRODUCTION') is not None:
-        base_url = 'http://mostlike.link/'
+    if os.environ.get('SNOWSLINK_PRODUCTION') is not None:
+        base_url = 'http://snows.link/'
 
     return render_template('user.html',
                            user_name=user.github_name,
@@ -106,7 +106,7 @@ def links_export():
 
     all_links = models.LinkPost.objects(user=user)
 
-    result = "MostLike.Link\n0.3\n"
+    result = "Snows.Link\n0.3\n"
     result += "--ExportFormatVersion:0.1\n\n"
     result += "Links:%d\n" % len(all_links)
 

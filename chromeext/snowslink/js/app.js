@@ -4,15 +4,15 @@ clog = function(content){
     logInfo('app',content);
 };
 
-var mostlikelinkApp = angular.module('mostlikelinkApp',[]);
-var mostlikelink = null;
+var snowsApp = angular.module('snowsApp',[]);
+var snowslink = null;
 
 var currentUser = null;
 var currentTabID = null;
 
-mostlikelinkApp.controller('mostlikelinkCtrl',['$scope','$http',function($scope,$http){
+snowsApp.controller('snowsCtrl',['$scope','$http',function($scope,$http){
     clog('controller');
-    mostlikelink = $scope;
+    snowslink = $scope;
 
     // 0 checking login state
     // 1 did login
@@ -133,10 +133,10 @@ function initPageInfo(){
         currentTabID = tab.id;
 
         // Update UI
-        mostlikelink.linkTitle = tab.title;
-        mostlikelink.linkUrl = tab.url;
-        mostlikelink.linkFavicon = tab.favIconUrl;
-        mostlikelink.$apply();
+        snowslink.linkTitle = tab.title;
+        snowslink.linkUrl = tab.url;
+        snowslink.linkFavicon = tab.favIconUrl;
+        snowslink.$apply();
 
         // Check login state
         apiCurrentUser(function(user){
@@ -144,9 +144,9 @@ function initPageInfo(){
 
             clog('succeed=' + user.email);
 
-            mostlikelink.loginState = 1;
-            mostlikelink.blog_id = user.blog_id;
-            mostlikelink.$apply();
+            snowslink.loginState = 1;
+            snowslink.blog_id = user.blog_id;
+            snowslink.$apply();
 
             // if added ,load it
             // else if not added , try add it
@@ -156,11 +156,11 @@ function initPageInfo(){
                 if(result.succeed){
                     clog('url is exist:' + result.title);
 
-                    mostlikelink.linkTitle = result.title;
-                    mostlikelink.linkTags = result.tags;
-                    mostlikelink.linkDescription = result.description;
-                    mostlikelink.linkFavicon = result.favicon;
-                    mostlikelink.$apply();
+                    snowslink.linkTitle = result.title;
+                    snowslink.linkTags = result.tags;
+                    snowslink.linkDescription = result.description;
+                    snowslink.linkFavicon = result.favicon;
+                    snowslink.$apply();
 
                     angular.element('#title').focus();
                     angular.element('#title').select();
@@ -187,8 +187,8 @@ function initPageInfo(){
 
         }, function () {
             clog('fail check login');
-            mostlikelink.loginState = 2;
-            mostlikelink.$apply();
+            snowslink.loginState = 2;
+            snowslink.$apply();
 
             angular.element('#trylogin').focus();
 

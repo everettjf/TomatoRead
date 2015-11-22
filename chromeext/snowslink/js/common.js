@@ -2,7 +2,7 @@
  * Created by everettjf on 10/22/15.
  */
 
-//var baseURL = 'http://mostlike.link/';
+//var baseURL = 'http://snows.link/';
 var baseURL = 'http://0.0.0.0:5000/';
 
 function serverUrl(partialUrl){

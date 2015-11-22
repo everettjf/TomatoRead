@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="mostlikelinkApp">
+<html lang="en" ng-app="snowsApp">
 <head>
     <meta charset="UTF-8">
-    <title>{{ user_name }} MostLike.Link</title>
+    <title>{{ user_name }} snows.link</title>
 
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/semantic-ui/2.1.6/semantic.min.js"></script>
@@ -23,7 +23,7 @@ var _hmt = _hmt || [];
 </script>
 
 </head>
-<body ng-controller="mostlikelinkCtrl">
+<body ng-controller="snowsCtrl">
 
 <div class="ui grid">
     <div class="sixteen wide column center aligned">
@@ -31,7 +31,7 @@ var _hmt = _hmt || [];
             <div class="value">
                 [[totalLinkCount]]
             </div>
-            <div class="label">{{ user_name }} 's MostLike.Link</div>
+            <div class="label">{{ user_name }} 's snows.link</div>
         </div>
         <br/>
         <div class="ui breadcrumb">
@@ -147,7 +147,7 @@ var _hmt = _hmt || [];
 <div class="ui grid">
   <div class="sixteen wide column center aligned">
       <div class="ui breadcrumb">
-          <a href="{{ url_for('index') }}" class="section">MostLike.Link</a>
+          <a href="{{ url_for('index') }}" class="section">Snows.Link</a>
           {% if current_user.is_authenticated and blog_id == current_user.blog_id %}
           <div class="divider">|</div>
           <a href="{{ url_for('links_export') }}" target="_blank" class="section">Export</a>

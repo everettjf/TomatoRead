@@ -1,1 +1,1 @@
-kill `cat mostlikelink.pid`
+kill `cat snowslink.pid`

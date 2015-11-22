@@ -11,14 +11,14 @@ function logInfo(prefix,content){
 var clog=function(content){
     logInfo('user',content);
 };
-var mostlikelinkApp = angular.module('mostlikelinkApp',[]);
+var snowsApp = angular.module('snowsApp',[]);
 
-mostlikelinkApp.config(['$interpolateProvider', function($interpolateProvider) {
+snowsApp.config(['$interpolateProvider', function($interpolateProvider) {
   $interpolateProvider.startSymbol('[[');
   $interpolateProvider.endSymbol(']]');
 }]);
 
-mostlikelinkApp.controller('mostlikelinkCtrl',['$scope','$http','$window',function($scope,$http,$window){
+snowsApp.controller('snowsCtrl',['$scope','$http','$window',function($scope,$http,$window){
     if(blogId == undefined){
         clog('return when undefined');
         return;

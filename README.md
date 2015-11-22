@@ -1,61 +1,36 @@
-# mostlike.link
+# 雪花书签
 
-MostLike.Link
-[http://mostlike.link](http://mostlike.link)
+[http://snows.link](http://snows.link)
+个人书签博客系统
 
-# 当前版本
-0.3-beta
+- 当前版本:0.3-beta
+- [这里查看如何使用](https://github.com/everettjf/snows.link/blob/master/TUTORIAL.md)
+- [这里提问题](https://github.com/everettjf/snows.link/issues)
 
-# 帮助
-
-[这里查看使用说明](https://github.com/everettjf/mostlike.link/blob/master/TUTORIAL.md)
-
-# 功能
+# 主要功能
 - 链接个人博客
 - 使用Chrome扩展收藏链接
+- 基于标签、主题查询
 - 链接点击计数
-- 基于标签查询
 
-# 计划
-- 链接推荐系统
-- 点击习惯统计
+# 如何部署到自己的服务器？
+1. install MongoDB
+2. pip install -r requirements.txt
+3. python run.py
+4. config.py
 
-# 问题
-
-[Issue Here](https://github.com/everettjf/mostlike.link/issues)
-
-# 技术
+# 主要技术
 - Flask
 - MongoDB
 - AngularJS
-- Redis
 
-# 部署
-1. install MongoDB
-2. install Redis
-3. pip install -r requirements.txt
-4. python run.py
-
-
-# TODO
-
-- [X] 私有链接，仅个人视图可看
-- [X] 描述
-- [X] UI布局更大方一些
-- [ ] 首页显示最新10个链接、最新10个专题
-- [ ] 专题，特殊的标签，#开头
-- [ ] 标签删除
-- [ ] 邀请码
-- [X] 简单导出
+# 计划
 - [ ] 简单导入
 - [ ] 同步到DropBox
-
 - [ ] EVTCalendar 模仿GitHub Contribution Calendar的iOS
 - [ ] iOS 客户端，内嵌浏览器
 - [ ] Mac/Windows浏览器
-
 - [ ] 链接内容更新定期检测
-
 - [ ] Firefox插件
 - [ ] Safari插件
 - [ ] 链接安全监测
