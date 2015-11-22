@@ -1,7 +1,7 @@
 # 雪花书签
 
 [http://snows.link](http://snows.link)
-个人书签博客系统
+分享你的链接
 
 - 当前版本:0.3-beta
 - [这里查看如何使用](https://github.com/everettjf/snows.link/blob/master/TUTORIAL.md)
