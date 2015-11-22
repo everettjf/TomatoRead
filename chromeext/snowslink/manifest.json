@@ -3,7 +3,7 @@
 
   "name": "snows.link",
   "description": "share your/mine links",
-  "version": "0.3",
+  "version": "0.3.2",
   "background": {
     "scripts": [
       "vendor/jquery-2.1.4.min.js",

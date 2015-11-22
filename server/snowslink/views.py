@@ -7,6 +7,9 @@ from . import utils
 import os
 from . import controllers
 
+@app.route('/google22c6b4f01e09a765.html')
+def google_verify():
+    return render_template('google22c6b4f01e09a765.html')
 
 @app.route('/')
 def index():
