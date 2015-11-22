@@ -10,7 +10,7 @@ import os
 # App
 app = Flask(__name__, instance_relative_config=True)
 app.config.from_object('config')
-if os.environ.get('snowslink_PRODUCTION') is not None:
+if os.environ.get('SNOWSLINK_PRODUCTION') is not None:
     app.config.from_pyfile('config.py')
 
 # CSRF Protect
