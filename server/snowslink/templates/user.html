@@ -48,7 +48,11 @@ var _hmt = _hmt || [];
       <div class="item" ng-repeat="link in topLinks">
           <img class="ui image" src="[[ link.favicon ]] " width="16px" height="16px" ng-if="link.favicon != '' ">
         <div class="content">
-          <div class="header">[[link.title]]</div>
+          <div class="header">
+              <a ng-click="clickLink(link)">
+                  [[link.title]]
+              </a>
+          </div>
         </div>
       </div>
     </div>

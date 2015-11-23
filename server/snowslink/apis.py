@@ -83,7 +83,9 @@ def api_update_link():
     tags = list(set(req['tags'].replace(',', ' ').split(' ')))
     tags = [tag.strip() for tag in tags if tag.strip()]
     description = req['description']
-    favicon = req['favicon']
+    favicon = ''
+    if 'favicon' in req:
+        favicon = req['favicon']
 
     user = models.User.objects(id=current_user.id).first()
     if user is None:

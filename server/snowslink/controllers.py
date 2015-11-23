@@ -178,7 +178,7 @@ class IndexController:
         return "{:,}".format(len(models.LinkPost.objects()))
 
     def get_latest_add_links(self):
-        links = models.LinkPost.objects()[0:10]
+        links = models.LinkPost.objects()[0:20]
         link_list = [dict(
             id=str(link.id),
             title=link.title,
