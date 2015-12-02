@@ -14,6 +14,11 @@ class User(Document, UserMixin):
     invite_code = StringField()
     role = IntField(default=0)
 
+    # Blog is private, means anyone except me can view
+    private = IntField(default=0)
+    # 0 Enable , 1 Disable
+    state = IntField(default=0)
+
 
 class Tag(Document):
     name = StringField(required=True, max_length=100)

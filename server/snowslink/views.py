@@ -86,6 +86,9 @@ def user_index(blog_id):
     if user is None:
         return 'Blog not found'
 
+    if user.private != 0 and current_user.blog_id != blog_id:
+        return 'Blog is private'
+
     base_url = 'http://0.0.0.0:5000/'
     if os.environ.get('SNOWSLINK_PRODUCTION') is not None:
         base_url = 'http://snows.link/'
@@ -159,18 +162,43 @@ def remove_tag():
     return redirect(url_for('user_manage_tags'))
 
 
-@app.route('/user/manage/tags/update/<tagid>', methods=['POST'])
+@app.route('/user/manage/tags/update', methods=['POST'])
 @login_required
-def update_tag(tagid):
+def update_tag():
     user = models.User.objects(id=current_user.id).first()
     if user is None:
         return 'User not exist'
 
-    tag = models.Tag.objects(user=user, id=tagid).first()
-    tag.name = request.form['name']
+    tag = models.Tag.objects(user=user, name=request.form['tag_name']).first()
+    if tag is None:
+        return 'Tag not exist'
+
+    new_name = request.form['new_name']
+    if new_name == '' or new_name is None:
+        return 'new name can not be empty'
+
+    tag.name = new_name
+    tag.is_topic = tag.name.startswith('#')
     tag.save()
 
     return redirect(url_for('user_manage_tags'))
 
 
+@app.route('/user/manage/profile', methods=['GET','POST'])
+@login_required
+def user_manage_profile():
+    if request.method == 'POST':
+        user = models.User.objects(email=current_user.email).first()
+        if user is None:
+            return 'User not exist'
 
+        isprivate = request.form.get('private')
+        if isprivate == 'on':
+            user.private = 1
+        else:
+            user.private = 0
+
+        user.save()
+        current_user.private = user.private
+
+    return render_template('user_manage_profile.html')

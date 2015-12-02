@@ -17,10 +17,12 @@
           {{ topic.name }}
       </td>
       <td>
-        <form class="ui form" method="post">
+        <form class="ui form" method="post" action="{{ url_for('update_tag') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+            <input type="hidden" value="{{ topic.name }}" name="tag_name"/>
           <div class="inline field">
-            <input type="text" name="first-name" placeholder="First Name">
-              <button class="ui button" type="submit">Rename</button>
+            <input type="text" name="new_name" placeholder="New Tag Name">
+            <button class="ui button" type="submit">Rename</button>
           </div>
         </form>
       </td>
@@ -38,30 +40,44 @@
   </tbody>
 </table>
 
-<table class="ui celled table">
-    <thead>
-    <tr>
-        <th>Tag Name</th>
-        <th>Rename</th>
-        <th>Delete</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for tag in tags %}
+    <table class="ui celled table">
+        <thead>
         <tr>
-            <td>
-                {{ tag.name }}
-            </td>
-            <td>
-
-            </td>
-            <td>
-                delete
-            </td>
+            <th>Tag Name</th>
+            <th>Rename</th>
+            <th>Delete</th>
         </tr>
-    {% endfor %}
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        {% for topic in tags %}
+            <tr>
+                <td>
+                    {{ topic.name }}
+                </td>
+                <td>
+                    <form class="ui form" method="post" action="{{ url_for('update_tag') }}">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+                        <input type="hidden" value="{{ topic.name }}" name="tag_name"/>
+                        <div class="inline field">
+                            <input type="text" name="new_name" placeholder="New Tag Name">
+                            <button class="ui button" type="submit">Rename</button>
+                        </div>
+                    </form>
+                </td>
+                <td>
+                    <form class="ui form" method="post" action="{{ url_for('remove_tag') }}">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+                        <div class="inline field">
+                            <input type="hidden" value="{{ topic.name }}" name="tag_name"/>
+                            <button class="ui button" type="submit">Delete</button>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
 
 {% endblock %}
 

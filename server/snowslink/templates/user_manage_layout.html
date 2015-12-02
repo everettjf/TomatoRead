@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>{{ user_name }} snows.link</title>
 
-    <script src="//cdn.bootcss.com/semantic-ui/2.1.6/semantic.min.js"></script>
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/semantic-ui/2.1.6/semantic.min.js"></script>
     <link href="//cdn.bootcss.com/semantic-ui/2.1.6/semantic.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="{{ url_for('static',filename='img/favicon.ico')}}">
 
@@ -27,13 +27,13 @@
   <a class="item" href="{{ url_for('user_index', blog_id=current_user.blog_id) }}">
     Home
   </a>
-  <a class="item">
+  <a class="item" href="{{ url_for('user_manage_tags') }}">
       Tags
   </a>
   <a class="item">
       Links
   </a>
-    <a class="item">
+    <a class="item" href="{{ url_for('user_manage_profile') }}">
         Profile
     </a>
     <a class="item" href="{{ url_for('links_export') }}" target="_blank" >

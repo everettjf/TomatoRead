@@ -178,7 +178,11 @@ class IndexController:
         return "{:,}".format(len(models.LinkPost.objects()))
 
     def get_latest_add_links(self):
-        links = models.LinkPost.objects()[0:20]
+        private_users = models.User.objects(private=1)
+
+        links = models.LinkPost.objects(is_private=False,
+                                        user__nin=private_users
+                                        )[0:30]
         link_list = [dict(
             id=str(link.id),
             title=link.title,
@@ -200,7 +204,7 @@ class IndexController:
         return "{:,}".format(len(models.LinkPost.objects(user=user)))
 
     def get_star_users(self):
-        users = models.User.objects()
+        users = models.User.objects(private__ne=1)
         users_list = [dict(
             blog_id=user.blog_id,
             github_url=user.github_url,
