@@ -182,10 +182,10 @@ class IndexController:
 
         links = models.LinkPost.objects(is_private=False,
                                         user__nin=private_users
-                                        )[0:30]
+                                        )[0:50]
         link_list = [dict(
             id=str(link.id),
-            title=link.title,
+            title=link.title[:60],
             url=link.url,
             favicon=link.favicon,
             description=link.description
@@ -204,7 +204,7 @@ class IndexController:
         return "{:,}".format(len(models.LinkPost.objects(user=user)))
 
     def get_star_users(self):
-        users = models.User.objects(private__ne=1)
+        users = models.User.objects(private__ne=1)[:50]
         users_list = [dict(
             blog_id=user.blog_id,
             github_url=user.github_url,

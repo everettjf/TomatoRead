@@ -26,6 +26,7 @@
   </head>
 <body>
 
+
 <div class="ui equal width padded grid">
   <div class="row center aligned">
     <div class="column">
@@ -59,63 +60,61 @@
         </div>
     </div>
   </div>
-  <div class="row">
+</div>
+
+<div class="ui stackable two column grid">
     <div class="column">
         <div class="ui info message">
             Enjoy sharing the links !
         </div>
 
         <div class="ui items divided">
-           {% for user in star_users %}
-          <div class="item">
-            <a class="ui tiny image">
-              <img src="{{ user.avatar }}">
-            </a>
-            <div class="content">
-              <a class="header" href="{{ url_for('user_index',blog_id=user.blog_id) }}">
-                  {{ user.github_name }}
-                    <div class="ui mini horizontal statistic">
-                      <div class="value">
-                          {{ user.link_count_string }}
-                      </div>
-                    </div>
-              </a>
-              <div class="description">
-                <p>
-                    {% for topic in user.topics %}
-                        <a href="{{ url_for('user_index',blog_id=user.blog_id) }}">
-                        {{ topic.name }}
+            {% for user in star_users %}
+                <div class="item">
+                    <a class="ui tiny image">
+                        <img src="{{ user.avatar }}">
+                    </a>
+                    <div class="content">
+                        <a class="header" href="{{ url_for('user_index',blog_id=user.blog_id) }}">
+                            {{ user.github_name }}
+                            <div class="ui mini horizontal statistic">
+                                <div class="value">
+                                    {{ user.link_count_string }}
+                                </div>
+                            </div>
                         </a>
-                        &nbsp;
-                    {% endfor %}
-                </p>
-              </div>
-            </div>
-          </div>
+                        <div class="description">
+                            <p>
+                                {% for topic in user.topics %}
+                                    <a href="{{ url_for('user_index',blog_id=user.blog_id) }}">
+                                        {{ topic.name }}
+                                    </a>
+                                    &nbsp;
+                                {% endfor %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
             {% endfor %}
         </div>
     </div>
-  <div class="ui vertical divider">
-      {{ total_link_count_string[-1] }}
-  </div>
     <div class="column">
         <div class="ui list divided">
-          {% for link in latest_add_links %}
-          <div class="item">
-            <img class="ui avatar image" src="{{ link.favicon }}" width="16px" height="16px">
-            <div class="content">
-              <a class="header" href="{{ link.url }}" target="_blank">
-                  {{ link.title }}
-              </a>
-              <div class="description">
-                  {{ link.description }}
-              </div>
-            </div>
-          </div>
-          {% endfor %}
+            {% for link in latest_add_links %}
+                <div class="item">
+                    <img class="ui avatar image" src="{{ link.favicon }}" width="16px" height="16px">
+                    <div class="content">
+                        <a class="header" href="{{ link.url }}" target="_blank">
+                            {{ link.title }}
+                        </a>
+                        <div class="description">
+                            {{ link.description }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
-  </div>
 </div>
 
 <div class="ui grid">

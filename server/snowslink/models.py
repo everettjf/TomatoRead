@@ -18,6 +18,8 @@ class User(Document, UserMixin):
     private = IntField(default=0)
     # 0 Enable , 1 Disable
     state = IntField(default=0)
+    # Star value
+    star = IntField(default=0)
 
 
 class Tag(Document):

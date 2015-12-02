@@ -86,7 +86,7 @@ def user_index(blog_id):
     if user is None:
         return 'Blog not found'
 
-    if user.private != 0 and current_user.blog_id != blog_id:
+    if user.private != 0 and (not hasattr(current_user,'blog_id') or current_user.blog_id != blog_id):
         return 'Blog is private'
 
     base_url = 'http://0.0.0.0:5000/'
