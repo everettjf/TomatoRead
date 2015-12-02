@@ -5,7 +5,7 @@ SNOWSLINK_AUTHOR = 'everettjf'
 
 DEBUG = True
 SECRET_KEY = 'kdjsljd9362^&*%jkdlsj&%*kld;sdjk277*&*6'
-DB_NAME = 'snowslink'
+DB_NAME = 'mostlikelinkdb'
 PASSWORD_SALT = 'KLhjlhjdlljGjt8&*%873klHLh7895jjk&%*&%'
 
 GITHUB_CLIENT_ID = '1dcdcfd5d7071adfd817'

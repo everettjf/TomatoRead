@@ -36,8 +36,10 @@ var _hmt = _hmt || [];
         <br/>
         <div class="ui breadcrumb">
             <a href="{{ url_for('index') }}" class="section">Home</a>
+
             <div class="divider">|</div>
             <a href="{{ url_for('user_index',blog_id=blog_id) }}" class="section">{{ user_name }}</a>
+
         </div>
     </div>
 
@@ -152,17 +154,10 @@ var _hmt = _hmt || [];
   <div class="sixteen wide column center aligned">
       <div class="ui breadcrumb">
           <a href="{{ url_for('index') }}" class="section">Snows.Link</a>
+
           {% if current_user.is_authenticated and blog_id == current_user.blog_id %}
-          <div class="divider">|</div>
-          <a href="{{ url_for('links_export') }}" target="_blank" class="section">Export</a>
-
-          {% if current_user.role == 1 %}
               <div class="divider">|</div>
-              <a href="{{ url_for('admin_users') }}" class="section">Users</a>
-          {% endif %}
-
-          <div class="divider">|</div>
-          <a href="{{ url_for('logout') }}" class="section">Logout</a>
+              <a href="{{ url_for('user_manage_tags') }}" class="section">Manage</a>
           {% endif %}
       </div>
   </div>

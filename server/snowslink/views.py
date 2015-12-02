@@ -7,9 +7,6 @@ from . import utils
 import os
 from . import controllers
 
-@app.route('/google22c6b4f01e09a765.html')
-def google_verify():
-    return render_template('google22c6b4f01e09a765.html')
 
 @app.route('/')
 def index():
@@ -124,5 +121,56 @@ def links_export():
         result += "  Description:%s\n" % link.description
 
     return utils.plaintext_response(result)
+
+
+@app.route('/user/manage/tags', methods=['GET'])
+@login_required
+def user_manage_tags():
+    user = models.User.objects(id=current_user.id).first()
+    if user is None:
+        return 'User not exist'
+
+    topics = models.Tag.objects(user=user, is_topic=True)
+    tags = models.Tag.objects(user=user, is_topic=False)
+
+    return render_template('user_manage_tags.html',
+                           blog_id=current_user.blog_id,
+                           topics=topics,
+                           tags=tags
+                           )
+
+
+@app.route('/user/manage/tags/remove', methods=['POST'])
+@login_required
+def remove_tag():
+    user = models.User.objects(id=current_user.id).first()
+    if user is None:
+        return 'User not exist'
+
+    tagfind = models.Tag.objects(user=user, name=request.form['tag_name']).first()
+
+    links = models.LinkPost.objects(user=user, tags__in=[tagfind])
+    for link in links:
+        link.tags = [tag for tag in link.tags if tag.id != tagfind.id]
+        link.save()
+
+    tag.delete()
+
+    return redirect(url_for('user_manage_tags'))
+
+
+@app.route('/user/manage/tags/update/<tagid>', methods=['POST'])
+@login_required
+def update_tag(tagid):
+    user = models.User.objects(id=current_user.id).first()
+    if user is None:
+        return 'User not exist'
+
+    tag = models.Tag.objects(user=user, id=tagid).first()
+    tag.name = request.form['name']
+    tag.save()
+
+    return redirect(url_for('user_manage_tags'))
+
 
 

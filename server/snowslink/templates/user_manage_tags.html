@@ -1,0 +1,67 @@
+{% extends 'user_manage_layout.html' %}
+
+{% block body %}
+
+<table class="ui celled table">
+  <thead>
+    <tr>
+      <th>Topic Name</th>
+      <th>Rename</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for topic in topics %}
+    <tr>
+      <td>
+          {{ topic.name }}
+      </td>
+      <td>
+        <form class="ui form" method="post">
+          <div class="inline field">
+            <input type="text" name="first-name" placeholder="First Name">
+              <button class="ui button" type="submit">Rename</button>
+          </div>
+        </form>
+      </td>
+      <td>
+          <form class="ui form" method="post" action="{{ url_for('remove_tag') }}">
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+              <div class="inline field">
+                  <input type="hidden" value="{{ topic.name }}" name="tag_name"/>
+                  <button class="ui button" type="submit">Delete</button>
+              </div>
+          </form>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<table class="ui celled table">
+    <thead>
+    <tr>
+        <th>Tag Name</th>
+        <th>Rename</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for tag in tags %}
+        <tr>
+            <td>
+                {{ tag.name }}
+            </td>
+            <td>
+
+            </td>
+            <td>
+                delete
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+
