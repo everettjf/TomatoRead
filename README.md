@@ -1,17 +1,14 @@
 # 雪花书签
 
 [http://snows.link](http://snows.link)
-分享你的链接
+书签博客系统
 
-- 当前版本:0.3-beta
-- [这里查看如何使用](https://github.com/everettjf/snows.link/blob/master/TUTORIAL.md)
-- [这里提问题](https://github.com/everettjf/snows.link/issues)
+- 版本:0.3-beta
 
-# 主要功能
-- 链接个人博客
-- 使用Chrome扩展收藏链接
-- 基于标签、主题查询
-- 链接点击计数
+- [介绍及使用说明，请看这里](http://everettjf.github.io/2015/11/23/snows_link_tutorial/)
+- [有任何问题，请提到这里](https://github.com/everettjf/snows.link/issues)
+
+- [下一步开发计划，请看这里](PLAN.md)
 
 # 如何部署到自己的服务器？
 1. install MongoDB
@@ -23,13 +20,20 @@
 - Flask
 - MongoDB
 - AngularJS
+- Redis
 
-# 计划
+
+# 开发计划
+
 - [ ] 简单导入
-- [ ] 同步到DropBox
-- [ ] EVTCalendar 模仿GitHub Contribution Calendar的iOS
+- [ ] Chrome收藏同步（或叫导入）Chrome中的文件夹作为一个书签名称
+
 - [ ] iOS 客户端，内嵌浏览器
 - [ ] Mac/Windows浏览器
+
+- [ ] EVTCalendar 模仿GitHub Contribution Calendar的iOS
+
+- [ ] 同步到DropBox
 - [ ] 链接内容更新定期检测
 - [ ] Firefox插件
 - [ ] Safari插件
