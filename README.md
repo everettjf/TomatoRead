@@ -8,8 +8,6 @@
 - [介绍及使用说明，请看这里](http://everettjf.github.io/2015/12/13/snows_link_tutorial/)
 - [有任何问题，请提到这里](https://github.com/everettjf/snows.link/issues)
 
-- [下一步开发计划，请看这里](PLAN.md)
-
 # 如何部署到自己的服务器？
 1. install MongoDB
 2. pip install -r requirements.txt
