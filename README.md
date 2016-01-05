@@ -1,3 +1,8 @@
+
+**New version under develop in private repo , may be open-source in future or not.**
+
+---
+
 # 雪花书签
 
 [http://snows.link](http://snows.link)
