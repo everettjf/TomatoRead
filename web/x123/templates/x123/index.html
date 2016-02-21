@@ -27,6 +27,8 @@
         iOS Blog
     </div>
 
+    <a class="item" href="/">首页</a>
+
     {% for domain in domains %}
     {% for aspect in domain.aspect_set.all %}
 
@@ -49,6 +51,9 @@
                         <div class="content">
                             <a class="header" id="bookmark_link" bookmark_id="{{ bookmark.id }}" href="{{ bookmark.url }}" target="_blank">
                                 {{ bookmark.name }}
+                                {% if bookmark.feed_url != '' %}
+                                    <img src="{% static 'x123/image/feed.png' %}">
+                                {% endif %}
                             </a>
                             <div class="description">
                                 {{ bookmark.description }}
