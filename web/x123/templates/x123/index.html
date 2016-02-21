@@ -46,7 +46,7 @@
             <div class="ui relaxed list">
                 {% for bookmark in bookmarks %}
                     <div class="item">
-                        <img class="ui mini image" src="{% if bookmark.favicon != '' %}{{ bookmark.favicon }} {% else %}{% static 'x123/image/def.ico' %}{% endif %}">
+                        <img class="ui mini image" src="{% if bookmark.favicon != '' %}{{ bookmark.favicon }} {% else %}{% static 'x123/image/def.png' %}{% endif %}">
 
                         <div class="content">
                             <a class="header" id="bookmark_link" bookmark_id="{{ bookmark.id }}" href="{{ bookmark.url }}" target="_blank">
