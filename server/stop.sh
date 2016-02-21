@@ -1,1 +1,0 @@
-kill `cat snowslink.pid`

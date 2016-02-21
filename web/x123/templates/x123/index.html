@@ -1,0 +1,100 @@
+{% extends 'x123/base.html' %}
+
+{% block title %}
+    iosblog
+{% endblock %}
+
+{% block content %}
+
+    {% load staticfiles %}
+
+<div class="ui stackable menu">
+  <div class="item">
+    <img src="{% static 'x123/image/on.png' %}">
+  </div>
+  <a class="item" href="{% url 'x123:index' %}">iOS Blog</a>
+</div>
+
+<div class="ui grid">
+  <div class="four wide column">
+
+    <div class="ui vertical fluid menu">
+        {% for domain in domains %}
+      <div class="item">
+        <div class="header">
+            <a href="{% url 'x123:domain' domain.id %}"> {{ domain.name }}</a>
+        </div>
+        <div class="menu">
+            {% for aspect in domain.aspect_set.all %}
+                <a class="item" href="{% url 'x123:aspect' aspect.id %}">{{ aspect.name }}</a>
+            {% endfor %}
+        </div>
+      </div>
+        {% endfor %}
+    </div>
+
+  </div>
+  <div class="twelve wide stretched column">
+        <div class="ui segment">
+            {% if angles %}
+                <p>
+                    {% for angle in angles %}
+                        <span>
+                            <a href="?angle={{ angle.id }}">{{ angle.name }}</a>
+                        &nbsp;
+                        &nbsp;
+                        </span>
+                    {% endfor %}
+                </p>
+            {% else %}
+                <p>No angles</p>
+            {% endif %}
+        </div>
+
+        <div class="ui segment">
+          {% if bookmarks %}
+              <div class="ui list">
+                  {% for bookmark in bookmarks %}
+                      <div class="item">
+                          <img class="ui avatar image" src="{{ bookmark.favicon }}">
+
+                          <div class="content">
+                              <a class="header" id="bookmark_link" bookmark_id="{{ bookmark.id }}" href="{{ bookmark.url }}" target="_blank">
+                                  {{ bookmark.name }}
+                              </a>
+                              <div class="description">
+                                  {{ bookmark.description }}
+                                  <a class="fluid" href="{% url 'x123:bookmark' bookmark.id %}">
+                                      [More]
+                                  </a>
+                              </div>
+                          </div>
+                      </div>
+                  {% endfor %}
+              {% if bookmarks.paginator.num_pages > 1 %}
+                <div class="item">
+                    <div class="ui pagination menu">
+                        {% if bookmarks.has_previous %}
+                          <a class="item" href="?page={{ bookmarks.previous_page_number }}">Previous</a>
+                        {% endif %}
+                      <a class="item">
+                        <span class="current">
+                            Page {{ bookmarks.number }} of {{ bookmarks.paginator.num_pages }}.
+                        </span>
+                      </a>
+                      {% if contacts.has_next %}
+                          <a class="item" href="?page={{ bookmarks.next_page_number }}">Next</a>
+                      {% endif %}
+                    </div>
+                </div>
+              {% endif %}
+              </div>
+          {% else %}
+              <p>No bookmarks</p>
+          {% endif %}
+        </div>
+  </div>
+</div>
+
+{% endblock %}
+

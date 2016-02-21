@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="snowsApp">
+<head>
+    <meta charset="UTF-8">
+    <title>snows.link</title>
+    <link rel="stylesheet" href="vendor/semantic/semantic.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="vendor/jquery-2.1.4.min.js"></script>
+    <script src="vendor/angular.min.js"></script>
+    <script src="vendor/semantic/semantic.min.js"></script>
+</head>
+<body ng-controller="snowsCtrl">
+
+<div class="ui warning message" ng-show="errorInfo != ''">
+    {{ errorInfo }}
+</div>
+
+<div class="ui info message" ng-show="loginState == 0">
+    <button class="ui basic loading button">Checking login status</button>
+</div>
+
+<form class="ui form" ng-show="loginState == 1">
+    <div class="field">
+        <input type="text" id="name" placeholder="Name" ng-model="linkName" ng-keydown="onKeyDown($event)">
+    </div>
+    <div class="field">
+        <input type="text" id="url" placeholder="URL" ng-model="linkUrl">
+    </div>
+    <div class="field">
+        <input type="text" id="favicon" placeholder="favicon" ng-model="linkFavicon">
+    </div>
+    <div class="field">
+        <input type="text" id="feed" placeholder="Atom/RSS" ng-model="linkFeed">
+    </div>
+    <div class="field">
+        <textarea id="description" placeholder="Description" rows="3" ng-model="linkDescription" ng-keydown="onKeyDown($event)"></textarea>
+    </div>
+
+    <div class="field">
+        <label>Category
+            (
+            <span ng-if="linkDomain == null">None</span>
+            <span ng-if="linkDomain">{{ linkDomain.name }} > {{ linkAspect.name }}</span>
+            )
+        </label>
+        <div class="ui ordered list">
+            <span class="item" ng-repeat="domain in domains">
+                {{ domain.name }} :
+                <a ng-repeat="aspect in domain.aspect_set" ng-click="selectAspect(domain,aspect)">
+                    {{ aspect.name }}
+                    &nbsp;|&nbsp;
+                </a>
+            </span>
+        </div>
+    </div>
+    <div class="field">
+        <label>Angle
+            (
+            <span ng-if="linkAngle == null">None</span>
+            <span ng-if="linkAngle">{{ linkAngle.name }}</span>
+            )
+        </label>
+        <div>
+            <a ng-repeat="angle in angles" ng-click="selectAngle(angle)">
+                {{ angle.name }}
+                &nbsp;|&nbsp;
+            </a>
+        </div>
+    </div>
+    <hr/>
+    <div class="ui two column grid">
+        <div class="column">
+            <a ng-click="removeLink()">Remove</a>
+        </div>
+        <div class="column right aligned">
+            <button type="button" class="ui primary button" ng-click="saveLink()">Click To Save</button>
+        </div>
+    </div>
+</form>
+
+
+<div ng-show="loginState == 2">
+    <button id="trylogin" type="button" class="ui primary button" ng-click="openNewTab('admin/login')">Login</button>
+</div>
+
+<script src="js/common.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>

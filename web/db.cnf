@@ -1,0 +1,5 @@
+[client]
+database = iosblogdb
+user = root
+password =
+default-character-set = utf8
