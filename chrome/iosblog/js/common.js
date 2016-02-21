@@ -2,8 +2,8 @@
  * Created by everettjf on 10/22/15.
  */
 
-//var baseURL = 'http://0.0.0.0:8888/';
-var baseURL = 'http://iosblog.cc/';
+var baseURL = 'http://127.0.0.1:8888/';
+//var baseURL = 'http://iosblog.cc/';
 
 function serverUrl(partialUrl){
     return baseURL + partialUrl;

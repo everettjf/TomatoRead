@@ -4,6 +4,7 @@ from django.conf import settings
 
 class Domain(models.Model):
     name = models.CharField('名称', max_length=100, unique=True)
+    tag = models.CharField('Tag', max_length=10, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     zindex = models.IntegerField('排序参考值', default=0)
@@ -21,6 +22,7 @@ class Domain(models.Model):
 
 class Aspect(models.Model):
     name = models.CharField('名称', max_length=100, unique=True)
+    tag = models.CharField('Tag', max_length=10, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     domain = models.ForeignKey(Domain, verbose_name='一级分类', on_delete=models.CASCADE)
@@ -39,6 +41,7 @@ class Aspect(models.Model):
 
 class Angle(models.Model):
     name = models.CharField('名称', max_length=100)
+    tag = models.CharField('Tag', max_length=10, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     zindex = models.IntegerField('排序参考值', default=0)
@@ -61,7 +64,7 @@ class Bookmark(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     aspect = models.ForeignKey(Aspect, verbose_name='二级分类', on_delete=models.CASCADE)
-    angle = models.ForeignKey(Angle, verbose_name='视角', on_delete=models.CASCADE)
+    angle = models.ForeignKey(Angle, verbose_name='视角', on_delete=models.CASCADE, null=True, blank=True)
 
     url = models.TextField('网址', max_length=1000)
     description = models.TextField('描述', max_length=2000, blank=True, null=True, default='')

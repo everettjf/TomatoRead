@@ -49,20 +49,22 @@ snowsApp.controller('snowsCtrl',['$scope','$http',function($scope,$http){
             $scope.errorInfo = 'Please select an category';
             return;
         }
-        if($scope.linkAngle == null){
-            $scope.errorInfo = 'Please select an angle';
-            return;
-        }
+
         if($scope.linkName == '' || $scope.linkUrl == ''){
             $scope.errorInfo = 'Name or URL cannot be empty';
             return;
+        }
+
+        var angle_id = null;
+        if($scope.linkAngle != null){
+            angle_id = $scope.linkAngle.id;
         }
 
         apiSaveLink({
             name:$scope.linkName,
             url:$scope.linkUrl,
             aspect_id:$scope.linkAspect.id,
-            angle_id:$scope.linkAngle.id,
+            angle_id:angle_id,
             description:$scope.linkDescription,
             favicon:$scope.linkFavicon,
             feedurl:$scope.linkFeed,

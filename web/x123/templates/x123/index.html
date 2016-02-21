@@ -1,100 +1,87 @@
-{% extends 'x123/base.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-{% block title %}
-    iosblog
-{% endblock %}
-
-{% block content %}
+    <title>iOS Blog</title>
 
     {% load staticfiles %}
 
-<div class="ui stackable menu">
-  <div class="item">
-    <img src="{% static 'x123/image/on.png' %}">
-  </div>
-  <a class="item" href="{% url 'x123:index' %}">iOS Blog</a>
-</div>
+    <script src="//cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/semantic-ui/2.1.8/semantic.min.js"></script>
+    <link href="//cdn.bootcss.com/semantic-ui/2.1.8/semantic.min.css" rel="stylesheet">
 
-<div class="ui grid">
-  <div class="four wide column">
+    <script src="{% static 'x123/js/common.js' %}"></script>
+    <link href="{% static 'x123/style/common.css' %}" rel="stylesheet">
 
-    <div class="ui vertical fluid menu">
-        {% for domain in domains %}
-      <div class="item">
-        <div class="header">
-            <a href="{% url 'x123:domain' domain.id %}"> {{ domain.name }}</a>
-        </div>
-        <div class="menu">
-            {% for aspect in domain.aspect_set.all %}
-                <a class="item" href="{% url 'x123:aspect' aspect.id %}">{{ aspect.name }}</a>
-            {% endfor %}
-        </div>
-      </div>
-        {% endfor %}
+    <link href="{% static 'x123/image/favicon.png' %}" rel="icon"/>
+
+</head>
+<body>
+
+<div class="ui stackable container menu">
+    <div class="item">
+        <img src="{% static 'x123/image/on.png' %}">
+        iOS Blog
     </div>
 
-  </div>
-  <div class="twelve wide stretched column">
-        <div class="ui segment">
-            {% if angles %}
-                <p>
-                    {% for angle in angles %}
-                        <span>
-                            <a href="?angle={{ angle.id }}">{{ angle.name }}</a>
-                        &nbsp;
-                        &nbsp;
-                        </span>
-                    {% endfor %}
-                </p>
-            {% else %}
-                <p>No angles</p>
-            {% endif %}
-        </div>
+    {% for domain in domains %}
+    {% for aspect in domain.aspect_set.all %}
 
-        <div class="ui segment">
-          {% if bookmarks %}
-              <div class="ui list">
-                  {% for bookmark in bookmarks %}
-                      <div class="item">
-                          <img class="ui avatar image" src="{{ bookmark.favicon }}">
+    <a class="item" href="{% url 'x123:aspect' aspect.id %}">{{ aspect.name }}</a>
 
-                          <div class="content">
-                              <a class="header" id="bookmark_link" bookmark_id="{{ bookmark.id }}" href="{{ bookmark.url }}" target="_blank">
-                                  {{ bookmark.name }}
-                              </a>
-                              <div class="description">
-                                  {{ bookmark.description }}
-                                  <a class="fluid" href="{% url 'x123:bookmark' bookmark.id %}">
-                                      [More]
-                                  </a>
-                              </div>
-                          </div>
-                      </div>
-                  {% endfor %}
-              {% if bookmarks.paginator.num_pages > 1 %}
-                <div class="item">
-                    <div class="ui pagination menu">
-                        {% if bookmarks.has_previous %}
-                          <a class="item" href="?page={{ bookmarks.previous_page_number }}">Previous</a>
-                        {% endif %}
-                      <a class="item">
+    {% endfor %}
+    {% endfor %}
+</div>
+
+
+<div class="ui container">
+  <div class="ui segments">
+    <div class="ui segment">
+        {% if bookmarks %}
+            <div class="ui relaxed list">
+                {% for bookmark in bookmarks %}
+                    <div class="item">
+                        <img class="ui mini image" src="{% if bookmark.favicon != '' %}{{ bookmark.favicon }} {% else %}{% static 'x123/image/def.ico' %}{% endif %}">
+
+                        <div class="content">
+                            <a class="header" id="bookmark_link" bookmark_id="{{ bookmark.id }}" href="{{ bookmark.url }}" target="_blank">
+                                {{ bookmark.name }}
+                            </a>
+                            <div class="description">
+                                {{ bookmark.description }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                {% if bookmarks.paginator.num_pages > 1 %}
+                    <div class="item">
+                        <div class="ui pagination menu">
+                            {% if bookmarks.has_previous %}
+                                <a class="item" href="?page={{ bookmarks.previous_page_number }}">Previous</a>
+                            {% endif %}
+                            <a class="item">
                         <span class="current">
                             Page {{ bookmarks.number }} of {{ bookmarks.paginator.num_pages }}.
                         </span>
-                      </a>
-                      {% if contacts.has_next %}
-                          <a class="item" href="?page={{ bookmarks.next_page_number }}">Next</a>
-                      {% endif %}
+                            </a>
+                            {% if contacts.has_next %}
+                                <a class="item" href="?page={{ bookmarks.next_page_number }}">Next</a>
+                            {% endif %}
+                        </div>
                     </div>
-                </div>
-              {% endif %}
-              </div>
-          {% else %}
-              <p>No bookmarks</p>
-          {% endif %}
-        </div>
+                {% endif %}
+            </div>
+        {% else %}
+            <p>No bookmarks</p>
+        {% endif %}
+    </div>
   </div>
 </div>
 
-{% endblock %}
 
+
+</body>
+</html>
