@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
 
-  "name": "iosblog.so",
+  "name": "iosblog.cc",
   "description": "[Admin Mode] Add Site",
   "version": "0.4.0",
   "background": {
@@ -18,8 +18,8 @@
   },
   "permissions": [
     "tabs",
-    "http://0.0.0.0:8000/",
-    "http://iosblog.so/"
+    "http://0.0.0.0:8888/",
+    "http://iosblog.cc/"
   ],
   "icons":{
     "128":"image/on.png"

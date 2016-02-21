@@ -146,4 +146,4 @@ MEDIA_ROOT = '/var/www/iosblog/media'
 if DEBUG:
     MEDIA_URL = '/media/'
 else:
-    MEDIA_URL = 'http://iosblog.so/media/'
+    MEDIA_URL = 'http://iosblog.cc/media/'
