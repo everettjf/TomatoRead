@@ -160,7 +160,7 @@ function initPageInfo(){
                         snowslink.linkName = result.name;
                         snowslink.linkDescription = result.description;
                         snowslink.linkFavicon = result.favicon;
-                        snowslink.linkFeed = result.feedurl;
+                        snowslink.linkFeed = result.feed_url;
 
                         snowslink.linkDomain = result.aspect.domain;
                         snowslink.linkAspect = result.aspect;
