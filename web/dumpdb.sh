@@ -1,1 +1,1 @@
-mysqldump -u root iosblogdb > iosblogdb.sql
+mysqldump -u root iosblogdb > ~/iosblogdb.sql

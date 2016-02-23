@@ -1,1 +1,1 @@
-mysql -u root iosblogdb < iosblogdb.sql
+mysql -u root iosblogdb < ~/iosblogdb.sql
