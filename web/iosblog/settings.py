@@ -16,16 +16,25 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
+RUNMODE = os.environ['IOSBLOGRUNMODE']
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '(3$68-dhb79a%j9fsr+@8g(fbb*3-e1-b6d1voogql&7&0#8mv'
+if RUNMODE == 'production':
+    DEBUG = False
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+    with open('/etc/iosblog/secret_key.txt') as f:
+        SECRET_KEY = f.read().strip()
+else:
+    # Quick-start development settings - unsuitable for production
+    # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
-ALLOWED_HOSTS = []
+    # SECURITY WARNING: keep the secret key used in production secret!
+    SECRET_KEY = '(3$68-dhb79a%j9fsr+@8g(fbb*3-e1-b6d1voogql&7&0#8mv'
+
+    # SECURITY WARNING: don't run with debug turned on in production!
+    DEBUG = True
+
+
+ALLOWED_HOSTS = ['.iosblog.cc']
 
 
 # Application definition
