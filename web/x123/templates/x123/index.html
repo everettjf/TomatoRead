@@ -78,11 +78,11 @@ var _hmt = _hmt || [];
                                 <a class="item" href="?page={{ bookmarks.previous_page_number }}">Previous</a>
                             {% endif %}
                             <a class="item">
-                        <span class="current">
-                            Page {{ bookmarks.number }} of {{ bookmarks.paginator.num_pages }}.
-                        </span>
+                                <span class="current">
+                                    Page {{ bookmarks.number }} of {{ bookmarks.paginator.num_pages }}.
+                                </span>
                             </a>
-                            {% if contacts.has_next %}
+                            {% if bookmarks.has_next %}
                                 <a class="item" href="?page={{ bookmarks.next_page_number }}">Next</a>
                             {% endif %}
                         </div>

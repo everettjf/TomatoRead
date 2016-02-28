@@ -16,7 +16,10 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-RUNMODE = os.environ['IOSBLOGRUNMODE']
+if 'IOSBLOGRUNMODE' in os.environ:
+    RUNMODE = os.environ['IOSBLOGRUNMODE']
+else:
+    RUNMODE = 'develop'
 
 if RUNMODE == 'production':
     DEBUG = False
