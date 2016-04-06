@@ -4,11 +4,14 @@ platform :ios, '8.0'
 # use_frameworks!
 
 target 'iOSBlogReader' do
+
 pod 'Masonry', '~> 0.6'
 pod 'MagicalRecord', '~> 2.3'
 pod 'pop', '~> 1.0'
 pod 'MWFeedParser', '~> 1.0'
 pod 'AFNetworking', '~> 3.0'
+pod 'MJExtension', '~> 3.0'
+pod 'HMSegmentedControl', '~> 1.5'
 
 end
 

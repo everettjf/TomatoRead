@@ -10,11 +10,13 @@
 		35354CAE9B6B6421FE6002D4 /* libPods-iOSBlogReader.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1361E47CCD101148ACB2B2C1 /* libPods-iOSBlogReader.a */; };
 		D176AC641C7E221A001F25D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D176AC631C7E221A001F25D4 /* main.m */; };
 		D176AC671C7E221A001F25D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D176AC661C7E221A001F25D4 /* AppDelegate.m */; };
-		D176AC6A1C7E221A001F25D4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D176AC691C7E221A001F25D4 /* ViewController.m */; };
-		D176AC6D1C7E221A001F25D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D176AC6B1C7E221A001F25D4 /* Main.storyboard */; };
-		D176AC701C7E221A001F25D4 /* iOSBlogReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D176AC6E1C7E221A001F25D4 /* iOSBlogReader.xcdatamodeld */; };
 		D176AC721C7E221A001F25D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D176AC711C7E221A001F25D4 /* Assets.xcassets */; };
 		D176AC751C7E221A001F25D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D176AC731C7E221A001F25D4 /* LaunchScreen.storyboard */; };
+		D1F574C01CB541580044B494 /* AppUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574BF1CB541580044B494 /* AppUtil.m */; };
+		D1F574C61CB542020044B494 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574C51CB542020044B494 /* MainViewController.m */; };
+		D1F574CA1CB5421F0044B494 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574C91CB5421F0044B494 /* FeedViewController.m */; };
+		D1F574D01CB542410044B494 /* LinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574CF1CB542410044B494 /* LinkViewController.m */; };
+		D1F574D31CB5426F0044B494 /* BlogModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D1F574D11CB5426F0044B494 /* BlogModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,13 +27,18 @@
 		D176AC631C7E221A001F25D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D176AC651C7E221A001F25D4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D176AC661C7E221A001F25D4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D176AC681C7E221A001F25D4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D176AC691C7E221A001F25D4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		D176AC6C1C7E221A001F25D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D176AC6F1C7E221A001F25D4 /* iOSBlogReader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iOSBlogReader.xcdatamodel; sourceTree = "<group>"; };
 		D176AC711C7E221A001F25D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D176AC741C7E221A001F25D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D176AC761C7E221A001F25D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1F574BE1CB541580044B494 /* AppUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppUtil.h; path = Utility/AppUtil.h; sourceTree = "<group>"; };
+		D1F574BF1CB541580044B494 /* AppUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppUtil.m; path = Utility/AppUtil.m; sourceTree = "<group>"; };
+		D1F574C41CB542020044B494 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Controller/MainViewController.h; sourceTree = "<group>"; };
+		D1F574C51CB542020044B494 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Controller/MainViewController.m; sourceTree = "<group>"; };
+		D1F574C81CB5421F0044B494 /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedViewController.h; path = Controller/FeedViewController.h; sourceTree = "<group>"; };
+		D1F574C91CB5421F0044B494 /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedViewController.m; path = Controller/FeedViewController.m; sourceTree = "<group>"; };
+		D1F574CE1CB542410044B494 /* LinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LinkViewController.h; path = Controller/LinkViewController.h; sourceTree = "<group>"; };
+		D1F574CF1CB542410044B494 /* LinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LinkViewController.m; path = Controller/LinkViewController.m; sourceTree = "<group>"; };
+		D1F574D21CB5426F0044B494 /* BlogModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BlogModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,15 +91,11 @@
 		D176AC611C7E221A001F25D4 /* iOSBlogReader */ = {
 			isa = PBXGroup;
 			children = (
-				D176AC651C7E221A001F25D4 /* AppDelegate.h */,
-				D176AC661C7E221A001F25D4 /* AppDelegate.m */,
-				D176AC681C7E221A001F25D4 /* ViewController.h */,
-				D176AC691C7E221A001F25D4 /* ViewController.m */,
-				D176AC6B1C7E221A001F25D4 /* Main.storyboard */,
-				D176AC711C7E221A001F25D4 /* Assets.xcassets */,
-				D176AC731C7E221A001F25D4 /* LaunchScreen.storyboard */,
-				D176AC761C7E221A001F25D4 /* Info.plist */,
-				D176AC6E1C7E221A001F25D4 /* iOSBlogReader.xcdatamodeld */,
+				D1F574BD1CB5409D0044B494 /* View */,
+				D1F574BC1CB540900044B494 /* Model */,
+				D1F574BB1CB540740044B494 /* Controller */,
+				D1F574BA1CB5405B0044B494 /* Resource */,
+				D1F574B91CB540050044B494 /* Utility */,
 				D176AC621C7E221A001F25D4 /* Supporting Files */,
 			);
 			path = iOSBlogReader;
@@ -101,9 +104,58 @@
 		D176AC621C7E221A001F25D4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D176AC651C7E221A001F25D4 /* AppDelegate.h */,
+				D176AC661C7E221A001F25D4 /* AppDelegate.m */,
 				D176AC631C7E221A001F25D4 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D1F574B91CB540050044B494 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				D1F574BE1CB541580044B494 /* AppUtil.h */,
+				D1F574BF1CB541580044B494 /* AppUtil.m */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		D1F574BA1CB5405B0044B494 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				D176AC711C7E221A001F25D4 /* Assets.xcassets */,
+				D176AC731C7E221A001F25D4 /* LaunchScreen.storyboard */,
+				D176AC761C7E221A001F25D4 /* Info.plist */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		D1F574BB1CB540740044B494 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D1F574C41CB542020044B494 /* MainViewController.h */,
+				D1F574C51CB542020044B494 /* MainViewController.m */,
+				D1F574C81CB5421F0044B494 /* FeedViewController.h */,
+				D1F574C91CB5421F0044B494 /* FeedViewController.m */,
+				D1F574CE1CB542410044B494 /* LinkViewController.h */,
+				D1F574CF1CB542410044B494 /* LinkViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		D1F574BC1CB540900044B494 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D1F574D11CB5426F0044B494 /* BlogModel.xcdatamodeld */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D1F574BD1CB5409D0044B494 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,7 +221,6 @@
 			files = (
 				D176AC751C7E221A001F25D4 /* LaunchScreen.storyboard in Resources */,
 				D176AC721C7E221A001F25D4 /* Assets.xcassets in Resources */,
-				D176AC6D1C7E221A001F25D4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,24 +279,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D176AC701C7E221A001F25D4 /* iOSBlogReader.xcdatamodeld in Sources */,
-				D176AC6A1C7E221A001F25D4 /* ViewController.m in Sources */,
+				D1F574D01CB542410044B494 /* LinkViewController.m in Sources */,
+				D1F574C01CB541580044B494 /* AppUtil.m in Sources */,
+				D1F574CA1CB5421F0044B494 /* FeedViewController.m in Sources */,
 				D176AC671C7E221A001F25D4 /* AppDelegate.m in Sources */,
+				D1F574D31CB5426F0044B494 /* BlogModel.xcdatamodeld in Sources */,
 				D176AC641C7E221A001F25D4 /* main.m in Sources */,
+				D1F574C61CB542020044B494 /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D176AC6B1C7E221A001F25D4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D176AC6C1C7E221A001F25D4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D176AC731C7E221A001F25D4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -342,7 +388,9 @@
 			baseConfigurationReference = 71DBC24706D008DA1204961E /* Pods-iOSBlogReader.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = iOSBlogReader/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.everettjf.iOSBlogReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -354,7 +402,9 @@
 			baseConfigurationReference = 96B908C6BC6631CB3B898F2B /* Pods-iOSBlogReader.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = iOSBlogReader/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.everettjf.iOSBlogReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -385,13 +435,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		D176AC6E1C7E221A001F25D4 /* iOSBlogReader.xcdatamodeld */ = {
+		D1F574D11CB5426F0044B494 /* BlogModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				D176AC6F1C7E221A001F25D4 /* iOSBlogReader.xcdatamodel */,
+				D1F574D21CB5426F0044B494 /* BlogModel.xcdatamodel */,
 			);
-			currentVersion = D176AC6F1C7E221A001F25D4 /* iOSBlogReader.xcdatamodel */;
-			path = iOSBlogReader.xcdatamodeld;
+			currentVersion = D1F574D21CB5426F0044B494 /* BlogModel.xcdatamodel */;
+			name = BlogModel.xcdatamodeld;
+			path = Model/BlogModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

@@ -14,10 +14,12 @@ PODS:
   - AFNetworking/Serialization (3.0.4)
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
+  - HMSegmentedControl (1.5.2)
   - MagicalRecord (2.3.2):
     - MagicalRecord/Core (= 2.3.2)
   - MagicalRecord/Core (2.3.2)
   - Masonry (0.6.4)
+  - MJExtension (3.0.10)
   - MWFeedParser (1.0.1):
     - MWFeedParser/FeedParser (= 1.0.1)
     - MWFeedParser/NSDate+InternetDateTime (= 1.0.1)
@@ -31,15 +33,19 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
+  - HMSegmentedControl (~> 1.5)
   - MagicalRecord (~> 2.3)
   - Masonry (~> 0.6)
+  - MJExtension (~> 3.0)
   - MWFeedParser (~> 1.0)
   - pop (~> 1.0)
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
+  HMSegmentedControl: 83b9686022d2176fb6457d2bdb61e5d6393fed7d
   MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
+  MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
   MWFeedParser: 2cf646014c1baf6ad1b08c480b40a08180079247
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
 
