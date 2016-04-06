@@ -93,17 +93,6 @@
         [_subPageViews addObject:subView];
     }];
 
-    
-    // adjust size
-    CGFloat pageWidth = [UIScreen mainScreen].bounds.size.width;
-    CGFloat pageTopY = 40 + [UIApplication sharedApplication].statusBarFrame.size.height;
-    CGFloat pageHeight = [UIScreen mainScreen].bounds.size.height - pageTopY;
-    _scrollView.contentSize = CGSizeMake(pageWidth * pageItems.count, pageHeight);
-    
-    [_subPageViews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        obj.frame = CGRectMake(idx * pageWidth, 0, pageWidth, pageHeight);
-    }];
-    
     _subPageControllers = [NSMutableArray new];
     [pageItems enumerateObjectsUsingBlock:^(ItemEntity * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if(obj.type == ItemType_Feed){
@@ -115,6 +104,21 @@
             [_subPageControllers addObject:viewController];
         }
     }];
+    
+    // adjust size
+    [self _adjustScrollPageSize];
+}
+
+- (void)_adjustScrollPageSize{
+    CGFloat pageWidth = [UIScreen mainScreen].bounds.size.width;
+    CGFloat pageTopY = 40 + [UIApplication sharedApplication].statusBarFrame.size.height;
+    CGFloat pageHeight = [UIScreen mainScreen].bounds.size.height - pageTopY;
+    _scrollView.contentSize = CGSizeMake(pageWidth * _subPageViews.count, pageHeight);
+    
+    [_subPageViews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.frame = CGRectMake(idx * pageWidth, 0, pageWidth, pageHeight);
+    }];
+    
 }
 
 
@@ -125,13 +129,17 @@
 
 - (void)segmentedControlChangedValue:(HMSegmentedControl *)segmentedControl {
     NSInteger index = segmentedControl.selectedSegmentIndex;
+    [self _selectPageByIndex:index];
+    
+    [self _loadPageByIndex:index];
+}
+
+- (void)_selectPageByIndex:(NSInteger)index{
     if(index < 0 || index >= _subPageViews.count) return;
         
     CGFloat pageWidth = _subPageViews.firstObject.frame.size.width;
     CGFloat pageHeight = _subPageViews.firstObject.frame.size.height;
     [_scrollView scrollRectToVisible:CGRectMake(pageWidth * index, 0, pageWidth, pageHeight) animated:NO];
-    
-    [self _loadPageByIndex:index];
 }
 
 - (void)_loadPageByIndex:(NSInteger)index{
@@ -152,10 +160,11 @@
     [self _loadPageByIndex:index];
 }
 
-- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{
-    NSLog(@"will to size :%@", [NSValue valueWithCGSize:size]);
-    NSLog(@"screen size :%@", [NSValue valueWithCGSize:[UIScreen mainScreen].bounds.size]);
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+    [self _adjustScrollPageSize];
+    [self _selectPageByIndex:_segmentedControl.selectedSegmentIndex];
 }
+
 
 /*
 #pragma mark - Navigation
