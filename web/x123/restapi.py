@@ -30,6 +30,15 @@ class BookmarkList(generics.ListAPIView):
     serializer_class = BookmarkSerializer
 
 
+class BookmarkListInAspect(generics.ListAPIView):
+    serializer_class = BookmarkSerializer
+
+    def get_queryset(self):
+        # print('query params : ')
+        # print(self.kwargs)
+        return Bookmark.objects.filter(aspect_id=self.kwargs['aspect_id'])
+
+
 class BookmarkDetail(generics.RetrieveAPIView):
     queryset = Bookmark.objects.all()
     serializer_class = BookmarkSerializer

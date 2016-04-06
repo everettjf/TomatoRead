@@ -16,10 +16,11 @@ urlpatterns = [
     url(r'^b/(?P<bookmark_id>[0-9]+)/$', views.bookmark, name='bookmark'),
 
     url(r'^api/domains/$', restapi.DomainList.as_view()),
-    url(r'^api/aspects/$', restapi.AspectList.as_view()),
     url(r'^api/angles/$', restapi.AngleList.as_view()),
     url(r'^api/bookmarks/$', restapi.BookmarkList.as_view()),
     url(r'^api/bookmarks/(?P<pk>[0-9]+)/$', restapi.BookmarkDetail.as_view()),
+
+    url(r'^api/bookmarks_in_aspect/(?P<aspect_id>[0-9]+)/$', restapi.BookmarkListInAspect.as_view()),
 
     url(r'^api/auth_info/$', restapi.auth_info),
     url(r'^api/bookmark_existed/$', restapi.bookmark_existed),

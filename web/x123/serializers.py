@@ -45,7 +45,7 @@ class BookmarkSerializer(serializers.ModelSerializer):
         model = Bookmark
         fields = ('id', 'name', 'aspect', 'angle',
                   'url', 'description', 'favicon', 'image',
-                  'feed_url', 'feed_type', 'content_type')
+                  'feed_url', 'feed_type', 'content_type', 'updated_at')
 
 
 class UserSerializer(serializers.ModelSerializer):

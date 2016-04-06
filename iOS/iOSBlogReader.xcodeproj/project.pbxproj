@@ -21,6 +21,7 @@
 		D1F574DA1CB5711E0044B494 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574D91CB5711E0044B494 /* DataManager.m */; };
 		D1F574E21CB5717C0044B494 /* iOSBlogReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574E11CB5717C0044B494 /* iOSBlogReaderTests.m */; };
 		D1F574ED1CB5728A0044B494 /* LinkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574EC1CB5728A0044B494 /* LinkTableViewCell.m */; };
+		D1F574F11CB578890044B494 /* RestApi.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574F01CB578890044B494 /* RestApi.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,8 @@
 		D1F574EB1CB5728A0044B494 /* LinkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LinkTableViewCell.h; path = View/Link/LinkTableViewCell.h; sourceTree = "<group>"; };
 		D1F574EC1CB5728A0044B494 /* LinkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LinkTableViewCell.m; path = View/Link/LinkTableViewCell.m; sourceTree = "<group>"; };
 		D1F574EE1CB574680044B494 /* PrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.h; sourceTree = "<group>"; };
+		D1F574EF1CB578890044B494 /* RestApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestApi.h; path = Manager/RestApi.h; sourceTree = "<group>"; };
+		D1F574F01CB578890044B494 /* RestApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestApi.m; path = Manager/RestApi.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +205,8 @@
 			children = (
 				D1F574D81CB5711E0044B494 /* DataManager.h */,
 				D1F574D91CB5711E0044B494 /* DataManager.m */,
+				D1F574EF1CB578890044B494 /* RestApi.h */,
+				D1F574F01CB578890044B494 /* RestApi.m */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -386,6 +391,7 @@
 				D1F574D01CB542410044B494 /* LinkViewController.m in Sources */,
 				D1F574C01CB541580044B494 /* AppUtil.m in Sources */,
 				D1F574D61CB55F190044B494 /* ItemDataset.m in Sources */,
+				D1F574F11CB578890044B494 /* RestApi.m in Sources */,
 				D1F574CA1CB5421F0044B494 /* FeedViewController.m in Sources */,
 				D176AC671C7E221A001F25D4 /* AppDelegate.m in Sources */,
 				D1F574D31CB5426F0044B494 /* BlogModel.xcdatamodeld in Sources */,
