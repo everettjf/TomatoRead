@@ -17,6 +17,7 @@
 		D1F574CA1CB5421F0044B494 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574C91CB5421F0044B494 /* FeedViewController.m */; };
 		D1F574D01CB542410044B494 /* LinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574CF1CB542410044B494 /* LinkViewController.m */; };
 		D1F574D31CB5426F0044B494 /* BlogModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D1F574D11CB5426F0044B494 /* BlogModel.xcdatamodeld */; };
+		D1F574D61CB55F190044B494 /* ItemDataset.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574D51CB55F190044B494 /* ItemDataset.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,8 @@
 		D1F574CE1CB542410044B494 /* LinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LinkViewController.h; path = Controller/LinkViewController.h; sourceTree = "<group>"; };
 		D1F574CF1CB542410044B494 /* LinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LinkViewController.m; path = Controller/LinkViewController.m; sourceTree = "<group>"; };
 		D1F574D21CB5426F0044B494 /* BlogModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BlogModel.xcdatamodel; sourceTree = "<group>"; };
+		D1F574D41CB55F190044B494 /* ItemDataset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemDataset.h; path = Model/ItemDataset.h; sourceTree = "<group>"; };
+		D1F574D51CB55F190044B494 /* ItemDataset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemDataset.m; path = Model/ItemDataset.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				D1F574D11CB5426F0044B494 /* BlogModel.xcdatamodeld */,
+				D1F574D41CB55F190044B494 /* ItemDataset.h */,
+				D1F574D51CB55F190044B494 /* ItemDataset.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -281,6 +286,7 @@
 			files = (
 				D1F574D01CB542410044B494 /* LinkViewController.m in Sources */,
 				D1F574C01CB541580044B494 /* AppUtil.m in Sources */,
+				D1F574D61CB55F190044B494 /* ItemDataset.m in Sources */,
 				D1F574CA1CB5421F0044B494 /* FeedViewController.m in Sources */,
 				D176AC671C7E221A001F25D4 /* AppDelegate.m in Sources */,
 				D1F574D31CB5426F0044B494 /* BlogModel.xcdatamodeld in Sources */,

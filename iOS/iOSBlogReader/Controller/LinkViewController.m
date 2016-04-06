@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSLog(@"link view did load : %@", self.item.indexID);
 }
 
 - (void)didReceiveMemoryWarning {

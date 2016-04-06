@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ItemDataset.h"
 
 @interface LinkViewController : UIViewController
+@property (strong,nonatomic) ItemEntity *item;
 
 @end

@@ -12,12 +12,13 @@
 #import "AppUtil.h"
 #import "FeedViewController.h"
 #import "LinkViewController.h"
+#import "ItemDataset.h"
 
-@interface MainViewController ()
+@interface MainViewController ()<UIScrollViewDelegate>
 @property (strong,nonatomic) HMSegmentedControl *segmentedControl;
 @property (strong,nonatomic) UIScrollView *scrollView;
-@property (strong,nonatomic) NSArray<__kindof UIViewController*> *subPageViews;
-@property (strong,nonatomic) NSArray<__kindof UIViewController*> *subPageControllers;
+@property (strong,nonatomic) NSMutableArray<__kindof UIView*> *subPageViews;
+@property (strong,nonatomic) NSMutableArray<__kindof UIViewController*> *subPageControllers;
 
 @end
 
@@ -32,23 +33,17 @@
     
     [self _setupSegmentedControl];
     [self _setupSubPages];
+    
+    [self _loadPageByIndex:0];
 }
 
-- (NSArray*)_getPageTitles{
-    return @[
-            @"订阅",
-            @"博客",
-            @"文章",
-            @"教程",
-            @"社区",
-            @"源码",
-            @"工具",
-            @"大牛堂",
-            ];
-}
 
 - (void)_setupSegmentedControl{
-    NSArray *pageTitles = [self _getPageTitles];
+    NSMutableArray *pageTitles = [NSMutableArray new];
+    [[ItemDataset sharedDataset].items enumerateObjectsUsingBlock:^(ItemEntity * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [pageTitles addObject:obj.title];
+    }];
+    
     _segmentedControl = [[HMSegmentedControl alloc]initWithSectionTitles:pageTitles];
     _segmentedControl.segmentEdgeInset = UIEdgeInsetsMake(0, 10, 0, 10);
     _segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;
@@ -76,11 +71,50 @@
 }
 
 - (void)_setupSubPages{
-    CGFloat viewWidth = CGRectGetWidth(self.view.frame);
+    _scrollView = [UIScrollView new];
+    _scrollView.pagingEnabled = YES;
+    _scrollView.showsHorizontalScrollIndicator = YES;
+    _scrollView.delegate = self;
+    [self.view addSubview:_scrollView];
+    [_scrollView mas_makeConstraints:^(MASConstraintMaker *make){
+        make.top.equalTo(_segmentedControl.mas_bottom);
+        make.left.equalTo(self.view);
+        make.right.equalTo(self.view);
+        make.bottom.equalTo(self.view);
+    }];
     
+    NSArray<ItemEntity*> *pageItems = [ItemDataset sharedDataset].items;
     
+    _subPageViews = [NSMutableArray new];
+    [pageItems enumerateObjectsUsingBlock:^(ItemEntity * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        UIView *subView = [UIView new];
+        subView.backgroundColor = [UIColor colorWithRed:arc4random()%255/255.0 green:arc4random()%255/255.0 blue:arc4random()%255/255.0 alpha:1.0f];
+        [_scrollView addSubview:subView];
+        [_subPageViews addObject:subView];
+    }];
+
     
+    // adjust size
+    CGFloat pageWidth = [UIScreen mainScreen].bounds.size.width;
+    CGFloat pageTopY = 40 + [UIApplication sharedApplication].statusBarFrame.size.height;
+    CGFloat pageHeight = [UIScreen mainScreen].bounds.size.height - pageTopY;
+    _scrollView.contentSize = CGSizeMake(pageWidth * pageItems.count, pageHeight);
     
+    [_subPageViews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.frame = CGRectMake(idx * pageWidth, 0, pageWidth, pageHeight);
+    }];
+    
+    _subPageControllers = [NSMutableArray new];
+    [pageItems enumerateObjectsUsingBlock:^(ItemEntity * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if(obj.type == ItemType_Feed){
+            FeedViewController *viewController = [[FeedViewController alloc]init];
+            [_subPageControllers addObject:viewController];
+        }else{
+            LinkViewController *viewController = [[LinkViewController alloc]init];
+            viewController.item = obj;
+            [_subPageControllers addObject:viewController];
+        }
+    }];
 }
 
 
@@ -90,7 +124,37 @@
 }
 
 - (void)segmentedControlChangedValue:(HMSegmentedControl *)segmentedControl {
-	NSLog(@"Selected index %ld (via UIControlEventValueChanged)", (long)segmentedControl.selectedSegmentIndex);
+    NSInteger index = segmentedControl.selectedSegmentIndex;
+    if(index < 0 || index >= _subPageViews.count) return;
+        
+    CGFloat pageWidth = _subPageViews.firstObject.frame.size.width;
+    CGFloat pageHeight = _subPageViews.firstObject.frame.size.height;
+    [_scrollView scrollRectToVisible:CGRectMake(pageWidth * index, 0, pageWidth, pageHeight) animated:NO];
+    
+    [self _loadPageByIndex:index];
+}
+
+- (void)_loadPageByIndex:(NSInteger)index{
+    if(index < 0 || index >= _subPageViews.count) return;
+    
+    UIView *subView = [_subPageViews objectAtIndex:index];
+    if(subView.subviews.count == 0){
+        UIViewController *viewController = [_subPageControllers objectAtIndex:index];
+        [subView addSubview:viewController.view];
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    CGFloat pageWidth = [UIScreen mainScreen].bounds.size.width;
+    NSInteger index = scrollView.contentOffset.x / pageWidth;
+    
+    [_segmentedControl setSelectedSegmentIndex:index animated:YES];
+    [self _loadPageByIndex:index];
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{
+    NSLog(@"will to size :%@", [NSValue valueWithCGSize:size]);
+    NSLog(@"screen size :%@", [NSValue valueWithCGSize:[UIScreen mainScreen].bounds.size]);
 }
 
 /*
