@@ -18,7 +18,20 @@
 		D1F574D01CB542410044B494 /* LinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574CF1CB542410044B494 /* LinkViewController.m */; };
 		D1F574D31CB5426F0044B494 /* BlogModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D1F574D11CB5426F0044B494 /* BlogModel.xcdatamodeld */; };
 		D1F574D61CB55F190044B494 /* ItemDataset.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574D51CB55F190044B494 /* ItemDataset.m */; };
+		D1F574DA1CB5711E0044B494 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574D91CB5711E0044B494 /* DataManager.m */; };
+		D1F574E21CB5717C0044B494 /* iOSBlogReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574E11CB5717C0044B494 /* iOSBlogReaderTests.m */; };
+		D1F574ED1CB5728A0044B494 /* LinkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574EC1CB5728A0044B494 /* LinkTableViewCell.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D1F574E41CB5717C0044B494 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D176AC571C7E221A001F25D4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D176AC5E1C7E221A001F25D4;
+			remoteInfo = iOSBlogReader;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1361E47CCD101148ACB2B2C1 /* libPods-iOSBlogReader.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOSBlogReader.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +55,14 @@
 		D1F574D21CB5426F0044B494 /* BlogModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BlogModel.xcdatamodel; sourceTree = "<group>"; };
 		D1F574D41CB55F190044B494 /* ItemDataset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemDataset.h; path = Model/ItemDataset.h; sourceTree = "<group>"; };
 		D1F574D51CB55F190044B494 /* ItemDataset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemDataset.m; path = Model/ItemDataset.m; sourceTree = "<group>"; };
+		D1F574D81CB5711E0044B494 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataManager.h; path = Manager/DataManager.h; sourceTree = "<group>"; };
+		D1F574D91CB5711E0044B494 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataManager.m; path = Manager/DataManager.m; sourceTree = "<group>"; };
+		D1F574DF1CB5717C0044B494 /* iOSBlogReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSBlogReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1F574E11CB5717C0044B494 /* iOSBlogReaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSBlogReaderTests.m; sourceTree = "<group>"; };
+		D1F574E31CB5717C0044B494 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1F574EB1CB5728A0044B494 /* LinkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LinkTableViewCell.h; path = View/Link/LinkTableViewCell.h; sourceTree = "<group>"; };
+		D1F574EC1CB5728A0044B494 /* LinkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LinkTableViewCell.m; path = View/Link/LinkTableViewCell.m; sourceTree = "<group>"; };
+		D1F574EE1CB574680044B494 /* PrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +71,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				35354CAE9B6B6421FE6002D4 /* libPods-iOSBlogReader.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1F574DC1CB5717C0044B494 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				D176AC611C7E221A001F25D4 /* iOSBlogReader */,
+				D1F574E01CB5717C0044B494 /* iOSBlogReaderTests */,
 				D176AC601C7E221A001F25D4 /* Products */,
 				36A224922CDA839D0659CFCD /* Pods */,
 				B3EF826D5800FAB8DA8C6D6F /* Frameworks */,
@@ -87,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				D176AC5F1C7E221A001F25D4 /* iOSBlogReader.app */,
+				D1F574DF1CB5717C0044B494 /* iOSBlogReaderTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -94,6 +124,7 @@
 		D176AC611C7E221A001F25D4 /* iOSBlogReader */ = {
 			isa = PBXGroup;
 			children = (
+				D1F574D71CB570E80044B494 /* Manager */,
 				D1F574BD1CB5409D0044B494 /* View */,
 				D1F574BC1CB540900044B494 /* Model */,
 				D1F574BB1CB540740044B494 /* Controller */,
@@ -110,6 +141,7 @@
 				D176AC651C7E221A001F25D4 /* AppDelegate.h */,
 				D176AC661C7E221A001F25D4 /* AppDelegate.m */,
 				D176AC631C7E221A001F25D4 /* main.m */,
+				D1F574EE1CB574680044B494 /* PrefixHeader.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -159,8 +191,44 @@
 		D1F574BD1CB5409D0044B494 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D1F574EA1CB5725A0044B494 /* Link */,
+				D1F574E91CB572520044B494 /* Feed */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		D1F574D71CB570E80044B494 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				D1F574D81CB5711E0044B494 /* DataManager.h */,
+				D1F574D91CB5711E0044B494 /* DataManager.m */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
+		D1F574E01CB5717C0044B494 /* iOSBlogReaderTests */ = {
+			isa = PBXGroup;
+			children = (
+				D1F574E11CB5717C0044B494 /* iOSBlogReaderTests.m */,
+				D1F574E31CB5717C0044B494 /* Info.plist */,
+			);
+			path = iOSBlogReaderTests;
+			sourceTree = "<group>";
+		};
+		D1F574E91CB572520044B494 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Feed;
+			sourceTree = "<group>";
+		};
+		D1F574EA1CB5725A0044B494 /* Link */ = {
+			isa = PBXGroup;
+			children = (
+				D1F574EB1CB5728A0044B494 /* LinkTableViewCell.h */,
+				D1F574EC1CB5728A0044B494 /* LinkTableViewCell.m */,
+			);
+			name = Link;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +254,24 @@
 			productReference = D176AC5F1C7E221A001F25D4 /* iOSBlogReader.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D1F574DE1CB5717C0044B494 /* iOSBlogReaderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1F574E61CB5717C0044B494 /* Build configuration list for PBXNativeTarget "iOSBlogReaderTests" */;
+			buildPhases = (
+				D1F574DB1CB5717C0044B494 /* Sources */,
+				D1F574DC1CB5717C0044B494 /* Frameworks */,
+				D1F574DD1CB5717C0044B494 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D1F574E51CB5717C0044B494 /* PBXTargetDependency */,
+			);
+			name = iOSBlogReaderTests;
+			productName = iOSBlogReaderTests;
+			productReference = D1F574DF1CB5717C0044B494 /* iOSBlogReaderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -198,6 +284,11 @@
 					D176AC5E1C7E221A001F25D4 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 7Y7Q3C5XPJ;
+					};
+					D1F574DE1CB5717C0044B494 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 7Y7Q3C5XPJ;
+						TestTargetID = D176AC5E1C7E221A001F25D4;
 					};
 				};
 			};
@@ -215,6 +306,7 @@
 			projectRoot = "";
 			targets = (
 				D176AC5E1C7E221A001F25D4 /* iOSBlogReader */,
+				D1F574DE1CB5717C0044B494 /* iOSBlogReaderTests */,
 			);
 		};
 /* End PBXProject section */
@@ -226,6 +318,13 @@
 			files = (
 				D176AC751C7E221A001F25D4 /* LaunchScreen.storyboard in Resources */,
 				D176AC721C7E221A001F25D4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1F574DD1CB5717C0044B494 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,11 +390,29 @@
 				D176AC671C7E221A001F25D4 /* AppDelegate.m in Sources */,
 				D1F574D31CB5426F0044B494 /* BlogModel.xcdatamodeld in Sources */,
 				D176AC641C7E221A001F25D4 /* main.m in Sources */,
+				D1F574ED1CB5728A0044B494 /* LinkTableViewCell.m in Sources */,
+				D1F574DA1CB5711E0044B494 /* DataManager.m in Sources */,
 				D1F574C61CB542020044B494 /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D1F574DB1CB5717C0044B494 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1F574E21CB5717C0044B494 /* iOSBlogReaderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D1F574E51CB5717C0044B494 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D176AC5E1C7E221A001F25D4 /* iOSBlogReader */;
+			targetProxy = D1F574E41CB5717C0044B494 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D176AC731C7E221A001F25D4 /* LaunchScreen.storyboard */ = {
@@ -395,6 +512,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/iOSBlogReader/PrefixHeader.h";
 				INFOPLIST_FILE = iOSBlogReader/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -409,11 +528,41 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/iOSBlogReader/PrefixHeader.h";
 				INFOPLIST_FILE = iOSBlogReader/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.everettjf.iOSBlogReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D1F574E71CB5717C0044B494 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = iOSBlogReaderTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.everettjf.iOSBlogReaderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSBlogReader.app/iOSBlogReader";
+			};
+			name = Debug;
+		};
+		D1F574E81CB5717C0044B494 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = iOSBlogReaderTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.everettjf.iOSBlogReaderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSBlogReader.app/iOSBlogReader";
 			};
 			name = Release;
 		};
@@ -437,6 +586,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		D1F574E61CB5717C0044B494 /* Build configuration list for PBXNativeTarget "iOSBlogReaderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1F574E71CB5717C0044B494 /* Debug */,
+				D1F574E81CB5717C0044B494 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 

@@ -1,16 +1,13 @@
 //
-//  AppUtil.h
+//  DataManager.h
 //  iOSBlogReader
 //
-//  Created by everettjf on 16/4/6.
+//  Created by everettjf on 16/4/7.
 //  Copyright © 2016年 everettjf. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-
-@interface AppUtil : NSObject
-
-+ (NSURL *)documentsDirectory;
+@interface DataManager : NSObject
 
 @end
