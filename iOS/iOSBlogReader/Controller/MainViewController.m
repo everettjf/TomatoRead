@@ -31,10 +31,10 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBarHidden = YES;
     
-    [SVProgressHUD showWithStatus:@"Loading"];
+    [SVProgressHUD showWithStatus:@"加载中"];
     [[PageDataset sharedDataset]prepare:^(BOOL succeed) {
         if(!succeed){
-            [SVProgressHUD showWithStatus:@"Failed load."];
+            [SVProgressHUD showWithStatus:@"无法连接至服务器"];
             return;
         }
         

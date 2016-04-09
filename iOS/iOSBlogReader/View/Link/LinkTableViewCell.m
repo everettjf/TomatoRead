@@ -34,34 +34,45 @@
     _faviconImageView = [UIImageView new];
     [rootView addSubview:_faviconImageView];
     
-    _titleLabel = [UILabel new];
-    _titleLabel.font = [UIFont systemFontOfSize:14];
-    _titleLabel.numberOfLines = 2;
-    [rootView addSubview:_titleLabel];
-    
-    _subTitleLabel = [UILabel new];
-    _subTitleLabel.font = [UIFont systemFontOfSize:11];
-    _subTitleLabel.numberOfLines = 1;
-    [rootView addSubview:_subTitleLabel];
-    
+    UIView *vcenterView = [UIView new];
+    [rootView addSubview:vcenterView];
     [_faviconImageView mas_makeConstraints:^(MASConstraintMaker *make){
         make.left.equalTo(rootView).offset(5);
         make.top.equalTo(rootView).offset(5);
         make.height.equalTo(@50);
         make.width.equalTo(@50);
     }];
-
-    [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make){
+    
+    [vcenterView mas_makeConstraints:^(MASConstraintMaker *make){
         make.left.equalTo(_faviconImageView.mas_right).offset(5);
-        make.top.equalTo(_faviconImageView);
         make.right.equalTo(rootView).offset(-5);
+        make.centerY.equalTo(rootView);
     }];
+    
+    {
+        _titleLabel = [UILabel new];
+        _titleLabel.font = [UIFont systemFontOfSize:14];
+        _titleLabel.numberOfLines = 2;
+        [vcenterView addSubview:_titleLabel];
+        
+        _subTitleLabel = [UILabel new];
+        _subTitleLabel.font = [UIFont systemFontOfSize:11];
+        _subTitleLabel.numberOfLines = 1;
+        [vcenterView addSubview:_subTitleLabel];
+        
+        [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make){
+            make.top.equalTo(vcenterView);
+            make.left.equalTo(vcenterView);
+            make.right.equalTo(vcenterView);
+        }];
 
-    [_subTitleLabel mas_makeConstraints:^(MASConstraintMaker *make){
-        make.left.equalTo(_faviconImageView.mas_right).offset(5);
-        make.top.equalTo(_titleLabel.mas_bottom).offset(5);
-        make.right.equalTo(rootView).offset(-5);
-    }];
+        [_subTitleLabel mas_makeConstraints:^(MASConstraintMaker *make){
+            make.top.equalTo(_titleLabel.mas_bottom).offset(5);
+            make.left.equalTo(vcenterView);
+            make.right.equalTo(vcenterView);
+            make.bottom.equalTo(vcenterView);
+        }];
+    }
 }
 
 - (void)setFavicon:(NSString *)favicon{
