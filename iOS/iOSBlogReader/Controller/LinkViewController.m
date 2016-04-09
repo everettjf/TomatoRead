@@ -11,6 +11,7 @@
 #import "LinkTableViewCell.h"
 #import "WebViewController.h"
 #import "MainContext.h"
+#import <MJRefresh.h>
 
 static NSString * const kLinkCell = @"LinkCell";
 
@@ -46,14 +47,52 @@ static NSString * const kLinkCell = @"LinkCell";
         make.edges.equalTo(self.view);
     }];
     
+    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(_pullDown)];
+    _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(_pullUp)];
+    
+    [self _loadInitialData];
+}
+
+- (void)_loadInitialData{
+    _dataset = [NSMutableArray new];
     [[RestApi api] queryLinkList:self.item.linkData.oid complete:^(RestLinkListModel *model, NSError *error) {
-        if(error) return;
+        if(error) {
+            [_tableView.mj_header endRefreshing];
+            return;
+        }
         self.lastQuery = model;
         
         [_dataset addObjectsFromArray:model.results];
-        
         [_tableView reloadData];
+        
+        [_tableView.mj_header endRefreshing];
+        if(!model.next) [_tableView.mj_footer endRefreshingWithNoMoreData];
     } url:nil];
+}
+
+- (void)_pullDown{
+    [self _loadInitialData];
+}
+
+- (void)_pullUp{
+    if(!self.lastQuery.next){
+        [_tableView.mj_footer endRefreshingWithNoMoreData];
+        return;
+    }
+    
+    [[RestApi api] queryLinkList:self.item.linkData.oid complete:^(RestLinkListModel *model, NSError *error) {
+        if(error) {
+            [_tableView.mj_footer endRefreshing];
+            return;
+        }
+        self.lastQuery = model;
+        
+        [_dataset addObjectsFromArray:model.results];
+        [_tableView reloadData];
+        
+        if(model.next) [_tableView.mj_footer endRefreshing];
+        else [_tableView.mj_footer endRefreshingWithNoMoreData];
+    } url:self.lastQuery.next];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
