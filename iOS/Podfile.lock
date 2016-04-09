@@ -43,6 +43,9 @@ PODS:
   - NJKWebViewProgress/Core (0.2.3)
   - NJKWebViewProgress/ProgressView (0.2.3)
   - pop (1.0.9)
+  - SDWebImage (3.7.5):
+    - SDWebImage/Core (= 3.7.5)
+  - SDWebImage/Core (3.7.5)
   - SVProgressHUD (2.0.3)
   - WebViewJavascriptBridge (5.0.5)
   - YYModel (1.0.2)
@@ -57,6 +60,7 @@ DEPENDENCIES:
   - MWFeedParser (~> 1.0)
   - NJKWebViewProgress (~> 0.2)
   - pop (~> 1.0)
+  - SDWebImage (~> 3.7)
   - SVProgressHUD (~> 2.0)
   - WebViewJavascriptBridge (~> 5.0)
   - YYModel (~> 1.0)
@@ -71,6 +75,7 @@ SPEC CHECKSUMS:
   MWFeedParser: 2cf646014c1baf6ad1b08c480b40a08180079247
   NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   WebViewJavascriptBridge: a4d502315f1b8d9a51cd6a9174147ed567ec3bc5
   YYModel: 7a467eff45ae3641c33efb136c262d33b6f48c1a

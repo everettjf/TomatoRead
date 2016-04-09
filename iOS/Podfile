@@ -29,6 +29,8 @@ pod 'MJRefresh', '~> 3.1'
 pod 'WebViewJavascriptBridge', '~> 5.0'
 #https://github.com/ninjinkun/NJKWebViewProgress
 pod 'NJKWebViewProgress', '~> 0.2'
+#https://github.com/rs/SDWebImage
+pod 'SDWebImage', '~> 3.7'
 
 end
 
