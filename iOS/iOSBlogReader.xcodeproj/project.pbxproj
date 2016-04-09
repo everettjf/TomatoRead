@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		35354CAE9B6B6421FE6002D4 /* libPods-iOSBlogReader.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1361E47CCD101148ACB2B2C1 /* libPods-iOSBlogReader.a */; };
+		D13293681CB7E2A60091DA58 /* RestDomainListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D13293671CB7E2A60091DA58 /* RestDomainListModel.m */; };
+		D132936E1CB7F1770091DA58 /* RestLinkListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D132936D1CB7F1770091DA58 /* RestLinkListModel.m */; };
 		D176AC641C7E221A001F25D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D176AC631C7E221A001F25D4 /* main.m */; };
 		D176AC671C7E221A001F25D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D176AC661C7E221A001F25D4 /* AppDelegate.m */; };
 		D176AC721C7E221A001F25D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D176AC711C7E221A001F25D4 /* Assets.xcassets */; };
@@ -38,6 +40,10 @@
 		1361E47CCD101148ACB2B2C1 /* libPods-iOSBlogReader.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOSBlogReader.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71DBC24706D008DA1204961E /* Pods-iOSBlogReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSBlogReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSBlogReader/Pods-iOSBlogReader.debug.xcconfig"; sourceTree = "<group>"; };
 		96B908C6BC6631CB3B898F2B /* Pods-iOSBlogReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSBlogReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSBlogReader/Pods-iOSBlogReader.release.xcconfig"; sourceTree = "<group>"; };
+		D13293661CB7E2A60091DA58 /* RestDomainListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestDomainListModel.h; path = Model/RestModel/RestDomainListModel.h; sourceTree = "<group>"; };
+		D13293671CB7E2A60091DA58 /* RestDomainListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestDomainListModel.m; path = Model/RestModel/RestDomainListModel.m; sourceTree = "<group>"; };
+		D132936C1CB7F1770091DA58 /* RestLinkListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestLinkListModel.h; path = Model/RestModel/RestLinkListModel.h; sourceTree = "<group>"; };
+		D132936D1CB7F1770091DA58 /* RestLinkListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestLinkListModel.m; path = Model/RestModel/RestLinkListModel.m; sourceTree = "<group>"; };
 		D176AC5F1C7E221A001F25D4 /* iOSBlogReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSBlogReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D176AC631C7E221A001F25D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D176AC651C7E221A001F25D4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -102,6 +108,17 @@
 				1361E47CCD101148ACB2B2C1 /* libPods-iOSBlogReader.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D13293651CB7E2600091DA58 /* RestModel */ = {
+			isa = PBXGroup;
+			children = (
+				D13293661CB7E2A60091DA58 /* RestDomainListModel.h */,
+				D13293671CB7E2A60091DA58 /* RestDomainListModel.m */,
+				D132936C1CB7F1770091DA58 /* RestLinkListModel.h */,
+				D132936D1CB7F1770091DA58 /* RestLinkListModel.m */,
+			);
+			name = RestModel;
 			sourceTree = "<group>";
 		};
 		D176AC561C7E221A001F25D4 = {
@@ -184,6 +201,7 @@
 		D1F574BC1CB540900044B494 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D13293651CB7E2600091DA58 /* RestModel */,
 				D1F574D11CB5426F0044B494 /* BlogModel.xcdatamodeld */,
 				D1F574D41CB55F190044B494 /* ItemDataset.h */,
 				D1F574D51CB55F190044B494 /* ItemDataset.m */,
@@ -388,6 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D132936E1CB7F1770091DA58 /* RestLinkListModel.m in Sources */,
 				D1F574D01CB542410044B494 /* LinkViewController.m in Sources */,
 				D1F574C01CB541580044B494 /* AppUtil.m in Sources */,
 				D1F574D61CB55F190044B494 /* ItemDataset.m in Sources */,
@@ -395,6 +414,7 @@
 				D1F574CA1CB5421F0044B494 /* FeedViewController.m in Sources */,
 				D176AC671C7E221A001F25D4 /* AppDelegate.m in Sources */,
 				D1F574D31CB5426F0044B494 /* BlogModel.xcdatamodeld in Sources */,
+				D13293681CB7E2A60091DA58 /* RestDomainListModel.m in Sources */,
 				D176AC641C7E221A001F25D4 /* main.m in Sources */,
 				D1F574ED1CB5728A0044B494 /* LinkTableViewCell.m in Sources */,
 				D1F574DA1CB5711E0044B494 /* DataManager.m in Sources */,
@@ -600,6 +620,7 @@
 				D1F574E81CB5717C0044B494 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

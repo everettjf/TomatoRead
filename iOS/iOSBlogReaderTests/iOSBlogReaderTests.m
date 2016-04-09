@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "RestApi.h"
 
 @interface iOSBlogReaderTests : XCTestCase
 
@@ -24,9 +25,34 @@
     [super tearDown];
 }
 
-- (void)testExample {
+- (void)testQueryDomainList {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
+    XCTestExpectation *expectation = [self expectationWithDescription:@"query domain list"];
+    
+    [[RestApi api]queryDomainList:^(RestDomainListModel *model, NSError *error) {
+        XCTAssert(!error);
+        XCTAssert(model.results.count > 0);
+        
+        NSLog(@">>>>>>>>>>>> model results count = %@", @(model.results.count));
+        for (RestDomainModel *domain in model.results) {
+            NSLog(@"domain (%@): %@",@(domain.oid), domain.name);
+            NSLog(@"    aspect count  = %@", @(domain.aspect_set.count));
+            
+            for (RestAspectModel *aspect in domain.aspect_set) {
+                NSLog(@"+++ aspect (%@): %@",@(aspect.oid), aspect.name);
+            }
+        }
+        
+        [expectation fulfill];
+    }];
+    
+    [self waitForExpectationsWithTimeout:10 handler:nil];
+}
+
+- (void)testQueryFeedList{
+//    XCTestExpectation *expectation = 
+    
 }
 
 - (void)testPerformanceExample {

@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RestDomainListModel.h"
+#import "RestLinkListModel.h"
 
 @interface RestApi : NSObject
+
++ (RestApi*)api;
+
+- (void)queryDomainList:(void(^)(RestDomainListModel* model, NSError *error))complete;
+- (void)queryFeedList:(void(^)(RestLinkListModel * model, NSError *error))complete url:(NSString*)url;
+- (void)queryLinkList:(NSUInteger)aspectID complete:(void(^)(RestLinkListModel* model, NSError *error))complete url:(NSString*)url;
 
 @end
