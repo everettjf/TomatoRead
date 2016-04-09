@@ -14,6 +14,7 @@ pod 'HMSegmentedControl', '~> 1.5'
 pod 'SVProgressHUD', '~> 2.0'
 pod 'YYModel', '~> 1.0'
 pod 'CocoaLumberjack', '~> 2.2'
+pod 'MJRefresh', '~> 3.1'
 
 end
 
