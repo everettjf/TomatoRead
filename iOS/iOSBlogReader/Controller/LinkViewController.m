@@ -10,6 +10,7 @@
 #import "RestApi.h"
 #import "LinkTableViewCell.h"
 #import "WebViewController.h"
+#import "MainContext.h"
 
 static NSString * const kLinkCell = @"LinkCell";
 
@@ -81,9 +82,9 @@ static NSString * const kLinkCell = @"LinkCell";
     RestLinkModel *model = [_dataset objectAtIndex:indexPath.row];
     
     WebViewController *webViewController = [[WebViewController alloc]init];
+    [[MainContext sharedContext].mainNavigationController pushViewController:webViewController animated:YES];
     webViewController.title = model.name;
-    webViewController.url = model.url;
-    [self.navigationController pushViewController:webViewController animated:YES];
+    [webViewController loadURLString:model.url];
 }
 
 - (void)didReceiveMemoryWarning {

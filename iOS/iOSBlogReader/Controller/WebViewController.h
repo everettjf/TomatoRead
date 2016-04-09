@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <KINWebBrowserViewController.h>
 
-@interface WebViewController : UIViewController
-@property (strong,nonatomic) NSString *url;
-
+@interface WebViewController : KINWebBrowserViewController
 @end

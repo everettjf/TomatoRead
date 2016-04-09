@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		35354CAE9B6B6421FE6002D4 /* libPods-iOSBlogReader.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1361E47CCD101148ACB2B2C1 /* libPods-iOSBlogReader.a */; };
+		D11A30E71CB978E3001B1D57 /* MainContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A30E61CB978E3001B1D57 /* MainContext.m */; };
 		D13293681CB7E2A60091DA58 /* RestDomainListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D13293671CB7E2A60091DA58 /* RestDomainListModel.m */; };
 		D132936E1CB7F1770091DA58 /* RestLinkListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D132936D1CB7F1770091DA58 /* RestLinkListModel.m */; };
 		D13293721CB90B7E0091DA58 /* BlogModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D13293701CB90B7E0091DA58 /* BlogModel.xcdatamodeld */; };
@@ -54,6 +55,8 @@
 		1361E47CCD101148ACB2B2C1 /* libPods-iOSBlogReader.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOSBlogReader.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71DBC24706D008DA1204961E /* Pods-iOSBlogReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSBlogReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSBlogReader/Pods-iOSBlogReader.debug.xcconfig"; sourceTree = "<group>"; };
 		96B908C6BC6631CB3B898F2B /* Pods-iOSBlogReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSBlogReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSBlogReader/Pods-iOSBlogReader.release.xcconfig"; sourceTree = "<group>"; };
+		D11A30E51CB978E3001B1D57 /* MainContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainContext.h; path = Context/MainContext.h; sourceTree = "<group>"; };
+		D11A30E61CB978E3001B1D57 /* MainContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainContext.m; path = Context/MainContext.m; sourceTree = "<group>"; };
 		D13293661CB7E2A60091DA58 /* RestDomainListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestDomainListModel.h; path = Model/RestModel/RestDomainListModel.h; sourceTree = "<group>"; };
 		D13293671CB7E2A60091DA58 /* RestDomainListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestDomainListModel.m; path = Model/RestModel/RestDomainListModel.m; sourceTree = "<group>"; };
 		D132936C1CB7F1770091DA58 /* RestLinkListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestLinkListModel.h; path = Model/RestModel/RestLinkListModel.h; sourceTree = "<group>"; };
@@ -152,6 +155,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D11A30E41CB978C5001B1D57 /* Context */ = {
+			isa = PBXGroup;
+			children = (
+				D11A30E51CB978E3001B1D57 /* MainContext.h */,
+				D11A30E61CB978E3001B1D57 /* MainContext.m */,
+			);
+			name = Context;
+			sourceTree = "<group>";
+		};
 		D13293651CB7E2600091DA58 /* RestModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +229,7 @@
 		D176AC611C7E221A001F25D4 /* iOSBlogReader */ = {
 			isa = PBXGroup;
 			children = (
+				D11A30E41CB978C5001B1D57 /* Context */,
 				D1F574D71CB570E80044B494 /* Manager */,
 				D1F574BD1CB5409D0044B494 /* View */,
 				D1F574BC1CB540900044B494 /* Model */,
@@ -511,6 +524,7 @@
 				D13848EE1CB949A100C2FEF6 /* WebViewController.m in Sources */,
 				D13848E71CB948BB00C2FEF6 /* AspectModel.m in Sources */,
 				D13293751CB90C640091DA58 /* DataStorage.m in Sources */,
+				D11A30E71CB978E3001B1D57 /* MainContext.m in Sources */,
 				D13848E21CB948BB00C2FEF6 /* LinkModel+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

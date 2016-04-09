@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.0.4)
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
+  - ARChromeActivity (1.0.5)
   - CocoaLumberjack (2.2.0):
     - CocoaLumberjack/Default (= 2.2.0)
     - CocoaLumberjack/Extensions (= 2.2.0)
@@ -23,6 +24,9 @@ PODS:
   - CocoaLumberjack/Extensions (2.2.0):
     - CocoaLumberjack/Default
   - HMSegmentedControl (1.5.2)
+  - KINWebBrowser (1.3.2):
+    - ARChromeActivity (= 1.0.5)
+    - TUSafariActivity (= 1.0.4)
   - MagicalRecord (2.3.2):
     - MagicalRecord/Core (= 2.3.2)
   - MagicalRecord/Core (2.3.2)
@@ -37,47 +41,42 @@ PODS:
     - MWFeedParser/NSString+HTML
   - MWFeedParser/NSDate+InternetDateTime (1.0.1)
   - MWFeedParser/NSString+HTML (1.0.1)
-  - NJKWebViewProgress (0.2.3):
-    - NJKWebViewProgress/Core (= 0.2.3)
-    - NJKWebViewProgress/ProgressView (= 0.2.3)
-  - NJKWebViewProgress/Core (0.2.3)
-  - NJKWebViewProgress/ProgressView (0.2.3)
   - pop (1.0.9)
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
   - SVProgressHUD (2.0.3)
-  - WebViewJavascriptBridge (5.0.5)
+  - TUSafariActivity (1.0.4)
   - YYModel (1.0.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - CocoaLumberjack (~> 2.2)
   - HMSegmentedControl (~> 1.5)
+  - KINWebBrowser (~> 1.3)
   - MagicalRecord (~> 2.3)
   - Masonry (~> 0.6)
   - MJRefresh (~> 3.1)
   - MWFeedParser (~> 1.0)
-  - NJKWebViewProgress (~> 0.2)
   - pop (~> 1.0)
   - SDWebImage (~> 3.7)
   - SVProgressHUD (~> 2.0)
-  - WebViewJavascriptBridge (~> 5.0)
   - YYModel (~> 1.0)
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
+  ARChromeActivity: 821c7849b566f49583987468733a896fee35aa4d
   CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
   HMSegmentedControl: 83b9686022d2176fb6457d2bdb61e5d6393fed7d
+  KINWebBrowser: 27aa857a2aa39063ed102cca781d130b679d205f
   MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
   MWFeedParser: 2cf646014c1baf6ad1b08c480b40a08180079247
-  NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
-  WebViewJavascriptBridge: a4d502315f1b8d9a51cd6a9174147ed567ec3bc5
+  TUSafariActivity: afc55a00965377939107ce4fdc7f951f62454546
   YYModel: 7a467eff45ae3641c33efb136c262d33b6f48c1a
 
 COCOAPODS: 0.39.0

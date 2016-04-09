@@ -13,6 +13,7 @@
 #import "FeedViewController.h"
 #import "LinkViewController.h"
 #import "PageDataset.h"
+#import "MainContext.h"
 
 @interface MainViewController ()<UIScrollViewDelegate>
 @property (strong,nonatomic) HMSegmentedControl *segmentedControl;
@@ -30,6 +31,9 @@
     self.title = @"iOS 博客精选";
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBarHidden = YES;
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    [MainContext sharedContext].mainNavigationController = self.navigationController;
     
     [SVProgressHUD showWithStatus:@"加载中"];
     [[PageDataset sharedDataset]prepare:^(BOOL succeed) {
@@ -99,7 +103,6 @@
     _subPageViews = [NSMutableArray new];
     [pageItems enumerateObjectsUsingBlock:^(PageItemEntity * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         UIView *subView = [UIView new];
-        subView.backgroundColor = [UIColor colorWithRed:arc4random()%255/255.0 green:arc4random()%255/255.0 blue:arc4random()%255/255.0 alpha:1.0f];
         [_scrollView addSubview:subView];
         [_subPageViews addObject:subView];
     }];
