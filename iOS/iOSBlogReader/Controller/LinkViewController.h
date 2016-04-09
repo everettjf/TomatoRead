@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ItemDataset.h"
+#import "PageDataset.h"
 
 @interface LinkViewController : UIViewController
-@property (strong,nonatomic) ItemEntity *item;
+@property (strong,nonatomic) PageItemEntity *item;
 
 @end

@@ -1,24 +1,22 @@
 //
-//  LinkViewController.m
+//  ConfigViewController.m
 //  iOSBlogReader
 //
-//  Created by everettjf on 16/4/6.
+//  Created by everettjf on 16/4/9.
 //  Copyright © 2016年 everettjf. All rights reserved.
 //
 
-#import "LinkViewController.h"
+#import "ConfigViewController.h"
 
-@interface LinkViewController ()
+@interface ConfigViewController ()
 
 @end
 
-@implementation LinkViewController
+@implementation ConfigViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    NSLog(@"link view did load : %@", @(self.item.linkData.oid));
 }
 
 - (void)didReceiveMemoryWarning {

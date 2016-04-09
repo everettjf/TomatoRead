@@ -4,17 +4,31 @@ platform :ios, '8.0'
 # use_frameworks!
 
 target 'iOSBlogReader' do
-
+    
+#https://github.com/SnapKit/Masonry
 pod 'Masonry', '~> 0.6'
+#https://github.com/magicalpanda/MagicalRecord
 pod 'MagicalRecord', '~> 2.3'
+#https://github.com/facebook/pop
 pod 'pop', '~> 1.0'
+#https://github.com/mwaterfall/MWFeedParser
 pod 'MWFeedParser', '~> 1.0'
+#https://github.com/AFNetworking/AFNetworking
 pod 'AFNetworking', '~> 3.0'
+#https://github.com/HeshamMegid/HMSegmentedControl
 pod 'HMSegmentedControl', '~> 1.5'
+#https://github.com/SVProgressHUD/SVProgressHUD
 pod 'SVProgressHUD', '~> 2.0'
+#https://github.com/ibireme/YYModel
 pod 'YYModel', '~> 1.0'
+#https://github.com/CocoaLumberjack/CocoaLumberjack
 pod 'CocoaLumberjack', '~> 2.2'
+#https://github.com/CoderMJLee/MJRefresh
 pod 'MJRefresh', '~> 3.1'
+#https://github.com/marcuswestin/WebViewJavascriptBridge
+pod 'WebViewJavascriptBridge', '~> 5.0'
+#https://github.com/ninjinkun/NJKWebViewProgress
+pod 'NJKWebViewProgress', '~> 0.2'
 
 end
 

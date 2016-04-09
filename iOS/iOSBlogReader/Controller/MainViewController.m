@@ -12,7 +12,7 @@
 #import "AppUtil.h"
 #import "FeedViewController.h"
 #import "LinkViewController.h"
-#import "ItemDataset.h"
+#import "PageDataset.h"
 
 @interface MainViewController ()<UIScrollViewDelegate>
 @property (strong,nonatomic) HMSegmentedControl *segmentedControl;
@@ -31,16 +31,27 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBarHidden = YES;
     
-    [self _setupSegmentedControl];
-    [self _setupSubPages];
+    [SVProgressHUD showWithStatus:@"Loading"];
+    [[PageDataset sharedDataset]prepare:^(BOOL succeed) {
+        if(!succeed){
+            [SVProgressHUD showWithStatus:@"Failed load."];
+            return;
+        }
+        
+        [self _setupSegmentedControl];
+        [self _setupSubPages];
+        
+        [self _loadPageByIndex:0];
+        
+        [SVProgressHUD dismiss];
+    }];
     
-    [self _loadPageByIndex:0];
 }
 
 
 - (void)_setupSegmentedControl{
     NSMutableArray *pageTitles = [NSMutableArray new];
-    [[ItemDataset sharedDataset].items enumerateObjectsUsingBlock:^(ItemEntity * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [[PageDataset sharedDataset].items enumerateObjectsUsingBlock:^(PageItemEntity * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [pageTitles addObject:obj.title];
     }];
     
@@ -83,10 +94,10 @@
         make.bottom.equalTo(self.view);
     }];
     
-    NSArray<ItemEntity*> *pageItems = [ItemDataset sharedDataset].items;
+    NSArray<PageItemEntity*> *pageItems = [PageDataset sharedDataset].items;
     
     _subPageViews = [NSMutableArray new];
-    [pageItems enumerateObjectsUsingBlock:^(ItemEntity * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [pageItems enumerateObjectsUsingBlock:^(PageItemEntity * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         UIView *subView = [UIView new];
         subView.backgroundColor = [UIColor colorWithRed:arc4random()%255/255.0 green:arc4random()%255/255.0 blue:arc4random()%255/255.0 alpha:1.0f];
         [_scrollView addSubview:subView];
@@ -94,8 +105,8 @@
     }];
 
     _subPageControllers = [NSMutableArray new];
-    [pageItems enumerateObjectsUsingBlock:^(ItemEntity * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if(obj.type == ItemType_Feed){
+    [pageItems enumerateObjectsUsingBlock:^(PageItemEntity * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if(obj.type == PageItemType_Feed){
             FeedViewController *viewController = [[FeedViewController alloc]init];
             [_subPageControllers addObject:viewController];
         }else{
