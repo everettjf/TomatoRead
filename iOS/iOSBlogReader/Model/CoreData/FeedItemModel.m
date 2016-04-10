@@ -1,15 +1,14 @@
 //
-//  FeedPostModel.m
+//  FeedItemModel.m
 //  iOSBlogReader
 //
-//  Created by everettjf on 16/4/9.
+//  Created by everettjf on 16/4/11.
 //  Copyright © 2016年 everettjf. All rights reserved.
 //
 
-#import "FeedPostModel.h"
-#import "FeedModel.h"
+#import "FeedItemModel.h"
 
-@implementation FeedPostModel
+@implementation FeedItemModel
 
 // Insert code here to add functionality to your managed object subclass
 

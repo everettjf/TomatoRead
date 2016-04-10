@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+@class AspectModel;
 
 NS_ASSUME_NONNULL_BEGIN
 

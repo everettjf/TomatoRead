@@ -4,27 +4,31 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="oid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="domain" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DomainModel" inverseName="aspects" inverseEntity="DomainModel" syncable="YES"/>
-        <relationship name="links" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LinkModel" inverseName="aspect" inverseEntity="LinkModel" syncable="YES"/>
+        <relationship name="links" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LinkModel" inverseName="aspect" inverseEntity="LinkModel" syncable="YES"/>
     </entity>
     <entity name="DomainModel" representedClassName="DomainModel" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="oid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="aspects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AspectModel" inverseName="domain" inverseEntity="AspectModel" syncable="YES"/>
     </entity>
-    <entity name="FeedModel" representedClassName="FeedModel" syncable="YES">
-        <attribute name="feed_url" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="oid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="posts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FeedPostModel" inverseName="feed" inverseEntity="FeedPostModel" syncable="YES"/>
-    </entity>
-    <entity name="FeedPostModel" representedClassName="FeedPostModel" syncable="YES">
+    <entity name="FeedItemModel" representedClassName="FeedItemModel" syncable="YES">
         <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="post_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="feed_oid" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="feed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FeedModel" inverseName="posts" inverseEntity="FeedModel" syncable="YES"/>
+        <attribute name="updated" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
+    <entity name="FeedModel" representedClassName="FeedModel" syncable="YES">
+        <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="oid" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="url" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="LinkModel" representedClassName="LinkModel" syncable="YES">
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
@@ -37,10 +41,10 @@
         <relationship name="aspect" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AspectModel" inverseName="links" inverseEntity="AspectModel" syncable="YES"/>
     </entity>
     <elements>
-        <element name="FeedModel" positionX="-63" positionY="-18" width="128" height="105"/>
-        <element name="LinkModel" positionX="-54" positionY="-9" width="128" height="165"/>
-        <element name="DomainModel" positionX="-36" positionY="72" width="128" height="90"/>
         <element name="AspectModel" positionX="-18" positionY="81" width="128" height="105"/>
-        <element name="FeedPostModel" positionX="0" positionY="99" width="128" height="150"/>
+        <element name="DomainModel" positionX="-36" positionY="72" width="128" height="90"/>
+        <element name="FeedModel" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="FeedItemModel" positionX="0" positionY="99" width="128" height="180"/>
+        <element name="LinkModel" positionX="-54" positionY="-9" width="128" height="165"/>
     </elements>
 </model>

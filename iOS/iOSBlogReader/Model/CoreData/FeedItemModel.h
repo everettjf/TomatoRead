@@ -1,19 +1,17 @@
 //
-//  FeedPostModel.h
+//  FeedItemModel.h
 //  iOSBlogReader
 //
-//  Created by everettjf on 16/4/9.
+//  Created by everettjf on 16/4/11.
 //  Copyright © 2016年 everettjf. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class FeedModel;
-
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FeedPostModel : NSManagedObject
+@interface FeedItemModel : NSManagedObject
 
 // Insert code here to declare functionality of your managed object subclass
 
@@ -21,4 +19,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
-#import "FeedPostModel+CoreDataProperties.h"
+#import "FeedItemModel+CoreDataProperties.h"

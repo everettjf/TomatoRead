@@ -37,6 +37,11 @@
                BlueprintName = "iOSBlogReaderTests"
                ReferencedContainer = "container:iOSBlogReader.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "RestApiTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

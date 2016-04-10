@@ -2,7 +2,7 @@
 //  LinkModel+CoreDataProperties.h
 //  iOSBlogReader
 //
-//  Created by everettjf on 16/4/9.
+//  Created by everettjf on 16/4/11.
 //  Copyright © 2016年 everettjf. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -15,14 +15,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LinkModel (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSNumber *oid;
-@property (nullable, nonatomic, retain) NSString *name;
-@property (nullable, nonatomic, retain) NSString *url;
-@property (nullable, nonatomic, retain) NSString *feed_url;
-@property (nullable, nonatomic, retain) NSString *favicon;
 @property (nullable, nonatomic, retain) NSString *desc;
+@property (nullable, nonatomic, retain) NSString *favicon;
+@property (nullable, nonatomic, retain) NSString *feed_url;
+@property (nullable, nonatomic, retain) NSString *name;
+@property (nullable, nonatomic, retain) NSNumber *oid;
 @property (nullable, nonatomic, retain) NSDate *updated_at;
-@property (nullable, nonatomic, retain) NSManagedObject *aspect;
+@property (nullable, nonatomic, retain) NSString *url;
+@property (nullable, nonatomic, retain) AspectModel *aspect;
 
 @end
 

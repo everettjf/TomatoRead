@@ -1,5 +1,5 @@
 //
-//  FeedModel+CoreDataProperties.h
+//  FeedItemModel+CoreDataProperties.h
 //  iOSBlogReader
 //
 //  Created by everettjf on 16/4/11.
@@ -9,18 +9,21 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-#import "FeedModel.h"
+#import "FeedItemModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FeedModel (CoreDataProperties)
+@interface FeedItemModel (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSString *url;
-@property (nullable, nonatomic, retain) NSNumber *oid;
+@property (nullable, nonatomic, retain) NSString *identifier;
 @property (nullable, nonatomic, retain) NSString *title;
 @property (nullable, nonatomic, retain) NSString *link;
+@property (nullable, nonatomic, retain) NSDate *date;
+@property (nullable, nonatomic, retain) NSDate *updated;
 @property (nullable, nonatomic, retain) NSString *summary;
-@property (nullable, nonatomic, retain) NSDate *updated_at;
+@property (nullable, nonatomic, retain) NSString *content;
+@property (nullable, nonatomic, retain) NSString *author;
+@property (nullable, nonatomic, retain) NSNumber *feed_oid;
 
 @end
 

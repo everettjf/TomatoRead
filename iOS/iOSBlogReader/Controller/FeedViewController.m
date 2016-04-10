@@ -7,8 +7,14 @@
 //
 
 #import "FeedViewController.h"
+#import "FeedTableViewCell.h"
+#import "FeedManager.h"
 
-@interface FeedViewController ()
+static NSString * kFeedCell = @"FeedCell";
+
+@interface FeedViewController ()<FeedManagerDelegate,UITableViewDelegate,UITableViewDataSource>
+@property (strong,nonatomic) UITableView *tableView;
+@property (strong,nonatomic) NSArray<FeedItemModel*> *dataset;
 
 @end
 
@@ -16,8 +22,46 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    NSLog(@"feed view did load");
+    _dataset = @[];
+    
+    _tableView = [UITableView new];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    [_tableView registerClass:[FeedTableViewCell class] forCellReuseIdentifier:kFeedCell];
+    [self.view addSubview:_tableView];
+    [_tableView mas_makeConstraints:^(MASConstraintMaker *make){
+        make.edges.equalTo(self.view);
+    }];
+    
+    
+    [FeedManager manager].delegate = self;
+    [[FeedManager manager] loadFeeds];
+}
+
+- (void)feedManagerDidLoadFeeds:(NSArray<FeedItemModel *> *)feeds{
+    _dataset = feeds;
+    [_tableView reloadData];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return _dataset.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    FeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kFeedCell forIndexPath:indexPath];
+    FeedItemModel *feedItem = [_dataset objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = feedItem.title;
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 80;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class DomainModel;
 @class LinkModel;
 
 NS_ASSUME_NONNULL_BEGIN

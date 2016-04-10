@@ -6,13 +6,13 @@
 //  Copyright © 2016年 everettjf. All rights reserved.
 //
 
-#import "FeedPostViewController.h"
+#import "FeedItemViewController.h"
 
-@interface FeedPostViewController ()
+@interface FeedItemViewController ()
 
 @end
 
-@implementation FeedPostViewController
+@implementation FeedItemViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

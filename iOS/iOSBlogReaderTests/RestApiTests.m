@@ -9,11 +9,11 @@
 #import <XCTest/XCTest.h>
 #import "RestApi.h"
 
-@interface iOSBlogReaderTests : XCTestCase
+@interface RestApiTests : XCTestCase
 
 @end
 
-@implementation iOSBlogReaderTests
+@implementation RestApiTests
 
 - (void)setUp {
     [super setUp];
