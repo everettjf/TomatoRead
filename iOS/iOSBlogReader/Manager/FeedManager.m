@@ -41,25 +41,49 @@
     return self;
 }
 
-- (void)loadFeeds{
-    // Query
+- (void)_queryAllFeeds:(void (^)(NSMutableArray *feeds))completion{
+    NSMutableArray *feeds = [NSMutableArray new];
+    [self _queryAllFeeds:completion next:nil feeds:feeds];
+    
+}
+- (void)_queryAllFeeds:(void (^)(NSMutableArray *feeds))completion next:(NSString*)next feeds:(NSMutableArray*)feeds{
     [[RestApi api]queryFeedList:^(RestLinkListModel *model, NSError *error) {
         if(error){
+            completion(nil);
+            return;
+        }
+        
+        [feeds addObjectsFromArray:model.results];
+        
+        if(model.next){
+            // call
+            [self _queryAllFeeds:completion next:model.next feeds:feeds];
+        }else{
+            completion(feeds);
+        }
+    } url:next];
+}
+
+- (void)loadFeeds{
+    // Query
+    [self _queryAllFeeds:^(NSMutableArray *feeds) {
+        if(!feeds){
             [self _enumerateFeedsInCoreData];
             return;
         }
+        NSLog(@"total feeds : %@",@(feeds.count));
         
         // Persist
         dispatch_async(kFeedQueue, ^{
             [MagicalRecord saveWithBlock:^(NSManagedObjectContext * _Nonnull localContext) {
-                for (RestLinkModel *link in model.results) {
-                    FeedModel *feed = [FeedModel MR_findFirstOrCreateByAttribute:@"oid" withValue:@(link.oid) inContext:localContext];
-                    feed.oid = @(link.oid);
-                    feed.url = link.feed_url;
-                    feed.title = link.name;
-                    feed.link = link.url;
-                    feed.summary = @"";
-                    feed.updated_at = link.updated_at;
+                for (RestLinkModel *feed in feeds) {
+                    FeedModel *feedModel = [FeedModel MR_findFirstOrCreateByAttribute:@"oid" withValue:@(feed.oid) inContext:localContext];
+                    feedModel.oid = @(feed.oid);
+                    feedModel.url = feed.feed_url;
+                    feedModel.title = feed.name;
+                    feedModel.link = feed.url;
+                    feedModel.summary = @"";
+                    feedModel.updated_at = feed.updated_at;
                 }
             } completion:^(BOOL contextDidSave, NSError * _Nullable error) {
                 NSLog(@"context did save = %@ , error = %@", @(contextDidSave), error);
@@ -68,14 +92,14 @@
             }];
             
         });
-    } url:nil];
+    }];
 }
 
 - (void)_enumerateFeedsInCoreData{
     dispatch_async(kFeedQueue, ^{
         NSArray<FeedModel*> *feeds = [FeedModel MR_findAllSortedBy:@"updated_at" ascending:NO];
         
-        NSLog(@"feed count = %@", @(feeds.count));
+        NSLog(@"feed count in coredata = %@", @(feeds.count));
         
         for (FeedModel *feed in feeds) {
             FeedParseOperation *operation = [[FeedParseOperation alloc]init];
