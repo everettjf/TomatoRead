@@ -50,6 +50,8 @@ static NSString * kFeedCell = @"FeedCell";
         make.bottom.equalTo(self.view);
     }];
     
+    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(_pullDown)];
+    
     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(_pullUp)];
     [footer setTitle:@"" forState:MJRefreshStateIdle];
     _tableView.mj_footer = footer;
@@ -72,9 +74,14 @@ static NSString * kFeedCell = @"FeedCell";
     }];
 }
 
+- (void)_pullDown{
+    _dataset = [NSMutableArray new];
+    [self _loadMoreFeeds];
+}
 - (void)_pullUp{
     [self _loadMoreFeeds];
 }
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -124,6 +131,7 @@ static NSString * kFeedCell = @"FeedCell";
         
         _topInfoLabel.text = [NSString stringWithFormat:@"%@ 订阅, %@ 文章",@(totalFeedCount),@(totalItemCount)];
         
+        [_tableView.mj_header endRefreshing];
         [_tableView.mj_footer endRefreshing];
     }];
 }
