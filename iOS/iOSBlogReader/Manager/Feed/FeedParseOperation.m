@@ -56,6 +56,7 @@
     _parser.delegate = self;
     if(![_parser parse]){
         NSLog(@"run parse failed");
+        self.finished = YES;
         return;
     }
 }

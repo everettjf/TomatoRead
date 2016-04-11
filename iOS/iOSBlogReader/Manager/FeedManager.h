@@ -11,7 +11,9 @@
 
 
 @protocol FeedManagerDelegate <NSObject>
-- (void)feedManagerDidLoadFeeds:(NSArray<FeedItemModel*>*)feeds;
+- (void)feedManagerLoadStart;
+- (void)feedManagerLoadProgress:(NSUInteger)loadCount totalCount:(NSUInteger)totalCount;
+- (void)feedManagerLoadFinish;
 @end
 
 @interface FeedManager : NSObject
@@ -19,5 +21,7 @@
 
 + (FeedManager*)manager;
 - (void)loadFeeds;
+
+- (void)fetchLocalFeeds:(NSUInteger)offset limit:(NSUInteger)limit completion:(void(^)(NSArray<FeedItemModel*> *feedItems, NSUInteger totalItemCount, NSUInteger totalFeedCount))completion;
 
 @end

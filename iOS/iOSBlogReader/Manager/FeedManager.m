@@ -18,6 +18,9 @@
 
 @interface FeedManager ()
 @property (strong,nonatomic) NSOperationQueue *operationQueue;
+@property (assign,nonatomic) NSUInteger feedTotalCount;
+@property (assign,nonatomic) NSUInteger feedCounter;
+@property (strong,nonatomic) NSRecursiveLock *feedCounterLock;
 @end
 
 @implementation FeedManager
@@ -37,6 +40,9 @@
     if (self) {
         _operationQueue = [[NSOperationQueue alloc]init];
         _operationQueue.maxConcurrentOperationCount = 5;
+        _feedCounterLock = [NSRecursiveLock new];
+        _feedCounter = 0;
+        _feedTotalCount = 0;
     }
     return self;
 }
@@ -65,13 +71,14 @@
 }
 
 - (void)loadFeeds{
+    if(_delegate)[_delegate feedManagerLoadStart];
+    
     // Query
     [self _queryAllFeeds:^(NSMutableArray *feeds) {
         if(!feeds){
             [self _enumerateFeedsInCoreData];
             return;
         }
-        NSLog(@"total feeds : %@",@(feeds.count));
         
         // Persist
         dispatch_async(kFeedQueue, ^{
@@ -98,8 +105,11 @@
 - (void)_enumerateFeedsInCoreData{
     dispatch_async(kFeedQueue, ^{
         NSArray<FeedModel*> *feeds = [FeedModel MR_findAllSortedBy:@"updated_at" ascending:NO];
+        _feedTotalCount = feeds.count;
         
-        NSLog(@"feed count in coredata = %@", @(feeds.count));
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if(_delegate)[_delegate feedManagerLoadProgress:0 totalCount:_feedTotalCount];
+        });
         
         for (FeedModel *feed in feeds) {
             FeedParseOperation *operation = [[FeedParseOperation alloc]init];
@@ -124,7 +134,16 @@
                     }];
                 }
                 
-                [self _fetchFeedItemsInCoreData];
+                [_feedCounterLock lock];
+                ++_feedCounter;
+                [_feedCounterLock unlock];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if(_delegate){
+                        [_delegate feedManagerLoadProgress:_feedCounter totalCount:_feedTotalCount];
+                        if(_feedCounter == _feedTotalCount) [_delegate feedManagerLoadFinish];
+                    }
+                });
             };
             
             [_operationQueue addOperation:operation];
@@ -132,14 +151,25 @@
     });
 }
 
-- (void)_fetchFeedItemsInCoreData{
-    dispatch_async(kFeedQueue, ^{
-        NSArray<FeedItemModel*> *feeds = [FeedItemModel MR_findAllSortedBy:@"date" ascending:NO];
+- (void)fetchLocalFeeds:(NSUInteger)offset limit:(NSUInteger)limit completion:(void (^)(NSArray<FeedItemModel *> *, NSUInteger, NSUInteger))completion{
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        NSManagedObjectContext *context = [NSManagedObjectContext MR_contextForCurrentThread];
+#pragma clang diagnostic pop
+        NSFetchRequest *request = [FeedItemModel MR_requestAllSortedBy:@"date" ascending:@NO inContext:context];
+        [request setFetchOffset:offset];
+        [request setFetchLimit:limit];
+
+        NSArray<FeedItemModel*> *feedItems = [FeedItemModel MR_executeFetchRequest:request inContext:context];
         
+        NSUInteger totalItemCount = [FeedItemModel MR_countOfEntitiesWithContext:context];
+        NSUInteger totalFeedCount = [FeedModel MR_countOfEntitiesWithContext:context];
         dispatch_async(dispatch_get_main_queue(), ^{
-            if(_delegate)[_delegate feedManagerDidLoadFeeds:feeds];
+            completion(feedItems, totalItemCount,totalFeedCount);
         });
     });
+    
 }
 
 @end
