@@ -17,7 +17,7 @@ static NSString * kFeedCell = @"FeedCell";
 @property (strong,nonatomic) UITableView *tableView;
 @property (strong,nonatomic) UIView *topPanel;
 @property (strong,nonatomic) UILabel *topInfoLabel;
-@property (strong,nonatomic) NSMutableArray<FeedItemModel*> *dataset;
+@property (strong,nonatomic) NSMutableArray<FeedItemUIEntity*> *dataset;
 
 @end
 
@@ -86,7 +86,7 @@ static NSString * kFeedCell = @"FeedCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     FeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kFeedCell forIndexPath:indexPath];
-    FeedItemModel *feedItem = [_dataset objectAtIndex:indexPath.row];
+    FeedItemUIEntity *feedItem = [_dataset objectAtIndex:indexPath.row];
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",@(indexPath.row),feedItem.title];
     
@@ -116,7 +116,7 @@ static NSString * kFeedCell = @"FeedCell";
     [self _loadMoreFeeds];
 }
 - (void)_loadMoreFeeds{
-    [[FeedManager manager]fetchLocalFeeds:_dataset.count limit:20 completion:^(NSArray<FeedItemModel *> *feedItems, NSUInteger totalItemCount, NSUInteger totalFeedCount) {
+    [[FeedManager manager]fetchLocalFeeds:_dataset.count limit:20 completion:^(NSArray<FeedItemUIEntity *> *feedItems, NSUInteger totalItemCount, NSUInteger totalFeedCount) {
         if(feedItems){
             [_dataset addObjectsFromArray:feedItems];
             [_tableView reloadData];

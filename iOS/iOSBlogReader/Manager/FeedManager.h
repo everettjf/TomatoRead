@@ -9,6 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "FeedItemModel.h"
 
+@interface FeedItemUIEntity : NSObject
+@property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *link;
+@property (nonatomic, strong) NSDate *date;
+@property (nonatomic, strong) NSDate *updated;
+@property (nonatomic, strong) NSString *summary;
+@property (nonatomic, strong) NSString *content;
+@property (nonatomic, strong) NSString *author;
+@property (nonatomic, strong) NSNumber *feed_oid;
+@end
+
 
 @protocol FeedManagerDelegate <NSObject>
 - (void)feedManagerLoadStart;
@@ -22,6 +34,6 @@
 + (FeedManager*)manager;
 - (void)loadFeeds;
 
-- (void)fetchLocalFeeds:(NSUInteger)offset limit:(NSUInteger)limit completion:(void(^)(NSArray<FeedItemModel*> *feedItems, NSUInteger totalItemCount, NSUInteger totalFeedCount))completion;
+- (void)fetchLocalFeeds:(NSUInteger)offset limit:(NSUInteger)limit completion:(void(^)(NSArray<FeedItemUIEntity*> *feedItems, NSUInteger totalItemCount, NSUInteger totalFeedCount))completion;
 
 @end

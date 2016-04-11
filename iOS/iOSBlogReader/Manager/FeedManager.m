@@ -15,6 +15,10 @@
 
 #define kFeedQueue dispatch_get_global_queue(0, 0)
 
+@implementation FeedItemUIEntity
+
+@end
+
 
 @interface FeedManager ()
 @property (strong,nonatomic) NSOperationQueue *operationQueue;
@@ -151,7 +155,7 @@
     });
 }
 
-- (void)fetchLocalFeeds:(NSUInteger)offset limit:(NSUInteger)limit completion:(void (^)(NSArray<FeedItemModel *> *, NSUInteger, NSUInteger))completion{
+- (void)fetchLocalFeeds:(NSUInteger)offset limit:(NSUInteger)limit completion:(void (^)(NSArray<FeedItemUIEntity *> *, NSUInteger, NSUInteger))completion{
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -165,8 +169,25 @@
         
         NSUInteger totalItemCount = [FeedItemModel MR_countOfEntitiesWithContext:context];
         NSUInteger totalFeedCount = [FeedModel MR_countOfEntitiesWithContext:context];
+        
+        NSMutableArray<FeedItemUIEntity*> *entities = [NSMutableArray new];
+        for (FeedItemModel *item in feedItems) {
+            FeedItemUIEntity *entity = [FeedItemUIEntity new];
+            entity.identifier = item.identifier;
+            entity.title = item.title;
+            entity.link = item.link;
+            entity.date = item.date;
+            entity.updated = item.updated;
+            entity.summary = item.summary;
+            entity.content = item.content;
+            entity.author = item.author;
+            entity.feed_oid = item.feed_oid;
+            
+            [entities addObject:entity];
+        }
+        
         dispatch_async(dispatch_get_main_queue(), ^{
-            completion(feedItems, totalItemCount,totalFeedCount);
+            completion(entities, totalItemCount,totalFeedCount);
         });
     });
     
