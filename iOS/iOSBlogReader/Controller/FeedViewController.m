@@ -10,6 +10,8 @@
 #import "FeedTableViewCell.h"
 #import "FeedManager.h"
 #import <MJRefresh.h>
+#import "WebViewController.h"
+#import "MainContext.h"
 
 static NSString * kFeedCell = @"FeedCell";
 
@@ -95,13 +97,18 @@ static NSString * kFeedCell = @"FeedCell";
     FeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kFeedCell forIndexPath:indexPath];
     FeedItemUIEntity *feedItem = [_dataset objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",@(indexPath.row),feedItem.title];
+    cell.title = feedItem.title;
+    
+    NSMutableString *subTitle = [NSMutableString new];
+    if(feedItem.author) [subTitle appendString:feedItem.author];
+    if(feedItem.date) [subTitle appendString:[NSString stringWithFormat:@"%@",feedItem.date]];
+    cell.subTitle = subTitle;
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 80;
+    return 60;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -135,6 +142,18 @@ static NSString * kFeedCell = @"FeedCell";
         [_tableView.mj_footer endRefreshing];
     }];
 }
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    FeedItemUIEntity *feedItem = [_dataset objectAtIndex:indexPath.row];
+    
+    WebViewController *webViewController = [[WebViewController alloc]init];
+    [[MainContext sharedContext].mainNavigationController pushViewController:webViewController animated:YES];
+    webViewController.title = feedItem.title;
+    [webViewController loadURLString:feedItem.link];
+}
+
+
 /*
 #pragma mark - Navigation
 
