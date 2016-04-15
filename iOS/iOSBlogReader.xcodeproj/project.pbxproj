@@ -16,6 +16,7 @@
 		D11A30FE1CBABEB1001B1D57 /* FeedItemModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A30FB1CBABEB1001B1D57 /* FeedItemModel+CoreDataProperties.m */; };
 		D11A30FF1CBABEB1001B1D57 /* FeedItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A30FD1CBABEB1001B1D57 /* FeedItemModel.m */; };
 		D11A31021CBABF7C001B1D57 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A31011CBABF7C001B1D57 /* DataManager.m */; };
+		D11A31051CC164C7001B1D57 /* FavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A31041CC164C7001B1D57 /* FavViewController.m */; };
 		D13293681CB7E2A60091DA58 /* RestDomainListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D13293671CB7E2A60091DA58 /* RestDomainListModel.m */; };
 		D132936E1CB7F1770091DA58 /* RestLinkListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D132936D1CB7F1770091DA58 /* RestLinkListModel.m */; };
 		D13293721CB90B7E0091DA58 /* BlogModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D13293701CB90B7E0091DA58 /* BlogModel.xcdatamodeld */; };
@@ -73,6 +74,8 @@
 		D11A30FD1CBABEB1001B1D57 /* FeedItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedItemModel.m; sourceTree = "<group>"; };
 		D11A31001CBABF7C001B1D57 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataManager.h; path = Manager/DataManager.h; sourceTree = "<group>"; };
 		D11A31011CBABF7C001B1D57 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataManager.m; path = Manager/DataManager.m; sourceTree = "<group>"; };
+		D11A31031CC164C7001B1D57 /* FavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavViewController.h; path = Controller/FavViewController.h; sourceTree = "<group>"; };
+		D11A31041CC164C7001B1D57 /* FavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavViewController.m; path = Controller/FavViewController.m; sourceTree = "<group>"; };
 		D13293661CB7E2A60091DA58 /* RestDomainListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestDomainListModel.h; path = Model/RestModel/RestDomainListModel.h; sourceTree = "<group>"; };
 		D13293671CB7E2A60091DA58 /* RestDomainListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestDomainListModel.m; path = Model/RestModel/RestDomainListModel.m; sourceTree = "<group>"; };
 		D132936C1CB7F1770091DA58 /* RestLinkListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestLinkListModel.h; path = Model/RestModel/RestLinkListModel.h; sourceTree = "<group>"; };
@@ -301,6 +304,8 @@
 				D13848F01CB949DA00C2FEF6 /* FeedItemViewController.m */,
 				D13848F21CB949F700C2FEF6 /* ConfigViewController.h */,
 				D13848F31CB949F700C2FEF6 /* ConfigViewController.m */,
+				D11A31031CC164C7001B1D57 /* FavViewController.h */,
+				D11A31041CC164C7001B1D57 /* FavViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -538,6 +543,7 @@
 				D176AC671C7E221A001F25D4 /* AppDelegate.m in Sources */,
 				D13293681CB7E2A60091DA58 /* RestDomainListModel.m in Sources */,
 				D13848E41CB948BB00C2FEF6 /* FeedModel+CoreDataProperties.m in Sources */,
+				D11A31051CC164C7001B1D57 /* FavViewController.m in Sources */,
 				D176AC641C7E221A001F25D4 /* main.m in Sources */,
 				D1F574ED1CB5728A0044B494 /* LinkTableViewCell.m in Sources */,
 				D13848F41CB949F700C2FEF6 /* ConfigViewController.m in Sources */,
