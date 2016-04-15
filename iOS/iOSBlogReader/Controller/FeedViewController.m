@@ -60,6 +60,8 @@ static NSString * kFeedCell = @"FeedCell";
     
     [self _setupTopPanel];
     
+    [self _pullDown];
+    
     [FeedManager manager].delegate = self;
     [[FeedManager manager] loadFeeds];
 }
