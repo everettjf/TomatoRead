@@ -31,7 +31,7 @@
     UIView *root = self.contentView;
     _titleLabel = [UILabel new];
     _titleLabel.font = [UIFont systemFontOfSize:15];
-    _titleLabel.numberOfLines = 2;
+    _titleLabel.numberOfLines = 1;
     [root addSubview:_titleLabel];
     
     _subTitleLabel = [UILabel new];
