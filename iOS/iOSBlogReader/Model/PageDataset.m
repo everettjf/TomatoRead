@@ -9,12 +9,15 @@
 
 #import "PageDataset.h"
 #import "RestApi.h"
+#import "DomainModel.h"
+#import "AspectModel.h"
 
 
 @implementation PageItemEntity
-- (NSString *)feedData{ return _data;}
-- (RestAspectModel *)linkData{ return _data;}
-- (NSString *)title{ return _type == PageItemType_Feed ? self.feedData : self.linkData.name; }
+- (NSUInteger)aspectID{
+    NSNumber *number = (id)_data;
+    return number.unsignedIntegerValue;
+}
 @end
 
 @implementation PageDataset
@@ -34,10 +37,34 @@
     // Feed
     PageItemEntity *feedEntity = [PageItemEntity new];
     feedEntity.type = PageItemType_Feed;
-    feedEntity.data = @"订阅";
+    feedEntity.title = @"订阅";
     [pages addObject:feedEntity];
     
     // Links
+    // First ,check core date
+    NSArray<DomainModel*> *domains = [DomainModel MR_findAll];
+    for (DomainModel *domain in domains) {
+        if(![domain.name isEqualToString:@"iOS"])
+            continue;
+        // iOS
+        NSArray *arrayAspects = [domain.aspects sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"oid" ascending:YES]]];
+        for (AspectModel *aspect in arrayAspects) {
+            PageItemEntity *linkEntity = [PageItemEntity new];
+            linkEntity.type = PageItemType_Link;
+            linkEntity.title = aspect.name;
+            linkEntity.data = aspect.oid;
+            [pages addObject:linkEntity];
+        }
+    }
+    
+    BOOL alreadyCallback = NO;
+    if(domains.count > 0){
+        _items = pages;
+        complete(YES);
+        alreadyCallback = YES;
+    }
+    
+    // Then , rest api
     [[RestApi api]queryDomainList:^(RestDomainListModel *model, NSError *error) {
         if(error){
             complete(NO);
@@ -49,27 +76,25 @@
             return;
         }
         
-        RestDomainModel *domainModel;
-        if(model.results.count == 1){
-            domainModel = model.results.firstObject;
-        }else{
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
             for (RestDomainModel *domain in model.results) {
-                if([domain.name isEqualToString:@"iOS"]){
-                    domainModel = domain;
-                    break;
-                }
+                [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext * _Nonnull localContext) {
+                    DomainModel *model = [DomainModel MR_findFirstOrCreateByAttribute:@"oid" withValue:@(domain.oid) inContext:localContext];
+                    model.name = domain.name;
+                    
+                    for (RestAspectModel *aspect in domain.aspect_set) {
+                        AspectModel *aspectModel = [AspectModel MR_findFirstOrCreateByAttribute:@"oid" withValue:@(aspect.oid) inContext:localContext];
+                        aspectModel.name = aspect.name;
+                        aspectModel.domain = model;
+                    }
+                }];
             }
-            if(!domainModel) domainModel = model.results.firstObject;
-        }
-        for (RestAspectModel *aspect in domainModel.aspect_set) {
-            PageItemEntity *linkEntity = [PageItemEntity new];
-            linkEntity.type = PageItemType_Link;
-            linkEntity.data = aspect;
-            [pages addObject:linkEntity];
-        }
+        });
         
-        _items = pages;
-        complete(YES);
+        if(!alreadyCallback){
+            _items = pages;
+            complete(YES);
+        }
     }];
 }
 

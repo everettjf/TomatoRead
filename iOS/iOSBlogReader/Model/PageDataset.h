@@ -16,12 +16,10 @@ typedef NS_OPTIONS(NSUInteger, PageItemType) {
 
 @interface PageItemEntity : NSObject
 @property (assign,nonatomic) PageItemType type;
+@property (strong,nonatomic) NSString* title;
 @property (strong,nonatomic) id data;
 
-@property (strong,nonatomic,readonly) NSString* title;
-
-@property (strong,nonatomic,readonly) NSString* feedData;
-@property (strong,nonatomic,readonly) RestAspectModel* linkData;
+@property (assign,nonatomic,readonly) NSUInteger aspectID;
 @end
 
 @interface PageDataset : NSObject

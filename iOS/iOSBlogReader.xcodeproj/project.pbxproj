@@ -17,11 +17,10 @@
 		D11A30FF1CBABEB1001B1D57 /* FeedItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A30FD1CBABEB1001B1D57 /* FeedItemModel.m */; };
 		D11A31021CBABF7C001B1D57 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A31011CBABF7C001B1D57 /* DataManager.m */; };
 		D11A31051CC164C7001B1D57 /* FavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A31041CC164C7001B1D57 /* FavViewController.m */; };
+		D11A31081CC16626001B1D57 /* FeedOneImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A31071CC16626001B1D57 /* FeedOneImageTableViewCell.m */; };
 		D13293681CB7E2A60091DA58 /* RestDomainListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D13293671CB7E2A60091DA58 /* RestDomainListModel.m */; };
 		D132936E1CB7F1770091DA58 /* RestLinkListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D132936D1CB7F1770091DA58 /* RestLinkListModel.m */; };
 		D13293721CB90B7E0091DA58 /* BlogModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D13293701CB90B7E0091DA58 /* BlogModel.xcdatamodeld */; };
-		D13848E21CB948BB00C2FEF6 /* LinkModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D13848CF1CB948BB00C2FEF6 /* LinkModel+CoreDataProperties.m */; };
-		D13848E31CB948BB00C2FEF6 /* LinkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D13848D11CB948BB00C2FEF6 /* LinkModel.m */; };
 		D13848E41CB948BB00C2FEF6 /* FeedModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D13848D31CB948BB00C2FEF6 /* FeedModel+CoreDataProperties.m */; };
 		D13848E51CB948BB00C2FEF6 /* FeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D13848D51CB948BB00C2FEF6 /* FeedModel.m */; };
 		D13848E61CB948BB00C2FEF6 /* AspectModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D13848D71CB948BB00C2FEF6 /* AspectModel+CoreDataProperties.m */; };
@@ -76,15 +75,13 @@
 		D11A31011CBABF7C001B1D57 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataManager.m; path = Manager/DataManager.m; sourceTree = "<group>"; };
 		D11A31031CC164C7001B1D57 /* FavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavViewController.h; path = Controller/FavViewController.h; sourceTree = "<group>"; };
 		D11A31041CC164C7001B1D57 /* FavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavViewController.m; path = Controller/FavViewController.m; sourceTree = "<group>"; };
+		D11A31061CC16626001B1D57 /* FeedOneImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedOneImageTableViewCell.h; path = View/Feed/FeedOneImageTableViewCell.h; sourceTree = "<group>"; };
+		D11A31071CC16626001B1D57 /* FeedOneImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedOneImageTableViewCell.m; path = View/Feed/FeedOneImageTableViewCell.m; sourceTree = "<group>"; };
 		D13293661CB7E2A60091DA58 /* RestDomainListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestDomainListModel.h; path = Model/RestModel/RestDomainListModel.h; sourceTree = "<group>"; };
 		D13293671CB7E2A60091DA58 /* RestDomainListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestDomainListModel.m; path = Model/RestModel/RestDomainListModel.m; sourceTree = "<group>"; };
 		D132936C1CB7F1770091DA58 /* RestLinkListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestLinkListModel.h; path = Model/RestModel/RestLinkListModel.h; sourceTree = "<group>"; };
 		D132936D1CB7F1770091DA58 /* RestLinkListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestLinkListModel.m; path = Model/RestModel/RestLinkListModel.m; sourceTree = "<group>"; };
 		D13293711CB90B7E0091DA58 /* BlogModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BlogModel.xcdatamodel; sourceTree = "<group>"; };
-		D13848CE1CB948BB00C2FEF6 /* LinkModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LinkModel+CoreDataProperties.h"; sourceTree = "<group>"; };
-		D13848CF1CB948BB00C2FEF6 /* LinkModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LinkModel+CoreDataProperties.m"; sourceTree = "<group>"; };
-		D13848D01CB948BB00C2FEF6 /* LinkModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkModel.h; sourceTree = "<group>"; };
-		D13848D11CB948BB00C2FEF6 /* LinkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkModel.m; sourceTree = "<group>"; };
 		D13848D21CB948BB00C2FEF6 /* FeedModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FeedModel+CoreDataProperties.h"; sourceTree = "<group>"; };
 		D13848D31CB948BB00C2FEF6 /* FeedModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FeedModel+CoreDataProperties.m"; sourceTree = "<group>"; };
 		D13848D41CB948BB00C2FEF6 /* FeedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedModel.h; sourceTree = "<group>"; };
@@ -202,10 +199,6 @@
 				D11A30FB1CBABEB1001B1D57 /* FeedItemModel+CoreDataProperties.m */,
 				D11A30FC1CBABEB1001B1D57 /* FeedItemModel.h */,
 				D11A30FD1CBABEB1001B1D57 /* FeedItemModel.m */,
-				D13848CE1CB948BB00C2FEF6 /* LinkModel+CoreDataProperties.h */,
-				D13848CF1CB948BB00C2FEF6 /* LinkModel+CoreDataProperties.m */,
-				D13848D01CB948BB00C2FEF6 /* LinkModel.h */,
-				D13848D11CB948BB00C2FEF6 /* LinkModel.m */,
 				D13848D21CB948BB00C2FEF6 /* FeedModel+CoreDataProperties.h */,
 				D13848D31CB948BB00C2FEF6 /* FeedModel+CoreDataProperties.m */,
 				D13848D41CB948BB00C2FEF6 /* FeedModel.h */,
@@ -359,6 +352,8 @@
 			children = (
 				D11A30F11CBAB1FA001B1D57 /* FeedTableViewCell.h */,
 				D11A30F21CBAB1FA001B1D57 /* FeedTableViewCell.m */,
+				D11A31061CC16626001B1D57 /* FeedOneImageTableViewCell.h */,
+				D11A31071CC16626001B1D57 /* FeedOneImageTableViewCell.m */,
 			);
 			name = Feed;
 			sourceTree = "<group>";
@@ -536,12 +531,12 @@
 				D1F574C01CB541580044B494 /* AppUtil.m in Sources */,
 				D11A30EC1CBAA5C7001B1D57 /* FeedManager.m in Sources */,
 				D1F574D61CB55F190044B494 /* PageDataset.m in Sources */,
-				D13848E31CB948BB00C2FEF6 /* LinkModel.m in Sources */,
 				D1F574F11CB578890044B494 /* RestApi.m in Sources */,
 				D13848EB1CB948BB00C2FEF6 /* DomainModel.m in Sources */,
 				D1F574CA1CB5421F0044B494 /* FeedViewController.m in Sources */,
 				D176AC671C7E221A001F25D4 /* AppDelegate.m in Sources */,
 				D13293681CB7E2A60091DA58 /* RestDomainListModel.m in Sources */,
+				D11A31081CC16626001B1D57 /* FeedOneImageTableViewCell.m in Sources */,
 				D13848E41CB948BB00C2FEF6 /* FeedModel+CoreDataProperties.m in Sources */,
 				D11A31051CC164C7001B1D57 /* FavViewController.m in Sources */,
 				D176AC641C7E221A001F25D4 /* main.m in Sources */,
@@ -554,7 +549,6 @@
 				D13848EE1CB949A100C2FEF6 /* WebViewController.m in Sources */,
 				D13848E71CB948BB00C2FEF6 /* AspectModel.m in Sources */,
 				D11A30E71CB978E3001B1D57 /* MainContext.m in Sources */,
-				D13848E21CB948BB00C2FEF6 /* LinkModel+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

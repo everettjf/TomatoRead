@@ -36,7 +36,7 @@ static NSString * const kLinkCell = @"LinkCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"link view did load : %@", @(self.item.linkData.oid));
+    NSLog(@"link view did load : %@", @(self.item.aspectID));
     
     _tableView = [UITableView new];
     _tableView.delegate = self;
@@ -55,7 +55,7 @@ static NSString * const kLinkCell = @"LinkCell";
 
 - (void)_loadInitialData{
     _dataset = [NSMutableArray new];
-    [[RestApi api] queryLinkList:self.item.linkData.oid complete:^(RestLinkListModel *model, NSError *error) {
+    [[RestApi api] queryLinkList:self.item.aspectID complete:^(RestLinkListModel *model, NSError *error) {
         if(error) {
             [_tableView.mj_header endRefreshing];
             return;
@@ -80,7 +80,7 @@ static NSString * const kLinkCell = @"LinkCell";
         return;
     }
     
-    [[RestApi api] queryLinkList:self.item.linkData.oid complete:^(RestLinkListModel *model, NSError *error) {
+    [[RestApi api] queryLinkList:self.item.aspectID complete:^(RestLinkListModel *model, NSError *error) {
         if(error) {
             [_tableView.mj_footer endRefreshing];
             return;

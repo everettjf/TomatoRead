@@ -7,7 +7,6 @@
 //
 
 #import "AspectModel.h"
-#import "LinkModel.h"
 
 @implementation AspectModel
 
