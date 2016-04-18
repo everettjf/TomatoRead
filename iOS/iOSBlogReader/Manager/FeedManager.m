@@ -86,7 +86,7 @@
         
         // Persist
         dispatch_async(kFeedQueue, ^{
-            [MagicalRecord saveWithBlock:^(NSManagedObjectContext * _Nonnull localContext) {
+            [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext * _Nonnull localContext) {
                 for (RestLinkModel *feed in feeds) {
                     FeedModel *feedModel = [FeedModel MR_findFirstOrCreateByAttribute:@"oid" withValue:@(feed.oid) inContext:localContext];
                     feedModel.oid = @(feed.oid);
@@ -96,19 +96,17 @@
                     feedModel.summary = @"";
                     feedModel.updated_at = feed.updated_at;
                 }
-            } completion:^(BOOL contextDidSave, NSError * _Nullable error) {
-                NSLog(@"context did save = %@ , error = %@", @(contextDidSave), error);
-                
-                [self _enumerateFeedsInCoreData];
             }];
             
+            [self _enumerateFeedsInCoreData];
         });
     }];
 }
 
 - (void)_enumerateFeedsInCoreData{
     dispatch_async(kFeedQueue, ^{
-        NSArray<FeedModel*> *feeds = [FeedModel MR_findAllSortedBy:@"updated_at" ascending:NO];
+//        NSArray<FeedModel*> *feeds = [FeedModel MR_findAllSortedBy:@"updated_at" ascending:NO];
+        NSArray<FeedModel*> *feeds = [FeedModel MR_findAll];
         _feedTotalCount = feeds.count;
         
         dispatch_async(dispatch_get_main_queue(), ^{

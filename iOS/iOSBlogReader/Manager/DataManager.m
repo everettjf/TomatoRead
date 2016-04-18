@@ -33,15 +33,11 @@
     self = [super init];
     if (self) {
         NSLog(@"data path = %@", [self _dataPath]);
-        [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreAtURL:[self _dataPath]];
-        
 #ifdef DEBUG
-        [DomainModel MR_truncateAll];
-        [AspectModel MR_truncateAll];
-        [FeedModel MR_truncateAll];
-        [FeedItemModel MR_truncateAll];
+        [[NSFileManager defaultManager]removeItemAtURL:[self _dataPath] error:nil];
 #endif
-    
+        
+        [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreAtURL:[self _dataPath]];
     }
     return self;
 }
