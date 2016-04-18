@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FeedTableViewCell : UITableViewCell
+@interface FeedPostTableViewCell : UITableViewCell
 
 @property (strong,nonatomic) NSString *title;
 @property (strong,nonatomic) NSString *subTitle;

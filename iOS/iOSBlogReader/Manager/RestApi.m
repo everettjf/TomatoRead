@@ -9,7 +9,8 @@
 #import "RestApi.h"
 
 //static NSString * const kRestServer = @"http://127.0.0.1:8888/api/";
-static NSString * const kRestServer = @"http://192.168.199.126:8888/api/";
+//static NSString * const kRestServer = @"http://192.168.199.126:8888/api/";
+static NSString * const kRestServer = @"http://iosblog.cc/api/";
 
 @implementation RestApi
 

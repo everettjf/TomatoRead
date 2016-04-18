@@ -7,7 +7,7 @@
 //
 
 #import "FeedPostsViewController.h"
-#import "FeedTableViewCell.h"
+#import "FeedPostTableViewCell.h"
 #import "FeedManager.h"
 #import <MJRefresh.h>
 #import "WebViewController.h"
@@ -35,7 +35,7 @@ static NSString * kFeedCell = @"FeedCell";
     _tableView = [UITableView new];
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    [_tableView registerClass:[FeedTableViewCell class] forCellReuseIdentifier:kFeedCell];
+    [_tableView registerClass:[FeedPostTableViewCell class] forCellReuseIdentifier:kFeedCell];
     [self.view addSubview:_tableView];
     
     [_topPanel mas_makeConstraints:^(MASConstraintMaker *make){
@@ -96,7 +96,7 @@ static NSString * kFeedCell = @"FeedCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    FeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kFeedCell forIndexPath:indexPath];
+    FeedPostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kFeedCell forIndexPath:indexPath];
     FeedItemUIEntity *feedItem = [_dataset objectAtIndex:indexPath.row];
     
     cell.title = feedItem.title;

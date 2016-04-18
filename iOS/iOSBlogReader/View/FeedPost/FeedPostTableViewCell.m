@@ -6,10 +6,10 @@
 //  Copyright © 2016年 everettjf. All rights reserved.
 //
 
-#import "FeedTableViewCell.h"
+#import "FeedPostTableViewCell.h"
 
 
-@interface FeedTableViewCell ()
+@interface FeedPostTableViewCell ()
 {
     UILabel *_titleLabel;
     UILabel *_subTitleLabel;
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation FeedTableViewCell
+@implementation FeedPostTableViewCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];

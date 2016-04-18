@@ -19,7 +19,7 @@ static NSString * const kLinkCell = @"LinkCell";
 @property (strong,nonatomic) UITableView *tableView;
 @property (strong,nonatomic) NSMutableArray<RestLinkModel*> *dataset;
 @property (strong,nonatomic) RestLinkListModel *lastQuery;
-
+@property (strong,nonatomic) UIActivityIndicatorView *indicator;
 @end
 
 @implementation LinkViewController
@@ -48,21 +48,35 @@ static NSString * const kLinkCell = @"LinkCell";
     }];
     
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(_pullDown)];
-    _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(_pullUp)];
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(_pullUp)];
+    [footer setTitle:@"" forState:MJRefreshStateIdle];
+    _tableView.mj_footer = footer;
+    
+    _indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [self.view addSubview:_indicator];
+    [_indicator mas_makeConstraints:^(MASConstraintMaker *make){
+        make.top.equalTo(self.mas_topLayoutGuide).offset(10);
+        make.centerX.equalTo(self.view);
+    }];
+    [_indicator startAnimating];
     
     [self _loadInitialData];
 }
 
 - (void)_loadInitialData{
-    _dataset = [NSMutableArray new];
     [[RestApi api] queryLinkList:self.item.aspectID complete:^(RestLinkListModel *model, NSError *error) {
+        [_indicator stopAnimating];
+        [_indicator removeFromSuperview];
+        _indicator = nil;
+        
         if(error) {
             [_tableView.mj_header endRefreshing];
             return;
         }
         self.lastQuery = model;
         
-        [_dataset addObjectsFromArray:model.results];
+        _dataset = [model.results mutableCopy];
+        
         [_tableView reloadData];
         
         [_tableView.mj_header endRefreshing];

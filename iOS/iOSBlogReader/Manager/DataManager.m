@@ -8,6 +8,10 @@
 
 #import "DataManager.h"
 #import "AppUtil.h"
+#import "DomainModel.h"
+#import "AspectModel.h"
+#import "FeedModel.h"
+#import "FeedItemModel.h"
 
 @implementation DataManager
 
@@ -30,6 +34,14 @@
     if (self) {
         NSLog(@"data path = %@", [self _dataPath]);
         [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreAtURL:[self _dataPath]];
+        
+#ifdef DEBUG
+        [DomainModel MR_truncateAll];
+        [AspectModel MR_truncateAll];
+        [FeedModel MR_truncateAll];
+        [FeedItemModel MR_truncateAll];
+#endif
+    
     }
     return self;
 }

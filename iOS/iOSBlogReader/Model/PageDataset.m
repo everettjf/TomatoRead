@@ -86,15 +86,25 @@
                         AspectModel *aspectModel = [AspectModel MR_findFirstOrCreateByAttribute:@"oid" withValue:@(aspect.oid) inContext:localContext];
                         aspectModel.name = aspect.name;
                         aspectModel.domain = model;
+                        
+                        if(!alreadyCallback){
+                            PageItemEntity *linkEntity = [PageItemEntity new];
+                            linkEntity.type = PageItemType_Link;
+                            linkEntity.title = aspect.name;
+                            linkEntity.data = @(aspect.oid);
+                            [pages addObject:linkEntity];
+                        }
                     }
                 }];
             }
+            
+            if(!alreadyCallback){
+                _items = pages;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    complete(YES);
+                });
+            }
         });
-        
-        if(!alreadyCallback){
-            _items = pages;
-            complete(YES);
-        }
     }];
 }
 
