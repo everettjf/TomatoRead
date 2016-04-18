@@ -10,7 +10,7 @@
 #import <HMSegmentedControl.h>
 #import <Masonry.h>
 #import "AppUtil.h"
-#import "FeedViewController.h"
+#import "FeedPostsViewController.h"
 #import "LinkViewController.h"
 #import "PageDataset.h"
 #import "MainContext.h"
@@ -110,7 +110,7 @@
     _subPageControllers = [NSMutableArray new];
     [pageItems enumerateObjectsUsingBlock:^(PageItemEntity * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if(obj.type == PageItemType_Feed){
-            FeedViewController *viewController = [[FeedViewController alloc]init];
+            FeedPostsViewController *viewController = [[FeedPostsViewController alloc]init];
             [_subPageControllers addObject:viewController];
         }else{
             LinkViewController *viewController = [[LinkViewController alloc]init];

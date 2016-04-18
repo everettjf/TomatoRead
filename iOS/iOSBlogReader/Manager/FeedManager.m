@@ -129,12 +129,15 @@
                         itemModel.identifier = feedItem.identifier;
                         itemModel.title = feedItem.title;
                         itemModel.link = feedItem.link;
-                        itemModel.date = feedItem.date;
                         itemModel.updated = feedItem.updated;
                         itemModel.summary = feedItem.summary;
                         itemModel.content = feedItem.content;
                         itemModel.author = feedItem.author;
                         itemModel.feed_oid = feed.oid;
+                        
+                        if(!feedItem.date && !itemModel.date){
+                            itemModel.date = [NSDate date];
+                        }
                     }];
                 }
                 

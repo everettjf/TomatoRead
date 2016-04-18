@@ -6,7 +6,7 @@
 //  Copyright © 2016年 everettjf. All rights reserved.
 //
 
-#import "FeedViewController.h"
+#import "FeedPostsViewController.h"
 #import "FeedTableViewCell.h"
 #import "FeedManager.h"
 #import <MJRefresh.h>
@@ -15,7 +15,7 @@
 
 static NSString * kFeedCell = @"FeedCell";
 
-@interface FeedViewController ()<FeedManagerDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface FeedPostsViewController ()<FeedManagerDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (strong,nonatomic) UITableView *tableView;
 @property (strong,nonatomic) UIView *topPanel;
 @property (strong,nonatomic) UILabel *topInfoLabel;
@@ -23,7 +23,7 @@ static NSString * kFeedCell = @"FeedCell";
 
 @end
 
-@implementation FeedViewController
+@implementation FeedPostsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -152,6 +152,9 @@ static NSString * kFeedCell = @"FeedCell";
     WebViewController *webViewController = [[WebViewController alloc]init];
     [[MainContext sharedContext].mainNavigationController pushViewController:webViewController animated:YES];
     webViewController.title = feedItem.title;
+    
+    NSString *url = feedItem.link;
+    if(!url) url = feedItem.identifier;
     [webViewController loadURLString:feedItem.link];
 }
 
