@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <MWFeedParser.h>
+#import "MWFeedParser.h"
 
 @interface FeedParseOperation : NSOperation
 @property (strong,nonatomic) NSString *feedURLString;

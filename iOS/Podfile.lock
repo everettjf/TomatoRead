@@ -32,15 +32,6 @@ PODS:
   - MagicalRecord/Core (2.3.2)
   - Masonry (0.6.4)
   - MJRefresh (3.1.0)
-  - MWFeedParser (1.0.1):
-    - MWFeedParser/FeedParser (= 1.0.1)
-    - MWFeedParser/NSDate+InternetDateTime (= 1.0.1)
-    - MWFeedParser/NSString+HTML (= 1.0.1)
-  - MWFeedParser/FeedParser (1.0.1):
-    - MWFeedParser/NSDate+InternetDateTime
-    - MWFeedParser/NSString+HTML
-  - MWFeedParser/NSDate+InternetDateTime (1.0.1)
-  - MWFeedParser/NSString+HTML (1.0.1)
   - pop (1.0.9)
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
@@ -57,7 +48,6 @@ DEPENDENCIES:
   - MagicalRecord (~> 2.3)
   - Masonry (~> 0.6)
   - MJRefresh (~> 3.1)
-  - MWFeedParser (~> 1.0)
   - pop (~> 1.0)
   - SDWebImage (~> 3.7)
   - SVProgressHUD (~> 2.0)
@@ -72,7 +62,6 @@ SPEC CHECKSUMS:
   MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
-  MWFeedParser: 2cf646014c1baf6ad1b08c480b40a08180079247
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4

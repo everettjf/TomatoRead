@@ -12,7 +12,7 @@ pod 'MagicalRecord', '~> 2.3'
 #https://github.com/facebook/pop
 pod 'pop', '~> 1.0'
 #https://github.com/mwaterfall/MWFeedParser
-pod 'MWFeedParser', '~> 1.0'
+#pod 'MWFeedParser', '~> 1.0'
 #https://github.com/AFNetworking/AFNetworking
 pod 'AFNetworking', '~> 3.0'
 #https://github.com/HeshamMegid/HMSegmentedControl

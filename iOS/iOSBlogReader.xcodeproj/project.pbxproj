@@ -18,6 +18,16 @@
 		D11A31051CC164C7001B1D57 /* FavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A31041CC164C7001B1D57 /* FavViewController.m */; };
 		D11A31111CC54703001B1D57 /* FeedPostDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A31101CC54703001B1D57 /* FeedPostDetailViewController.m */; };
 		D11A31151CC547B2001B1D57 /* FeedPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A31141CC547B2001B1D57 /* FeedPostTableViewCell.m */; };
+		D11A312D1CC54E4B001B1D57 /* DetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A31191CC54E4B001B1D57 /* DetailTableViewController.m */; };
+		D11A312E1CC54E4B001B1D57 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A311B1CC54E4B001B1D57 /* GTMNSString+HTML.m */; };
+		D11A312F1CC54E4B001B1D57 /* MWFeedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A311D1CC54E4B001B1D57 /* MWFeedInfo.m */; };
+		D11A31301CC54E4B001B1D57 /* MWFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A311F1CC54E4B001B1D57 /* MWFeedItem.m */; };
+		D11A31311CC54E4B001B1D57 /* MWFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A31211CC54E4B001B1D57 /* MWFeedParser.m */; };
+		D11A31321CC54E4B001B1D57 /* MWFeedParserAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A31241CC54E4B001B1D57 /* MWFeedParserAppDelegate.m */; };
+		D11A31331CC54E4B001B1D57 /* NSDate+InternetDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A31261CC54E4B001B1D57 /* NSDate+InternetDateTime.m */; };
+		D11A31341CC54E4B001B1D57 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A31281CC54E4B001B1D57 /* NSString+HTML.m */; };
+		D11A31351CC54E4B001B1D57 /* NSString+XMLEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A312A1CC54E4B001B1D57 /* NSString+XMLEntities.m */; };
+		D11A31361CC54E4B001B1D57 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A312C1CC54E4B001B1D57 /* RootViewController.m */; };
 		D13293681CB7E2A60091DA58 /* RestDomainListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D13293671CB7E2A60091DA58 /* RestDomainListModel.m */; };
 		D132936E1CB7F1770091DA58 /* RestLinkListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D132936D1CB7F1770091DA58 /* RestLinkListModel.m */; };
 		D13293721CB90B7E0091DA58 /* BlogModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D13293701CB90B7E0091DA58 /* BlogModel.xcdatamodeld */; };
@@ -77,6 +87,27 @@
 		D11A31101CC54703001B1D57 /* FeedPostDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedPostDetailViewController.m; path = Controller/FeedPostDetailViewController.m; sourceTree = "<group>"; };
 		D11A31131CC547B2001B1D57 /* FeedPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedPostTableViewCell.h; sourceTree = "<group>"; };
 		D11A31141CC547B2001B1D57 /* FeedPostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedPostTableViewCell.m; sourceTree = "<group>"; };
+		D11A31181CC54E4B001B1D57 /* DetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTableViewController.h; sourceTree = "<group>"; };
+		D11A31191CC54E4B001B1D57 /* DetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTableViewController.m; sourceTree = "<group>"; };
+		D11A311A1CC54E4B001B1D57 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		D11A311B1CC54E4B001B1D57 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		D11A311C1CC54E4B001B1D57 /* MWFeedInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedInfo.h; sourceTree = "<group>"; };
+		D11A311D1CC54E4B001B1D57 /* MWFeedInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedInfo.m; sourceTree = "<group>"; };
+		D11A311E1CC54E4B001B1D57 /* MWFeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedItem.h; sourceTree = "<group>"; };
+		D11A311F1CC54E4B001B1D57 /* MWFeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedItem.m; sourceTree = "<group>"; };
+		D11A31201CC54E4B001B1D57 /* MWFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedParser.h; sourceTree = "<group>"; };
+		D11A31211CC54E4B001B1D57 /* MWFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedParser.m; sourceTree = "<group>"; };
+		D11A31221CC54E4B001B1D57 /* MWFeedParser_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedParser_Private.h; sourceTree = "<group>"; };
+		D11A31231CC54E4B001B1D57 /* MWFeedParserAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedParserAppDelegate.h; sourceTree = "<group>"; };
+		D11A31241CC54E4B001B1D57 /* MWFeedParserAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedParserAppDelegate.m; sourceTree = "<group>"; };
+		D11A31251CC54E4B001B1D57 /* NSDate+InternetDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+InternetDateTime.h"; sourceTree = "<group>"; };
+		D11A31261CC54E4B001B1D57 /* NSDate+InternetDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+InternetDateTime.m"; sourceTree = "<group>"; };
+		D11A31271CC54E4B001B1D57 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
+		D11A31281CC54E4B001B1D57 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
+		D11A31291CC54E4B001B1D57 /* NSString+XMLEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XMLEntities.h"; sourceTree = "<group>"; };
+		D11A312A1CC54E4B001B1D57 /* NSString+XMLEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XMLEntities.m"; sourceTree = "<group>"; };
+		D11A312B1CC54E4B001B1D57 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		D11A312C1CC54E4B001B1D57 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		D13293661CB7E2A60091DA58 /* RestDomainListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestDomainListModel.h; path = Model/RestModel/RestDomainListModel.h; sourceTree = "<group>"; };
 		D13293671CB7E2A60091DA58 /* RestDomainListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestDomainListModel.m; path = Model/RestModel/RestDomainListModel.m; sourceTree = "<group>"; };
 		D132936C1CB7F1770091DA58 /* RestLinkListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestLinkListModel.h; path = Model/RestModel/RestLinkListModel.h; sourceTree = "<group>"; };
@@ -191,6 +222,42 @@
 			path = View/FeedPost;
 			sourceTree = "<group>";
 		};
+		D11A31161CC54E4B001B1D57 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				D11A31171CC54E4B001B1D57 /* MWFeedParser */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		D11A31171CC54E4B001B1D57 /* MWFeedParser */ = {
+			isa = PBXGroup;
+			children = (
+				D11A31181CC54E4B001B1D57 /* DetailTableViewController.h */,
+				D11A31191CC54E4B001B1D57 /* DetailTableViewController.m */,
+				D11A311A1CC54E4B001B1D57 /* GTMNSString+HTML.h */,
+				D11A311B1CC54E4B001B1D57 /* GTMNSString+HTML.m */,
+				D11A311C1CC54E4B001B1D57 /* MWFeedInfo.h */,
+				D11A311D1CC54E4B001B1D57 /* MWFeedInfo.m */,
+				D11A311E1CC54E4B001B1D57 /* MWFeedItem.h */,
+				D11A311F1CC54E4B001B1D57 /* MWFeedItem.m */,
+				D11A31201CC54E4B001B1D57 /* MWFeedParser.h */,
+				D11A31211CC54E4B001B1D57 /* MWFeedParser.m */,
+				D11A31221CC54E4B001B1D57 /* MWFeedParser_Private.h */,
+				D11A31231CC54E4B001B1D57 /* MWFeedParserAppDelegate.h */,
+				D11A31241CC54E4B001B1D57 /* MWFeedParserAppDelegate.m */,
+				D11A31251CC54E4B001B1D57 /* NSDate+InternetDateTime.h */,
+				D11A31261CC54E4B001B1D57 /* NSDate+InternetDateTime.m */,
+				D11A31271CC54E4B001B1D57 /* NSString+HTML.h */,
+				D11A31281CC54E4B001B1D57 /* NSString+HTML.m */,
+				D11A31291CC54E4B001B1D57 /* NSString+XMLEntities.h */,
+				D11A312A1CC54E4B001B1D57 /* NSString+XMLEntities.m */,
+				D11A312B1CC54E4B001B1D57 /* RootViewController.h */,
+				D11A312C1CC54E4B001B1D57 /* RootViewController.m */,
+			);
+			path = MWFeedParser;
+			sourceTree = "<group>";
+		};
 		D13293651CB7E2600091DA58 /* RestModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +317,7 @@
 		D176AC611C7E221A001F25D4 /* iOSBlogReader */ = {
 			isa = PBXGroup;
 			children = (
+				D11A31161CC54E4B001B1D57 /* ThirdParty */,
 				D11A30E41CB978C5001B1D57 /* Context */,
 				D1F574D71CB570E80044B494 /* Manager */,
 				D1F574BD1CB5409D0044B494 /* View */,
@@ -522,6 +590,7 @@
 			files = (
 				D11A30FE1CBABEB1001B1D57 /* FeedItemModel+CoreDataProperties.m in Sources */,
 				D11A31021CBABF7C001B1D57 /* DataManager.m in Sources */,
+				D11A31311CC54E4B001B1D57 /* MWFeedParser.m in Sources */,
 				D13848F11CB949DA00C2FEF6 /* FeedItemViewController.m in Sources */,
 				D11A30F01CBAA6C1001B1D57 /* FeedParseOperation.m in Sources */,
 				D132936E1CB7F1770091DA58 /* RestLinkListModel.m in Sources */,
@@ -530,21 +599,30 @@
 				D11A31151CC547B2001B1D57 /* FeedPostTableViewCell.m in Sources */,
 				D13293721CB90B7E0091DA58 /* BlogModel.xcdatamodeld in Sources */,
 				D13848EA1CB948BB00C2FEF6 /* DomainModel+CoreDataProperties.m in Sources */,
+				D11A312D1CC54E4B001B1D57 /* DetailTableViewController.m in Sources */,
+				D11A31351CC54E4B001B1D57 /* NSString+XMLEntities.m in Sources */,
 				D1F574C01CB541580044B494 /* AppUtil.m in Sources */,
 				D11A30EC1CBAA5C7001B1D57 /* FeedManager.m in Sources */,
+				D11A31341CC54E4B001B1D57 /* NSString+HTML.m in Sources */,
+				D11A312E1CC54E4B001B1D57 /* GTMNSString+HTML.m in Sources */,
 				D1F574D61CB55F190044B494 /* PageDataset.m in Sources */,
 				D1F574F11CB578890044B494 /* RestApi.m in Sources */,
 				D13848EB1CB948BB00C2FEF6 /* DomainModel.m in Sources */,
+				D11A31331CC54E4B001B1D57 /* NSDate+InternetDateTime.m in Sources */,
 				D1F574CA1CB5421F0044B494 /* FeedPostsViewController.m in Sources */,
 				D176AC671C7E221A001F25D4 /* AppDelegate.m in Sources */,
 				D13293681CB7E2A60091DA58 /* RestDomainListModel.m in Sources */,
+				D11A312F1CC54E4B001B1D57 /* MWFeedInfo.m in Sources */,
 				D13848E41CB948BB00C2FEF6 /* FeedModel+CoreDataProperties.m in Sources */,
 				D11A31051CC164C7001B1D57 /* FavViewController.m in Sources */,
 				D176AC641C7E221A001F25D4 /* main.m in Sources */,
+				D11A31321CC54E4B001B1D57 /* MWFeedParserAppDelegate.m in Sources */,
 				D1F574ED1CB5728A0044B494 /* LinkTableViewCell.m in Sources */,
 				D13848F41CB949F700C2FEF6 /* ConfigViewController.m in Sources */,
 				D1F574C61CB542020044B494 /* MainViewController.m in Sources */,
 				D11A30FF1CBABEB1001B1D57 /* FeedItemModel.m in Sources */,
+				D11A31301CC54E4B001B1D57 /* MWFeedItem.m in Sources */,
+				D11A31361CC54E4B001B1D57 /* RootViewController.m in Sources */,
 				D13848E61CB948BB00C2FEF6 /* AspectModel+CoreDataProperties.m in Sources */,
 				D13848E51CB948BB00C2FEF6 /* FeedModel.m in Sources */,
 				D13848EE1CB949A100C2FEF6 /* WebViewController.m in Sources */,
