@@ -134,7 +134,7 @@
 		D13848ED1CB949A100C2FEF6 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebViewController.m; path = Controller/WebViewController.m; sourceTree = "<group>"; };
 		D13848F21CB949F700C2FEF6 /* ConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfigViewController.h; path = Controller/ConfigViewController.h; sourceTree = "<group>"; };
 		D13848F31CB949F700C2FEF6 /* ConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfigViewController.m; path = Controller/ConfigViewController.m; sourceTree = "<group>"; };
-		D176AC5F1C7E221A001F25D4 /* iOSBlogReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSBlogReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D176AC5F1C7E221A001F25D4 /* iOS博客精选.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS博客精选.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D176AC631C7E221A001F25D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D176AC651C7E221A001F25D4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D176AC661C7E221A001F25D4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -320,7 +320,7 @@
 		D176AC601C7E221A001F25D4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D176AC5F1C7E221A001F25D4 /* iOSBlogReader.app */,
+				D176AC5F1C7E221A001F25D4 /* iOS博客精选.app */,
 				D1F574DF1CB5717C0044B494 /* iOSBlogReaderTests.xctest */,
 			);
 			name = Products;
@@ -469,7 +469,7 @@
 			);
 			name = iOSBlogReader;
 			productName = iOSBlogReader;
-			productReference = D176AC5F1C7E221A001F25D4 /* iOSBlogReader.app */;
+			productReference = D176AC5F1C7E221A001F25D4 /* iOS博客精选.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D1F574DE1CB5717C0044B494 /* iOSBlogReaderTests */ = {
@@ -768,7 +768,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.everettjf.iOSBlogReader;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "iOS博客精选";
 			};
 			name = Debug;
 		};
@@ -784,7 +784,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.everettjf.iOSBlogReader;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "iOS博客精选";
 			};
 			name = Release;
 		};

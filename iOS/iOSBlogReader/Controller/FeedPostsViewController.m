@@ -79,8 +79,7 @@ static NSString * kFeedCell = @"FeedCell";
 }
 
 - (void)_pullDown{
-    _dataset = [NSMutableArray new];
-    [self _loadMoreFeeds];
+    [self _loadInitialFeeds];
 }
 - (void)_pullUp{
     [self _loadMoreFeeds];
@@ -132,6 +131,23 @@ static NSString * kFeedCell = @"FeedCell";
 - (void)feedManagerLoadFinish{
     [self _loadMoreFeeds];
 }
+
+- (void)_loadInitialFeeds{
+    [[FeedManager manager]fetchLocalFeeds:0 limit:20 completion:^(NSArray<FeedItemUIEntity *> *feedItems, NSUInteger totalItemCount, NSUInteger totalFeedCount) {
+        if(feedItems){
+            _dataset = [feedItems mutableCopy];
+            [_tableView reloadData];
+        }
+        
+        if(totalFeedCount && totalItemCount){
+            _topInfoLabel.text = [NSString stringWithFormat:@"%@ 订阅, %@ 文章",@(totalFeedCount),@(totalItemCount)];
+        }
+        
+        [_tableView.mj_header endRefreshing];
+        [_tableView.mj_footer endRefreshing];
+    }];
+}
+
 - (void)_loadMoreFeeds{
     [[FeedManager manager]fetchLocalFeeds:_dataset.count limit:20 completion:^(NSArray<FeedItemUIEntity *> *feedItems, NSUInteger totalItemCount, NSUInteger totalFeedCount) {
         if(feedItems){

@@ -70,7 +70,7 @@
 //    NSLog(@"parse start : %@", _feedURLString);
 }
 - (void)feedParser:(MWFeedParser *)parser didParseFeedInfo:(MWFeedInfo *)info{
-//    NSLog(@"feed info : %@, %@, %@", info.title, info.link, info.url);
+    NSLog(@"feed info : %@, %@, %@", info.title, info.link, info.url);
     
     _feedInfo = info;
 }
