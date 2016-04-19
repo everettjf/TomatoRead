@@ -46,7 +46,7 @@
     self = [super init];
     if (self) {
         _operationQueue = [[NSOperationQueue alloc]init];
-        _operationQueue.maxConcurrentOperationCount = 5;
+        _operationQueue.maxConcurrentOperationCount = 1;
         _feedCounterLock = [NSRecursiveLock new];
         _feedCounter = 0;
         _feedTotalCount = 0;
@@ -98,7 +98,14 @@
             if(_delegate)[_delegate feedManagerLoadProgress:0 totalCount:_feedTotalCount];
         });
         
+        
         for (FeedModel *feed in feeds) {
+//#ifdef DEBUG
+//            if(![feed.feed_url isEqualToString:@"http://blog.devtang.com/atom.xml"]){
+//                continue;
+//            }
+//            
+//#endif
             FeedParseOperation *operation = [[FeedParseOperation alloc]init];
             operation.feedURLString = feed.feed_url;
             
