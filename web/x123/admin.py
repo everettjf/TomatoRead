@@ -16,7 +16,7 @@ class AngleAdmin(ModelAdmin):
 
 
 class BookmarkAdmin(ModelAdmin):
-    list_display = ('name', 'url', 'clicks')
+    list_display = ('name', 'url', 'feed_url')
 
 
 admin_site.register(Domain, DomainAdmin)

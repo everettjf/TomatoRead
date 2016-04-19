@@ -100,11 +100,8 @@ static NSString * kFeedCell = @"FeedCell";
     FeedItemUIEntity *feedItem = [_dataset objectAtIndex:indexPath.row];
     
     cell.title = feedItem.title;
-    
-    NSMutableString *subTitle = [NSMutableString new];
-    if(feedItem.author) [subTitle appendString:feedItem.author];
-    if(feedItem.date) [subTitle appendString:[NSString stringWithFormat:@"%@",feedItem.date]];
-    cell.subTitle = subTitle;
+    cell.date = feedItem.date;
+    cell.author = feedItem.author;
     
     return cell;
 }
@@ -126,6 +123,10 @@ static NSString * kFeedCell = @"FeedCell";
     if(totalCount>0)progress=loadCount*1.0/totalCount;
     
     _topInfoLabel.text = [NSString stringWithFormat:@"正在更新 %@ / %@",@(loadCount),@(totalCount)];
+    
+    if(loadCount > 10 && _dataset.count == 0){
+        [self _loadMoreFeeds];
+    }
 }
 
 - (void)feedManagerLoadFinish{
@@ -138,7 +139,9 @@ static NSString * kFeedCell = @"FeedCell";
             [_tableView reloadData];
         }
         
-        _topInfoLabel.text = [NSString stringWithFormat:@"%@ 订阅, %@ 文章",@(totalFeedCount),@(totalItemCount)];
+        if(totalFeedCount && totalItemCount){
+            _topInfoLabel.text = [NSString stringWithFormat:@"%@ 订阅, %@ 文章",@(totalFeedCount),@(totalItemCount)];
+        }
         
         [_tableView.mj_header endRefreshing];
         [_tableView.mj_footer endRefreshing];
@@ -155,7 +158,8 @@ static NSString * kFeedCell = @"FeedCell";
     
     NSString *url = feedItem.link;
     if(!url) url = feedItem.identifier;
-    [webViewController loadURLString:feedItem.link];
+    NSLog(@"url = %@", url);
+    [webViewController loadURLString:url];
 }
 
 

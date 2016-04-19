@@ -92,6 +92,21 @@ static NSDateFormatter *_internetDateTimeFormatter = nil;
                     date = [dateFormatter dateFromString:RFC822String];
                 }
             }
+            
+            if(!date){
+                NSArray<NSString*> *dateFormats = @[
+                                                    @"yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ", // 1996-12-19T16:39:57-0800
+                                                    @"yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSSZZZ", // 1937-01-01T12:00:27.87+0020
+                                                    @"yyyy'-'MM'-'dd'T'HH':'mm':'ss", // 1937-01-01T12:00:27
+                                                    @"yyyy'/'MM'/'dd' 'HH':'mm':'ss", // 2012/12/19 11:00:31
+                                                    @"yyyy'-'MM'-'dd", // 1937-01-01
+                                                    ];
+                for (NSString *format in dateFormats) {
+                    [dateFormatter setDateFormat:format];
+                    date = [dateFormatter dateFromString:RFC822String];
+                    if(date)break;
+                }
+            }
             if (!date) NSLog(@"Could not parse RFC822 date: \"%@\" Possible invalid format.", dateString);
             
         }
@@ -119,17 +134,17 @@ static NSDateFormatter *_internetDateTimeFormatter = nil;
                                                                             options:0
                                                                               range:NSMakeRange(20, RFC3339String.length-20)];
             }
-            if (!date) { // 1996-12-19T16:39:57-0800
-                [dateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"]; 
+            NSArray<NSString*> *dateFormats = @[
+                                                @"yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ", // 1996-12-19T16:39:57-0800
+                                                @"yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSSZZZ", // 1937-01-01T12:00:27.87+0020
+                                                @"yyyy'-'MM'-'dd'T'HH':'mm':'ss", // 1937-01-01T12:00:27
+                                                @"yyyy'/'MM'/'dd' 'HH':'mm':'ss", // 2012/12/19 11:00:31
+                                                @"yyyy'-'MM'-'dd", // 1937-01-01
+                                                ];
+            for (NSString *format in dateFormats) {
+                [dateFormatter setDateFormat:format];
                 date = [dateFormatter dateFromString:RFC3339String];
-            }
-            if (!date) { // 1937-01-01T12:00:27.87+0020
-                [dateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSSZZZ"]; 
-                date = [dateFormatter dateFromString:RFC3339String];
-            }
-            if (!date) { // 1937-01-01T12:00:27
-                [dateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss"]; 
-                date = [dateFormatter dateFromString:RFC3339String];
+                if(date)break;
             }
             if (!date) NSLog(@"Could not parse RFC3339 date: \"%@\" Possible invalid format.", dateString);
             

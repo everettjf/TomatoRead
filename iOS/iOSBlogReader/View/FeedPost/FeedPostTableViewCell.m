@@ -7,12 +7,14 @@
 //
 
 #import "FeedPostTableViewCell.h"
+#import "FeedManager.h"
 
 
 @interface FeedPostTableViewCell ()
 {
     UILabel *_titleLabel;
-    UILabel *_subTitleLabel;
+    UILabel *_dateLabel;
+    UILabel *_authorLabel;
 }
 
 @end
@@ -34,9 +36,14 @@
     _titleLabel.numberOfLines = 1;
     [root addSubview:_titleLabel];
     
-    _subTitleLabel = [UILabel new];
-    _subTitleLabel.font = [UIFont systemFontOfSize:11];
-    [root addSubview:_subTitleLabel];
+    _dateLabel = [UILabel new];
+    _dateLabel.font = [UIFont systemFontOfSize:11];
+    [root addSubview:_dateLabel];
+    
+    _authorLabel = [UILabel new];
+    _authorLabel.font = [UIFont systemFontOfSize:11];
+    _authorLabel.textAlignment = NSTextAlignmentRight;
+    [root addSubview:_authorLabel];
     
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make){
         make.left.equalTo(root).offset(10);
@@ -44,10 +51,14 @@
         make.right.equalTo(root).offset(-10);
     }];
     
-    [_subTitleLabel mas_makeConstraints:^(MASConstraintMaker *make){
+    [_dateLabel mas_makeConstraints:^(MASConstraintMaker *make){
         make.left.equalTo(root).offset(10);
         make.bottom.equalTo(root).offset(-10);
+    }];
+    
+    [_authorLabel mas_makeConstraints:^(MASConstraintMaker *make){
         make.right.equalTo(root).offset(-10);
+        make.bottom.equalTo(root).offset(-10);
     }];
 }
 
@@ -60,8 +71,12 @@
     _titleLabel.text = title?title:@"";
 }
 
-- (void)setSubTitle:(NSString *)subTitle{
-    _subTitleLabel.text = subTitle?subTitle:@"";
+- (void)setDate:(NSDate *)date{
+    _dateLabel.text = [[FeedManager manager]formatDate:date];
+}
+
+- (void)setAuthor:(NSString *)author{
+    _authorLabel.text = author;
 }
 
 

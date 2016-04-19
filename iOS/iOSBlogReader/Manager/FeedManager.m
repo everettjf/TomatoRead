@@ -26,6 +26,8 @@
 @property (assign,nonatomic) NSUInteger feedTotalCount;
 @property (assign,nonatomic) NSUInteger feedCounter;
 @property (strong,nonatomic) NSRecursiveLock *feedCounterLock;
+
+@property (strong,nonatomic) NSDateFormatter *dateFormatter;
 @end
 
 @implementation FeedManager
@@ -48,6 +50,9 @@
         _feedCounterLock = [NSRecursiveLock new];
         _feedCounter = 0;
         _feedTotalCount = 0;
+        
+        _dateFormatter = [[NSDateFormatter alloc]init];
+        [_dateFormatter setDateFormat:@"yyyy-MM-dd"];
     }
     return self;
 }
@@ -79,34 +84,14 @@
     if(_delegate)[_delegate feedManagerLoadStart];
     
     // Query
-    [self _queryAllFeeds:^(NSMutableArray *feeds) {
-        if(!feeds){
-            [self _enumerateFeedsInCoreData];
-            return;
-        }
-        
-        // Persist
-        dispatch_async(kFeedQueue, ^{
-            [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext * _Nonnull localContext) {
-                for (RestLinkModel *feed in feeds) {
-                    FeedModel *feedModel = [FeedModel MR_findFirstOrCreateByAttribute:@"oid" withValue:@(feed.oid) inContext:localContext];
-                    feedModel.oid = @(feed.oid);
-                    feedModel.feed_url = feed.feed_url;
-                    feedModel.name = feed.name;
-                    feedModel.url = feed.url;
-                    feedModel.desc = feed.desc;
-                    feedModel.updated_at = feed.updated_at;
-                }
-            }];
-            
-            [self _enumerateFeedsInCoreData];
-        });
+    [self loadFeedSources:^(BOOL succeed) {
+        [self _enumerateFeedsInCoreData];
     }];
 }
 
 - (void)_enumerateFeedsInCoreData{
     dispatch_async(kFeedQueue, ^{
-        NSArray<FeedModel*> *feeds = [FeedModel MR_findAllSortedBy:@"updated_at" ascending:NO];
+        NSArray<FeedModel*> *feeds = [FeedModel MR_findAll];
         _feedTotalCount = feeds.count;
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -127,14 +112,16 @@
                         itemModel.identifier = feedItem.identifier;
                         itemModel.title = feedItem.title;
                         itemModel.link = feedItem.link;
-                        itemModel.updated = feedItem.updated;
                         itemModel.summary = feedItem.summary;
                         itemModel.content = feedItem.content;
                         itemModel.author = feedItem.author;
+                        itemModel.updated = feedItem.updated;
                         itemModel.feed_oid = feed.oid;
                         
                         if(!feedItem.date && !itemModel.date){
                             itemModel.date = [NSDate date];
+                        }else{
+                            itemModel.date = feedItem.date;
                         }
                     }];
                 }
@@ -253,6 +240,10 @@
             completion(entities, totalCount);
         });
     });
+}
+
+- (NSString *)formatDate:(NSDate *)date{
+    return [_dateFormatter stringFromDate:date];
 }
 
 @end

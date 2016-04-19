@@ -51,4 +51,5 @@
 - (void)loadFeedSources:(void (^)(BOOL succeed))completion;
 - (void)fetchFeedSources:(NSUInteger)offset limit:(NSUInteger)limit completion:(void(^)(NSArray<FeedSourceUIEntity*> *feedItems, NSUInteger totalCount))completion;
 
+- (NSString*)formatDate:(NSDate*)date;
 @end

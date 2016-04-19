@@ -11,6 +11,7 @@
 @interface FeedPostTableViewCell : UITableViewCell
 
 @property (strong,nonatomic) NSString *title;
-@property (strong,nonatomic) NSString *subTitle;
+@property (strong,nonatomic) NSDate *date;
+@property (strong,nonatomic) NSString *author;
 
 @end
