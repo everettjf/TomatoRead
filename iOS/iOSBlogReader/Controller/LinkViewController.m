@@ -122,7 +122,11 @@ static NSString * const kLinkCell = @"LinkCell";
     RestLinkModel *model = [_dataset objectAtIndex:indexPath.row];
     cell.favicon = model.favicon;
     cell.title = model.name;
-    cell.subTitle = model.desc;
+    
+    NSMutableString *subTitle = [NSMutableString new];
+    if(model.feed_url && ![model.feed_url isEqualToString:@""])[subTitle appendString:@"[Feed]"];
+    if(model.desc) [subTitle appendString:model.desc];
+    cell.subTitle = subTitle;
     
     return cell;;
 }
