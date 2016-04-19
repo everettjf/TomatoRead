@@ -67,36 +67,36 @@
 }
 
 - (void)feedParserDidStart:(MWFeedParser *)parser{
-    NSLog(@"parse start : %@", _feedURLString);
+//    NSLog(@"parse start : %@", _feedURLString);
 }
 - (void)feedParser:(MWFeedParser *)parser didParseFeedInfo:(MWFeedInfo *)info{
-    NSLog(@"feed info : %@, %@, %@", info.title, info.link, info.url);
+//    NSLog(@"feed info : %@, %@, %@", info.title, info.link, info.url);
     
     _feedInfo = info;
 }
 - (void)feedParser:(MWFeedParser *)parser didParseFeedItem:(MWFeedItem *)item{
-    if(!item.date)
-    NSLog(@"feed item :\n"
-          @"            %@\n"
-          @"            %@\n"
-          @"            %@\n"
-          @"            %@\n",
-          item.identifier,
-          item.title,
-          item.link,
-          item.date
-          );
+//    if(!item.date)
+//    NSLog(@"feed item :\n"
+//          @"            %@\n"
+//          @"            %@\n"
+//          @"            %@\n"
+//          @"            %@\n",
+//          item.identifier,
+//          item.title,
+//          item.link,
+//          item.date
+//          );
     
     [_feedItemsForAppend addObject:item];
 }
 - (void)feedParserDidFinish:(MWFeedParser *)parser{
-    NSLog(@"feed finish : %@", _feedURLString);
+//    NSLog(@"feed finish : %@", _feedURLString);
     self.finished = YES;
     _feedItems = _feedItemsForAppend;
     _feedItemsForAppend = nil;
 }
 - (void)feedParser:(MWFeedParser *)parser didFailWithError:(NSError *)error{
-    NSLog(@"feed error : %@", error);
+    NSLog(@"feed error(%@,%@) : %@",_feedInfo.title,_feedInfo.url, error);
     self.finished = YES;
     _feedItems = _feedItemsForAppend;
     _feedItemsForAppend = nil;
