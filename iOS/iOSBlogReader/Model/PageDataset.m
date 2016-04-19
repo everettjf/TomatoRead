@@ -34,11 +34,17 @@
 - (void)prepare:(void (^)(BOOL succeed))complete{
     NSMutableArray<PageItemEntity*> *pages = [NSMutableArray new];
     
-    // Feed
+    // Feed Posts
     PageItemEntity *feedEntity = [PageItemEntity new];
-    feedEntity.type = PageItemType_Feed;
-    feedEntity.title = @"订阅";
+    feedEntity.type = PageItemType_FeedPost;
+    feedEntity.title = @"/订阅/";
     [pages addObject:feedEntity];
+    
+    // Feed Souce
+    PageItemEntity *sourceEntity = [PageItemEntity new];
+    sourceEntity.type = PageItemType_FeedSource;
+    sourceEntity.title = @"/源/";
+    [pages addObject:sourceEntity];
     
     // Links
     // First ,check core date

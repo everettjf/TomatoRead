@@ -22,10 +22,11 @@
         <attribute name="updated" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
     <entity name="FeedModel" representedClassName="FeedModel" syncable="YES">
-        <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="favicon" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="feed_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="oid" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
-        <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="url" attributeType="String" syncable="YES"/>
     </entity>
@@ -33,6 +34,6 @@
         <element name="AspectModel" positionX="-18" positionY="81" width="128" height="90"/>
         <element name="DomainModel" positionX="-36" positionY="72" width="128" height="90"/>
         <element name="FeedItemModel" positionX="0" positionY="99" width="128" height="180"/>
-        <element name="FeedModel" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="FeedModel" positionX="-63" positionY="-18" width="128" height="150"/>
     </elements>
 </model>

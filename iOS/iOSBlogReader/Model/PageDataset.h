@@ -10,7 +10,8 @@
 #import "RestModel/RestDomainListModel.h"
 
 typedef NS_OPTIONS(NSUInteger, PageItemType) {
-    PageItemType_Feed, // data type : NSString*
+    PageItemType_FeedPost, // data type : NSString*
+    PageItemType_FeedSource, // data type : NSString*
     PageItemType_Link, // data type : RestAspectModel*
 };
 

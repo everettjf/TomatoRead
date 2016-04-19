@@ -8,6 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "FeedItemModel.h"
+#import "FeedModel.h"
+
+@interface FeedSourceUIEntity : NSObject
+@property (assign,nonatomic) NSUInteger oid;
+@property (strong,nonatomic) NSString *name;
+@property (strong,nonatomic) NSString *url;
+@property (strong,nonatomic) NSString *feed_url;
+@property (strong,nonatomic) NSString *favicon;
+@property (strong,nonatomic) NSString *desc;
+@property (strong,nonatomic) NSDate *updated_at;
+@end
 
 @interface FeedItemUIEntity : NSObject
 @property (nonatomic, strong) NSString *identifier;
@@ -29,11 +40,15 @@
 @end
 
 @interface FeedManager : NSObject
-@property (weak,nonatomic) id<FeedManagerDelegate> delegate;
 
 + (FeedManager*)manager;
-- (void)loadFeeds;
 
+@property (weak,nonatomic) id<FeedManagerDelegate> delegate;
+- (void)loadFeeds;
 - (void)fetchLocalFeeds:(NSUInteger)offset limit:(NSUInteger)limit completion:(void(^)(NSArray<FeedItemUIEntity*> *feedItems, NSUInteger totalItemCount, NSUInteger totalFeedCount))completion;
+
+
+- (void)loadFeedSources:(void (^)(BOOL succeed))completion;
+- (void)fetchFeedSources:(NSUInteger)offset limit:(NSUInteger)limit completion:(void(^)(NSArray<FeedSourceUIEntity*> *feedItems, NSUInteger totalCount))completion;
 
 @end

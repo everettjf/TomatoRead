@@ -28,6 +28,8 @@
 		D11A31341CC54E4B001B1D57 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A31281CC54E4B001B1D57 /* NSString+HTML.m */; };
 		D11A31351CC54E4B001B1D57 /* NSString+XMLEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A312A1CC54E4B001B1D57 /* NSString+XMLEntities.m */; };
 		D11A31361CC54E4B001B1D57 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A312C1CC54E4B001B1D57 /* RootViewController.m */; };
+		D11A31391CC67226001B1D57 /* FeedSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A31381CC67226001B1D57 /* FeedSourceViewController.m */; };
+		D11A313D1CC6729C001B1D57 /* FeedSourceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A313C1CC6729C001B1D57 /* FeedSourceTableViewCell.m */; };
 		D13293681CB7E2A60091DA58 /* RestDomainListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D13293671CB7E2A60091DA58 /* RestDomainListModel.m */; };
 		D132936E1CB7F1770091DA58 /* RestLinkListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D132936D1CB7F1770091DA58 /* RestLinkListModel.m */; };
 		D13293721CB90B7E0091DA58 /* BlogModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D13293701CB90B7E0091DA58 /* BlogModel.xcdatamodeld */; };
@@ -38,7 +40,6 @@
 		D13848EA1CB948BB00C2FEF6 /* DomainModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D13848DF1CB948BB00C2FEF6 /* DomainModel+CoreDataProperties.m */; };
 		D13848EB1CB948BB00C2FEF6 /* DomainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D13848E11CB948BB00C2FEF6 /* DomainModel.m */; };
 		D13848EE1CB949A100C2FEF6 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D13848ED1CB949A100C2FEF6 /* WebViewController.m */; };
-		D13848F11CB949DA00C2FEF6 /* FeedItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D13848F01CB949DA00C2FEF6 /* FeedItemViewController.m */; };
 		D13848F41CB949F700C2FEF6 /* ConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D13848F31CB949F700C2FEF6 /* ConfigViewController.m */; };
 		D176AC641C7E221A001F25D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D176AC631C7E221A001F25D4 /* main.m */; };
 		D176AC671C7E221A001F25D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D176AC661C7E221A001F25D4 /* AppDelegate.m */; };
@@ -108,6 +109,10 @@
 		D11A312A1CC54E4B001B1D57 /* NSString+XMLEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XMLEntities.m"; sourceTree = "<group>"; };
 		D11A312B1CC54E4B001B1D57 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		D11A312C1CC54E4B001B1D57 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		D11A31371CC67226001B1D57 /* FeedSourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedSourceViewController.h; path = Controller/FeedSourceViewController.h; sourceTree = "<group>"; };
+		D11A31381CC67226001B1D57 /* FeedSourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedSourceViewController.m; path = Controller/FeedSourceViewController.m; sourceTree = "<group>"; };
+		D11A313B1CC6729C001B1D57 /* FeedSourceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedSourceTableViewCell.h; path = View/FeedSource/FeedSourceTableViewCell.h; sourceTree = "<group>"; };
+		D11A313C1CC6729C001B1D57 /* FeedSourceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedSourceTableViewCell.m; path = View/FeedSource/FeedSourceTableViewCell.m; sourceTree = "<group>"; };
 		D13293661CB7E2A60091DA58 /* RestDomainListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestDomainListModel.h; path = Model/RestModel/RestDomainListModel.h; sourceTree = "<group>"; };
 		D13293671CB7E2A60091DA58 /* RestDomainListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestDomainListModel.m; path = Model/RestModel/RestDomainListModel.m; sourceTree = "<group>"; };
 		D132936C1CB7F1770091DA58 /* RestLinkListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestLinkListModel.h; path = Model/RestModel/RestLinkListModel.h; sourceTree = "<group>"; };
@@ -127,8 +132,6 @@
 		D13848E11CB948BB00C2FEF6 /* DomainModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DomainModel.m; sourceTree = "<group>"; };
 		D13848EC1CB949A100C2FEF6 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebViewController.h; path = Controller/WebViewController.h; sourceTree = "<group>"; };
 		D13848ED1CB949A100C2FEF6 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebViewController.m; path = Controller/WebViewController.m; sourceTree = "<group>"; };
-		D13848EF1CB949DA00C2FEF6 /* FeedItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedItemViewController.h; path = Controller/FeedItemViewController.h; sourceTree = "<group>"; };
-		D13848F01CB949DA00C2FEF6 /* FeedItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedItemViewController.m; path = Controller/FeedItemViewController.m; sourceTree = "<group>"; };
 		D13848F21CB949F700C2FEF6 /* ConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfigViewController.h; path = Controller/ConfigViewController.h; sourceTree = "<group>"; };
 		D13848F31CB949F700C2FEF6 /* ConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfigViewController.m; path = Controller/ConfigViewController.m; sourceTree = "<group>"; };
 		D176AC5F1C7E221A001F25D4 /* iOSBlogReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSBlogReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -258,6 +261,15 @@
 			path = MWFeedParser;
 			sourceTree = "<group>";
 		};
+		D11A313A1CC67266001B1D57 /* FeedSource */ = {
+			isa = PBXGroup;
+			children = (
+				D11A313B1CC6729C001B1D57 /* FeedSourceTableViewCell.h */,
+				D11A313C1CC6729C001B1D57 /* FeedSourceTableViewCell.m */,
+			);
+			name = FeedSource;
+			sourceTree = "<group>";
+		};
 		D13293651CB7E2600091DA58 /* RestModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -371,14 +383,14 @@
 				D1F574CF1CB542410044B494 /* LinkViewController.m */,
 				D13848EC1CB949A100C2FEF6 /* WebViewController.h */,
 				D13848ED1CB949A100C2FEF6 /* WebViewController.m */,
-				D13848EF1CB949DA00C2FEF6 /* FeedItemViewController.h */,
-				D13848F01CB949DA00C2FEF6 /* FeedItemViewController.m */,
 				D13848F21CB949F700C2FEF6 /* ConfigViewController.h */,
 				D13848F31CB949F700C2FEF6 /* ConfigViewController.m */,
 				D11A31031CC164C7001B1D57 /* FavViewController.h */,
 				D11A31041CC164C7001B1D57 /* FavViewController.m */,
 				D11A310F1CC54703001B1D57 /* FeedPostDetailViewController.h */,
 				D11A31101CC54703001B1D57 /* FeedPostDetailViewController.m */,
+				D11A31371CC67226001B1D57 /* FeedSourceViewController.h */,
+				D11A31381CC67226001B1D57 /* FeedSourceViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -397,6 +409,7 @@
 		D1F574BD1CB5409D0044B494 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D11A313A1CC67266001B1D57 /* FeedSource */,
 				D11A31121CC547B2001B1D57 /* FeedPost */,
 				D1F574EA1CB5725A0044B494 /* Link */,
 			);
@@ -591,7 +604,6 @@
 				D11A30FE1CBABEB1001B1D57 /* FeedItemModel+CoreDataProperties.m in Sources */,
 				D11A31021CBABF7C001B1D57 /* DataManager.m in Sources */,
 				D11A31311CC54E4B001B1D57 /* MWFeedParser.m in Sources */,
-				D13848F11CB949DA00C2FEF6 /* FeedItemViewController.m in Sources */,
 				D11A30F01CBAA6C1001B1D57 /* FeedParseOperation.m in Sources */,
 				D132936E1CB7F1770091DA58 /* RestLinkListModel.m in Sources */,
 				D11A31111CC54703001B1D57 /* FeedPostDetailViewController.m in Sources */,
@@ -605,6 +617,7 @@
 				D11A30EC1CBAA5C7001B1D57 /* FeedManager.m in Sources */,
 				D11A31341CC54E4B001B1D57 /* NSString+HTML.m in Sources */,
 				D11A312E1CC54E4B001B1D57 /* GTMNSString+HTML.m in Sources */,
+				D11A31391CC67226001B1D57 /* FeedSourceViewController.m in Sources */,
 				D1F574D61CB55F190044B494 /* PageDataset.m in Sources */,
 				D1F574F11CB578890044B494 /* RestApi.m in Sources */,
 				D13848EB1CB948BB00C2FEF6 /* DomainModel.m in Sources */,
@@ -625,6 +638,7 @@
 				D11A31361CC54E4B001B1D57 /* RootViewController.m in Sources */,
 				D13848E61CB948BB00C2FEF6 /* AspectModel+CoreDataProperties.m in Sources */,
 				D13848E51CB948BB00C2FEF6 /* FeedModel.m in Sources */,
+				D11A313D1CC6729C001B1D57 /* FeedSourceTableViewCell.m in Sources */,
 				D13848EE1CB949A100C2FEF6 /* WebViewController.m in Sources */,
 				D13848E71CB948BB00C2FEF6 /* AspectModel.m in Sources */,
 				D11A30E71CB978E3001B1D57 /* MainContext.m in Sources */,

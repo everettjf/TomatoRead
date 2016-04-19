@@ -75,6 +75,7 @@
     _feedInfo = info;
 }
 - (void)feedParser:(MWFeedParser *)parser didParseFeedItem:(MWFeedItem *)item{
+    if(!item.date)
     NSLog(@"feed item :\n"
           @"            %@\n"
           @"            %@\n"
