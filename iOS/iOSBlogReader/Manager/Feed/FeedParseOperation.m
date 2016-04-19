@@ -96,7 +96,7 @@
     _feedItemsForAppend = nil;
 }
 - (void)feedParser:(MWFeedParser *)parser didFailWithError:(NSError *)error{
-    NSLog(@"feed error(%@,%@) : %@",_feedInfo.title,_feedInfo.url, error);
+    NSLog(@"feed error(%@,%@,%@) : %@",_feedInfo.title,_feedInfo.url,parser.url, error);
     self.finished = YES;
     _feedItems = _feedItemsForAppend;
     _feedItemsForAppend = nil;

@@ -40,11 +40,11 @@
     feedEntity.title = @"/订阅/";
     [pages addObject:feedEntity];
     
-    // Feed Souce
-    PageItemEntity *sourceEntity = [PageItemEntity new];
-    sourceEntity.type = PageItemType_FeedSource;
-    sourceEntity.title = @"/源/";
-    [pages addObject:sourceEntity];
+//    // Feed Souce
+//    PageItemEntity *sourceEntity = [PageItemEntity new];
+//    sourceEntity.type = PageItemType_FeedSource;
+//    sourceEntity.title = @"/源/";
+//    [pages addObject:sourceEntity];
     
     // Links
     // First ,check core date
