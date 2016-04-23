@@ -20,13 +20,16 @@ static NSString * kFeedCell = @"FeedCell";
 @property (strong,nonatomic) UIView *topPanel;
 @property (strong,nonatomic) UILabel *topInfoLabel;
 @property (strong,nonatomic) NSMutableArray<FeedItemUIEntity*> *dataset;
-
+@property (strong,nonatomic) FeedManager *feedManager;
 @end
 
 @implementation FeedPostsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _feedManager = [FeedManager new];
+    _feedManager.delegate = self;
+    
     _dataset = [NSMutableArray new];
     
     _topPanel = [UIView new];
@@ -60,10 +63,7 @@ static NSString * kFeedCell = @"FeedCell";
     
     [self _setupTopPanel];
     
-    [self _pullDown];
-    
-    [FeedManager manager].delegate = self;
-    [[FeedManager manager] loadFeeds];
+    [self _loadInitialFeeds];
 }
 
 - (void)_setupTopPanel{
@@ -80,6 +80,8 @@ static NSString * kFeedCell = @"FeedCell";
 
 - (void)_pullDown{
     [self _loadInitialFeeds];
+    
+    [_feedManager loadAllFeeds];
 }
 - (void)_pullUp{
     [self _loadMoreFeeds];
@@ -133,7 +135,7 @@ static NSString * kFeedCell = @"FeedCell";
 }
 
 - (void)_loadInitialFeeds{
-    [[FeedManager manager]fetchLocalFeeds:0 limit:20 completion:^(NSArray<FeedItemUIEntity *> *feedItems, NSUInteger totalItemCount, NSUInteger totalFeedCount) {
+    [_feedManager fetchLocalFeeds:0 limit:20 completion:^(NSArray<FeedItemUIEntity *> *feedItems, NSUInteger totalItemCount, NSUInteger totalFeedCount) {
         if(feedItems){
             _dataset = [feedItems mutableCopy];
             [_tableView reloadData];
@@ -149,7 +151,7 @@ static NSString * kFeedCell = @"FeedCell";
 }
 
 - (void)_loadMoreFeeds{
-    [[FeedManager manager]fetchLocalFeeds:_dataset.count limit:20 completion:^(NSArray<FeedItemUIEntity *> *feedItems, NSUInteger totalItemCount, NSUInteger totalFeedCount) {
+    [_feedManager fetchLocalFeeds:_dataset.count limit:20 completion:^(NSArray<FeedItemUIEntity *> *feedItems, NSUInteger totalItemCount, NSUInteger totalFeedCount) {
         if(feedItems){
             [_dataset addObjectsFromArray:feedItems];
             [_tableView reloadData];

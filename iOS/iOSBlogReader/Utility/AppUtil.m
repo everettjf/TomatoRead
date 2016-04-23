@@ -8,10 +8,36 @@
 
 #import "AppUtil.h"
 
-@implementation AppUtil
+@implementation AppUtil{
+    NSDateFormatter *_dateFormatter;
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _dateFormatter = [[NSDateFormatter alloc]init];
+        [_dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    }
+    return self;
+}
+
++ (AppUtil *)util{
+    static AppUtil *o;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        o = [AppUtil new];
+    });
+    return o;
+}
 
 + (NSURL *)documentsDirectory {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
+
+- (NSString *)formatDate:(NSDate *)date{
+    return [_dateFormatter stringFromDate:date];
+}
+
 
 @end

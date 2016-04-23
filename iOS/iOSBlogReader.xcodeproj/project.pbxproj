@@ -44,6 +44,7 @@
 		D144319D1CCBC8E800FDE636 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431951CCBC8E800FDE636 /* WebViewController.m */; };
 		D14431A31CCBC92600FDE636 /* FeedPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431A01CCBC92600FDE636 /* FeedPostTableViewCell.m */; };
 		D14431A41CCBC92600FDE636 /* FeedSourceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431A21CCBC92600FDE636 /* FeedSourceTableViewCell.m */; };
+		D14431A71CCC039000FDE636 /* FeedSourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431A61CCC039000FDE636 /* FeedSourceManager.m */; };
 		D176AC641C7E221A001F25D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D176AC631C7E221A001F25D4 /* main.m */; };
 		D176AC671C7E221A001F25D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D176AC661C7E221A001F25D4 /* AppDelegate.m */; };
 		D176AC721C7E221A001F25D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D176AC711C7E221A001F25D4 /* Assets.xcassets */; };
@@ -140,6 +141,8 @@
 		D14431A01CCBC92600FDE636 /* FeedPostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedPostTableViewCell.m; sourceTree = "<group>"; };
 		D14431A11CCBC92600FDE636 /* FeedSourceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedSourceTableViewCell.h; sourceTree = "<group>"; };
 		D14431A21CCBC92600FDE636 /* FeedSourceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedSourceTableViewCell.m; sourceTree = "<group>"; };
+		D14431A51CCC039000FDE636 /* FeedSourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedSourceManager.h; path = Manager/FeedSourceManager.h; sourceTree = "<group>"; };
+		D14431A61CCC039000FDE636 /* FeedSourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedSourceManager.m; path = Manager/FeedSourceManager.m; sourceTree = "<group>"; };
 		D176AC5F1C7E221A001F25D4 /* iOS博客精选.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS博客精选.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D176AC631C7E221A001F25D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D176AC651C7E221A001F25D4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -472,6 +475,8 @@
 				D11A30EB1CBAA5C7001B1D57 /* FeedManager.m */,
 				D11A31001CBABF7C001B1D57 /* DataManager.h */,
 				D11A31011CBABF7C001B1D57 /* DataManager.m */,
+				D14431A51CCC039000FDE636 /* FeedSourceManager.h */,
+				D14431A61CCC039000FDE636 /* FeedSourceManager.m */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -647,6 +652,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D14431A71CCC039000FDE636 /* FeedSourceManager.m in Sources */,
 				D11A30FE1CBABEB1001B1D57 /* FeedItemModel+CoreDataProperties.m in Sources */,
 				D11A31021CBABF7C001B1D57 /* DataManager.m in Sources */,
 				D11A31311CC54E4B001B1D57 /* MWFeedParser.m in Sources */,

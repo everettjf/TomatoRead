@@ -63,7 +63,7 @@ static NSString * const kLinkCell = @"FeedSourceCell";
 }
 
 - (void)_loadFromDB:(BOOL)loadFromWebWhenEmpty{
-    [[FeedManager manager] fetchFeedSources:0 limit:20 completion:^(NSArray<FeedSourceUIEntity *> *feedItems, NSUInteger totalCount) {
+    [[FeedSourceManager manager] fetchFeedSources:0 limit:20 completion:^(NSArray<FeedSourceUIEntity *> *feedItems, NSUInteger totalCount) {
         if(feedItems.count == 0){
             if(loadFromWebWhenEmpty){
                 [self _loadFromWeb:YES];
@@ -86,7 +86,7 @@ static NSString * const kLinkCell = @"FeedSourceCell";
 
 - (void)_loadFromWeb:(BOOL)reloadDBWhenSucceed{
     // from web
-    [[FeedManager manager]loadFeedSources:^(BOOL succeed) {
+    [[FeedSourceManager manager]loadFeedSources:^(BOOL succeed) {
         if(!succeed)
             return;
         
@@ -99,7 +99,7 @@ static NSString * const kLinkCell = @"FeedSourceCell";
 
 - (void)_pullDown{
     // from web
-    [[FeedManager manager]loadFeedSources:^(BOOL succeed) {
+    [[FeedSourceManager manager]loadFeedSources:^(BOOL succeed) {
         if(succeed){
             [self _loadFromDB:NO];
         }
@@ -110,7 +110,7 @@ static NSString * const kLinkCell = @"FeedSourceCell";
 }
 
 - (void)_pullUp{
-    [[FeedManager manager]fetchFeedSources:_dataset.count limit:20 completion:^(NSArray<FeedSourceUIEntity *> *feedItems, NSUInteger totalCount) {
+    [[FeedSourceManager manager]fetchFeedSources:_dataset.count limit:20 completion:^(NSArray<FeedSourceUIEntity *> *feedItems, NSUInteger totalCount) {
         if(!feedItems)return;
         
         [_dataset addObjectsFromArray:feedItems];

@@ -13,4 +13,8 @@
 
 + (NSURL *)documentsDirectory;
 
++ (AppUtil*)util;
+- (NSString *)formatDate:(NSDate *)date;
+
+
 @end

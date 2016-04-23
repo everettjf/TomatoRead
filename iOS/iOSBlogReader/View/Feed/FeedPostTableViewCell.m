@@ -8,6 +8,7 @@
 
 #import "FeedPostTableViewCell.h"
 #import "FeedManager.h"
+#import "AppUtil.h"
 
 
 @interface FeedPostTableViewCell ()
@@ -72,7 +73,7 @@
 }
 
 - (void)setDate:(NSDate *)date{
-    _dateLabel.text = [[FeedManager manager]formatDate:date];
+    _dateLabel.text = [[AppUtil util] formatDate:date];
 }
 
 - (void)setAuthor:(NSString *)author{

@@ -12,11 +12,11 @@
 #import <MagicalRecord/MagicalRecord.h>
 #import "FeedModel.h"
 #import "FeedParseOperation.h"
+#import "FeedItemModel.h"
+#import "FeedSourceManager.h"
 
 #define kFeedQueue dispatch_get_global_queue(0, 0)
 
-@implementation FeedSourceUIEntity
-@end
 @implementation FeedItemUIEntity
 @end
 
@@ -26,20 +26,9 @@
 @property (assign,nonatomic) NSUInteger feedTotalCount;
 @property (assign,nonatomic) NSUInteger feedCounter;
 @property (strong,nonatomic) NSRecursiveLock *feedCounterLock;
-
-@property (strong,nonatomic) NSDateFormatter *dateFormatter;
 @end
 
 @implementation FeedManager
-
-+ (FeedManager *)manager{
-    static FeedManager *o;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        o = [FeedManager new];
-    });
-    return o;
-}
 
 - (instancetype)init
 {
@@ -50,48 +39,48 @@
         _feedCounterLock = [NSRecursiveLock new];
         _feedCounter = 0;
         _feedTotalCount = 0;
-        
-        _dateFormatter = [[NSDateFormatter alloc]init];
-        [_dateFormatter setDateFormat:@"yyyy-MM-dd"];
     }
     return self;
 }
 
-- (void)_queryAllFeeds:(void (^)(NSMutableArray<RestLinkModel*> *feeds))completion{
-    NSMutableArray<RestLinkModel*> *feeds = [NSMutableArray new];
-    [self _queryAllFeeds:completion next:nil feeds:feeds];
+- (void)_onStartLoadFeeds{
+    _loadingFeeds = YES;
     
-}
-- (void)_queryAllFeeds:(void (^)(NSMutableArray<RestLinkModel*> *feeds))completion next:(NSString*)next feeds:(NSMutableArray*)feeds{
-    [[RestApi api]queryFeedList:^(RestLinkListModel *model, NSError *error) {
-        if(error){
-            completion(nil);
-            return;
-        }
-        
-        [feeds addObjectsFromArray:model.results];
-        
-        if(model.next){
-            // call
-            [self _queryAllFeeds:completion next:model.next feeds:feeds];
-        }else{
-            completion(feeds);
-        }
-    } url:next];
-}
-
-- (void)loadFeeds{
     if(_delegate)[_delegate feedManagerLoadStart];
-    
-    // Query
-    [self loadFeedSources:^(BOOL succeed) {
-        [self _enumerateFeedsInCoreData];
-    }];
 }
 
-- (void)_enumerateFeedsInCoreData{
+- (void)_onStopLoadFeeds{
+    _loadingFeeds = NO;
+    
+    if(_delegate)[_delegate feedManagerLoadFinish];
+}
+
+
+- (void)loadAllFeeds{
+    if(_loadingFeeds)return;
+    [self _onStartLoadFeeds];
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        [[FeedSourceManager manager]loadFeedSources:^(BOOL succeed) {
+            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                NSArray<FeedModel*> *feeds = [FeedModel MR_findAll];
+                [self _enumerateFeedsInCoreData:feeds];
+            });
+            
+        }];
+    });
+}
+
+- (void)loadOneFeeds:(FeedModel *)feed{
+    if(_loadingFeeds)return;
+    [self _onStartLoadFeeds];
+    [self _enumerateFeedsInCoreData:@[feed]];
+}
+
+
+
+- (void)_enumerateFeedsInCoreData:(NSArray<FeedModel*> *)feeds{
     dispatch_async(kFeedQueue, ^{
-        NSArray<FeedModel*> *feeds = [FeedModel MR_findAll];
         _feedTotalCount = feeds.count;
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -100,12 +89,6 @@
         
         
         for (FeedModel *feed in feeds) {
-//#ifdef DEBUG
-//            if(![feed.feed_url isEqualToString:@"http://blog.devtang.com/atom.xml"]){
-//                continue;
-//            }
-//            
-//#endif
             FeedParseOperation *operation = [[FeedParseOperation alloc]init];
             operation.feedURLString = feed.feed_url;
             
@@ -140,7 +123,10 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if(_delegate){
                         [_delegate feedManagerLoadProgress:_feedCounter totalCount:_feedTotalCount];
-                        if(_feedCounter == _feedTotalCount) [_delegate feedManagerLoadFinish];
+                        
+                        if(_feedCounter == _feedTotalCount) {
+                            [self _onStopLoadFeeds];
+                        }
                     }
                 });
             };
@@ -188,69 +174,5 @@
     
 }
 
-- (void)loadFeedSources:(void (^)(BOOL))completion{
-    [self _queryAllFeeds:^(NSMutableArray<RestLinkModel *> *feeds) {
-        if(!feeds){
-            completion(NO);
-            return;
-        }
-        
-        // Persist
-        dispatch_async(kFeedQueue, ^{
-            [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext * _Nonnull localContext) {
-                for (RestLinkModel *feed in feeds) {
-                    FeedModel *feedModel = [FeedModel MR_findFirstOrCreateByAttribute:@"oid" withValue:@(feed.oid) inContext:localContext];
-                    feedModel.oid = @(feed.oid);
-                    feedModel.feed_url = feed.feed_url;
-                    feedModel.name = feed.name;
-                    feedModel.url = feed.url;
-                    feedModel.desc = feed.desc;
-                    feedModel.updated_at = feed.updated_at;
-                    feedModel.favicon = feed.favicon;
-                }
-            }];
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                completion(YES);
-            });
-        });
-    }];
-}
-
-- (void)fetchFeedSources:(NSUInteger)offset limit:(NSUInteger)limit completion:(void (^)(NSArray<FeedSourceUIEntity *> *, NSUInteger))completion{
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        NSManagedObjectContext *context = [NSManagedObjectContext MR_contextForCurrentThread];
-#pragma clang diagnostic pop
-        NSFetchRequest *request = [FeedModel MR_requestAllSortedBy:@"updated_at" ascending:NO inContext:context];
-        [request setFetchOffset:offset];
-        [request setFetchLimit:limit];
-
-        NSArray<FeedModel*> *feedSources = [FeedModel MR_executeFetchRequest:request inContext:context];
-        NSUInteger totalCount = [FeedModel MR_countOfEntitiesWithContext:context];
-        
-        NSMutableArray<FeedSourceUIEntity*> *entities = [NSMutableArray new];
-        for (FeedModel *model in feedSources) {
-            FeedSourceUIEntity *entity = [FeedSourceUIEntity new];
-            entity.oid = model.oid.unsignedIntegerValue;
-            entity.name = model.name;
-            entity.url = model.url;
-            entity.feed_url = model.feed_url;
-            entity.favicon = model.favicon;
-            entity.desc = model.desc;
-            entity.updated_at = model.updated_at;
-            [entities addObject:entity];
-        }
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion(entities, totalCount);
-        });
-    });
-}
-
-- (NSString *)formatDate:(NSDate *)date{
-    return [_dateFormatter stringFromDate:date];
-}
 
 @end
