@@ -15,9 +15,6 @@
 		D11A30FE1CBABEB1001B1D57 /* FeedItemModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A30FB1CBABEB1001B1D57 /* FeedItemModel+CoreDataProperties.m */; };
 		D11A30FF1CBABEB1001B1D57 /* FeedItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A30FD1CBABEB1001B1D57 /* FeedItemModel.m */; };
 		D11A31021CBABF7C001B1D57 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A31011CBABF7C001B1D57 /* DataManager.m */; };
-		D11A31051CC164C7001B1D57 /* FavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A31041CC164C7001B1D57 /* FavViewController.m */; };
-		D11A31111CC54703001B1D57 /* FeedPostDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A31101CC54703001B1D57 /* FeedPostDetailViewController.m */; };
-		D11A31151CC547B2001B1D57 /* FeedPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A31141CC547B2001B1D57 /* FeedPostTableViewCell.m */; };
 		D11A312D1CC54E4B001B1D57 /* DetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A31191CC54E4B001B1D57 /* DetailTableViewController.m */; };
 		D11A312E1CC54E4B001B1D57 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A311B1CC54E4B001B1D57 /* GTMNSString+HTML.m */; };
 		D11A312F1CC54E4B001B1D57 /* MWFeedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A311D1CC54E4B001B1D57 /* MWFeedInfo.m */; };
@@ -28,8 +25,6 @@
 		D11A31341CC54E4B001B1D57 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A31281CC54E4B001B1D57 /* NSString+HTML.m */; };
 		D11A31351CC54E4B001B1D57 /* NSString+XMLEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A312A1CC54E4B001B1D57 /* NSString+XMLEntities.m */; };
 		D11A31361CC54E4B001B1D57 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A312C1CC54E4B001B1D57 /* RootViewController.m */; };
-		D11A31391CC67226001B1D57 /* FeedSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A31381CC67226001B1D57 /* FeedSourceViewController.m */; };
-		D11A313D1CC6729C001B1D57 /* FeedSourceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A313C1CC6729C001B1D57 /* FeedSourceTableViewCell.m */; };
 		D13293681CB7E2A60091DA58 /* RestDomainListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D13293671CB7E2A60091DA58 /* RestDomainListModel.m */; };
 		D132936E1CB7F1770091DA58 /* RestLinkListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D132936D1CB7F1770091DA58 /* RestLinkListModel.m */; };
 		D13293721CB90B7E0091DA58 /* BlogModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D13293701CB90B7E0091DA58 /* BlogModel.xcdatamodeld */; };
@@ -39,16 +34,21 @@
 		D13848E71CB948BB00C2FEF6 /* AspectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D13848D91CB948BB00C2FEF6 /* AspectModel.m */; };
 		D13848EA1CB948BB00C2FEF6 /* DomainModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D13848DF1CB948BB00C2FEF6 /* DomainModel+CoreDataProperties.m */; };
 		D13848EB1CB948BB00C2FEF6 /* DomainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D13848E11CB948BB00C2FEF6 /* DomainModel.m */; };
-		D13848EE1CB949A100C2FEF6 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D13848ED1CB949A100C2FEF6 /* WebViewController.m */; };
-		D13848F41CB949F700C2FEF6 /* ConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D13848F31CB949F700C2FEF6 /* ConfigViewController.m */; };
+		D14431961CCBC8E800FDE636 /* ConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431821CCBC8E800FDE636 /* ConfigViewController.m */; };
+		D14431971CCBC8E800FDE636 /* FavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431851CCBC8E800FDE636 /* FavViewController.m */; };
+		D14431981CCBC8E800FDE636 /* FeedPostDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431881CCBC8E800FDE636 /* FeedPostDetailViewController.m */; };
+		D14431991CCBC8E800FDE636 /* FeedPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D144318A1CCBC8E800FDE636 /* FeedPostsViewController.m */; };
+		D144319A1CCBC8E800FDE636 /* FeedSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D144318C1CCBC8E800FDE636 /* FeedSourceViewController.m */; };
+		D144319B1CCBC8E800FDE636 /* LinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D144318F1CCBC8E800FDE636 /* LinkViewController.m */; };
+		D144319C1CCBC8E800FDE636 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431921CCBC8E800FDE636 /* MainViewController.m */; };
+		D144319D1CCBC8E800FDE636 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431951CCBC8E800FDE636 /* WebViewController.m */; };
+		D14431A31CCBC92600FDE636 /* FeedPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431A01CCBC92600FDE636 /* FeedPostTableViewCell.m */; };
+		D14431A41CCBC92600FDE636 /* FeedSourceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431A21CCBC92600FDE636 /* FeedSourceTableViewCell.m */; };
 		D176AC641C7E221A001F25D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D176AC631C7E221A001F25D4 /* main.m */; };
 		D176AC671C7E221A001F25D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D176AC661C7E221A001F25D4 /* AppDelegate.m */; };
 		D176AC721C7E221A001F25D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D176AC711C7E221A001F25D4 /* Assets.xcassets */; };
 		D176AC751C7E221A001F25D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D176AC731C7E221A001F25D4 /* LaunchScreen.storyboard */; };
 		D1F574C01CB541580044B494 /* AppUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574BF1CB541580044B494 /* AppUtil.m */; };
-		D1F574C61CB542020044B494 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574C51CB542020044B494 /* MainViewController.m */; };
-		D1F574CA1CB5421F0044B494 /* FeedPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574C91CB5421F0044B494 /* FeedPostsViewController.m */; };
-		D1F574D01CB542410044B494 /* LinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574CF1CB542410044B494 /* LinkViewController.m */; };
 		D1F574D61CB55F190044B494 /* PageDataset.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574D51CB55F190044B494 /* PageDataset.m */; };
 		D1F574E21CB5717C0044B494 /* RestApiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574E11CB5717C0044B494 /* RestApiTests.m */; };
 		D1F574ED1CB5728A0044B494 /* LinkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574EC1CB5728A0044B494 /* LinkTableViewCell.m */; };
@@ -82,12 +82,6 @@
 		D11A30FD1CBABEB1001B1D57 /* FeedItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedItemModel.m; sourceTree = "<group>"; };
 		D11A31001CBABF7C001B1D57 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataManager.h; path = Manager/DataManager.h; sourceTree = "<group>"; };
 		D11A31011CBABF7C001B1D57 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataManager.m; path = Manager/DataManager.m; sourceTree = "<group>"; };
-		D11A31031CC164C7001B1D57 /* FavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavViewController.h; path = Controller/FavViewController.h; sourceTree = "<group>"; };
-		D11A31041CC164C7001B1D57 /* FavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavViewController.m; path = Controller/FavViewController.m; sourceTree = "<group>"; };
-		D11A310F1CC54703001B1D57 /* FeedPostDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedPostDetailViewController.h; path = Controller/FeedPostDetailViewController.h; sourceTree = "<group>"; };
-		D11A31101CC54703001B1D57 /* FeedPostDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedPostDetailViewController.m; path = Controller/FeedPostDetailViewController.m; sourceTree = "<group>"; };
-		D11A31131CC547B2001B1D57 /* FeedPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedPostTableViewCell.h; sourceTree = "<group>"; };
-		D11A31141CC547B2001B1D57 /* FeedPostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedPostTableViewCell.m; sourceTree = "<group>"; };
 		D11A31181CC54E4B001B1D57 /* DetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTableViewController.h; sourceTree = "<group>"; };
 		D11A31191CC54E4B001B1D57 /* DetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTableViewController.m; sourceTree = "<group>"; };
 		D11A311A1CC54E4B001B1D57 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
@@ -109,10 +103,6 @@
 		D11A312A1CC54E4B001B1D57 /* NSString+XMLEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XMLEntities.m"; sourceTree = "<group>"; };
 		D11A312B1CC54E4B001B1D57 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		D11A312C1CC54E4B001B1D57 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		D11A31371CC67226001B1D57 /* FeedSourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedSourceViewController.h; path = Controller/FeedSourceViewController.h; sourceTree = "<group>"; };
-		D11A31381CC67226001B1D57 /* FeedSourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedSourceViewController.m; path = Controller/FeedSourceViewController.m; sourceTree = "<group>"; };
-		D11A313B1CC6729C001B1D57 /* FeedSourceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedSourceTableViewCell.h; path = View/FeedSource/FeedSourceTableViewCell.h; sourceTree = "<group>"; };
-		D11A313C1CC6729C001B1D57 /* FeedSourceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedSourceTableViewCell.m; path = View/FeedSource/FeedSourceTableViewCell.m; sourceTree = "<group>"; };
 		D13293661CB7E2A60091DA58 /* RestDomainListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestDomainListModel.h; path = Model/RestModel/RestDomainListModel.h; sourceTree = "<group>"; };
 		D13293671CB7E2A60091DA58 /* RestDomainListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestDomainListModel.m; path = Model/RestModel/RestDomainListModel.m; sourceTree = "<group>"; };
 		D132936C1CB7F1770091DA58 /* RestLinkListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestLinkListModel.h; path = Model/RestModel/RestLinkListModel.h; sourceTree = "<group>"; };
@@ -130,10 +120,26 @@
 		D13848DF1CB948BB00C2FEF6 /* DomainModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DomainModel+CoreDataProperties.m"; sourceTree = "<group>"; };
 		D13848E01CB948BB00C2FEF6 /* DomainModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DomainModel.h; sourceTree = "<group>"; };
 		D13848E11CB948BB00C2FEF6 /* DomainModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DomainModel.m; sourceTree = "<group>"; };
-		D13848EC1CB949A100C2FEF6 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebViewController.h; path = Controller/WebViewController.h; sourceTree = "<group>"; };
-		D13848ED1CB949A100C2FEF6 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebViewController.m; path = Controller/WebViewController.m; sourceTree = "<group>"; };
-		D13848F21CB949F700C2FEF6 /* ConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfigViewController.h; path = Controller/ConfigViewController.h; sourceTree = "<group>"; };
-		D13848F31CB949F700C2FEF6 /* ConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfigViewController.m; path = Controller/ConfigViewController.m; sourceTree = "<group>"; };
+		D14431811CCBC8E800FDE636 /* ConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigViewController.h; sourceTree = "<group>"; };
+		D14431821CCBC8E800FDE636 /* ConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigViewController.m; sourceTree = "<group>"; };
+		D14431841CCBC8E800FDE636 /* FavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavViewController.h; sourceTree = "<group>"; };
+		D14431851CCBC8E800FDE636 /* FavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavViewController.m; sourceTree = "<group>"; };
+		D14431871CCBC8E800FDE636 /* FeedPostDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedPostDetailViewController.h; sourceTree = "<group>"; };
+		D14431881CCBC8E800FDE636 /* FeedPostDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedPostDetailViewController.m; sourceTree = "<group>"; };
+		D14431891CCBC8E800FDE636 /* FeedPostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedPostsViewController.h; sourceTree = "<group>"; };
+		D144318A1CCBC8E800FDE636 /* FeedPostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedPostsViewController.m; sourceTree = "<group>"; };
+		D144318B1CCBC8E800FDE636 /* FeedSourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedSourceViewController.h; sourceTree = "<group>"; };
+		D144318C1CCBC8E800FDE636 /* FeedSourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedSourceViewController.m; sourceTree = "<group>"; };
+		D144318E1CCBC8E800FDE636 /* LinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkViewController.h; sourceTree = "<group>"; };
+		D144318F1CCBC8E800FDE636 /* LinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkViewController.m; sourceTree = "<group>"; };
+		D14431911CCBC8E800FDE636 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		D14431921CCBC8E800FDE636 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		D14431941CCBC8E800FDE636 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		D14431951CCBC8E800FDE636 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		D144319F1CCBC92600FDE636 /* FeedPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedPostTableViewCell.h; sourceTree = "<group>"; };
+		D14431A01CCBC92600FDE636 /* FeedPostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedPostTableViewCell.m; sourceTree = "<group>"; };
+		D14431A11CCBC92600FDE636 /* FeedSourceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedSourceTableViewCell.h; sourceTree = "<group>"; };
+		D14431A21CCBC92600FDE636 /* FeedSourceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedSourceTableViewCell.m; sourceTree = "<group>"; };
 		D176AC5F1C7E221A001F25D4 /* iOS博客精选.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS博客精选.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D176AC631C7E221A001F25D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D176AC651C7E221A001F25D4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -143,12 +149,6 @@
 		D176AC761C7E221A001F25D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1F574BE1CB541580044B494 /* AppUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppUtil.h; path = Utility/AppUtil.h; sourceTree = "<group>"; };
 		D1F574BF1CB541580044B494 /* AppUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppUtil.m; path = Utility/AppUtil.m; sourceTree = "<group>"; };
-		D1F574C41CB542020044B494 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Controller/MainViewController.h; sourceTree = "<group>"; };
-		D1F574C51CB542020044B494 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Controller/MainViewController.m; sourceTree = "<group>"; };
-		D1F574C81CB5421F0044B494 /* FeedPostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedPostsViewController.h; path = Controller/FeedPostsViewController.h; sourceTree = "<group>"; };
-		D1F574C91CB5421F0044B494 /* FeedPostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedPostsViewController.m; path = Controller/FeedPostsViewController.m; sourceTree = "<group>"; };
-		D1F574CE1CB542410044B494 /* LinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LinkViewController.h; path = Controller/LinkViewController.h; sourceTree = "<group>"; };
-		D1F574CF1CB542410044B494 /* LinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LinkViewController.m; path = Controller/LinkViewController.m; sourceTree = "<group>"; };
 		D1F574D41CB55F190044B494 /* PageDataset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageDataset.h; path = Model/PageDataset.h; sourceTree = "<group>"; };
 		D1F574D51CB55F190044B494 /* PageDataset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageDataset.m; path = Model/PageDataset.m; sourceTree = "<group>"; };
 		D1F574DF1CB5717C0044B494 /* iOSBlogReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSBlogReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,16 +215,6 @@
 			name = Feed;
 			sourceTree = "<group>";
 		};
-		D11A31121CC547B2001B1D57 /* FeedPost */ = {
-			isa = PBXGroup;
-			children = (
-				D11A31131CC547B2001B1D57 /* FeedPostTableViewCell.h */,
-				D11A31141CC547B2001B1D57 /* FeedPostTableViewCell.m */,
-			);
-			name = FeedPost;
-			path = View/FeedPost;
-			sourceTree = "<group>";
-		};
 		D11A31161CC54E4B001B1D57 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,15 +251,6 @@
 			path = MWFeedParser;
 			sourceTree = "<group>";
 		};
-		D11A313A1CC67266001B1D57 /* FeedSource */ = {
-			isa = PBXGroup;
-			children = (
-				D11A313B1CC6729C001B1D57 /* FeedSourceTableViewCell.h */,
-				D11A313C1CC6729C001B1D57 /* FeedSourceTableViewCell.m */,
-			);
-			name = FeedSource;
-			sourceTree = "<group>";
-		};
 		D13293651CB7E2600091DA58 /* RestModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +285,82 @@
 			);
 			name = CoreData;
 			path = Model/CoreData;
+			sourceTree = "<group>";
+		};
+		D14431801CCBC8E800FDE636 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				D14431811CCBC8E800FDE636 /* ConfigViewController.h */,
+				D14431821CCBC8E800FDE636 /* ConfigViewController.m */,
+			);
+			name = Config;
+			path = Controller/Config;
+			sourceTree = "<group>";
+		};
+		D14431831CCBC8E800FDE636 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				D14431841CCBC8E800FDE636 /* FavViewController.h */,
+				D14431851CCBC8E800FDE636 /* FavViewController.m */,
+			);
+			name = Favorite;
+			path = Controller/Favorite;
+			sourceTree = "<group>";
+		};
+		D14431861CCBC8E800FDE636 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				D14431871CCBC8E800FDE636 /* FeedPostDetailViewController.h */,
+				D14431881CCBC8E800FDE636 /* FeedPostDetailViewController.m */,
+				D14431891CCBC8E800FDE636 /* FeedPostsViewController.h */,
+				D144318A1CCBC8E800FDE636 /* FeedPostsViewController.m */,
+				D144318B1CCBC8E800FDE636 /* FeedSourceViewController.h */,
+				D144318C1CCBC8E800FDE636 /* FeedSourceViewController.m */,
+			);
+			name = Feed;
+			path = Controller/Feed;
+			sourceTree = "<group>";
+		};
+		D144318D1CCBC8E800FDE636 /* Link */ = {
+			isa = PBXGroup;
+			children = (
+				D144318E1CCBC8E800FDE636 /* LinkViewController.h */,
+				D144318F1CCBC8E800FDE636 /* LinkViewController.m */,
+			);
+			name = Link;
+			path = Controller/Link;
+			sourceTree = "<group>";
+		};
+		D14431901CCBC8E800FDE636 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D14431911CCBC8E800FDE636 /* MainViewController.h */,
+				D14431921CCBC8E800FDE636 /* MainViewController.m */,
+			);
+			name = Main;
+			path = Controller/Main;
+			sourceTree = "<group>";
+		};
+		D14431931CCBC8E800FDE636 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				D14431941CCBC8E800FDE636 /* WebViewController.h */,
+				D14431951CCBC8E800FDE636 /* WebViewController.m */,
+			);
+			name = Web;
+			path = Controller/Web;
+			sourceTree = "<group>";
+		};
+		D144319E1CCBC92600FDE636 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				D144319F1CCBC92600FDE636 /* FeedPostTableViewCell.h */,
+				D14431A01CCBC92600FDE636 /* FeedPostTableViewCell.m */,
+				D14431A11CCBC92600FDE636 /* FeedSourceTableViewCell.h */,
+				D14431A21CCBC92600FDE636 /* FeedSourceTableViewCell.m */,
+			);
+			name = Feed;
+			path = View/Feed;
 			sourceTree = "<group>";
 		};
 		D176AC561C7E221A001F25D4 = {
@@ -375,22 +432,12 @@
 		D1F574BB1CB540740044B494 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D1F574C41CB542020044B494 /* MainViewController.h */,
-				D1F574C51CB542020044B494 /* MainViewController.m */,
-				D1F574C81CB5421F0044B494 /* FeedPostsViewController.h */,
-				D1F574C91CB5421F0044B494 /* FeedPostsViewController.m */,
-				D1F574CE1CB542410044B494 /* LinkViewController.h */,
-				D1F574CF1CB542410044B494 /* LinkViewController.m */,
-				D13848EC1CB949A100C2FEF6 /* WebViewController.h */,
-				D13848ED1CB949A100C2FEF6 /* WebViewController.m */,
-				D13848F21CB949F700C2FEF6 /* ConfigViewController.h */,
-				D13848F31CB949F700C2FEF6 /* ConfigViewController.m */,
-				D11A31031CC164C7001B1D57 /* FavViewController.h */,
-				D11A31041CC164C7001B1D57 /* FavViewController.m */,
-				D11A310F1CC54703001B1D57 /* FeedPostDetailViewController.h */,
-				D11A31101CC54703001B1D57 /* FeedPostDetailViewController.m */,
-				D11A31371CC67226001B1D57 /* FeedSourceViewController.h */,
-				D11A31381CC67226001B1D57 /* FeedSourceViewController.m */,
+				D14431801CCBC8E800FDE636 /* Config */,
+				D14431831CCBC8E800FDE636 /* Favorite */,
+				D14431861CCBC8E800FDE636 /* Feed */,
+				D144318D1CCBC8E800FDE636 /* Link */,
+				D14431901CCBC8E800FDE636 /* Main */,
+				D14431931CCBC8E800FDE636 /* Web */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -409,8 +456,7 @@
 		D1F574BD1CB5409D0044B494 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D11A313A1CC67266001B1D57 /* FeedSource */,
-				D11A31121CC547B2001B1D57 /* FeedPost */,
+				D144319E1CCBC92600FDE636 /* Feed */,
 				D1F574EA1CB5725A0044B494 /* Link */,
 			);
 			name = View;
@@ -604,44 +650,44 @@
 				D11A30FE1CBABEB1001B1D57 /* FeedItemModel+CoreDataProperties.m in Sources */,
 				D11A31021CBABF7C001B1D57 /* DataManager.m in Sources */,
 				D11A31311CC54E4B001B1D57 /* MWFeedParser.m in Sources */,
+				D144319C1CCBC8E800FDE636 /* MainViewController.m in Sources */,
 				D11A30F01CBAA6C1001B1D57 /* FeedParseOperation.m in Sources */,
 				D132936E1CB7F1770091DA58 /* RestLinkListModel.m in Sources */,
-				D11A31111CC54703001B1D57 /* FeedPostDetailViewController.m in Sources */,
-				D1F574D01CB542410044B494 /* LinkViewController.m in Sources */,
-				D11A31151CC547B2001B1D57 /* FeedPostTableViewCell.m in Sources */,
+				D14431981CCBC8E800FDE636 /* FeedPostDetailViewController.m in Sources */,
 				D13293721CB90B7E0091DA58 /* BlogModel.xcdatamodeld in Sources */,
 				D13848EA1CB948BB00C2FEF6 /* DomainModel+CoreDataProperties.m in Sources */,
+				D14431991CCBC8E800FDE636 /* FeedPostsViewController.m in Sources */,
 				D11A312D1CC54E4B001B1D57 /* DetailTableViewController.m in Sources */,
 				D11A31351CC54E4B001B1D57 /* NSString+XMLEntities.m in Sources */,
 				D1F574C01CB541580044B494 /* AppUtil.m in Sources */,
 				D11A30EC1CBAA5C7001B1D57 /* FeedManager.m in Sources */,
 				D11A31341CC54E4B001B1D57 /* NSString+HTML.m in Sources */,
 				D11A312E1CC54E4B001B1D57 /* GTMNSString+HTML.m in Sources */,
-				D11A31391CC67226001B1D57 /* FeedSourceViewController.m in Sources */,
 				D1F574D61CB55F190044B494 /* PageDataset.m in Sources */,
 				D1F574F11CB578890044B494 /* RestApi.m in Sources */,
 				D13848EB1CB948BB00C2FEF6 /* DomainModel.m in Sources */,
 				D11A31331CC54E4B001B1D57 /* NSDate+InternetDateTime.m in Sources */,
-				D1F574CA1CB5421F0044B494 /* FeedPostsViewController.m in Sources */,
 				D176AC671C7E221A001F25D4 /* AppDelegate.m in Sources */,
 				D13293681CB7E2A60091DA58 /* RestDomainListModel.m in Sources */,
+				D14431971CCBC8E800FDE636 /* FavViewController.m in Sources */,
 				D11A312F1CC54E4B001B1D57 /* MWFeedInfo.m in Sources */,
 				D13848E41CB948BB00C2FEF6 /* FeedModel+CoreDataProperties.m in Sources */,
-				D11A31051CC164C7001B1D57 /* FavViewController.m in Sources */,
 				D176AC641C7E221A001F25D4 /* main.m in Sources */,
 				D11A31321CC54E4B001B1D57 /* MWFeedParserAppDelegate.m in Sources */,
+				D14431A41CCBC92600FDE636 /* FeedSourceTableViewCell.m in Sources */,
+				D144319B1CCBC8E800FDE636 /* LinkViewController.m in Sources */,
 				D1F574ED1CB5728A0044B494 /* LinkTableViewCell.m in Sources */,
-				D13848F41CB949F700C2FEF6 /* ConfigViewController.m in Sources */,
-				D1F574C61CB542020044B494 /* MainViewController.m in Sources */,
 				D11A30FF1CBABEB1001B1D57 /* FeedItemModel.m in Sources */,
 				D11A31301CC54E4B001B1D57 /* MWFeedItem.m in Sources */,
 				D11A31361CC54E4B001B1D57 /* RootViewController.m in Sources */,
 				D13848E61CB948BB00C2FEF6 /* AspectModel+CoreDataProperties.m in Sources */,
 				D13848E51CB948BB00C2FEF6 /* FeedModel.m in Sources */,
-				D11A313D1CC6729C001B1D57 /* FeedSourceTableViewCell.m in Sources */,
-				D13848EE1CB949A100C2FEF6 /* WebViewController.m in Sources */,
 				D13848E71CB948BB00C2FEF6 /* AspectModel.m in Sources */,
+				D14431961CCBC8E800FDE636 /* ConfigViewController.m in Sources */,
+				D144319D1CCBC8E800FDE636 /* WebViewController.m in Sources */,
 				D11A30E71CB978E3001B1D57 /* MainContext.m in Sources */,
+				D144319A1CCBC8E800FDE636 /* FeedSourceViewController.m in Sources */,
+				D14431A31CCBC92600FDE636 /* FeedPostTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
