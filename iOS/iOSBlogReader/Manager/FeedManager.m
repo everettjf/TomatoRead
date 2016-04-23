@@ -71,10 +71,12 @@
     });
 }
 
-- (void)loadOneFeeds:(FeedModel *)feed{
+- (void)loadOneFeeds:(FeedSourceUIEntity *)feed{
     if(_loadingFeeds)return;
     [self _onStartLoadFeeds];
-    [self _enumerateFeedsInCoreData:@[feed]];
+    
+    FeedModel *model = [FeedModel MR_findFirstByAttribute:@"oid" withValue:@(feed.oid)];
+    [self _enumerateFeedsInCoreData:@[model]];
 }
 
 

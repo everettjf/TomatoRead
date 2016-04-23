@@ -36,7 +36,7 @@
 @property (weak,nonatomic) id<FeedManagerDelegate> delegate;
 
 - (void)loadAllFeeds;
-- (void)loadOneFeeds:(FeedModel*)feed;
+- (void)loadOneFeeds:(FeedSourceUIEntity*)feed;
 
 - (void)fetchLocalFeeds:(NSUInteger)offset limit:(NSUInteger)limit completion:(void(^)(NSArray<FeedItemUIEntity*> *feedItems, NSUInteger totalItemCount, NSUInteger totalFeedCount))completion;
 
