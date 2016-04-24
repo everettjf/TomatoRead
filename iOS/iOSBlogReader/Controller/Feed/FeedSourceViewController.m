@@ -49,10 +49,6 @@ static NSString * const kLinkCell = @"FeedSourceCell";
         make.bottom.equalTo(self.view).offset(-60);
     }];
     
-    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(_pullDown)];
-    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(_pullUp)];
-    [footer setTitle:@"" forState:MJRefreshStateIdle];
-    _tableView.mj_footer = footer;
     
     _indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [self.view addSubview:_indicator];
@@ -65,8 +61,24 @@ static NSString * const kLinkCell = @"FeedSourceCell";
     [self _loadFromDB:YES];
 }
 
+- (void)_addHeaderFooter{
+    if(_tableView.mj_header)return;
+    
+    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(_pullDown)];
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(_pullUp)];
+    [footer setTitle:@"" forState:MJRefreshStateIdle];
+    _tableView.mj_footer = footer;
+}
+
 - (void)_loadFromDB:(BOOL)loadFromWebWhenEmpty{
     [[FeedSourceManager manager] fetchFeedSources:0 limit:20 completion:^(NSArray<FeedSourceUIEntity *> *feedItems, NSUInteger totalCount) {
+        if(_indicator){
+            [_indicator stopAnimating];
+            [_indicator removeFromSuperview];
+            _indicator = nil;
+        }
+        [self _addHeaderFooter];
+        
         if(feedItems.count == 0){
             if(loadFromWebWhenEmpty){
                 [self _loadFromWeb:YES];
@@ -74,11 +86,6 @@ static NSString * const kLinkCell = @"FeedSourceCell";
             return;
         }
         
-        if(_indicator){
-            [_indicator stopAnimating];
-            [_indicator removeFromSuperview];
-            _indicator = nil;
-        }
         _dataset = [feedItems mutableCopy];
         [_tableView reloadData];
         

@@ -50,10 +50,6 @@ static NSString * const kLinkCell = @"LinkCell";
         make.bottom.equalTo(self.view).offset(-60);
     }];
     
-    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(_pullDown)];
-    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(_pullUp)];
-    [footer setTitle:@"" forState:MJRefreshStateIdle];
-    _tableView.mj_footer = footer;
     
     _indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [self.view addSubview:_indicator];
@@ -66,11 +62,22 @@ static NSString * const kLinkCell = @"LinkCell";
     [self _loadInitialData];
 }
 
+- (void)_addHeaderFooter{
+    if(_tableView.mj_header)return;
+    
+    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(_pullDown)];
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(_pullUp)];
+    [footer setTitle:@"" forState:MJRefreshStateIdle];
+    _tableView.mj_footer = footer;
+}
+
 - (void)_loadInitialData{
     [[RestApi api] queryLinkList:self.item.aspectID complete:^(RestLinkListModel *model, NSError *error) {
         [_indicator stopAnimating];
         [_indicator removeFromSuperview];
         _indicator = nil;
+        
+        [self _addHeaderFooter];
         
         if(error) {
             [_tableView.mj_header endRefreshing];
