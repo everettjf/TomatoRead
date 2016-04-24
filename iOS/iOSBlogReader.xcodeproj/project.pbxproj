@@ -36,7 +36,6 @@
 		D13848EB1CB948BB00C2FEF6 /* DomainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D13848E11CB948BB00C2FEF6 /* DomainModel.m */; };
 		D14431961CCBC8E800FDE636 /* ConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431821CCBC8E800FDE636 /* ConfigViewController.m */; };
 		D14431971CCBC8E800FDE636 /* FavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431851CCBC8E800FDE636 /* FavViewController.m */; };
-		D14431981CCBC8E800FDE636 /* FeedPostDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431881CCBC8E800FDE636 /* FeedPostDetailViewController.m */; };
 		D14431991CCBC8E800FDE636 /* FeedPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D144318A1CCBC8E800FDE636 /* FeedPostsViewController.m */; };
 		D144319A1CCBC8E800FDE636 /* FeedSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D144318C1CCBC8E800FDE636 /* FeedSourceViewController.m */; };
 		D144319B1CCBC8E800FDE636 /* LinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D144318F1CCBC8E800FDE636 /* LinkViewController.m */; };
@@ -45,6 +44,9 @@
 		D14431A31CCBC92600FDE636 /* FeedPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431A01CCBC92600FDE636 /* FeedPostTableViewCell.m */; };
 		D14431A41CCBC92600FDE636 /* FeedSourceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431A21CCBC92600FDE636 /* FeedSourceTableViewCell.m */; };
 		D14431A71CCC039000FDE636 /* FeedSourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431A61CCC039000FDE636 /* FeedSourceManager.m */; };
+		D14431AA1CCD054400FDE636 /* FeedPostContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431A91CCD054400FDE636 /* FeedPostContentViewController.m */; };
+		D14431AC1CCD0AD000FDE636 /* css.html in Resources */ = {isa = PBXBuildFile; fileRef = D14431AB1CCD0AD000FDE636 /* css.html */; };
+		D14431AE1CCD0BD800FDE636 /* post.html in Resources */ = {isa = PBXBuildFile; fileRef = D14431AD1CCD0BD800FDE636 /* post.html */; };
 		D176AC641C7E221A001F25D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D176AC631C7E221A001F25D4 /* main.m */; };
 		D176AC671C7E221A001F25D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D176AC661C7E221A001F25D4 /* AppDelegate.m */; };
 		D176AC721C7E221A001F25D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D176AC711C7E221A001F25D4 /* Assets.xcassets */; };
@@ -125,8 +127,6 @@
 		D14431821CCBC8E800FDE636 /* ConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigViewController.m; sourceTree = "<group>"; };
 		D14431841CCBC8E800FDE636 /* FavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavViewController.h; sourceTree = "<group>"; };
 		D14431851CCBC8E800FDE636 /* FavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavViewController.m; sourceTree = "<group>"; };
-		D14431871CCBC8E800FDE636 /* FeedPostDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedPostDetailViewController.h; sourceTree = "<group>"; };
-		D14431881CCBC8E800FDE636 /* FeedPostDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedPostDetailViewController.m; sourceTree = "<group>"; };
 		D14431891CCBC8E800FDE636 /* FeedPostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedPostsViewController.h; sourceTree = "<group>"; };
 		D144318A1CCBC8E800FDE636 /* FeedPostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedPostsViewController.m; sourceTree = "<group>"; };
 		D144318B1CCBC8E800FDE636 /* FeedSourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedSourceViewController.h; sourceTree = "<group>"; };
@@ -143,6 +143,10 @@
 		D14431A21CCBC92600FDE636 /* FeedSourceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedSourceTableViewCell.m; sourceTree = "<group>"; };
 		D14431A51CCC039000FDE636 /* FeedSourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedSourceManager.h; path = Manager/FeedSourceManager.h; sourceTree = "<group>"; };
 		D14431A61CCC039000FDE636 /* FeedSourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedSourceManager.m; path = Manager/FeedSourceManager.m; sourceTree = "<group>"; };
+		D14431A81CCD054400FDE636 /* FeedPostContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedPostContentViewController.h; sourceTree = "<group>"; };
+		D14431A91CCD054400FDE636 /* FeedPostContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedPostContentViewController.m; sourceTree = "<group>"; };
+		D14431AB1CCD0AD000FDE636 /* css.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = css.html; path = Resource/css.html; sourceTree = "<group>"; };
+		D14431AD1CCD0BD800FDE636 /* post.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = post.html; path = Resource/post.html; sourceTree = "<group>"; };
 		D176AC5F1C7E221A001F25D4 /* iOS博客精选.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS博客精选.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D176AC631C7E221A001F25D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D176AC651C7E221A001F25D4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -313,12 +317,12 @@
 		D14431861CCBC8E800FDE636 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				D14431871CCBC8E800FDE636 /* FeedPostDetailViewController.h */,
-				D14431881CCBC8E800FDE636 /* FeedPostDetailViewController.m */,
 				D14431891CCBC8E800FDE636 /* FeedPostsViewController.h */,
 				D144318A1CCBC8E800FDE636 /* FeedPostsViewController.m */,
 				D144318B1CCBC8E800FDE636 /* FeedSourceViewController.h */,
 				D144318C1CCBC8E800FDE636 /* FeedSourceViewController.m */,
+				D14431A81CCD054400FDE636 /* FeedPostContentViewController.h */,
+				D14431A91CCD054400FDE636 /* FeedPostContentViewController.m */,
 			);
 			name = Feed;
 			path = Controller/Feed;
@@ -428,6 +432,8 @@
 				D176AC711C7E221A001F25D4 /* Assets.xcassets */,
 				D176AC731C7E221A001F25D4 /* LaunchScreen.storyboard */,
 				D176AC761C7E221A001F25D4 /* Info.plist */,
+				D14431AB1CCD0AD000FDE636 /* css.html */,
+				D14431AD1CCD0BD800FDE636 /* post.html */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -587,6 +593,8 @@
 			files = (
 				D176AC751C7E221A001F25D4 /* LaunchScreen.storyboard in Resources */,
 				D176AC721C7E221A001F25D4 /* Assets.xcassets in Resources */,
+				D14431AE1CCD0BD800FDE636 /* post.html in Resources */,
+				D14431AC1CCD0AD000FDE636 /* css.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,7 +667,6 @@
 				D144319C1CCBC8E800FDE636 /* MainViewController.m in Sources */,
 				D11A30F01CBAA6C1001B1D57 /* FeedParseOperation.m in Sources */,
 				D132936E1CB7F1770091DA58 /* RestLinkListModel.m in Sources */,
-				D14431981CCBC8E800FDE636 /* FeedPostDetailViewController.m in Sources */,
 				D13293721CB90B7E0091DA58 /* BlogModel.xcdatamodeld in Sources */,
 				D13848EA1CB948BB00C2FEF6 /* DomainModel+CoreDataProperties.m in Sources */,
 				D14431991CCBC8E800FDE636 /* FeedPostsViewController.m in Sources */,
@@ -693,6 +700,7 @@
 				D144319D1CCBC8E800FDE636 /* WebViewController.m in Sources */,
 				D11A30E71CB978E3001B1D57 /* MainContext.m in Sources */,
 				D144319A1CCBC8E800FDE636 /* FeedSourceViewController.m in Sources */,
+				D14431AA1CCD054400FDE636 /* FeedPostContentViewController.m in Sources */,
 				D14431A31CCBC92600FDE636 /* FeedPostTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

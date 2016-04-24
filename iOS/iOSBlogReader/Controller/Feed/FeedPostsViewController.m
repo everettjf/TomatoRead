@@ -10,8 +10,8 @@
 #import "FeedPostTableViewCell.h"
 #import "FeedManager.h"
 #import <MJRefresh.h>
-#import "WebViewController.h"
 #import "MainContext.h"
+#import "FeedPostContentViewController.h"
 
 static NSString * kFeedCell = @"FeedCell";
 
@@ -203,14 +203,8 @@ static NSString * kFeedCell = @"FeedCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     FeedItemUIEntity *feedItem = [_dataset objectAtIndex:indexPath.row];
     
-    WebViewController *webViewController = [[WebViewController alloc]init];
-    [[MainContext sharedContext].mainNavigationController pushViewController:webViewController animated:YES];
-    webViewController.title = feedItem.title;
-    
-    NSString *url = feedItem.link;
-    if(!url) url = feedItem.identifier;
-    NSLog(@"url = %@", url);
-    [webViewController loadURLString:url];
+    FeedPostContentViewController *contentViewController = [[FeedPostContentViewController alloc]initWithFeedPost:feedItem];
+    [[MainContext sharedContext].mainNavigationController pushViewController:contentViewController animated:YES];
 }
 
 /*
