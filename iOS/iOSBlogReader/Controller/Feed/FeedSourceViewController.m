@@ -43,7 +43,10 @@ static NSString * const kLinkCell = @"FeedSourceCell";
     [_tableView registerClass:[FeedSourceTableViewCell class] forCellReuseIdentifier:kLinkCell];
     [self.view addSubview:_tableView];
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make){
-        make.edges.equalTo(self.view);
+        make.left.equalTo(self.view);
+        make.right.equalTo(self.view);
+        make.top.equalTo(self.view);
+        make.bottom.equalTo(self.view).offset(-60);
     }];
     
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(_pullDown)];

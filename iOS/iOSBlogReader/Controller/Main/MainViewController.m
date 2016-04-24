@@ -128,8 +128,8 @@
 
 - (void)_adjustScrollPageSize{
     CGFloat pageWidth = [UIScreen mainScreen].bounds.size.width;
-    CGFloat pageTopY = 40 + [UIApplication sharedApplication].statusBarFrame.size.height;
-    CGFloat pageHeight = [UIScreen mainScreen].bounds.size.height - pageTopY - self.navigationController.navigationBar.bounds.size.height;
+    CGFloat pageTopY = 40 + [UIApplication sharedApplication].statusBarFrame.size.height + self.navigationController.navigationBar.bounds.size.height;
+    CGFloat pageHeight = [UIScreen mainScreen].bounds.size.height - pageTopY;
     _scrollView.contentSize = CGSizeMake(pageWidth * _subPageViews.count, pageHeight);
     
     [_subPageViews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

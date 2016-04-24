@@ -77,7 +77,7 @@ static NSString * kFeedCell = @"FeedCell";
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
         make.top.equalTo(_topPanel.mas_bottom);
-        make.bottom.equalTo(self.view);
+        make.bottom.equalTo(self.view).offset(-60);
     }];
     
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(_pullDown)];
