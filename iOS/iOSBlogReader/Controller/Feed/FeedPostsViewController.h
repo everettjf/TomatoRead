@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FeedSourceManager.h"
+
+typedef NS_OPTIONS(NSUInteger, FeedPostsViewControllerMode) {
+    FeedPostsViewControllerModeAll = 0,
+    FeedPostsViewControllerModeOne = 1,
+};
 
 @interface FeedPostsViewController : UIViewController
+
+@property (assign,nonatomic,readonly) FeedPostsViewControllerMode mode;
+
+- (instancetype)init;
+- (instancetype)initWithOne:(FeedSourceUIEntity*)feed;
 
 @end

@@ -21,14 +21,39 @@ static NSString * kFeedCell = @"FeedCell";
 @property (strong,nonatomic) UILabel *topInfoLabel;
 @property (strong,nonatomic) NSMutableArray<FeedItemUIEntity*> *dataset;
 @property (strong,nonatomic) FeedManager *feedManager;
+
+@property (strong,nonatomic) FeedSourceUIEntity *oneFeed;
 @end
 
 @implementation FeedPostsViewController
 
+- (instancetype)init{
+    self = [super init];
+    if(self){
+        _mode = FeedPostsViewControllerModeAll;
+    }
+    return self;
+}
+
+- (instancetype)initWithOne:(FeedSourceUIEntity *)feed{
+    self = [super init];
+    if(self){
+        _mode = FeedPostsViewControllerModeOne;
+        _oneFeed = feed;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     _feedManager = [FeedManager new];
     _feedManager.delegate = self;
+    
+    if(_mode == FeedPostsViewControllerModeOne){
+        [_feedManager bindOne:_oneFeed];
+    }
     
     _dataset = [NSMutableArray new];
     
@@ -44,7 +69,7 @@ static NSString * kFeedCell = @"FeedCell";
     [_topPanel mas_makeConstraints:^(MASConstraintMaker *make){
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
-        make.top.equalTo(self.view);
+        make.top.equalTo(self.mas_topLayoutGuide);
         make.height.equalTo(@30);
     }];
 
@@ -81,7 +106,7 @@ static NSString * kFeedCell = @"FeedCell";
 - (void)_pullDown{
     [self _loadInitialFeeds];
     
-    [_feedManager loadAllFeeds];
+    [_feedManager loadFeeds];
 }
 - (void)_pullUp{
     [self _loadMoreFeeds];
@@ -139,11 +164,13 @@ static NSString * kFeedCell = @"FeedCell";
         if(feedItems){
             _dataset = [feedItems mutableCopy];
             [_tableView reloadData];
+            
+            if(totalItemCount == 0){
+                if(_mode == FeedPostsViewControllerModeOne)
+                    [_feedManager loadFeeds];
+            }
         }
-        
-        if(totalFeedCount && totalItemCount){
-            _topInfoLabel.text = [NSString stringWithFormat:@"%@ 订阅, %@ 文章",@(totalFeedCount),@(totalItemCount)];
-        }
+        [self _showFeedsInfo:totalFeedCount totalItemCount:totalItemCount];
         
         [_tableView.mj_header endRefreshing];
         [_tableView.mj_footer endRefreshing];
@@ -156,14 +183,20 @@ static NSString * kFeedCell = @"FeedCell";
             [_dataset addObjectsFromArray:feedItems];
             [_tableView reloadData];
         }
-        
-        if(totalFeedCount && totalItemCount){
-            _topInfoLabel.text = [NSString stringWithFormat:@"%@ 订阅, %@ 文章",@(totalFeedCount),@(totalItemCount)];
-        }
+        [self _showFeedsInfo:totalFeedCount totalItemCount:totalItemCount];
         
         [_tableView.mj_header endRefreshing];
         [_tableView.mj_footer endRefreshing];
     }];
+}
+
+- (void)_showFeedsInfo:(NSUInteger)totalFeedCount totalItemCount:(NSUInteger)totalItemCount{
+    if(!totalFeedCount || !totalItemCount)return;
+    if(_mode == FeedPostsViewControllerModeOne){
+        _topInfoLabel.text = [NSString stringWithFormat:@"%@ 文章",@(totalItemCount)];
+    }else{
+        _topInfoLabel.text = [NSString stringWithFormat:@"%@ 订阅, %@ 文章",@(totalFeedCount),@(totalItemCount)];
+    }
 }
 
 
@@ -179,7 +212,6 @@ static NSString * kFeedCell = @"FeedCell";
     NSLog(@"url = %@", url);
     [webViewController loadURLString:url];
 }
-
 
 /*
 #pragma mark - Navigation

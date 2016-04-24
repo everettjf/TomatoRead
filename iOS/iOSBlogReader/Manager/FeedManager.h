@@ -34,9 +34,10 @@
 
 @property (assign,nonatomic) BOOL loadingFeeds;
 @property (weak,nonatomic) id<FeedManagerDelegate> delegate;
+@property (strong,nonatomic,readonly) FeedSourceUIEntity *bindedOneFeed;
 
-- (void)loadAllFeeds;
-- (void)loadOneFeeds:(FeedSourceUIEntity*)feed;
+- (void)bindOne:(FeedSourceUIEntity*)feed;
+- (void)loadFeeds;
 
 - (void)fetchLocalFeeds:(NSUInteger)offset limit:(NSUInteger)limit completion:(void(^)(NSArray<FeedItemUIEntity*> *feedItems, NSUInteger totalItemCount, NSUInteger totalFeedCount))completion;
 

@@ -31,7 +31,6 @@
     // Do any additional setup after loading the view.
     self.title = @"iOS 博客精选";
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationController.navigationBarHidden = YES;
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     
     [MainContext sharedContext].mainNavigationController = self.navigationController;
@@ -130,7 +129,7 @@
 - (void)_adjustScrollPageSize{
     CGFloat pageWidth = [UIScreen mainScreen].bounds.size.width;
     CGFloat pageTopY = 40 + [UIApplication sharedApplication].statusBarFrame.size.height;
-    CGFloat pageHeight = [UIScreen mainScreen].bounds.size.height - pageTopY;
+    CGFloat pageHeight = [UIScreen mainScreen].bounds.size.height - pageTopY - self.navigationController.navigationBar.bounds.size.height;
     _scrollView.contentSize = CGSizeMake(pageWidth * _subPageViews.count, pageHeight);
     
     [_subPageViews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

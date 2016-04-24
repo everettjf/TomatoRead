@@ -9,11 +9,11 @@
 #import "FeedSourceViewController.h"
 #import "RestApi.h"
 #import "FeedSourceTableViewCell.h"
-#import "WebViewController.h"
 #import "MainContext.h"
 #import <MJRefresh.h>
 #import "FeedModel.h"
 #import "FeedManager.h"
+#import "FeedPostsViewController.h"
 
 static NSString * const kLinkCell = @"FeedSourceCell";
 
@@ -134,12 +134,12 @@ static NSString * const kLinkCell = @"FeedSourceCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     FeedSourceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLinkCell forIndexPath:indexPath];
-    FeedSourceUIEntity *model = [_dataset objectAtIndex:indexPath.row];
-    cell.favicon = model.favicon;
-    cell.title = model.name;
-    cell.subTitle = model.desc;
+    FeedSourceUIEntity *entity = [_dataset objectAtIndex:indexPath.row];
+    cell.favicon = entity.favicon;
+    cell.title = entity.name;
+    cell.subTitle = entity.desc;
     
-    return cell;;
+    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -147,7 +147,11 @@ static NSString * const kLinkCell = @"FeedSourceCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    FeedSourceUIEntity *entity = [_dataset objectAtIndex:indexPath.row];
     
+    FeedPostsViewController *postsViewController = [[FeedPostsViewController alloc]initWithOne:entity];
+    postsViewController.title = entity.name;
+    [[MainContext sharedContext].mainNavigationController pushViewController:postsViewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

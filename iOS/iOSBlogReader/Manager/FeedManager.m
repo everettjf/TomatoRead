@@ -55,31 +55,32 @@
     if(_delegate)[_delegate feedManagerLoadFinish];
 }
 
+- (void)bindOne:(FeedSourceUIEntity *)feed{
+    _bindedOneFeed = feed;
+}
 
-- (void)loadAllFeeds{
+- (void)loadFeeds{
     if(_loadingFeeds)return;
     [self _onStartLoadFeeds];
     
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        [[FeedSourceManager manager]loadFeedSources:^(BOOL succeed) {
-            dispatch_async(dispatch_get_global_queue(0, 0), ^{
-                NSArray<FeedModel*> *feeds = [FeedModel MR_findAll];
-                [self _enumerateFeedsInCoreData:feeds];
-            });
-            
-        }];
-    });
+    if(_bindedOneFeed){
+        FeedModel *model = [FeedModel MR_findFirstByAttribute:@"oid" withValue:@(_bindedOneFeed.oid)];
+        if(!model)return;
+        
+        [self _enumerateFeedsInCoreData:@[model]];
+    }else{
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            [[FeedSourceManager manager]loadFeedSources:^(BOOL succeed) {
+                dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                    NSArray<FeedModel*> *feeds = [FeedModel MR_findAll];
+                    if(!feeds)return;
+                    
+                    [self _enumerateFeedsInCoreData:feeds];
+                });
+            }];
+        });
+    }
 }
-
-- (void)loadOneFeeds:(FeedSourceUIEntity *)feed{
-    if(_loadingFeeds)return;
-    [self _onStartLoadFeeds];
-    
-    FeedModel *model = [FeedModel MR_findFirstByAttribute:@"oid" withValue:@(feed.oid)];
-    [self _enumerateFeedsInCoreData:@[model]];
-}
-
-
 
 - (void)_enumerateFeedsInCoreData:(NSArray<FeedModel*> *)feeds{
     dispatch_async(kFeedQueue, ^{
@@ -147,6 +148,10 @@
         NSFetchRequest *request = [FeedItemModel MR_requestAllSortedBy:@"date" ascending:NO inContext:context];
         [request setFetchOffset:offset];
         [request setFetchLimit:limit];
+        
+        if(_bindedOneFeed){
+            request.predicate = [NSPredicate predicateWithFormat:@"%K = %@", @"feed_oid", @(_bindedOneFeed.oid)];
+        }
 
         NSArray<FeedItemModel*> *feedItems = [FeedItemModel MR_executeFetchRequest:request inContext:context];
         
