@@ -24,9 +24,10 @@ typedef NS_OPTIONS(NSUInteger, PageItemType) {
 @end
 
 @interface PageDataset : NSObject
-@property (strong,nonatomic,readonly) NSArray<PageItemEntity*> *items;
 
-+ (PageDataset*)sharedDataset;
-- (void)prepare:(void(^)(BOOL succeed))complete;
++ (PageDataset*)dataset;
+
+- (void)prepareDiscover:(void(^)(NSArray<PageItemEntity*> *items,BOOL succeed))complete;
+- (void)prepareFeed:(void(^)(NSArray<PageItemEntity*> *items,BOOL succeed))complete;
 
 @end

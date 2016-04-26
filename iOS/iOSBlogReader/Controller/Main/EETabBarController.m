@@ -1,18 +1,18 @@
 //
-//  FavViewController.m
+//  EETabBarController.m
 //  iOSBlogReader
 //
-//  Created by everettjf on 16/4/16.
+//  Created by everettjf on 16/4/27.
 //  Copyright © 2016年 everettjf. All rights reserved.
 //
 
-#import "FavViewController.h"
+#import "EETabBarController.h"
 
-@interface FavViewController ()
+@interface EETabBarController ()
 
 @end
 
-@implementation FavViewController
+@implementation EETabBarController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

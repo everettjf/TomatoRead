@@ -8,6 +8,10 @@
 
 #import "AppDelegate.h"
 #import "FeedViewController.h"
+#import "FavViewController.h"
+#import "DiscoverViewController.h"
+#import "EENavigationController.h"
+#import "EETabBarController.h"
 #import "DataManager.h"
 
 @interface AppDelegate ()
@@ -22,11 +26,24 @@
     [DataManager manager];
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
     
-    FeedViewController *mainViewController = [[FeedViewController alloc]init];
-    UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:mainViewController];
+    FeedViewController *feedViewController = [[FeedViewController alloc]init];
+    EENavigationController *feedNavigationController = [[EENavigationController alloc]initWithRootViewController:feedViewController];
+    feedNavigationController.tabBarItem.title = @"订阅";
     
-    self.window.rootViewController = navigationController;
+    DiscoverViewController *discoverViewController = [[DiscoverViewController alloc]init];
+    EENavigationController *discoverNavigationController = [[EENavigationController alloc]initWithRootViewController:discoverViewController];
+    discoverNavigationController.tabBarItem.title = @"发现";
+    
+    FavViewController *favViewController = [[FavViewController alloc]init];
+    EENavigationController *favNavigationController = [[EENavigationController alloc]initWithRootViewController:favViewController];
+    favNavigationController.tabBarItem.title = @"收藏";
+    
+    EETabBarController *tabBarController = [[EETabBarController alloc]init];
+    tabBarController.viewControllers = @[feedNavigationController,discoverNavigationController,favNavigationController];
+    
+    self.window.rootViewController = tabBarController;
     [self.window makeKeyAndVisible];
     
     return YES;

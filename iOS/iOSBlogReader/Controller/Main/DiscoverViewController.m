@@ -6,9 +6,8 @@
 //  Copyright © 2016年 everettjf. All rights reserved.
 //
 
-#import "FeedViewController.h"
+#import "DiscoverViewController.h"
 #import <HMSegmentedControl.h>
-#import <Masonry.h>
 #import "AppUtil.h"
 #import "FeedPostsViewController.h"
 #import "FeedSourceViewController.h"
@@ -16,7 +15,7 @@
 #import "PageDataset.h"
 #import "MainContext.h"
 
-@interface FeedViewController ()<UIScrollViewDelegate>
+@interface DiscoverViewController ()<UIScrollViewDelegate>
 @property (strong,nonatomic) HMSegmentedControl *segmentedControl;
 @property (strong,nonatomic) UIScrollView *scrollView;
 @property (strong,nonatomic) NSMutableArray<__kindof UIView*> *subPageViews;
@@ -24,18 +23,18 @@
 @property (strong,nonatomic) NSArray<PageItemEntity *> *pageItems;
 @end
 
-@implementation FeedViewController
+@implementation DiscoverViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"iOS博客精选";
+    self.navigationItem.title = @"发现";
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     
     [MainContext sharedContext].feedNavigationController = self.navigationController;
     
     [SVProgressHUD showWithStatus:@"加载中"];
-    [[PageDataset dataset]prepareFeed:^(NSArray<PageItemEntity *> *items, BOOL succeed) {
+    [[PageDataset dataset]prepareDiscover:^(NSArray<PageItemEntity *> *items, BOOL succeed) {
         if(!succeed){
             [SVProgressHUD showWithStatus:@"无法连接至服务器"];
             return;
@@ -104,7 +103,7 @@
         [_scrollView addSubview:subView];
         [_subPageViews addObject:subView];
     }];
-
+    
     _subPageControllers = [NSMutableArray new];
     [self.pageItems enumerateObjectsUsingBlock:^(PageItemEntity * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if(obj.type == PageItemType_FeedPost){
@@ -151,7 +150,7 @@
 
 - (void)_selectPageByIndex:(NSInteger)index{
     if(index < 0 || index >= _subPageViews.count) return;
-        
+    
     CGFloat pageWidth = _subPageViews.firstObject.frame.size.width;
     CGFloat pageHeight = _subPageViews.firstObject.frame.size.height;
     [_scrollView scrollRectToVisible:CGRectMake(pageWidth * index, 0, pageWidth, pageHeight) animated:NO];
@@ -182,13 +181,13 @@
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

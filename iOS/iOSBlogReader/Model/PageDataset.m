@@ -22,22 +22,22 @@
 
 @implementation PageDataset
 
-+ (PageDataset *)sharedDataset{
-    static PageDataset *inst;
++ (PageDataset *)dataset{
+    static PageDataset *o;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        inst = [PageDataset new];
+        o = [[PageDataset alloc]init];
     });
-    return inst;
+    return o;
 }
 
-- (void)prepare:(void (^)(BOOL succeed))complete{
+- (void)prepareFeed:(void (^)(NSArray<PageItemEntity *> *, BOOL))complete{
     NSMutableArray<PageItemEntity*> *pages = [NSMutableArray new];
     
     // Feed Posts
     PageItemEntity *feedEntity = [PageItemEntity new];
     feedEntity.type = PageItemType_FeedPost;
-    feedEntity.title = @"订阅";
+    feedEntity.title = @"文章";
     [pages addObject:feedEntity];
     
     // Feed Souce
@@ -46,7 +46,12 @@
     sourceEntity.title = @"源";
     [pages addObject:sourceEntity];
     
-    // Links
+    complete(pages,YES);
+}
+
+- (void)prepareDiscover:(void (^)(NSArray<PageItemEntity *> *, BOOL))complete{
+    NSMutableArray<PageItemEntity*> *pages = [NSMutableArray new];
+    
     // First ,check core date
     NSArray<DomainModel*> *domains = [DomainModel MR_findAll];
     for (DomainModel *domain in domains) {
@@ -65,20 +70,19 @@
     
     BOOL alreadyCallback = NO;
     if(domains.count > 0){
-        _items = pages;
-        complete(YES);
+        complete(pages,YES);
         alreadyCallback = YES;
     }
     
     // Then , rest api
     [[RestApi api]queryDomainList:^(RestDomainListModel *model, NSError *error) {
         if(error){
-            complete(NO);
+            complete(nil,NO);
             return;
         }
         
         if(model.results.count == 0){
-            complete(NO);
+            complete(nil,NO);
             return;
         }
         
@@ -105,9 +109,8 @@
             }
             
             if(!alreadyCallback){
-                _items = pages;
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    complete(YES);
+                    complete(pages,YES);
                 });
             }
         });
