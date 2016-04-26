@@ -149,7 +149,7 @@ static NSString * const kLinkCell = @"LinkCell";
     RestLinkModel *model = [_dataset objectAtIndex:indexPath.row];
     
     WebViewController *webViewController = [[WebViewController alloc]init];
-    [[MainContext sharedContext].mainNavigationController pushViewController:webViewController animated:YES];
+    [[MainContext sharedContext].feedNavigationController pushViewController:webViewController animated:YES];
     webViewController.title = model.name;
     [webViewController loadURLString:model.url];
 }

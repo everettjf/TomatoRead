@@ -220,7 +220,7 @@ static const NSUInteger kPageCount = 20;
     FeedItemUIEntity *feedItem = [_dataset objectAtIndex:indexPath.row];
     
     FeedPostContentViewController *contentViewController = [[FeedPostContentViewController alloc]initWithFeedPost:feedItem];
-    [[MainContext sharedContext].mainNavigationController pushViewController:contentViewController animated:YES];
+    [[MainContext sharedContext].feedNavigationController pushViewController:contentViewController animated:YES];
 }
 
 /*

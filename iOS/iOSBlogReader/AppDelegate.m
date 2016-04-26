@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "MainViewController.h"
+#import "FeedViewController.h"
 #import "DataManager.h"
 
 @interface AppDelegate ()
@@ -23,7 +23,7 @@
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
-    MainViewController *mainViewController = [[MainViewController alloc]init];
+    FeedViewController *mainViewController = [[FeedViewController alloc]init];
     UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:mainViewController];
     
     self.window.rootViewController = navigationController;

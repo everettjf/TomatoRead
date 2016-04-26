@@ -39,7 +39,7 @@
 		D14431991CCBC8E800FDE636 /* FeedPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D144318A1CCBC8E800FDE636 /* FeedPostsViewController.m */; };
 		D144319A1CCBC8E800FDE636 /* FeedSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D144318C1CCBC8E800FDE636 /* FeedSourceViewController.m */; };
 		D144319B1CCBC8E800FDE636 /* LinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D144318F1CCBC8E800FDE636 /* LinkViewController.m */; };
-		D144319C1CCBC8E800FDE636 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431921CCBC8E800FDE636 /* MainViewController.m */; };
+		D144319C1CCBC8E800FDE636 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431921CCBC8E800FDE636 /* FeedViewController.m */; };
 		D144319D1CCBC8E800FDE636 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431951CCBC8E800FDE636 /* WebViewController.m */; };
 		D14431A31CCBC92600FDE636 /* FeedPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431A01CCBC92600FDE636 /* FeedPostTableViewCell.m */; };
 		D14431A41CCBC92600FDE636 /* FeedSourceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431A21CCBC92600FDE636 /* FeedSourceTableViewCell.m */; };
@@ -133,8 +133,8 @@
 		D144318C1CCBC8E800FDE636 /* FeedSourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedSourceViewController.m; sourceTree = "<group>"; };
 		D144318E1CCBC8E800FDE636 /* LinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkViewController.h; sourceTree = "<group>"; };
 		D144318F1CCBC8E800FDE636 /* LinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkViewController.m; sourceTree = "<group>"; };
-		D14431911CCBC8E800FDE636 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		D14431921CCBC8E800FDE636 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		D14431911CCBC8E800FDE636 /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
+		D14431921CCBC8E800FDE636 /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
 		D14431941CCBC8E800FDE636 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		D14431951CCBC8E800FDE636 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		D144319F1CCBC92600FDE636 /* FeedPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedPostTableViewCell.h; sourceTree = "<group>"; };
@@ -341,8 +341,8 @@
 		D14431901CCBC8E800FDE636 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				D14431911CCBC8E800FDE636 /* MainViewController.h */,
-				D14431921CCBC8E800FDE636 /* MainViewController.m */,
+				D14431911CCBC8E800FDE636 /* FeedViewController.h */,
+				D14431921CCBC8E800FDE636 /* FeedViewController.m */,
 			);
 			name = Main;
 			path = Controller/Main;
@@ -664,7 +664,7 @@
 				D11A30FE1CBABEB1001B1D57 /* FeedItemModel+CoreDataProperties.m in Sources */,
 				D11A31021CBABF7C001B1D57 /* DataManager.m in Sources */,
 				D11A31311CC54E4B001B1D57 /* MWFeedParser.m in Sources */,
-				D144319C1CCBC8E800FDE636 /* MainViewController.m in Sources */,
+				D144319C1CCBC8E800FDE636 /* FeedViewController.m in Sources */,
 				D11A30F01CBAA6C1001B1D57 /* FeedParseOperation.m in Sources */,
 				D132936E1CB7F1770091DA58 /* RestLinkListModel.m in Sources */,
 				D13293721CB90B7E0091DA58 /* BlogModel.xcdatamodeld in Sources */,

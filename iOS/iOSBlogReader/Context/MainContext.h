@@ -12,6 +12,6 @@
 
 + (MainContext*)sharedContext;
 
-@property (weak,nonatomic) UINavigationController *mainNavigationController;
+@property (weak,nonatomic) UINavigationController *feedNavigationController;
 
 @end

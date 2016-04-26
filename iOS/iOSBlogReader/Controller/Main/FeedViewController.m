@@ -6,7 +6,7 @@
 //  Copyright © 2016年 everettjf. All rights reserved.
 //
 
-#import "MainViewController.h"
+#import "FeedViewController.h"
 #import <HMSegmentedControl.h>
 #import <Masonry.h>
 #import "AppUtil.h"
@@ -16,7 +16,7 @@
 #import "PageDataset.h"
 #import "MainContext.h"
 
-@interface MainViewController ()<UIScrollViewDelegate>
+@interface FeedViewController ()<UIScrollViewDelegate>
 @property (strong,nonatomic) HMSegmentedControl *segmentedControl;
 @property (strong,nonatomic) UIScrollView *scrollView;
 @property (strong,nonatomic) NSMutableArray<__kindof UIView*> *subPageViews;
@@ -24,7 +24,7 @@
 
 @end
 
-@implementation MainViewController
+@implementation FeedViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,7 +33,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     
-    [MainContext sharedContext].mainNavigationController = self.navigationController;
+    [MainContext sharedContext].feedNavigationController = self.navigationController;
     
     [SVProgressHUD showWithStatus:@"加载中"];
     [[PageDataset sharedDataset]prepare:^(BOOL succeed) {
