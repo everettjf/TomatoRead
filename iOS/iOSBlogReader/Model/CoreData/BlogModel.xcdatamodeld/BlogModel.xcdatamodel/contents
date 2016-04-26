@@ -16,6 +16,7 @@
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="feed_oid" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
@@ -33,7 +34,7 @@
     <elements>
         <element name="AspectModel" positionX="-18" positionY="81" width="128" height="90"/>
         <element name="DomainModel" positionX="-36" positionY="72" width="128" height="90"/>
-        <element name="FeedItemModel" positionX="0" positionY="99" width="128" height="180"/>
+        <element name="FeedItemModel" positionX="0" positionY="99" width="128" height="195"/>
         <element name="FeedModel" positionX="-63" positionY="-18" width="128" height="150"/>
     </elements>
 </model>

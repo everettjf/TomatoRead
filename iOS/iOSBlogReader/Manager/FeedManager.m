@@ -153,7 +153,7 @@
     });
 }
 
-- (void)fetchLocalFeeds:(NSUInteger)offset limit:(NSUInteger)limit completion:(void (^)(NSArray<FeedItemUIEntity *> *, NSUInteger, NSUInteger))completion{
+- (void)fetchLocalFeeds:(NSUInteger)offset limit:(NSUInteger)limit completion:(void (^)(NSArray<FeedItemUIEntity *> *, NSUInteger))completion{
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -162,15 +162,17 @@
         NSFetchRequest *request = [FeedItemModel MR_requestAllSortedBy:@"date" ascending:NO inContext:context];
         [request setFetchOffset:offset];
         [request setFetchLimit:limit];
-        
         if(_bindedOneFeed){
             request.predicate = [NSPredicate predicateWithFormat:@"%K = %@", @"feed_oid", @(_bindedOneFeed.oid)];
         }
 
         NSArray<FeedItemModel*> *feedItems = [FeedItemModel MR_executeFetchRequest:request inContext:context];
         
-        NSUInteger totalItemCount = [FeedItemModel MR_countOfEntitiesWithContext:context];
-        NSUInteger totalFeedCount = [FeedModel MR_countOfEntitiesWithContext:context];
+        NSPredicate *predicate;
+        if(_bindedOneFeed){
+            predicate = [NSPredicate predicateWithFormat:@"%K = %@", @"feed_oid", @(_bindedOneFeed.oid)];
+        }
+        NSUInteger totalItemCount = [FeedItemModel MR_countOfEntitiesWithPredicate:predicate inContext:context];
         
         NSMutableArray<FeedItemUIEntity*> *entities = [NSMutableArray new];
         for (FeedItemModel *item in feedItems) {
@@ -189,7 +191,7 @@
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            completion(entities, totalItemCount,totalFeedCount);
+            completion(entities, totalItemCount);
         });
     });
     

@@ -31,7 +31,7 @@
     self.navigationItem.title = @"发现";
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     
-    [MainContext sharedContext].feedNavigationController = self.navigationController;
+    [MainContext sharedContext].discoverNavigationController = self.navigationController;
     
     [SVProgressHUD showWithStatus:@"加载中"];
     [[PageDataset dataset]prepareDiscover:^(NSArray<PageItemEntity *> *items, BOOL succeed) {

@@ -25,7 +25,6 @@ static const NSUInteger kPageCount = 20;
 
 @property (strong,nonatomic) FeedSourceUIEntity *oneFeed;
 
-@property (assign,nonatomic) NSUInteger totalFeedCount;
 @property (assign,nonatomic) NSUInteger totalItemCount;
 @property (strong,nonatomic) NSString *loadingPercent;
 @end
@@ -177,8 +176,7 @@ static const NSUInteger kPageCount = 20;
 }
 
 - (void)_loadInitialFeeds:(void(^)(void))completion{
-    [_feedManager fetchLocalFeeds:0 limit:kPageCount completion:^(NSArray<FeedItemUIEntity *> *feedItems, NSUInteger totalItemCount, NSUInteger totalFeedCount) {
-        self.totalFeedCount = totalFeedCount;
+    [_feedManager fetchLocalFeeds:0 limit:kPageCount completion:^(NSArray<FeedItemUIEntity *> *feedItems, NSUInteger totalItemCount) {
         self.totalItemCount = totalItemCount;
         
         if(feedItems){
@@ -197,8 +195,7 @@ static const NSUInteger kPageCount = 20;
 }
 
 - (void)_loadMoreFeeds{
-    [_feedManager fetchLocalFeeds:_dataset.count limit:kPageCount completion:^(NSArray<FeedItemUIEntity *> *feedItems, NSUInteger totalItemCount, NSUInteger totalFeedCount) {
-        self.totalFeedCount = totalFeedCount;
+    [_feedManager fetchLocalFeeds:_dataset.count limit:kPageCount completion:^(NSArray<FeedItemUIEntity *> *feedItems, NSUInteger totalItemCount) {
         self.totalItemCount = totalItemCount;
         
         if(feedItems){
