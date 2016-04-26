@@ -82,7 +82,11 @@ static const NSUInteger kPageCount = 20;
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
         make.top.equalTo(_topPanel.mas_bottom);
-        make.bottom.equalTo(self.view).offset(-60);
+        if(_mode == FeedPostsViewControllerModeOne){
+            make.bottom.equalTo(self.view);
+        }else{
+            make.bottom.equalTo(self.view).offset(-60);
+        }
     }];
     
     [self _setupTopPanel];
