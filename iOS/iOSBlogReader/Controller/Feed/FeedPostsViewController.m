@@ -14,6 +14,7 @@
 #import "FeedPostContentViewController.h"
 
 static NSString * kFeedCell = @"FeedCell";
+static const NSUInteger kPageCount = 20;
 
 @interface FeedPostsViewController ()<FeedManagerDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (strong,nonatomic) UITableView *tableView;
@@ -23,6 +24,10 @@ static NSString * kFeedCell = @"FeedCell";
 @property (strong,nonatomic) FeedManager *feedManager;
 
 @property (strong,nonatomic) FeedSourceUIEntity *oneFeed;
+
+@property (assign,nonatomic) NSUInteger totalFeedCount;
+@property (assign,nonatomic) NSUInteger totalItemCount;
+@property (strong,nonatomic) NSString *loadingPercent;
 @end
 
 @implementation FeedPostsViewController
@@ -80,20 +85,32 @@ static NSString * kFeedCell = @"FeedCell";
         make.bottom.equalTo(self.view).offset(-60);
     }];
     
+    [self _setupTopPanel];
+    
+    [self _loadInitialFeeds:^{
+        [self _enableHeader];
+    }];
+    
+    [_feedManager loadFeeds];
+}
+
+- (void)_enableHeader{
+    if(_tableView.mj_header)return;
+    
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(_pullDown)];
+}
+
+- (void)_enableFooter{
+    if(_tableView.mj_footer)return;
     
     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(_pullUp)];
     [footer setTitle:@"" forState:MJRefreshStateIdle];
     _tableView.mj_footer = footer;
-    
-    [self _setupTopPanel];
-    
-    [self _loadInitialFeeds];
 }
+
 
 - (void)_setupTopPanel{
     _topInfoLabel = [UILabel new];
-    _topInfoLabel.text = @"加载中...";
     _topInfoLabel.font = [UIFont systemFontOfSize:12];
     _topInfoLabel.textColor = [UIColor colorWithRed:0.298 green:0.298 blue:0.298 alpha:1.0];
     [_topPanel addSubview:_topInfoLabel];
@@ -104,9 +121,9 @@ static NSString * kFeedCell = @"FeedCell";
 }
 
 - (void)_pullDown{
-    [self _loadInitialFeeds];
-    
-    [_feedManager loadFeeds];
+    [self _loadInitialFeeds:^{
+        [_tableView.mj_header endRefreshing];
+    }];
 }
 - (void)_pullUp{
     [self _loadMoreFeeds];
@@ -142,63 +159,58 @@ static NSString * kFeedCell = @"FeedCell";
 }
 
 - (void)feedManagerLoadStart{
-    _topInfoLabel.text = @"加载中...";
+    _loadingPercent = @"";
 }
+
 - (void)feedManagerLoadProgress:(NSUInteger)loadCount totalCount:(NSUInteger)totalCount{
-    float progress = 0;
-    if(totalCount>0)progress=loadCount*1.0/totalCount;
-    
-    _topInfoLabel.text = [NSString stringWithFormat:@"正在更新 %@ / %@",@(loadCount),@(totalCount)];
-    
-    if(loadCount > 10 && _dataset.count == 0){
-        [self _loadMoreFeeds];
-    }
+    _loadingPercent = [NSString stringWithFormat:@"(%@/%@)",@(loadCount),@(totalCount)];
+    [self _refreshTopbarInfo];
 }
 
 - (void)feedManagerLoadFinish{
-    [self _loadMoreFeeds];
+    _loadingPercent = @"";
+    [self _refreshTopbarInfo];
 }
 
-- (void)_loadInitialFeeds{
-    [_feedManager fetchLocalFeeds:0 limit:20 completion:^(NSArray<FeedItemUIEntity *> *feedItems, NSUInteger totalItemCount, NSUInteger totalFeedCount) {
+- (void)_loadInitialFeeds:(void(^)(void))completion{
+    [_feedManager fetchLocalFeeds:0 limit:kPageCount completion:^(NSArray<FeedItemUIEntity *> *feedItems, NSUInteger totalItemCount, NSUInteger totalFeedCount) {
+        self.totalFeedCount = totalFeedCount;
+        self.totalItemCount = totalItemCount;
+        
         if(feedItems){
             _dataset = [feedItems mutableCopy];
             [_tableView reloadData];
-            
-            if(totalItemCount == 0){
-                if(_mode == FeedPostsViewControllerModeOne)
-                    [_feedManager loadFeeds];
-            }
         }
-        [self _showFeedsInfo:totalFeedCount totalItemCount:totalItemCount];
         
-        [_tableView.mj_header endRefreshing];
-        [_tableView.mj_footer endRefreshing];
+        if(_dataset.count > 0){
+            [self _enableFooter];
+        }
+        
+        [self _refreshTopbarInfo];
+        
+        !completion?:completion();
     }];
 }
 
 - (void)_loadMoreFeeds{
-    [_feedManager fetchLocalFeeds:_dataset.count limit:20 completion:^(NSArray<FeedItemUIEntity *> *feedItems, NSUInteger totalItemCount, NSUInteger totalFeedCount) {
+    [_feedManager fetchLocalFeeds:_dataset.count limit:kPageCount completion:^(NSArray<FeedItemUIEntity *> *feedItems, NSUInteger totalItemCount, NSUInteger totalFeedCount) {
+        self.totalFeedCount = totalFeedCount;
+        self.totalItemCount = totalItemCount;
+        
         if(feedItems){
             [_dataset addObjectsFromArray:feedItems];
             [_tableView reloadData];
         }
-        [self _showFeedsInfo:totalFeedCount totalItemCount:totalItemCount];
         
-        [_tableView.mj_header endRefreshing];
         [_tableView.mj_footer endRefreshing];
+        
+        [self _refreshTopbarInfo];
     }];
 }
 
-- (void)_showFeedsInfo:(NSUInteger)totalFeedCount totalItemCount:(NSUInteger)totalItemCount{
-    if(!totalFeedCount || !totalItemCount)return;
-    if(_mode == FeedPostsViewControllerModeOne){
-        _topInfoLabel.text = [NSString stringWithFormat:@"%@ 文章",@(totalItemCount)];
-    }else{
-        _topInfoLabel.text = [NSString stringWithFormat:@"%@ 订阅, %@ 文章",@(totalFeedCount),@(totalItemCount)];
-    }
+- (void)_refreshTopbarInfo{
+    _topInfoLabel.text = [NSString stringWithFormat:@"%@文章 %@",@(self.totalItemCount),_loadingPercent];
 }
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     FeedItemUIEntity *feedItem = [_dataset objectAtIndex:indexPath.row];

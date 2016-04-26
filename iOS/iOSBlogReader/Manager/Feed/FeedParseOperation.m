@@ -13,7 +13,10 @@
 @property (assign,nonatomic,getter=isExecuting) BOOL executing;
 
 @property (strong,nonatomic) MWFeedParser *parser;
+
 @property (strong,nonatomic) NSMutableArray<MWFeedItem*> *feedItemsForAppend;
+@property (strong,nonatomic) MWFeedInfo *feedInfo;
+
 @end
 
 @implementation FeedParseOperation
@@ -50,7 +53,6 @@
     
     self.executing = YES;
     
-    _feedItemsForAppend = [NSMutableArray new];
     
     _parser = [[MWFeedParser alloc]initWithFeedURL:[NSURL URLWithString:self.feedURLString]];
     _parser.delegate = self;
@@ -67,39 +69,26 @@
 }
 
 - (void)feedParserDidStart:(MWFeedParser *)parser{
-//    NSLog(@"parse start : %@", _feedURLString);
+//    NSLog(@"parse start");
+    _feedItemsForAppend = [NSMutableArray new];
 }
 - (void)feedParser:(MWFeedParser *)parser didParseFeedInfo:(MWFeedInfo *)info{
-    NSLog(@"feed info : %@, %@, %@", info.title, info.link, info.url);
-    
+//    NSLog(@"feed info = %@ , %@", info.title , info.url);
     _feedInfo = info;
 }
 - (void)feedParser:(MWFeedParser *)parser didParseFeedItem:(MWFeedItem *)item{
-//    if(!item.date)
-//    NSLog(@"feed item :\n"
-//          @"            %@\n"
-//          @"            %@\n"
-//          @"            %@\n"
-//          @"            %@\n",
-//          item.identifier,
-//          item.title,
-//          item.link,
-//          item.date
-//          );
-    
+//    NSLog(@"feed item = %@ , %@", item.identifier, item.title);
     [_feedItemsForAppend addObject:item];
 }
 - (void)feedParserDidFinish:(MWFeedParser *)parser{
-//    NSLog(@"feed finish : %@", _feedURLString);
+//    NSLog(@"parse finish : %@", @(_feedItemsForAppend.count));
+    if(_onParseFinished)_onParseFinished(_feedInfo,_feedItemsForAppend);
     self.finished = YES;
-    _feedItems = _feedItemsForAppend;
-    _feedItemsForAppend = nil;
 }
 - (void)feedParser:(MWFeedParser *)parser didFailWithError:(NSError *)error{
-    NSLog(@"feed error(%@,%@,%@) : %@",_feedInfo.title,_feedInfo.url,parser.url, error);
+//    NSLog(@"feed parse error : %@",error);
+    if(_onParseFinished)_onParseFinished(_feedInfo,_feedItemsForAppend);
     self.finished = YES;
-    _feedItems = _feedItemsForAppend;
-    _feedItemsForAppend = nil;
 }
 
 @end

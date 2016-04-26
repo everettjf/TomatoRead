@@ -15,7 +15,6 @@
 #import "FeedItemModel.h"
 #import "FeedSourceManager.h"
 
-#define kFeedQueue dispatch_get_global_queue(0, 0)
 
 @implementation FeedItemUIEntity
 @end
@@ -37,16 +36,30 @@
         _operationQueue = [[NSOperationQueue alloc]init];
         _operationQueue.maxConcurrentOperationCount = 1;
         _feedCounterLock = [NSRecursiveLock new];
-        _feedCounter = 0;
-        _feedTotalCount = 0;
     }
     return self;
 }
 
 - (void)_onStartLoadFeeds{
     _loadingFeeds = YES;
+    _feedCounter = 0;
+    _feedTotalCount = 0;
     
     if(_delegate)[_delegate feedManagerLoadStart];
+}
+
+- (void)_increaseFeedCounter{
+    [_feedCounterLock lock];
+    ++_feedCounter;
+    [_feedCounterLock unlock];
+}
+
+- (NSUInteger)_currentFeedCounter{
+    NSUInteger c;
+    [_feedCounterLock lock];
+    c = _feedCounter;
+    [_feedCounterLock unlock];
+    return c;
 }
 
 - (void)_onStopLoadFeeds{
@@ -83,21 +96,24 @@
 }
 
 - (void)_enumerateFeedsInCoreData:(NSArray<FeedModel*> *)feeds{
-    dispatch_async(kFeedQueue, ^{
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
         _feedTotalCount = feeds.count;
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if(_delegate)[_delegate feedManagerLoadProgress:0 totalCount:_feedTotalCount];
         });
         
+        NSOperation *endOperation = [[NSOperation alloc]init];
+        endOperation.completionBlock = ^{
+            [self _onStopLoadFeeds];
+        };
         
         for (FeedModel *feed in feeds) {
             FeedParseOperation *operation = [[FeedParseOperation alloc]init];
             operation.feedURLString = feed.feed_url;
             
-            __weak FeedParseOperation *_operation = operation;
-            operation.completionBlock = ^{
-                NSArray<MWFeedItem*>* feedItems = _operation.feedItems;
+            operation.onParseFinished = ^(MWFeedInfo*feedInfo,NSArray<MWFeedItem*> *feedItems){
+                NSLog(@"%@ - %@ - %@", @(feedItems.count),feedInfo.title, feedInfo.url);
                 
                 for (MWFeedItem* feedItem in feedItems) {
                     [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext * _Nonnull localContext) {
@@ -119,23 +135,21 @@
                     }];
                 }
                 
-                [_feedCounterLock lock];
-                ++_feedCounter;
-                [_feedCounterLock unlock];
+                [self _increaseFeedCounter];
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if(_delegate){
-                        [_delegate feedManagerLoadProgress:_feedCounter totalCount:_feedTotalCount];
-                        
-                        if(_feedCounter == _feedTotalCount) {
-                            [self _onStopLoadFeeds];
-                        }
+                        NSUInteger counter = [self feedCounter];
+                        [_delegate feedManagerLoadProgress:counter totalCount:_feedTotalCount];
                     }
                 });
             };
             
+            [endOperation addDependency:endOperation];
             [_operationQueue addOperation:operation];
         }
+        
+        [_operationQueue addOperation:endOperation];
     });
 }
 

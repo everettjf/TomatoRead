@@ -11,7 +11,5 @@
 
 @interface FeedParseOperation : NSOperation
 @property (strong,nonatomic) NSString *feedURLString;
-
-@property (strong,nonatomic) MWFeedInfo *feedInfo;
-@property (strong,nonatomic,readonly) NSArray<MWFeedItem*> *feedItems;
+@property (copy,nonatomic) void(^onParseFinished)(MWFeedInfo*feedInfo,NSArray<MWFeedItem*> *feedItems);
 @end
