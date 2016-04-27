@@ -51,7 +51,7 @@ static const NSUInteger kPageCount = 20;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.title = @"博客精选 For iOS";
+    self.navigationItem.title = @"博客精选 iOS";
     
     _feedManager = [FeedManager new];
     _feedManager.delegate = self;
