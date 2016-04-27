@@ -163,7 +163,7 @@ static NSString * const kLinkCell = @"FeedSourceCell";
     
     FeedPostsViewController *postsViewController = [[FeedPostsViewController alloc]initWithOne:entity];
     postsViewController.title = entity.name;
-    [[MainContext sharedContext].feedNavigationController pushViewController:postsViewController animated:YES];
+    [self.navigationController pushViewController:postsViewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
