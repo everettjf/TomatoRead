@@ -36,7 +36,6 @@ static NSString * const kLinkCell = @"FeedSourceCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.navigationItem.title = @"订阅";
     
     _tableView = [UITableView new];
@@ -45,10 +44,7 @@ static NSString * const kLinkCell = @"FeedSourceCell";
     [_tableView registerClass:[FeedSourceTableViewCell class] forCellReuseIdentifier:kLinkCell];
     [self.view addSubview:_tableView];
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make){
-        make.left.equalTo(self.view);
-        make.right.equalTo(self.view);
-        make.top.equalTo(self.mas_topLayoutGuide);
-        make.bottom.equalTo(self.view);
+        make.edges.equalTo(self.view);
     }];
     
     

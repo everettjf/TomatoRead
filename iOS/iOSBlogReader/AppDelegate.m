@@ -32,18 +32,26 @@
     FeedPostsViewController *feedPostsViewController = [[FeedPostsViewController alloc]init];
     EENavigationController *feedPostsNavigationController = [[EENavigationController alloc]initWithRootViewController:feedPostsViewController];
     feedPostsNavigationController.tabBarItem.title = @"精选";
+    feedPostsNavigationController.tabBarItem.image = [UIImage imageNamed:@"tab_article"];
+    feedPostsNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"tab_article_selected"];
     
     FeedSourceViewController *feedSourceViewController = [[FeedSourceViewController alloc]init];
     EENavigationController *feedSourceNavigationController = [[EENavigationController alloc]initWithRootViewController:feedSourceViewController];
     feedSourceNavigationController.tabBarItem.title = @"订阅";
+    feedSourceNavigationController.tabBarItem.image = [UIImage imageNamed:@"tab_rss"];
+    feedSourceNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"tab_rss_selected"];
     
     DiscoverViewController *discoverViewController = [[DiscoverViewController alloc]init];
     EENavigationController *discoverNavigationController = [[EENavigationController alloc]initWithRootViewController:discoverViewController];
     discoverNavigationController.tabBarItem.title = @"发现";
+    discoverNavigationController.tabBarItem.image = [UIImage imageNamed:@"tab_discover"];
+    discoverNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"tab_discover_selected"];
     
     FavViewController *favViewController = [[FavViewController alloc]init];
     EENavigationController *favNavigationController = [[EENavigationController alloc]initWithRootViewController:favViewController];
     favNavigationController.tabBarItem.title = @"收藏";
+    favNavigationController.tabBarItem.image = [UIImage imageNamed:@"tab_fav"];
+    favNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"tab_fav_selected"];
     
     EETabBarController *tabBarController = [[EETabBarController alloc]init];
     tabBarController.viewControllers = @[feedPostsNavigationController,
