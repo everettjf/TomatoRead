@@ -39,6 +39,12 @@
             </BuildableReference>
             <SkippedTests>
                <Test
+                  Identifier = "FeedParseTest">
+               </Test>
+               <Test
+                  Identifier = "FeedRetriveTests">
+               </Test>
+               <Test
                   Identifier = "RestApiTests">
                </Test>
             </SkippedTests>
