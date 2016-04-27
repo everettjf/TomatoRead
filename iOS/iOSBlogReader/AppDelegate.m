@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "FeedViewController.h"
+#import "FeedPostsViewController.h"
+#import "FeedSourceViewController.h"
 #import "FavViewController.h"
 #import "DiscoverViewController.h"
 #import "EENavigationController.h"
@@ -28,9 +29,13 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    FeedViewController *feedViewController = [[FeedViewController alloc]init];
-    EENavigationController *feedNavigationController = [[EENavigationController alloc]initWithRootViewController:feedViewController];
-    feedNavigationController.tabBarItem.title = @"订阅";
+    FeedPostsViewController *feedPostsViewController = [[FeedPostsViewController alloc]init];
+    EENavigationController *feedPostsNavigationController = [[EENavigationController alloc]initWithRootViewController:feedPostsViewController];
+    feedPostsNavigationController.tabBarItem.title = @"精选";
+    
+    FeedSourceViewController *feedSourceViewController = [[FeedSourceViewController alloc]init];
+    EENavigationController *feedSourceNavigationController = [[EENavigationController alloc]initWithRootViewController:feedSourceViewController];
+    feedSourceNavigationController.tabBarItem.title = @"订阅";
     
     DiscoverViewController *discoverViewController = [[DiscoverViewController alloc]init];
     EENavigationController *discoverNavigationController = [[EENavigationController alloc]initWithRootViewController:discoverViewController];
@@ -41,7 +46,10 @@
     favNavigationController.tabBarItem.title = @"收藏";
     
     EETabBarController *tabBarController = [[EETabBarController alloc]init];
-    tabBarController.viewControllers = @[feedNavigationController,discoverNavigationController,favNavigationController];
+    tabBarController.viewControllers = @[feedPostsNavigationController,
+                                         feedSourceNavigationController,
+                                         discoverNavigationController,
+                                         favNavigationController];
     
     self.window.rootViewController = tabBarController;
     [self.window makeKeyAndVisible];

@@ -51,6 +51,7 @@ static const NSUInteger kPageCount = 20;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationItem.title = @"博客精选 For iOS";
     
     _feedManager = [FeedManager new];
     _feedManager.delegate = self;
@@ -81,11 +82,7 @@ static const NSUInteger kPageCount = 20;
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
         make.top.equalTo(_topPanel.mas_bottom);
-        if(_mode == FeedPostsViewControllerModeOne){
-            make.bottom.equalTo(self.view);
-        }else{
-            make.bottom.equalTo(self.view).offset(-60);
-        }
+        make.bottom.equalTo(self.view);
     }];
     
     [self _setupTopPanel];

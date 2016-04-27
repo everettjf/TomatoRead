@@ -32,10 +32,7 @@
 		D13848EA1CB948BB00C2FEF6 /* DomainModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D13848DF1CB948BB00C2FEF6 /* DomainModel+CoreDataProperties.m */; };
 		D13848EB1CB948BB00C2FEF6 /* DomainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D13848E11CB948BB00C2FEF6 /* DomainModel.m */; };
 		D14431961CCBC8E800FDE636 /* ConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431821CCBC8E800FDE636 /* ConfigViewController.m */; };
-		D14431991CCBC8E800FDE636 /* FeedPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D144318A1CCBC8E800FDE636 /* FeedPostsViewController.m */; };
-		D144319A1CCBC8E800FDE636 /* FeedSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D144318C1CCBC8E800FDE636 /* FeedSourceViewController.m */; };
 		D144319B1CCBC8E800FDE636 /* LinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D144318F1CCBC8E800FDE636 /* LinkViewController.m */; };
-		D144319C1CCBC8E800FDE636 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431921CCBC8E800FDE636 /* FeedViewController.m */; };
 		D144319D1CCBC8E800FDE636 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431951CCBC8E800FDE636 /* WebViewController.m */; };
 		D14431A31CCBC92600FDE636 /* FeedPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431A01CCBC92600FDE636 /* FeedPostTableViewCell.m */; };
 		D14431A41CCBC92600FDE636 /* FeedSourceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431A21CCBC92600FDE636 /* FeedSourceTableViewCell.m */; };
@@ -45,8 +42,10 @@
 		D14431AE1CCD0BD800FDE636 /* post.html in Resources */ = {isa = PBXBuildFile; fileRef = D14431AD1CCD0BD800FDE636 /* post.html */; };
 		D14431B41CCFD89200FDE636 /* DiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431B31CCFD89200FDE636 /* DiscoverViewController.m */; };
 		D14431B71CCFD8BC00FDE636 /* FavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431B61CCFD8BC00FDE636 /* FavViewController.m */; };
-		D14431C01CCFD9BB00FDE636 /* EENavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431BF1CCFD9BB00FDE636 /* EENavigationController.m */; };
-		D14431C31CCFD9D400FDE636 /* EETabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431C21CCFD9D400FDE636 /* EETabBarController.m */; };
+		D14431CA1CD0DA7E00FDE636 /* EENavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431C71CD0DA7E00FDE636 /* EENavigationController.m */; };
+		D14431CB1CD0DA7E00FDE636 /* EETabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431C91CD0DA7E00FDE636 /* EETabBarController.m */; };
+		D14431D01CD0DA8A00FDE636 /* FeedPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431CD1CD0DA8A00FDE636 /* FeedPostsViewController.m */; };
+		D14431D11CD0DA8A00FDE636 /* FeedSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431CF1CD0DA8A00FDE636 /* FeedSourceViewController.m */; };
 		D176AC641C7E221A001F25D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D176AC631C7E221A001F25D4 /* main.m */; };
 		D176AC671C7E221A001F25D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D176AC661C7E221A001F25D4 /* AppDelegate.m */; };
 		D176AC721C7E221A001F25D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D176AC711C7E221A001F25D4 /* Assets.xcassets */; };
@@ -119,14 +118,8 @@
 		D13848E11CB948BB00C2FEF6 /* DomainModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DomainModel.m; sourceTree = "<group>"; };
 		D14431811CCBC8E800FDE636 /* ConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigViewController.h; sourceTree = "<group>"; };
 		D14431821CCBC8E800FDE636 /* ConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigViewController.m; sourceTree = "<group>"; };
-		D14431891CCBC8E800FDE636 /* FeedPostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedPostsViewController.h; sourceTree = "<group>"; };
-		D144318A1CCBC8E800FDE636 /* FeedPostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedPostsViewController.m; sourceTree = "<group>"; };
-		D144318B1CCBC8E800FDE636 /* FeedSourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedSourceViewController.h; sourceTree = "<group>"; };
-		D144318C1CCBC8E800FDE636 /* FeedSourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedSourceViewController.m; sourceTree = "<group>"; };
 		D144318E1CCBC8E800FDE636 /* LinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkViewController.h; sourceTree = "<group>"; };
 		D144318F1CCBC8E800FDE636 /* LinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkViewController.m; sourceTree = "<group>"; };
-		D14431911CCBC8E800FDE636 /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
-		D14431921CCBC8E800FDE636 /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
 		D14431941CCBC8E800FDE636 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		D14431951CCBC8E800FDE636 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		D144319F1CCBC92600FDE636 /* FeedPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedPostTableViewCell.h; sourceTree = "<group>"; };
@@ -143,10 +136,14 @@
 		D14431B31CCFD89200FDE636 /* DiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverViewController.m; sourceTree = "<group>"; };
 		D14431B51CCFD8BC00FDE636 /* FavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavViewController.h; sourceTree = "<group>"; };
 		D14431B61CCFD8BC00FDE636 /* FavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavViewController.m; sourceTree = "<group>"; };
-		D14431BE1CCFD9BB00FDE636 /* EENavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EENavigationController.h; sourceTree = "<group>"; };
-		D14431BF1CCFD9BB00FDE636 /* EENavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EENavigationController.m; sourceTree = "<group>"; };
-		D14431C11CCFD9D400FDE636 /* EETabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EETabBarController.h; sourceTree = "<group>"; };
-		D14431C21CCFD9D400FDE636 /* EETabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EETabBarController.m; sourceTree = "<group>"; };
+		D14431C61CD0DA7E00FDE636 /* EENavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EENavigationController.h; sourceTree = "<group>"; };
+		D14431C71CD0DA7E00FDE636 /* EENavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EENavigationController.m; sourceTree = "<group>"; };
+		D14431C81CD0DA7E00FDE636 /* EETabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EETabBarController.h; sourceTree = "<group>"; };
+		D14431C91CD0DA7E00FDE636 /* EETabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EETabBarController.m; sourceTree = "<group>"; };
+		D14431CC1CD0DA8A00FDE636 /* FeedPostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedPostsViewController.h; sourceTree = "<group>"; };
+		D14431CD1CD0DA8A00FDE636 /* FeedPostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedPostsViewController.m; sourceTree = "<group>"; };
+		D14431CE1CD0DA8A00FDE636 /* FeedSourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedSourceViewController.h; sourceTree = "<group>"; };
+		D14431CF1CD0DA8A00FDE636 /* FeedSourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedSourceViewController.m; sourceTree = "<group>"; };
 		D176AC5F1C7E221A001F25D4 /* iOS博客精选.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS博客精选.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D176AC631C7E221A001F25D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D176AC651C7E221A001F25D4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -301,10 +298,6 @@
 		D14431861CCBC8E800FDE636 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				D14431891CCBC8E800FDE636 /* FeedPostsViewController.h */,
-				D144318A1CCBC8E800FDE636 /* FeedPostsViewController.m */,
-				D144318B1CCBC8E800FDE636 /* FeedSourceViewController.h */,
-				D144318C1CCBC8E800FDE636 /* FeedSourceViewController.m */,
 				D14431A81CCD054400FDE636 /* FeedPostContentViewController.h */,
 				D14431A91CCD054400FDE636 /* FeedPostContentViewController.m */,
 			);
@@ -325,16 +318,14 @@
 		D14431901CCBC8E800FDE636 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				D14431911CCBC8E800FDE636 /* FeedViewController.h */,
-				D14431921CCBC8E800FDE636 /* FeedViewController.m */,
+				D14431CC1CD0DA8A00FDE636 /* FeedPostsViewController.h */,
+				D14431CD1CD0DA8A00FDE636 /* FeedPostsViewController.m */,
+				D14431CE1CD0DA8A00FDE636 /* FeedSourceViewController.h */,
+				D14431CF1CD0DA8A00FDE636 /* FeedSourceViewController.m */,
 				D14431B21CCFD89200FDE636 /* DiscoverViewController.h */,
 				D14431B31CCFD89200FDE636 /* DiscoverViewController.m */,
 				D14431B51CCFD8BC00FDE636 /* FavViewController.h */,
 				D14431B61CCFD8BC00FDE636 /* FavViewController.m */,
-				D14431BE1CCFD9BB00FDE636 /* EENavigationController.h */,
-				D14431BF1CCFD9BB00FDE636 /* EENavigationController.m */,
-				D14431C11CCFD9D400FDE636 /* EETabBarController.h */,
-				D14431C21CCFD9D400FDE636 /* EETabBarController.m */,
 			);
 			name = Main;
 			path = Controller/Main;
@@ -360,6 +351,18 @@
 			);
 			name = Feed;
 			path = View/Feed;
+			sourceTree = "<group>";
+		};
+		D14431C51CD0DA7E00FDE636 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D14431C61CD0DA7E00FDE636 /* EENavigationController.h */,
+				D14431C71CD0DA7E00FDE636 /* EENavigationController.m */,
+				D14431C81CD0DA7E00FDE636 /* EETabBarController.h */,
+				D14431C91CD0DA7E00FDE636 /* EETabBarController.m */,
+			);
+			name = Common;
+			path = Controller/Common;
 			sourceTree = "<group>";
 		};
 		D176AC561C7E221A001F25D4 = {
@@ -433,6 +436,7 @@
 		D1F574BB1CB540740044B494 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D14431C51CD0DA7E00FDE636 /* Common */,
 				D14431801CCBC8E800FDE636 /* Config */,
 				D14431861CCBC8E800FDE636 /* Feed */,
 				D144318D1CCBC8E800FDE636 /* Link */,
@@ -655,12 +659,10 @@
 				D11A30FE1CBABEB1001B1D57 /* FeedItemModel+CoreDataProperties.m in Sources */,
 				D11A31021CBABF7C001B1D57 /* DataManager.m in Sources */,
 				D11A31311CC54E4B001B1D57 /* MWFeedParser.m in Sources */,
-				D144319C1CCBC8E800FDE636 /* FeedViewController.m in Sources */,
 				D11A30F01CBAA6C1001B1D57 /* FeedParseOperation.m in Sources */,
 				D132936E1CB7F1770091DA58 /* RestLinkListModel.m in Sources */,
 				D13293721CB90B7E0091DA58 /* BlogModel.xcdatamodeld in Sources */,
 				D13848EA1CB948BB00C2FEF6 /* DomainModel+CoreDataProperties.m in Sources */,
-				D14431991CCBC8E800FDE636 /* FeedPostsViewController.m in Sources */,
 				D11A31351CC54E4B001B1D57 /* NSString+XMLEntities.m in Sources */,
 				D1F574C01CB541580044B494 /* AppUtil.m in Sources */,
 				D11A30EC1CBAA5C7001B1D57 /* FeedManager.m in Sources */,
@@ -670,18 +672,20 @@
 				D1F574F11CB578890044B494 /* RestApi.m in Sources */,
 				D13848EB1CB948BB00C2FEF6 /* DomainModel.m in Sources */,
 				D11A31331CC54E4B001B1D57 /* NSDate+InternetDateTime.m in Sources */,
+				D14431D11CD0DA8A00FDE636 /* FeedSourceViewController.m in Sources */,
+				D14431CA1CD0DA7E00FDE636 /* EENavigationController.m in Sources */,
 				D176AC671C7E221A001F25D4 /* AppDelegate.m in Sources */,
 				D13293681CB7E2A60091DA58 /* RestDomainListModel.m in Sources */,
 				D11A312F1CC54E4B001B1D57 /* MWFeedInfo.m in Sources */,
 				D13848E41CB948BB00C2FEF6 /* FeedModel+CoreDataProperties.m in Sources */,
-				D14431C31CCFD9D400FDE636 /* EETabBarController.m in Sources */,
 				D176AC641C7E221A001F25D4 /* main.m in Sources */,
+				D14431CB1CD0DA7E00FDE636 /* EETabBarController.m in Sources */,
+				D14431D01CD0DA8A00FDE636 /* FeedPostsViewController.m in Sources */,
 				D14431A41CCBC92600FDE636 /* FeedSourceTableViewCell.m in Sources */,
 				D14431B41CCFD89200FDE636 /* DiscoverViewController.m in Sources */,
 				D144319B1CCBC8E800FDE636 /* LinkViewController.m in Sources */,
 				D1F574ED1CB5728A0044B494 /* LinkTableViewCell.m in Sources */,
 				D11A30FF1CBABEB1001B1D57 /* FeedItemModel.m in Sources */,
-				D14431C01CCFD9BB00FDE636 /* EENavigationController.m in Sources */,
 				D11A31301CC54E4B001B1D57 /* MWFeedItem.m in Sources */,
 				D13848E61CB948BB00C2FEF6 /* AspectModel+CoreDataProperties.m in Sources */,
 				D13848E51CB948BB00C2FEF6 /* FeedModel.m in Sources */,
@@ -690,7 +694,6 @@
 				D14431B71CCFD8BC00FDE636 /* FavViewController.m in Sources */,
 				D144319D1CCBC8E800FDE636 /* WebViewController.m in Sources */,
 				D11A30E71CB978E3001B1D57 /* MainContext.m in Sources */,
-				D144319A1CCBC8E800FDE636 /* FeedSourceViewController.m in Sources */,
 				D14431AA1CCD054400FDE636 /* FeedPostContentViewController.m in Sources */,
 				D14431A31CCBC92600FDE636 /* FeedPostTableViewCell.m in Sources */,
 			);
