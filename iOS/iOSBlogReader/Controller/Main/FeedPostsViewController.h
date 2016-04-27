@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "FeedSourceManager.h"
+#import "EEViewController.h"
 
 typedef NS_OPTIONS(NSUInteger, FeedPostsViewControllerMode) {
     FeedPostsViewControllerModeAll = 0,
     FeedPostsViewControllerModeOne = 1,
 };
 
-@interface FeedPostsViewController : UIViewController
+@interface FeedPostsViewController : EEViewController
 
 @property (assign,nonatomic,readonly) FeedPostsViewControllerMode mode;
 

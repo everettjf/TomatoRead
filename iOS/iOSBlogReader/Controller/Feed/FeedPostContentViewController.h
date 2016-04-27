@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "FeedManager.h"
+#import "EEViewController.h"
 
-@interface FeedPostContentViewController : UIViewController
+@interface FeedPostContentViewController : EEViewController
 
 - (instancetype)initWithFeedPost:(FeedItemUIEntity*)post;
 

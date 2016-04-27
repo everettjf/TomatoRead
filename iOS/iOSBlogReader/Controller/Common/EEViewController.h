@@ -1,5 +1,5 @@
 //
-//  FavViewController.h
+//  EEViewController.h
 //  iOSBlogReader
 //
 //  Created by everettjf on 16/4/27.
@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EEViewController.h"
 
-@interface FavViewController : EEViewController
+@interface EEViewController : UIViewController
 
 @end

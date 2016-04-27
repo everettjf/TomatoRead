@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "PageDataset.h"
+#import "EEViewController.h"
 
-@interface LinkViewController : UIViewController
+@interface LinkViewController : EEViewController
 @property (strong,nonatomic) PageItemEntity *item;
 
 @end

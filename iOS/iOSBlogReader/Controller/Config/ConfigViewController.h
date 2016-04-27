@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EEViewController.h"
 
-@interface ConfigViewController : UIViewController
+@interface ConfigViewController : EEViewController
 
 @end

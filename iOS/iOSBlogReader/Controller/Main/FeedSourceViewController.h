@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EEViewController.h"
 
-@interface FeedSourceViewController : UIViewController
+@interface FeedSourceViewController : EEViewController
 
 @end

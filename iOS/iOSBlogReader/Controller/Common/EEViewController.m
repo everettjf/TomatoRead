@@ -1,40 +1,29 @@
 //
-//  FavViewController.m
+//  EEViewController.m
 //  iOSBlogReader
 //
 //  Created by everettjf on 16/4/27.
 //  Copyright © 2016年 everettjf. All rights reserved.
 //
 
-#import "FavViewController.h"
-#import "ConfigViewController.h"
+#import "EEViewController.h"
 
-@interface FavViewController ()
+@interface EEViewController ()
 
 @end
 
-@implementation FavViewController
+@implementation EEViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    self.navigationItem.title = @"收藏";
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(_settingTapped:)];
-    
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (void)_settingTapped:(id)sender{
-    ConfigViewController *vc = [[ConfigViewController alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
 
 /*
 #pragma mark - Navigation

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EEViewController.h"
 
-@interface DiscoverViewController : UIViewController
+@interface DiscoverViewController : EEViewController
 
 @end
