@@ -7,7 +7,7 @@
 //
 
 #import "LinkTableViewCell.h"
-#import <UIImageView+WebCache.h>
+#import <YYWebImage.h>
 
 @interface LinkTableViewCell ()
 {
@@ -65,7 +65,7 @@
 }
 
 - (void)setFavicon:(NSString *)favicon{
-    [_faviconImageView sd_setImageWithURL:[NSURL URLWithString:favicon] placeholderImage:[UIImage imageNamed:@"safari"]];
+    [_faviconImageView yy_setImageWithURL:[NSURL URLWithString:favicon] placeholder:[UIImage imageNamed:@"safari"]];
 }
 
 - (void)setTitle:(NSString *)title{

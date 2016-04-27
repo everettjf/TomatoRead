@@ -33,12 +33,16 @@ PODS:
   - Masonry (0.6.4)
   - MJRefresh (3.1.0)
   - pop (1.0.9)
-  - SDWebImage (3.7.5):
-    - SDWebImage/Core (= 3.7.5)
-  - SDWebImage/Core (3.7.5)
   - SVProgressHUD (2.0.3)
   - TUSafariActivity (1.0.4)
+  - YYCache (1.0.3)
+  - YYImage (1.0.1):
+    - YYImage/Core (= 1.0.1)
+  - YYImage/Core (1.0.1)
   - YYModel (1.0.2)
+  - YYWebImage (1.0.3):
+    - YYCache
+    - YYImage
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
@@ -49,9 +53,9 @@ DEPENDENCIES:
   - Masonry (~> 0.6)
   - MJRefresh (~> 3.1)
   - pop (~> 1.0)
-  - SDWebImage (~> 3.7)
   - SVProgressHUD (~> 2.0)
   - YYModel (~> 1.0)
+  - YYWebImage (~> 1.0)
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
@@ -63,9 +67,11 @@ SPEC CHECKSUMS:
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
-  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   TUSafariActivity: afc55a00965377939107ce4fdc7f951f62454546
+  YYCache: 282f35b5b0990833d0b7a06d864a87141a021da2
+  YYImage: b41b45bc5f32bfcdf67bdfb9c09da9e9832357c0
   YYModel: 7a467eff45ae3641c33efb136c262d33b6f48c1a
+  YYWebImage: 8da75a611fd0d2e0f58a273f9ca0bc731614cb0d
 
 COCOAPODS: 0.39.0

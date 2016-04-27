@@ -25,10 +25,10 @@ pod 'YYModel', '~> 1.0'
 pod 'CocoaLumberjack', '~> 2.2'
 #https://github.com/CoderMJLee/MJRefresh
 pod 'MJRefresh', '~> 3.1'
-#https://github.com/rs/SDWebImage
-pod 'SDWebImage', '~> 3.7'
 #https://github.com/dfmuir/KINWebBrowser
 pod 'KINWebBrowser', '~> 1.3'
+#https://github.com/ibireme/YYWebImage
+pod 'YYWebImage', '~> 1.0'
 
 end
 

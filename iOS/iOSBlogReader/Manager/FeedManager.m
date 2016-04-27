@@ -96,14 +96,11 @@
 }
 
 - (NSString*)_computeFirstImage:(MWFeedInfo*)feedInfo feedItem:(MWFeedItem*)feedItem{
-    NSLog(@"feed info : link = %@ , url = %@", feedInfo.link , feedInfo.url);
     NSString *baseUri = feedInfo.link;
     if(!baseUri)baseUri = [feedInfo.url URLByDeletingLastPathComponent].absoluteString;
     
     NSString *htmlContent = feedItem.content;
     if(!htmlContent) htmlContent = feedItem.summary;
-    
-    NSLog(@"base uri = %@", baseUri);
     
     return [[FeedImageParser parser]parseFirstImage:htmlContent baseUri:baseUri];
 }
@@ -126,11 +123,9 @@
             operation.feedURLString = feed.feed_url;
             
             operation.onParseFinished = ^(MWFeedInfo*feedInfo,NSArray<MWFeedItem*> *feedItems){
-//                NSLog(@"%@ - %@ - %@", @(feedItems.count),feedInfo.title, feedInfo.url);
                 
                 for (MWFeedItem* feedItem in feedItems) {
                     NSString *firstImage = [self _computeFirstImage:feedInfo feedItem:feedItem];
-                    NSLog(@"image = %@",firstImage);
                     
                     [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext * _Nonnull localContext) {
                         FeedItemModel *itemModel = [FeedItemModel MR_findFirstOrCreateByAttribute:@"identifier" withValue:feedItem.identifier inContext:localContext];
