@@ -43,10 +43,24 @@
     NSUInteger count = [result numberOfRanges];
     if(count < 2)return @"";
     
-    NSString *val = [htmlContent substringWithRange:[result rangeAtIndex:1]];
-    if(!val) return @"";
+    NSString *src = [htmlContent substringWithRange:[result rangeAtIndex:1]];
+    if(!src) return @"";
     
-    return val;
+    NSRange httpRange = [src rangeOfString:@"http://"];
+    NSRange httpsRange = [src rangeOfString:@"https://"];
+    if(httpRange.location == NSNotFound && httpsRange.location == NSNotFound){
+        // add prefix
+        if(baseUri.length > 0 && [baseUri characterAtIndex:baseUri.length - 1] == '/'){
+            baseUri = [baseUri substringToIndex:baseUri.length - 2];
+        }
+        if(src.length > 0 && [src characterAtIndex:0] == '/'){
+            src = [src substringWithRange:NSMakeRange(1, src.length - 1)];
+        }
+        
+        src = [NSString stringWithFormat:@"%@/%@",baseUri,src];
+    }
+    
+    return src;
 }
 
 @end
