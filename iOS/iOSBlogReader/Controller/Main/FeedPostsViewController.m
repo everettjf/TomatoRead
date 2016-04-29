@@ -74,6 +74,9 @@ static const NSUInteger kPageCount = 20;
     _tableView.rowHeight = 90;
     [_tableView registerClass:[FeedPostOneImageTableViewCell class] forCellReuseIdentifier:kFeedOneImageCell];
     [_tableView registerClass:[FeedPostTableViewCell class] forCellReuseIdentifier:kFeedCell];
+    _tableView.tableFooterView = [UIView new];
+    _tableView.separatorInset = UIEdgeInsetsZero;
+    _tableView.layoutMargins = UIEdgeInsetsZero;
     [self.view addSubview:_tableView];
     
     [_topPanel mas_makeConstraints:^(MASConstraintMaker *make){
@@ -227,14 +230,9 @@ static const NSUInteger kPageCount = 20;
     [self.navigationController pushViewController:contentViewController animated:YES];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    cell.separatorInset = UIEdgeInsetsZero;
+    cell.layoutMargins = UIEdgeInsetsZero;
 }
-*/
 
 @end
