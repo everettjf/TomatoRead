@@ -63,16 +63,23 @@
     _segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;
     _segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
     _segmentedControl.verticalDividerEnabled = NO;
-    _segmentedControl.selectionIndicatorHeight = 2;
-    _segmentedControl.selectionIndicatorColor = UIColorFromRGBA(0x09bb07,1.0);
-    _segmentedControl.verticalDividerColor = UIColorFromRGBA(0xc7c7c7, 1.0);
+    _segmentedControl.selectionIndicatorHeight = 1.5;
+    _segmentedControl.selectionIndicatorColor = UIColorFromRGBA(0x007fff,1.0);
     [_segmentedControl setTitleFormatter:^NSAttributedString *(HMSegmentedControl *segmentedControl, NSString *title, NSUInteger index, BOOL selected) {
-        NSDictionary *attributes = @{
-                                     NSForegroundColorAttributeName : UIColorFromRGBA(0x555555, 1.0),
-                                     NSFontAttributeName : [UIFont systemFontOfSize:15]
-                                     };
-        NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:title attributes:attributes];
-        return attributedString;
+        if(selected){
+            return [[NSAttributedString alloc] initWithString:title
+                                                   attributes: @{
+                                         NSForegroundColorAttributeName : UIColorFromRGBA(0x007fff, 1.0),
+                                         NSFontAttributeName : [UIFont systemFontOfSize:16]
+                                     }
+                    ];
+        }
+        return [[NSAttributedString alloc] initWithString:title
+                                               attributes: @{
+                                     NSForegroundColorAttributeName : UIColorFromRGBA(0xa8b2bd, 1.0),
+                                     NSFontAttributeName : [UIFont systemFontOfSize:16]
+                                 }
+                ];
     }];
     [_segmentedControl addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:_segmentedControl];
