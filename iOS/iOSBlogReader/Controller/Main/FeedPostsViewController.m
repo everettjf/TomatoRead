@@ -8,12 +8,15 @@
 
 #import "FeedPostsViewController.h"
 #import "FeedPostTableViewCell.h"
+#import "FeedPostOneImageTableViewCell.h"
 #import "FeedManager.h"
 #import <MJRefresh.h>
 #import "MainContext.h"
 #import "FeedPostContentViewController.h"
 
+static NSString * kFeedOneImageCell = @"FeedOneImageCell";
 static NSString * kFeedCell = @"FeedCell";
+
 static const NSUInteger kPageCount = 20;
 
 @interface FeedPostsViewController ()<FeedManagerDelegate,UITableViewDelegate,UITableViewDataSource>
@@ -69,6 +72,7 @@ static const NSUInteger kPageCount = 20;
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.rowHeight = 90;
+    [_tableView registerClass:[FeedPostOneImageTableViewCell class] forCellReuseIdentifier:kFeedOneImageCell];
     [_tableView registerClass:[FeedPostTableViewCell class] forCellReuseIdentifier:kFeedCell];
     [self.view addSubview:_tableView];
     
@@ -140,13 +144,20 @@ static const NSUInteger kPageCount = 20;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    FeedPostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kFeedCell forIndexPath:indexPath];
     FeedItemUIEntity *feedItem = [_dataset objectAtIndex:indexPath.row];
+    if(feedItem.image && ![feedItem.image isEqualToString:@""]){
+        FeedPostOneImageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kFeedOneImageCell forIndexPath:indexPath];
+        cell.title = feedItem.title;
+        cell.date = feedItem.date;
+        cell.author = feedItem.author;
+        cell.imageURL = feedItem.image;
+        return cell;
+    }
     
+    FeedPostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kFeedCell forIndexPath:indexPath];
     cell.title = feedItem.title;
     cell.date = feedItem.date;
     cell.author = feedItem.author;
-    cell.imageURL = feedItem.image;
     
     return cell;
 }
@@ -210,6 +221,7 @@ static const NSUInteger kPageCount = 20;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     FeedItemUIEntity *feedItem = [_dataset objectAtIndex:indexPath.row];
+    NSLog(@"image = %@", feedItem.image);
     
     FeedPostContentViewController *contentViewController = [[FeedPostContentViewController alloc]initWithFeedPost:feedItem];
     [self.navigationController pushViewController:contentViewController animated:YES];

@@ -34,7 +34,7 @@
     if (self) {
         NSLog(@"data path = %@", [self _dataPath]);
 #ifdef DEBUG
-//        [[NSFileManager defaultManager]removeItemAtURL:[self _dataPath] error:nil];
+        [[NSFileManager defaultManager]removeItemAtURL:[self _dataPath] error:nil];
 #endif
         
         [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreAtURL:[self _dataPath]];
