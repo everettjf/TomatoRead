@@ -14,6 +14,7 @@
 #import "FeedModel.h"
 #import "FeedManager.h"
 #import "FeedPostsViewController.h"
+#import "AppUtil.h"
 
 static NSString * const kLinkCell = @"FeedSourceCell";
 
@@ -41,6 +42,8 @@ static NSString * const kLinkCell = @"FeedSourceCell";
     _tableView = [UITableView new];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.rowHeight = 90;
+    _tableView.tableFooterView = [UIView new];
     [_tableView registerClass:[FeedSourceTableViewCell class] forCellReuseIdentifier:kLinkCell];
     [self.view addSubview:_tableView];
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make){
@@ -145,13 +148,11 @@ static NSString * const kLinkCell = @"FeedSourceCell";
     FeedSourceUIEntity *entity = [_dataset objectAtIndex:indexPath.row];
     cell.favicon = entity.favicon;
     cell.title = entity.name;
-    cell.subTitle = entity.desc;
+    cell.subTitle = [NSString stringWithFormat:@"%@篇文章 更新于%@",
+                     @(indexPath.row),
+                     [[AppUtil util]formatDate:[NSDate date]]];
     
     return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -167,14 +168,5 @@ static NSString * const kLinkCell = @"FeedSourceCell";
     // Dispose of any resources that can be recreated.
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

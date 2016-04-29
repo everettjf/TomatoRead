@@ -36,32 +36,34 @@
     [rootView addSubview:_faviconImageView];
     
     _titleLabel = [UILabel new];
-    _titleLabel.font = [UIFont systemFontOfSize:14];
+    _titleLabel.font = [UIFont systemFontOfSize:16];
     _titleLabel.numberOfLines = 2;
+    _titleLabel.textColor = [UIColor blackColor];
     [rootView addSubview:_titleLabel];
     
     _subTitleLabel = [UILabel new];
-    _subTitleLabel.font = [UIFont systemFontOfSize:11];
+    _subTitleLabel.font = [UIFont systemFontOfSize:14];
     _subTitleLabel.numberOfLines = 1;
+    _subTitleLabel.textColor = UIColorFromRGBA(0xb4b4b4, 1.0);
     [rootView addSubview:_subTitleLabel];
     
     [_faviconImageView mas_makeConstraints:^(MASConstraintMaker *make){
-        make.left.equalTo(rootView).offset(5);
-        make.top.equalTo(rootView).offset(5);
-        make.height.equalTo(@50);
-        make.width.equalTo(@50);
+        make.left.equalTo(rootView).offset(12);
+        make.centerY.equalTo(rootView);
+        make.height.equalTo(@65);
+        make.width.equalTo(@65);
     }];
     
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make){
-        make.left.equalTo(_faviconImageView.mas_right).offset(5);
-        make.top.equalTo(_faviconImageView);
-        make.right.equalTo(rootView).offset(-5);
+        make.left.equalTo(_faviconImageView.mas_right).offset(15);
+        make.top.equalTo(rootView).offset(10);
+        make.right.equalTo(rootView).offset(-20);
     }];
 
     [_subTitleLabel mas_makeConstraints:^(MASConstraintMaker *make){
-        make.top.equalTo(_titleLabel.mas_bottom).offset(5);
-        make.left.equalTo(_faviconImageView.mas_right).offset(5);
-        make.right.equalTo(rootView).offset(-5);
+        make.top.equalTo(_titleLabel.mas_bottom).offset(8);
+        make.left.equalTo(_titleLabel);
+        make.right.equalTo(_titleLabel);
     }];
 }
 
@@ -78,10 +80,7 @@
 
 - (void)prepareForReuse{
     [super prepareForReuse];
-    
     _faviconImageView.image = nil;
-    _titleLabel.text = @"";
-    _subTitleLabel.text = @"";
 }
 
 

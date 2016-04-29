@@ -63,8 +63,9 @@
     _segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;
     _segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
     _segmentedControl.verticalDividerEnabled = NO;
-    _segmentedControl.selectionIndicatorHeight = 1.5;
+    _segmentedControl.selectionIndicatorHeight = 2;
     _segmentedControl.selectionIndicatorColor = UIColorFromRGBA(0x007fff,1.0);
+    _segmentedControl.backgroundColor = UIColorFromRGBA(0xf9f9f9, 1.0);
     [_segmentedControl setTitleFormatter:^NSAttributedString *(HMSegmentedControl *segmentedControl, NSString *title, NSUInteger index, BOOL selected) {
         if(selected){
             return [[NSAttributedString alloc] initWithString:title
