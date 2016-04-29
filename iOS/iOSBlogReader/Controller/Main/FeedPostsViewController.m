@@ -68,6 +68,7 @@ static const NSUInteger kPageCount = 20;
     _tableView = [UITableView new];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.rowHeight = 90;
     [_tableView registerClass:[FeedPostTableViewCell class] forCellReuseIdentifier:kFeedCell];
     [self.view addSubview:_tableView];
     
@@ -145,12 +146,9 @@ static const NSUInteger kPageCount = 20;
     cell.title = feedItem.title;
     cell.date = feedItem.date;
     cell.author = feedItem.author;
+    cell.imageURL = feedItem.image;
     
     return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60;
 }
 
 - (void)didReceiveMemoryWarning {

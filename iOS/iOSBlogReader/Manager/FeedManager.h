@@ -20,6 +20,7 @@
 @property (nonatomic, strong) NSString *summary;
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) NSString *author;
+@property (nonatomic, strong) NSString *image;
 @property (nonatomic, strong) NSNumber *feed_oid;
 @end
 

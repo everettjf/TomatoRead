@@ -17,7 +17,7 @@
     self = [super init];
     if (self) {
         _dateFormatter = [[NSDateFormatter alloc]init];
-        [_dateFormatter setDateFormat:@"yyyy-MM-dd"];
+        [_dateFormatter setDateFormat:@"yyyy/MM/dd"];
     }
     return self;
 }

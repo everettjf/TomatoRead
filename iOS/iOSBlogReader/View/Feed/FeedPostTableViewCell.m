@@ -9,6 +9,7 @@
 #import "FeedPostTableViewCell.h"
 #import "FeedManager.h"
 #import "AppUtil.h"
+#import <YYWebImage.h>
 
 
 @interface FeedPostTableViewCell ()
@@ -16,6 +17,7 @@
     UILabel *_titleLabel;
     UILabel *_dateLabel;
     UILabel *_authorLabel;
+    UIImageView *_imageView;
 }
 
 @end
@@ -33,39 +35,55 @@
 - (void)_setupView{
     UIView *root = self.contentView;
     _titleLabel = [UILabel new];
-    _titleLabel.font = [UIFont systemFontOfSize:15];
-    _titleLabel.numberOfLines = 1;
+    _titleLabel.font = [UIFont systemFontOfSize:18];
+    _titleLabel.textColor = [UIColor blackColor];
+    _titleLabel.numberOfLines = 2;
     [root addSubview:_titleLabel];
     
     _dateLabel = [UILabel new];
-    _dateLabel.font = [UIFont systemFontOfSize:11];
+    _dateLabel.font = [UIFont systemFontOfSize:14];
+    _dateLabel.textColor = UIColorFromRGBA(0xd7dae2, 1.0);
     [root addSubview:_dateLabel];
     
     _authorLabel = [UILabel new];
-    _authorLabel.font = [UIFont systemFontOfSize:11];
-    _authorLabel.textAlignment = NSTextAlignmentRight;
+    _authorLabel.font = [UIFont systemFontOfSize:14];
+    _authorLabel.textColor = UIColorFromRGBA(0xd7dae2, 1.0);
     [root addSubview:_authorLabel];
     
+    _imageView = [UIImageView new];
+    _imageView.layer.borderWidth = 0.5;
+    _imageView.layer.borderColor = UIColorFromRGBA(0xd7dae2, 1.0).CGColor;
+    _imageView.image = [UIImage imageNamed:@"safari-7"];
+    [root addSubview:_imageView];
+    
+    [_imageView mas_makeConstraints:^(MASConstraintMaker *make){
+        make.width.equalTo(@60);
+        make.height.equalTo(@60);
+        make.right.equalTo(root).offset(-20);
+        make.centerY.equalTo(root);
+    }];
+
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make){
-        make.left.equalTo(root).offset(10);
-        make.top.equalTo(root).offset(10);
-        make.right.equalTo(root).offset(-10);
+        make.left.equalTo(root).offset(38/2);
+        make.top.equalTo(root).offset(34/2);
+        make.right.equalTo(_imageView.mas_left).offset(-38/2);
     }];
     
     [_dateLabel mas_makeConstraints:^(MASConstraintMaker *make){
-        make.left.equalTo(root).offset(10);
-        make.bottom.equalTo(root).offset(-10);
+        make.left.equalTo(_titleLabel);
+        make.top.equalTo(_titleLabel.mas_bottom).offset(8);
     }];
     
     [_authorLabel mas_makeConstraints:^(MASConstraintMaker *make){
-        make.right.equalTo(root).offset(-10);
-        make.bottom.equalTo(root).offset(-10);
+        make.left.equalTo(_dateLabel.mas_right).offset(8);
+        make.right.equalTo(_imageView.mas_left).offset(-38/2);
+        make.centerY.equalTo(_dateLabel.mas_centerY);
     }];
 }
 
 - (void)prepareForReuse{
     [super prepareForReuse];
-    
+    _imageView.image = nil;
 }
 
 - (void)setTitle:(NSString *)title{
@@ -78,6 +96,10 @@
 
 - (void)setAuthor:(NSString *)author{
     _authorLabel.text = author;
+}
+- (void)setImageURL:(NSString *)imageURL{
+    if(!imageURL)return;
+    [_imageView yy_setImageWithURL:[NSURL URLWithString:imageURL] placeholder:[UIImage imageNamed:@"safari-7"]];
 }
 
 

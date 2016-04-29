@@ -198,6 +198,7 @@
             entity.content = item.content;
             entity.author = item.author;
             entity.feed_oid = item.feed_oid;
+            entity.image = item.image;
             
             [entities addObject:entity];
         }
