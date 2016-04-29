@@ -54,6 +54,7 @@
 		D176AC721C7E221A001F25D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D176AC711C7E221A001F25D4 /* Assets.xcassets */; };
 		D176AC751C7E221A001F25D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D176AC731C7E221A001F25D4 /* LaunchScreen.storyboard */; };
 		D182DE351CD3C58A009BF3E9 /* FeedPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D182DE341CD3C58A009BF3E9 /* FeedPostTableViewCell.m */; };
+		D182DE3D1CD3E01E009BF3E9 /* FavTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D182DE3C1CD3E01E009BF3E9 /* FavTableViewCell.m */; };
 		D1F574C01CB541580044B494 /* AppUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574BF1CB541580044B494 /* AppUtil.m */; };
 		D1F574D61CB55F190044B494 /* PageDataset.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574D51CB55F190044B494 /* PageDataset.m */; };
 		D1F574E21CB5717C0044B494 /* RestApiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574E11CB5717C0044B494 /* RestApiTests.m */; };
@@ -162,6 +163,8 @@
 		D176AC761C7E221A001F25D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D182DE331CD3C58A009BF3E9 /* FeedPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedPostTableViewCell.h; sourceTree = "<group>"; };
 		D182DE341CD3C58A009BF3E9 /* FeedPostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedPostTableViewCell.m; sourceTree = "<group>"; };
+		D182DE3B1CD3E01E009BF3E9 /* FavTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavTableViewCell.h; sourceTree = "<group>"; };
+		D182DE3C1CD3E01E009BF3E9 /* FavTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavTableViewCell.m; sourceTree = "<group>"; };
 		D1F574BE1CB541580044B494 /* AppUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppUtil.h; path = Utility/AppUtil.h; sourceTree = "<group>"; };
 		D1F574BF1CB541580044B494 /* AppUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppUtil.m; path = Utility/AppUtil.m; sourceTree = "<group>"; };
 		D1F574D41CB55F190044B494 /* PageDataset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageDataset.h; path = Model/PageDataset.h; sourceTree = "<group>"; };
@@ -429,6 +432,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D182DE3A1CD3E01E009BF3E9 /* Fav */ = {
+			isa = PBXGroup;
+			children = (
+				D182DE3B1CD3E01E009BF3E9 /* FavTableViewCell.h */,
+				D182DE3C1CD3E01E009BF3E9 /* FavTableViewCell.m */,
+			);
+			name = Fav;
+			path = View/Fav;
+			sourceTree = "<group>";
+		};
 		D1F574B91CB540050044B494 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -477,6 +490,7 @@
 		D1F574BD1CB5409D0044B494 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D182DE3A1CD3E01E009BF3E9 /* Fav */,
 				D144319E1CCBC92600FDE636 /* Feed */,
 				D1F574EA1CB5725A0044B494 /* Link */,
 			);
@@ -693,6 +707,7 @@
 				D1F574F11CB578890044B494 /* RestApi.m in Sources */,
 				D13848EB1CB948BB00C2FEF6 /* DomainModel.m in Sources */,
 				D11A31331CC54E4B001B1D57 /* NSDate+InternetDateTime.m in Sources */,
+				D182DE3D1CD3E01E009BF3E9 /* FavTableViewCell.m in Sources */,
 				D14431D11CD0DA8A00FDE636 /* FeedSourceViewController.m in Sources */,
 				D14431CA1CD0DA7E00FDE636 /* EENavigationController.m in Sources */,
 				D176AC671C7E221A001F25D4 /* AppDelegate.m in Sources */,
