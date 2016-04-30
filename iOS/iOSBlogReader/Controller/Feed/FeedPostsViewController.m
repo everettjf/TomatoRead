@@ -85,10 +85,7 @@ static const NSUInteger kPageCount = 20;
     [self.view addSubview:_tableView];
     
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make){
-        make.left.equalTo(self.view);
-        make.right.equalTo(self.view);
-        make.top.equalTo(self.mas_topLayoutGuide);
-        make.bottom.equalTo(self.view);
+        make.edges.equalTo(self.view);
     }];
     
     [self _loadInitialFeeds:^{
