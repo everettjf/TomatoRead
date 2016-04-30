@@ -78,7 +78,7 @@
     
     [_authorLabel mas_makeConstraints:^(MASConstraintMaker *make){
         make.left.equalTo(_dateLabel.mas_right).offset(8);
-        make.right.equalTo(_imageView.mas_left).offset(-38/2);
+        make.right.lessThanOrEqualTo(_imageView.mas_left).offset(-38/2);
         make.centerY.equalTo(_dateLabel.mas_centerY);
     }];
 }

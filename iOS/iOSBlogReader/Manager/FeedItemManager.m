@@ -190,6 +190,7 @@
             entity.author = item.author;
             entity.feed_oid = item.feed.oid;
             entity.image = item.image;
+            entity.feed_name = item.feed.name;
             
             [entities addObject:entity];
         }

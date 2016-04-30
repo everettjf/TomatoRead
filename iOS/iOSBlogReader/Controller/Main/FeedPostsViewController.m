@@ -157,7 +157,7 @@ static const NSUInteger kPageCount = 20;
         FeedPostOneImageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kFeedOneImageCell forIndexPath:indexPath];
         cell.title = feedItem.title;
         cell.date = feedItem.date;
-        cell.author = feedItem.author;
+        cell.author = feedItem.feed_name;
         cell.imageURL = feedItem.image;
         return cell;
     }
@@ -165,7 +165,7 @@ static const NSUInteger kPageCount = 20;
     FeedPostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kFeedCell forIndexPath:indexPath];
     cell.title = feedItem.title;
     cell.date = feedItem.date;
-    cell.author = feedItem.author;
+    cell.author = feedItem.feed_name;
     
     return cell;
 }

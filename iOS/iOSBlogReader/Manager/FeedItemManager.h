@@ -22,6 +22,7 @@
 @property (nonatomic, strong) NSString *author;
 @property (nonatomic, strong) NSString *image;
 @property (nonatomic, strong) NSNumber *feed_oid;
+@property (nonatomic, strong) NSString *feed_name;
 @end
 
 
