@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSDate *updated_at;
 @property (nullable, nonatomic, retain) NSString *url;
 @property (nullable, nonatomic, retain) NSDate *latest_post_date;
+@property (nullable, nonatomic, retain) NSDate *last_parse_date;
 @property (nullable, nonatomic, retain) NSSet<FeedItemModel *> *items;
 
 @end

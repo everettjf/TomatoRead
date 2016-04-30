@@ -162,6 +162,7 @@
                 [FeedModel mcd_update:@"oid" value:feed.oid callback:^(NSManagedObject *m) {
                     FeedModel *model = (id)m;
                     model.latest_post_date = latest_post_date;
+                    model.last_parse_date = [NSDate date];
                 }];
                 
                 [self _increaseFeedCounter];

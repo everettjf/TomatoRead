@@ -22,6 +22,7 @@
 @dynamic updated_at;
 @dynamic url;
 @dynamic latest_post_date;
+@dynamic last_parse_date;
 @dynamic items;
 
 @end

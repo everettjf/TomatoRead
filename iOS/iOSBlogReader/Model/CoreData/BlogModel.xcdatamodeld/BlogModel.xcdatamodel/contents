@@ -27,6 +27,7 @@
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="favicon" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="feed_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="last_parse_date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="latest_post_date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="oid" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
@@ -39,6 +40,6 @@
         <element name="AspectModel" positionX="-18" positionY="81" width="128" height="90"/>
         <element name="DomainModel" positionX="-36" positionY="72" width="128" height="90"/>
         <element name="FeedItemModel" positionX="0" positionY="99" width="128" height="210"/>
-        <element name="FeedModel" positionX="-63" positionY="-18" width="128" height="195"/>
+        <element name="FeedModel" positionX="-63" positionY="-18" width="128" height="210"/>
     </elements>
 </model>
