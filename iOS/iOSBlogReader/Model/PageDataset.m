@@ -32,23 +32,6 @@
     return o;
 }
 
-- (void)prepareFeed:(void (^)(NSArray<PageItemEntity *> *, BOOL))complete{
-    NSMutableArray<PageItemEntity*> *pages = [NSMutableArray new];
-    
-    // Feed Posts
-    PageItemEntity *feedEntity = [PageItemEntity new];
-    feedEntity.type = PageItemType_FeedPost;
-    feedEntity.title = @"文章";
-    [pages addObject:feedEntity];
-    
-    // Feed Souce
-    PageItemEntity *sourceEntity = [PageItemEntity new];
-    sourceEntity.type = PageItemType_FeedSource;
-    sourceEntity.title = @"源";
-    [pages addObject:sourceEntity];
-    
-    complete(pages,YES);
-}
 
 - (void)prepareDiscover:(void (^)(NSArray<PageItemEntity *> *, BOOL))complete{
     NSMutableArray<PageItemEntity*> *pages = [NSMutableArray new];
@@ -62,7 +45,6 @@
         NSArray *arrayAspects = [domain.aspects sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"oid" ascending:YES]]];
         for (AspectModel *aspect in arrayAspects) {
             PageItemEntity *linkEntity = [PageItemEntity new];
-            linkEntity.type = PageItemType_Link;
             linkEntity.title = aspect.name;
             linkEntity.data = aspect.oid;
             [pages addObject:linkEntity];
@@ -105,7 +87,6 @@
                     
                     if(!alreadyCallback){
                         PageItemEntity *linkEntity = [PageItemEntity new];
-                        linkEntity.type = PageItemType_Link;
                         linkEntity.title = aspect.name;
                         linkEntity.data = @(aspect.oid);
                         [pages addObject:linkEntity];

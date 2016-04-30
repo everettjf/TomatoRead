@@ -22,13 +22,15 @@ static const NSUInteger kPageCount = 20;
 
 @interface FeedPostsViewController ()<FeedManagerDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (strong,nonatomic) UITableView *tableView;
-@property (strong,nonatomic) UIView *topPanel;
-@property (strong,nonatomic) UILabel *topInfoLabel;
 @property (strong,nonatomic) NSMutableArray<FeedItemUIEntity*> *dataset;
+
+// Feed fetcher
 @property (strong,nonatomic) FeedItemManager *feedManager;
 
+// For one feed mode
 @property (strong,nonatomic) FeedSourceUIEntity *oneFeed;
 
+// Status
 @property (assign,nonatomic) NSUInteger totalItemCount;
 @property (strong,nonatomic) NSString *loadingPercent;
 @end
@@ -60,6 +62,7 @@ static const NSUInteger kPageCount = 20;
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"博客精选 iOS";
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     
     _feedManager = [FeedItemManager new];
     _feedManager.delegate = self;
@@ -69,9 +72,6 @@ static const NSUInteger kPageCount = 20;
     }
     
     _dataset = [NSMutableArray new];
-    
-    _topPanel = [UIView new];
-    [self.view addSubview:_topPanel];
     
     _tableView = [UITableView new];
     _tableView.delegate = self;
@@ -84,21 +84,12 @@ static const NSUInteger kPageCount = 20;
     _tableView.layoutMargins = UIEdgeInsetsZero;
     [self.view addSubview:_tableView];
     
-    [_topPanel mas_makeConstraints:^(MASConstraintMaker *make){
-        make.left.equalTo(self.view);
-        make.right.equalTo(self.view);
-        make.top.equalTo(self.mas_topLayoutGuide);
-        make.height.equalTo(@30);
-    }];
-
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make){
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
-        make.top.equalTo(_topPanel.mas_bottom);
+        make.top.equalTo(self.mas_topLayoutGuide);
         make.bottom.equalTo(self.view);
     }];
-    
-    [self _setupTopPanel];
     
     [self _loadInitialFeeds:^{
         [self _enableHeader];
@@ -119,18 +110,6 @@ static const NSUInteger kPageCount = 20;
     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(_pullUp)];
     [footer setTitle:@"" forState:MJRefreshStateIdle];
     _tableView.mj_footer = footer;
-}
-
-
-- (void)_setupTopPanel{
-    _topInfoLabel = [UILabel new];
-    _topInfoLabel.font = [UIFont systemFontOfSize:12];
-    _topInfoLabel.textColor = [UIColor colorWithRed:0.298 green:0.298 blue:0.298 alpha:1.0];
-    [_topPanel addSubview:_topInfoLabel];
-    
-    [_topInfoLabel mas_makeConstraints:^(MASConstraintMaker *make){
-        make.center.equalTo(_topPanel);
-    }];
 }
 
 - (void)_pullDown{
@@ -181,12 +160,10 @@ static const NSUInteger kPageCount = 20;
 
 - (void)feedManagerLoadProgress:(NSUInteger)loadCount totalCount:(NSUInteger)totalCount{
     _loadingPercent = [NSString stringWithFormat:@"(%@/%@)",@(loadCount),@(totalCount)];
-    [self _refreshTopbarInfo];
 }
 
 - (void)feedManagerLoadFinish{
     _loadingPercent = @"";
-    [self _refreshTopbarInfo];
 }
 
 - (void)_loadInitialFeeds:(void(^)(void))completion{
@@ -202,8 +179,6 @@ static const NSUInteger kPageCount = 20;
             [self _enableFooter];
         }
         
-        [self _refreshTopbarInfo];
-        
         !completion?:completion();
     }];
 }
@@ -218,13 +193,7 @@ static const NSUInteger kPageCount = 20;
         }
         
         [_tableView.mj_footer endRefreshing];
-        
-        [self _refreshTopbarInfo];
     }];
-}
-
-- (void)_refreshTopbarInfo{
-    _topInfoLabel.text = [NSString stringWithFormat:@"%@文章 %@",@(self.totalItemCount),_loadingPercent];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -232,6 +201,7 @@ static const NSUInteger kPageCount = 20;
     NSLog(@"image = %@", feedItem.image);
     
     FeedPostContentViewController *contentViewController = [[FeedPostContentViewController alloc]initWithFeedPost:feedItem];
+    contentViewController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:contentViewController animated:YES];
 }
 

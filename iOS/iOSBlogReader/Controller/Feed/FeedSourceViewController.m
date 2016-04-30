@@ -159,6 +159,7 @@ static NSString * const kLinkCell = @"FeedSourceCell";
     FeedSourceUIEntity *entity = [_dataset objectAtIndex:indexPath.row];
     
     FeedPostsViewController *postsViewController = [[FeedPostsViewController alloc]initWithOne:entity];
+    postsViewController.hidesBottomBarWhenPushed = YES;
     postsViewController.title = entity.name;
     [self.navigationController pushViewController:postsViewController animated:YES];
 }

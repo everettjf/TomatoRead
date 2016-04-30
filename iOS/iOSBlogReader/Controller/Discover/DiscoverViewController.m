@@ -9,8 +9,6 @@
 #import "DiscoverViewController.h"
 #import <HMSegmentedControl.h>
 #import "AppUtil.h"
-#import "FeedPostsViewController.h"
-#import "FeedSourceViewController.h"
 #import "LinkViewController.h"
 #import "PageDataset.h"
 #import "MainContext.h"
@@ -114,17 +112,9 @@
     
     _subPageControllers = [NSMutableArray new];
     [self.pageItems enumerateObjectsUsingBlock:^(PageItemEntity * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if(obj.type == PageItemType_FeedPost){
-            FeedPostsViewController *viewController = [[FeedPostsViewController alloc]init];
-            [_subPageControllers addObject:viewController];
-        }else if(obj.type == PageItemType_FeedSource){
-            FeedSourceViewController *viewController = [[FeedSourceViewController alloc]init];
-            [_subPageControllers addObject:viewController];
-        }else{
-            LinkViewController *viewController = [[LinkViewController alloc]init];
-            viewController.item = obj;
-            [_subPageControllers addObject:viewController];
-        }
+        LinkViewController *viewController = [[LinkViewController alloc]init];
+        viewController.item = obj;
+        [_subPageControllers addObject:viewController];
     }];
     
     // adjust size

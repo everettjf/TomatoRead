@@ -142,6 +142,7 @@ static NSString * const kLinkCell = @"LinkCell";
     RestLinkModel *model = [_dataset objectAtIndex:indexPath.row];
     
     WebViewController *webViewController = [[WebViewController alloc]init];
+    webViewController.hidesBottomBarWhenPushed = YES;
     [[MainContext sharedContext].discoverNavigationController pushViewController:webViewController animated:YES];
     webViewController.title = model.name;
     [webViewController loadURLString:model.url];

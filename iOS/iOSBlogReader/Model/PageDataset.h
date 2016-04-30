@@ -9,14 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "RestModel/RestDomainListModel.h"
 
-typedef NS_OPTIONS(NSUInteger, PageItemType) {
-    PageItemType_FeedPost, // data type : NSString*
-    PageItemType_FeedSource, // data type : NSString*
-    PageItemType_Link, // data type : RestAspectModel*
-};
-
 @interface PageItemEntity : NSObject
-@property (assign,nonatomic) PageItemType type;
 @property (strong,nonatomic) NSString* title;
 @property (strong,nonatomic) id data;
 
@@ -28,6 +21,5 @@ typedef NS_OPTIONS(NSUInteger, PageItemType) {
 + (PageDataset*)dataset;
 
 - (void)prepareDiscover:(void(^)(NSArray<PageItemEntity*> *items,BOOL succeed))complete;
-- (void)prepareFeed:(void(^)(NSArray<PageItemEntity*> *items,BOOL succeed))complete;
 
 @end
