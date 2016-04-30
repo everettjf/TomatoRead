@@ -36,6 +36,7 @@
 }
 
 - (NSString *)formatDate:(NSDate *)date{
+    if(!date)return @"";
     return [_dateFormatter stringFromDate:date];
 }
 

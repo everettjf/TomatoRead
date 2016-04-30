@@ -148,9 +148,15 @@ static NSString * const kLinkCell = @"FeedSourceCell";
     FeedSourceUIEntity *entity = [_dataset objectAtIndex:indexPath.row];
     cell.favicon = entity.favicon;
     cell.title = entity.name;
-    cell.subTitle = [NSString stringWithFormat:@"%@篇文章 更新于%@",
-                     @(indexPath.row),
-                     [[AppUtil util]formatDate:[NSDate date]]];
+    if(entity.latest_post_date){
+        cell.subTitle = [NSString stringWithFormat:@"%@篇 最后更新于%@",
+                         @(entity.post_count),
+                         [[AppUtil util]formatDate:entity.latest_post_date]];
+    }else{
+        cell.subTitle = [NSString stringWithFormat:@"%@篇",
+                         @(entity.post_count)];
+    }
+    
     
     return cell;
 }

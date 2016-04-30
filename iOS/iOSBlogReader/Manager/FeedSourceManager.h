@@ -16,6 +16,9 @@
 @property (strong,nonatomic) NSString *favicon;
 @property (strong,nonatomic) NSString *desc;
 @property (strong,nonatomic) NSDate *updated_at;
+
+@property (strong,nonatomic) NSDate *latest_post_date;
+@property (assign,nonatomic) NSUInteger post_count;
 @end
 
 @interface FeedSourceManager : NSObject

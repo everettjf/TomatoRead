@@ -17,6 +17,7 @@ typedef NS_ENUM(NSUInteger, FeedModelType) {
     FeedModelType_Link = 1,
 };
 
+@class FeedItemModel;
 @interface FeedModel : NSManagedObject
 
 // Insert code here to declare functionality of your managed object subclass

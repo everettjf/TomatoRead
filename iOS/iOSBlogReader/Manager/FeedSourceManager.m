@@ -90,6 +90,10 @@
             entity.favicon = model.favicon;
             entity.desc = model.desc;
             entity.updated_at = model.updated_at;
+            
+            entity.post_count = model.items.count;
+            entity.latest_post_date = model.latest_post_date;
+            
             [entities addObject:entity];
         }
         

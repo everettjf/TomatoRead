@@ -2,7 +2,7 @@
 //  FeedModel+CoreDataProperties.h
 //  iOSBlogReader
 //
-//  Created by everettjf on 16/4/30.
+//  Created by everettjf on 16/5/1.
 //  Copyright © 2016年 everettjf. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -13,7 +13,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class FeedItemModel;
 @interface FeedModel (CoreDataProperties)
 
 @property (nullable, nonatomic, retain) NSString *desc;
@@ -21,9 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *feed_url;
 @property (nullable, nonatomic, retain) NSString *name;
 @property (nullable, nonatomic, retain) NSNumber *oid;
+@property (nullable, nonatomic, retain) NSNumber *type;
 @property (nullable, nonatomic, retain) NSDate *updated_at;
 @property (nullable, nonatomic, retain) NSString *url;
-@property (nullable, nonatomic, retain) NSNumber *type;
+@property (nullable, nonatomic, retain) NSDate *latest_post_date;
 @property (nullable, nonatomic, retain) NSSet<FeedItemModel *> *items;
 
 @end

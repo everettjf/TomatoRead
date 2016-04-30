@@ -126,6 +126,7 @@
             
             operation.onParseFinished = ^(MWFeedInfo*feedInfo,NSArray<MWFeedItem*> *feedItems){
                 
+                __block NSDate *latest_post_date;
                 for (MWFeedItem* feedItem in feedItems) {
                     NSString *firstImage = [self _computeFirstImage:feedInfo feedItem:feedItem];
                     
@@ -145,8 +146,21 @@
                         }else{
                             m.date = feedItem.date;
                         }
+                        
+                        if(!latest_post_date){
+                            latest_post_date = m.date;
+                        }else{
+                            if([m.date timeIntervalSinceDate:latest_post_date]< 0){
+                                latest_post_date = m.date;
+                            }
+                        }
                     }];
                 }
+                
+                [FeedModel mcd_update:@"oid" value:feed.oid callback:^(NSManagedObject *m) {
+                    FeedModel *model = (id)m;
+                    model.latest_post_date = latest_post_date;
+                }];
                 
                 [self _increaseFeedCounter];
                 

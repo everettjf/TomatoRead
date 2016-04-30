@@ -144,6 +144,31 @@ static NSManagedObjectContext *s_context;
     return model;
 }
 
++ (void)mcd_update:(NSString *)key value:(id)value callback:(void (^)(NSManagedObject *))callback{
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([self class])];
+    req.predicate = [NSPredicate predicateWithFormat:@"%K == %@",key,value];
+    
+    [[[self class]mcd_context] performBlockAndWait:^{
+        NSError *error = nil;
+        NSArray *results = [[[self class]mcd_context] executeFetchRequest:req error:&error];
+        if(error || !results){
+            callback(nil);
+            return;
+        }
+        
+        NSManagedObject *model;
+        if(results.count == 0){
+            callback(nil);
+            return;
+        }
+        
+        model = results.firstObject;
+        callback(model);
+        
+        [[self class] mcd_save];
+    }];
+    
+}
 
 
 @end
