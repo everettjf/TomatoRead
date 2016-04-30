@@ -11,6 +11,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class FeedModel;
+typedef NS_OPTIONS(NSUInteger, FeedItemModelType) {
+    FeedItemModelType_Feed = 0,
+    FeedItemModelType_Link = 1,
+};
+
 @interface FeedItemModel : NSManagedObject
 
 // Insert code here to declare functionality of your managed object subclass

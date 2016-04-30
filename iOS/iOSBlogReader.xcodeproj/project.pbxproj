@@ -55,6 +55,7 @@
 		D176AC751C7E221A001F25D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D176AC731C7E221A001F25D4 /* LaunchScreen.storyboard */; };
 		D182DE351CD3C58A009BF3E9 /* FeedPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D182DE341CD3C58A009BF3E9 /* FeedPostTableViewCell.m */; };
 		D182DE3D1CD3E01E009BF3E9 /* FavTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D182DE3C1CD3E01E009BF3E9 /* FavTableViewCell.m */; };
+		D182DE401CD4F773009BF3E9 /* NSManagedObject+MatrixCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = D182DE3F1CD4F773009BF3E9 /* NSManagedObject+MatrixCoreData.m */; };
 		D1F574C01CB541580044B494 /* AppUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574BF1CB541580044B494 /* AppUtil.m */; };
 		D1F574D61CB55F190044B494 /* PageDataset.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574D51CB55F190044B494 /* PageDataset.m */; };
 		D1F574E21CB5717C0044B494 /* RestApiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574E11CB5717C0044B494 /* RestApiTests.m */; };
@@ -165,6 +166,8 @@
 		D182DE341CD3C58A009BF3E9 /* FeedPostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedPostTableViewCell.m; sourceTree = "<group>"; };
 		D182DE3B1CD3E01E009BF3E9 /* FavTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavTableViewCell.h; sourceTree = "<group>"; };
 		D182DE3C1CD3E01E009BF3E9 /* FavTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavTableViewCell.m; sourceTree = "<group>"; };
+		D182DE3E1CD4F773009BF3E9 /* NSManagedObject+MatrixCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObject+MatrixCoreData.h"; path = "Manager/NSManagedObject+MatrixCoreData.h"; sourceTree = "<group>"; };
+		D182DE3F1CD4F773009BF3E9 /* NSManagedObject+MatrixCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObject+MatrixCoreData.m"; path = "Manager/NSManagedObject+MatrixCoreData.m"; sourceTree = "<group>"; };
 		D1F574BE1CB541580044B494 /* AppUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppUtil.h; path = Utility/AppUtil.h; sourceTree = "<group>"; };
 		D1F574BF1CB541580044B494 /* AppUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppUtil.m; path = Utility/AppUtil.m; sourceTree = "<group>"; };
 		D1F574D41CB55F190044B494 /* PageDataset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageDataset.h; path = Model/PageDataset.h; sourceTree = "<group>"; };
@@ -509,6 +512,8 @@
 				D11A31011CBABF7C001B1D57 /* DataManager.m */,
 				D14431A51CCC039000FDE636 /* FeedSourceManager.h */,
 				D14431A61CCC039000FDE636 /* FeedSourceManager.m */,
+				D182DE3E1CD4F773009BF3E9 /* NSManagedObject+MatrixCoreData.h */,
+				D182DE3F1CD4F773009BF3E9 /* NSManagedObject+MatrixCoreData.m */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -721,6 +726,7 @@
 				D14431B41CCFD89200FDE636 /* DiscoverViewController.m in Sources */,
 				D144319B1CCBC8E800FDE636 /* LinkViewController.m in Sources */,
 				D1F574ED1CB5728A0044B494 /* LinkTableViewCell.m in Sources */,
+				D182DE401CD4F773009BF3E9 /* NSManagedObject+MatrixCoreData.m in Sources */,
 				D11A30FF1CBABEB1001B1D57 /* FeedItemModel.m in Sources */,
 				D11A31301CC54E4B001B1D57 /* MWFeedItem.m in Sources */,
 				D13848E61CB948BB00C2FEF6 /* AspectModel+CoreDataProperties.m in Sources */,

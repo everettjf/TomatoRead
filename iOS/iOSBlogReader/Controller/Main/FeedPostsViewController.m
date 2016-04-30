@@ -185,7 +185,7 @@ static const NSUInteger kPageCount = 20;
 }
 
 - (void)_loadInitialFeeds:(void(^)(void))completion{
-    [_feedManager fetchLocalFeeds:0 limit:kPageCount completion:^(NSArray<FeedItemUIEntity *> *feedItems, NSUInteger totalItemCount) {
+    [_feedManager fetchItems:0 limit:kPageCount completion:^(NSArray<FeedItemUIEntity *> *feedItems, NSUInteger totalItemCount) {
         self.totalItemCount = totalItemCount;
         
         if(feedItems){
@@ -204,7 +204,7 @@ static const NSUInteger kPageCount = 20;
 }
 
 - (void)_loadMoreFeeds{
-    [_feedManager fetchLocalFeeds:_dataset.count limit:kPageCount completion:^(NSArray<FeedItemUIEntity *> *feedItems, NSUInteger totalItemCount) {
+    [_feedManager fetchItems:_dataset.count limit:kPageCount completion:^(NSArray<FeedItemUIEntity *> *feedItems, NSUInteger totalItemCount) {
         self.totalItemCount = totalItemCount;
         
         if(feedItems){

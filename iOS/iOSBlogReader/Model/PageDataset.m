@@ -11,6 +11,7 @@
 #import "RestApi.h"
 #import "DomainModel.h"
 #import "AspectModel.h"
+#import "DataManager.h"
 
 
 @implementation PageItemEntity
@@ -53,7 +54,7 @@
     NSMutableArray<PageItemEntity*> *pages = [NSMutableArray new];
     
     // First ,check core date
-    NSArray<DomainModel*> *domains = [DomainModel MR_findAll];
+    NSArray<DomainModel*> *domains = [DomainModel mcd_findAll];
     for (DomainModel *domain in domains) {
         if(![domain.name isEqualToString:@"iOS"])
             continue;
@@ -88,24 +89,28 @@
         
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             for (RestDomainModel *domain in model.results) {
-                [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext * _Nonnull localContext) {
-                    DomainModel *model = [DomainModel MR_findFirstOrCreateByAttribute:@"oid" withValue:@(domain.oid) inContext:localContext];
-                    model.name = domain.name;
-                    
-                    for (RestAspectModel *aspect in domain.aspect_set) {
-                        AspectModel *aspectModel = [AspectModel MR_findFirstOrCreateByAttribute:@"oid" withValue:@(aspect.oid) inContext:localContext];
-                        aspectModel.name = aspect.name;
-                        aspectModel.domain = model;
-                        
-                        if(!alreadyCallback){
-                            PageItemEntity *linkEntity = [PageItemEntity new];
-                            linkEntity.type = PageItemType_Link;
-                            linkEntity.title = aspect.name;
-                            linkEntity.data = @(aspect.oid);
-                            [pages addObject:linkEntity];
-                        }
-                    }
+                
+                __block DomainModel *domainModel;
+                [DomainModel mcd_findOrCreate:@"oid" value:@(domain.oid) callback:^(NSManagedObject *m) {
+                    domainModel = (id)m;
+                    domainModel.name = domain.name;
                 }];
+                
+                for (RestAspectModel *aspect in domain.aspect_set) {
+                    [AspectModel mcd_findOrCreate:@"oid" value:@(aspect.oid) callback:^(NSManagedObject *m) {
+                        AspectModel *aspectModel = (id)m;
+                        aspectModel.name = aspect.name;
+                        aspectModel.domain = domainModel;
+                    }];
+                    
+                    if(!alreadyCallback){
+                        PageItemEntity *linkEntity = [PageItemEntity new];
+                        linkEntity.type = PageItemType_Link;
+                        linkEntity.title = aspect.name;
+                        linkEntity.data = @(aspect.oid);
+                        [pages addObject:linkEntity];
+                    }
+                }
             }
             
             if(!alreadyCallback){

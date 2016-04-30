@@ -9,7 +9,6 @@
 #import "FeedSourceManager.h"
 #import "RestApi.h"
 #import "DataManager.h"
-#import <MagicalRecord/MagicalRecord.h>
 #import "FeedModel.h"
 
 @implementation FeedSourceUIEntity
@@ -58,19 +57,17 @@
         
         // Persist
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext * _Nonnull localContext) {
-                for (RestLinkModel *feed in feeds) {
-                    FeedModel *feedModel = [FeedModel MR_findFirstOrCreateByAttribute:@"oid" withValue:@(feed.oid) inContext:localContext];
-                    feedModel.oid = @(feed.oid);
-                    feedModel.feed_url = feed.feed_url;
-                    feedModel.name = feed.name;
-                    feedModel.url = feed.url;
-                    feedModel.desc = feed.desc;
-                    feedModel.updated_at = feed.updated_at;
-                    feedModel.favicon = feed.favicon;
-                }
-            }];
-            
+            for (RestLinkModel *feed in feeds) {
+                [[DataManager manager]findOrCreateFeed:feed.oid callback:^(FeedModel * _Nullable m) {
+                    m.oid = @(feed.oid);
+                    m.feed_url = feed.feed_url;
+                    m.name = feed.name;
+                    m.url = feed.url;
+                    m.desc = feed.desc;
+                    m.updated_at = feed.updated_at;
+                    m.favicon = feed.favicon;
+                }];
+            }
             dispatch_async(dispatch_get_main_queue(), ^{
                 completion(YES);
             });
@@ -80,16 +77,8 @@
 
 - (void)fetchFeedSources:(NSUInteger)offset limit:(NSUInteger)limit completion:(void (^)(NSArray<FeedSourceUIEntity *> *, NSUInteger))completion{
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        NSManagedObjectContext *context = [NSManagedObjectContext MR_contextForCurrentThread];
-#pragma clang diagnostic pop
-        NSFetchRequest *request = [FeedModel MR_requestAllSortedBy:@"updated_at" ascending:NO inContext:context];
-        [request setFetchOffset:offset];
-        [request setFetchLimit:limit];
-
-        NSArray<FeedModel*> *feedSources = [FeedModel MR_executeFetchRequest:request inContext:context];
-        NSUInteger totalCount = [FeedModel MR_countOfEntitiesWithContext:context];
+        NSArray<FeedModel*> *feedSources = [[DataManager manager]findAllFeed:offset limit:limit];
+        NSUInteger totalCount = [[DataManager manager]countFeed];
         
         NSMutableArray<FeedSourceUIEntity*> *entities = [NSMutableArray new];
         for (FeedModel *model in feedSources) {

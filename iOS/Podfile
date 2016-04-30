@@ -8,8 +8,6 @@ target 'iOSBlogReader' do
 #https://github.com/SnapKit/Masonry
 pod 'Masonry', '~> 0.6'
 #https://github.com/magicalpanda/MagicalRecord
-pod 'MagicalRecord', '~> 2.3'
-#https://github.com/facebook/pop
 pod 'pop', '~> 1.0'
 #https://github.com/mwaterfall/MWFeedParser
 #pod 'MWFeedParser', '~> 1.0'

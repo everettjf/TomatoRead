@@ -11,6 +11,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+typedef NS_ENUM(NSUInteger, FeedModelType) {
+    FeedModelType_Feed = 0,
+    FeedModelType_Link = 1,
+};
+
 @interface FeedModel : NSManagedObject
 
 // Insert code here to declare functionality of your managed object subclass

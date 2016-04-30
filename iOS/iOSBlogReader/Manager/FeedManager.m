@@ -9,11 +9,11 @@
 #import "FeedManager.h"
 #import "RestApi.h"
 #import "DataManager.h"
-#import <MagicalRecord/MagicalRecord.h>
 #import "FeedModel.h"
 #import "FeedParseOperation.h"
 #import "FeedItemModel.h"
 #import "FeedSourceManager.h"
+#import "DataManager.h"
 #import "FeedImageParser.h"
 
 @implementation FeedItemUIEntity
@@ -77,15 +77,17 @@
     [self _onStartLoadFeeds];
     
     if(_bindedOneFeed){
-        FeedModel *model = [FeedModel MR_findFirstByAttribute:@"oid" withValue:@(_bindedOneFeed.oid)];
-        if(!model)return;
-        
-        [self _enumerateFeedsInCoreData:@[model]];
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            FeedModel *model = [[DataManager manager]findFeed:_bindedOneFeed.oid];
+            if(!model)return;
+            
+            [self _enumerateFeedsInCoreData:@[model]];
+        });
     }else{
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             [[FeedSourceManager manager]loadFeedSources:^(BOOL succeed) {
                 dispatch_async(dispatch_get_global_queue(0, 0), ^{
-                    NSArray<FeedModel*> *feeds = [FeedModel MR_findAll];
+                    NSArray<FeedModel*> *feeds = [[DataManager manager]findAllFeed];
                     if(!feeds)return;
                     
                     [self _enumerateFeedsInCoreData:feeds];
@@ -127,22 +129,21 @@
                 for (MWFeedItem* feedItem in feedItems) {
                     NSString *firstImage = [self _computeFirstImage:feedInfo feedItem:feedItem];
                     
-                    [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext * _Nonnull localContext) {
-                        FeedItemModel *itemModel = [FeedItemModel MR_findFirstOrCreateByAttribute:@"identifier" withValue:feedItem.identifier inContext:localContext];
-                        itemModel.identifier = feedItem.identifier;
-                        itemModel.title = feedItem.title;
-                        itemModel.link = feedItem.link;
-                        itemModel.summary = feedItem.summary;
-                        itemModel.content = feedItem.content;
-                        itemModel.author = feedItem.author;
-                        itemModel.updated = feedItem.updated;
-                        itemModel.feed_oid = feed.oid;
-                        itemModel.image = firstImage;
+                    [[DataManager manager]findOrCreateFeedItem:feedItem.identifier callback:^(FeedItemModel *m) {
+                        m.title = feedItem.title;
+                        m.link = feedItem.link;
+                        m.summary = feedItem.summary;
+                        m.content = feedItem.content;
+                        m.author = feedItem.author;
+                        m.updated = feedItem.updated;
+                        m.image = firstImage;
                         
-                        if(!feedItem.date && !itemModel.date){
-                            itemModel.date = [NSDate date];
+                        m.feed = feed;
+                        
+                        if(!feedItem.date && !m.date){
+                            m.date = [NSDate date];
                         }else{
-                            itemModel.date = feedItem.date;
+                            m.date = feedItem.date;
                         }
                     }];
                 }
@@ -165,26 +166,16 @@
     });
 }
 
-- (void)fetchLocalFeeds:(NSUInteger)offset limit:(NSUInteger)limit completion:(void (^)(NSArray<FeedItemUIEntity *> *, NSUInteger))completion{
+- (void)fetchItems:(NSUInteger)offset limit:(NSUInteger)limit completion:(void (^)(NSArray<FeedItemUIEntity *> *, NSUInteger))completion{
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        NSManagedObjectContext *context = [NSManagedObjectContext MR_contextForCurrentThread];
-#pragma clang diagnostic pop
-        NSFetchRequest *request = [FeedItemModel MR_requestAllSortedBy:@"date" ascending:NO inContext:context];
-        [request setFetchOffset:offset];
-        [request setFetchLimit:limit];
+        NSNumber *filterFeedOid;
         if(_bindedOneFeed){
-            request.predicate = [NSPredicate predicateWithFormat:@"%K = %@", @"feed_oid", @(_bindedOneFeed.oid)];
+            filterFeedOid = @(_bindedOneFeed.oid);
         }
-
-        NSArray<FeedItemModel*> *feedItems = [FeedItemModel MR_executeFetchRequest:request inContext:context];
         
-        NSPredicate *predicate;
-        if(_bindedOneFeed){
-            predicate = [NSPredicate predicateWithFormat:@"%K = %@", @"feed_oid", @(_bindedOneFeed.oid)];
-        }
-        NSUInteger totalItemCount = [FeedItemModel MR_countOfEntitiesWithPredicate:predicate inContext:context];
+        NSArray<FeedItemModel*> *feedItems = [[DataManager manager]findAllFeedItem:offset limit:limit filter:filterFeedOid];
+        
+        NSUInteger totalItemCount = [[DataManager manager]countFeedItem:filterFeedOid];
         
         NSMutableArray<FeedItemUIEntity*> *entities = [NSMutableArray new];
         for (FeedItemModel *item in feedItems) {
@@ -197,7 +188,7 @@
             entity.summary = item.summary;
             entity.content = item.content;
             entity.author = item.author;
-            entity.feed_oid = item.feed_oid;
+            entity.feed_oid = item.feed.oid;
             entity.image = item.image;
             
             [entities addObject:entity];
