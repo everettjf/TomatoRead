@@ -87,7 +87,9 @@
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             [[FeedSourceManager manager]loadFeedSources:^(BOOL succeed) {
                 dispatch_async(dispatch_get_global_queue(0, 0), ^{
-                    NSArray<FeedModel*> *feeds = [[DataManager manager]findAllFeed];
+                    NSArray<FeedModel*> *feeds = [FeedModel mcd_findAll:@{
+                                                                          @"latest_post_date" : @NO
+                                                                          }];
                     if(!feeds)return;
                     
                     [self _enumerateFeedsInCoreData:feeds];

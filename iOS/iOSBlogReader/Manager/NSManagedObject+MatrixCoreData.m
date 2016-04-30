@@ -70,6 +70,32 @@ static NSManagedObjectContext *s_context;
     return results;
 }
 
++ (NSArray<NSManagedObject *> *)mcd_findAll:(NSDictionary<NSString *,NSNumber *> *)sort{
+    return [[self class]mcd_findAll:sort predicate:nil];
+}
++ (NSArray<NSManagedObject *> *)mcd_findAll:(NSDictionary<NSString *,NSNumber *> *)sort predicate:(NSPredicate *)predicate{
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([self class])];
+    
+    if(sort){
+        NSMutableArray *sortDescriptors = [NSMutableArray new];
+        for (NSString *sortKey in sort) {
+            [sortDescriptors addObject:[NSSortDescriptor sortDescriptorWithKey:sortKey ascending:[sort objectForKey:sortKey].boolValue]];
+        }
+        req.sortDescriptors = sortDescriptors;
+    }
+    
+    if(predicate){
+        req.predicate = predicate;
+    }
+    
+    __block NSArray *results;
+    [[[self class]mcd_context] performBlockAndWait:^{
+        NSError *error;
+        results = [[[self class] mcd_context] executeFetchRequest:req error:&error];
+    }];
+    return results;
+}
+
 + (NSArray<NSManagedObject *> *)mcd_findAll:(NSUInteger)offset limit:(NSUInteger)limit sort:(NSDictionary<NSString *,NSNumber *> *)sort{
     return [[self class]mcd_findAll:offset limit:limit sort:sort predicate:nil];
 }

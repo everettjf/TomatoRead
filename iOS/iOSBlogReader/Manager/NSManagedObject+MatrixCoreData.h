@@ -18,6 +18,10 @@
 + (NSUInteger)mcd_count:(NSPredicate*)predicate;
 
 + (NSArray<__kindof NSManagedObject*>*)mcd_findAll;
+
++ (NSArray<__kindof NSManagedObject*>*)mcd_findAll:(NSDictionary<NSString*,NSNumber*>*)sort;
++ (NSArray<__kindof NSManagedObject*>*)mcd_findAll:(NSDictionary<NSString*,NSNumber*>*)sort predicate:(NSPredicate*)predicate;
+
 + (NSArray<__kindof NSManagedObject*>*)mcd_findAll:(NSUInteger)offset limit:(NSUInteger)limit sort:(NSDictionary<NSString*,NSNumber*>*)sort;
 + (NSArray<__kindof NSManagedObject*>*)mcd_findAll:(NSUInteger)offset limit:(NSUInteger)limit sort:(NSDictionary<NSString*,NSNumber*>*)sort predicate:(NSPredicate*)predicate;
 
