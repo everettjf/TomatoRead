@@ -41,6 +41,8 @@ static NSString * const kLinkCell = @"LinkCell";
     _tableView = [UITableView new];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.rowHeight = 65;
+    _tableView.tableFooterView = [UIView new];
     [_tableView registerClass:[LinkTableViewCell class] forCellReuseIdentifier:kLinkCell];
     [self.view addSubview:_tableView];
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make){
@@ -130,19 +132,10 @@ static NSString * const kLinkCell = @"LinkCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     LinkTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLinkCell forIndexPath:indexPath];
     RestLinkModel *model = [_dataset objectAtIndex:indexPath.row];
-    cell.favicon = model.favicon;
     cell.title = model.name;
-    
-    NSMutableString *subTitle = [NSMutableString new];
-    if(model.feed_url && ![model.feed_url isEqualToString:@""])[subTitle appendString:@"[Feed]"];
-    if(model.desc) [subTitle appendString:model.desc];
-    cell.subTitle = subTitle;
+    cell.favicon = model.favicon;
     
     return cell;;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

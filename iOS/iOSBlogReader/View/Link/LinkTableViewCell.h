@@ -12,6 +12,5 @@
 
 @property (strong,nonatomic) NSString *favicon;
 @property (strong,nonatomic) NSString *title;
-@property (strong,nonatomic) NSString *subTitle;
 
 @end

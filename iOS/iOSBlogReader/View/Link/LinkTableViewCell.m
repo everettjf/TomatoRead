@@ -13,7 +13,6 @@
 {
     UIImageView *_faviconImageView;
     UILabel *_titleLabel;
-    UILabel *_subTitleLabel;
 }
 
 @end
@@ -31,37 +30,26 @@
 - (void)_setupView{
     UIView *rootView = self.contentView;
     
-    _faviconImageView = [UIImageView new];
-    [rootView addSubview:_faviconImageView];
-    
     _titleLabel = [UILabel new];
-    _titleLabel.font = [UIFont systemFontOfSize:14];
+    _titleLabel.font = [UIFont systemFontOfSize:16];
     _titleLabel.numberOfLines = 2;
     [rootView addSubview:_titleLabel];
     
-    _subTitleLabel = [UILabel new];
-    _subTitleLabel.font = [UIFont systemFontOfSize:11];
-    _subTitleLabel.numberOfLines = 1;
-    [rootView addSubview:_subTitleLabel];
-    
-    [_faviconImageView mas_makeConstraints:^(MASConstraintMaker *make){
-        make.left.equalTo(rootView).offset(5);
-        make.top.equalTo(rootView).offset(5);
-        make.height.equalTo(@50);
-        make.width.equalTo(@50);
-    }];
+    _faviconImageView = [UIImageView new];
+    [rootView addSubview:_faviconImageView];
     
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make){
-        make.left.equalTo(_faviconImageView.mas_right).offset(5);
-        make.top.equalTo(_faviconImageView);
-        make.right.equalTo(rootView).offset(-5);
+        make.left.equalTo(rootView).offset(10);
+        make.centerY.equalTo(rootView);
     }];
-
-    [_subTitleLabel mas_makeConstraints:^(MASConstraintMaker *make){
-        make.top.equalTo(_titleLabel.mas_bottom).offset(5);
-        make.left.equalTo(_faviconImageView.mas_right).offset(5);
-        make.right.equalTo(rootView).offset(-5);
+    [_faviconImageView mas_makeConstraints:^(MASConstraintMaker *make){
+        make.right.equalTo(rootView).offset(-10);
+        make.centerY.equalTo(rootView);
+        make.height.equalTo(@40);
+        make.width.equalTo(@40);
+        make.left.equalTo(_titleLabel.mas_right).offset(25);
     }];
+    
 }
 
 - (void)setFavicon:(NSString *)favicon{
@@ -71,16 +59,12 @@
 - (void)setTitle:(NSString *)title{
     _titleLabel.text = title;
 }
-- (void)setSubTitle:(NSString *)subTitle{
-    _subTitleLabel.text = subTitle;
-}
 
 - (void)prepareForReuse{
     [super prepareForReuse];
     
     _faviconImageView.image = nil;
     _titleLabel.text = @"";
-    _subTitleLabel.text = @"";
 }
 
 @end
