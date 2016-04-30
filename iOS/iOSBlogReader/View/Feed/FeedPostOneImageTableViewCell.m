@@ -7,7 +7,7 @@
 //
 
 #import "FeedPostOneImageTableViewCell.h"
-#import "FeedManager.h"
+#import "FeedItemManager.h"
 #import "AppUtil.h"
 #import <YYWebImage.h>
 

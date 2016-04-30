@@ -6,7 +6,7 @@
 //  Copyright © 2016年 everettjf. All rights reserved.
 //
 
-#import "FeedManager.h"
+#import "FeedItemManager.h"
 #import "RestApi.h"
 #import "DataManager.h"
 #import "FeedModel.h"
@@ -20,14 +20,14 @@
 @end
 
 
-@interface FeedManager ()
+@interface FeedItemManager ()
 @property (strong,nonatomic) NSOperationQueue *operationQueue;
 @property (assign,nonatomic) NSUInteger feedTotalCount;
 @property (assign,nonatomic) NSUInteger feedCounter;
 @property (strong,nonatomic) NSRecursiveLock *feedCounterLock;
 @end
 
-@implementation FeedManager
+@implementation FeedItemManager
 
 - (instancetype)init
 {

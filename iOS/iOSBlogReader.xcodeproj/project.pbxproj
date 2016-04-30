@@ -10,7 +10,7 @@
 		35354CAE9B6B6421FE6002D4 /* libPods-iOSBlogReader.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1361E47CCD101148ACB2B2C1 /* libPods-iOSBlogReader.a */; };
 		D11A30E71CB978E3001B1D57 /* MainContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A30E61CB978E3001B1D57 /* MainContext.m */; };
 		D11A30E91CBAA243001B1D57 /* FeedRetriveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A30E81CBAA243001B1D57 /* FeedRetriveTests.m */; };
-		D11A30EC1CBAA5C7001B1D57 /* FeedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A30EB1CBAA5C7001B1D57 /* FeedManager.m */; };
+		D11A30EC1CBAA5C7001B1D57 /* FeedItemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A30EB1CBAA5C7001B1D57 /* FeedItemManager.m */; };
 		D11A30F01CBAA6C1001B1D57 /* FeedParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A30EF1CBAA6C1001B1D57 /* FeedParseOperation.m */; };
 		D11A30FE1CBABEB1001B1D57 /* FeedItemModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A30FB1CBABEB1001B1D57 /* FeedItemModel+CoreDataProperties.m */; };
 		D11A30FF1CBABEB1001B1D57 /* FeedItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D11A30FD1CBABEB1001B1D57 /* FeedItemModel.m */; };
@@ -80,8 +80,8 @@
 		D11A30E51CB978E3001B1D57 /* MainContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainContext.h; path = Context/MainContext.h; sourceTree = "<group>"; };
 		D11A30E61CB978E3001B1D57 /* MainContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainContext.m; path = Context/MainContext.m; sourceTree = "<group>"; };
 		D11A30E81CBAA243001B1D57 /* FeedRetriveTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedRetriveTests.m; sourceTree = "<group>"; };
-		D11A30EA1CBAA5C7001B1D57 /* FeedManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedManager.h; path = Manager/FeedManager.h; sourceTree = "<group>"; };
-		D11A30EB1CBAA5C7001B1D57 /* FeedManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedManager.m; path = Manager/FeedManager.m; sourceTree = "<group>"; };
+		D11A30EA1CBAA5C7001B1D57 /* FeedItemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedItemManager.h; path = Manager/FeedItemManager.h; sourceTree = "<group>"; };
+		D11A30EB1CBAA5C7001B1D57 /* FeedItemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedItemManager.m; path = Manager/FeedItemManager.m; sourceTree = "<group>"; };
 		D11A30EE1CBAA6C1001B1D57 /* FeedParseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedParseOperation.h; path = Manager/Feed/FeedParseOperation.h; sourceTree = "<group>"; };
 		D11A30EF1CBAA6C1001B1D57 /* FeedParseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedParseOperation.m; path = Manager/Feed/FeedParseOperation.m; sourceTree = "<group>"; };
 		D11A30FA1CBABEB1001B1D57 /* FeedItemModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FeedItemModel+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -506,8 +506,8 @@
 				D11A30ED1CBAA6A6001B1D57 /* Feed */,
 				D1F574EF1CB578890044B494 /* RestApi.h */,
 				D1F574F01CB578890044B494 /* RestApi.m */,
-				D11A30EA1CBAA5C7001B1D57 /* FeedManager.h */,
-				D11A30EB1CBAA5C7001B1D57 /* FeedManager.m */,
+				D11A30EA1CBAA5C7001B1D57 /* FeedItemManager.h */,
+				D11A30EB1CBAA5C7001B1D57 /* FeedItemManager.m */,
 				D11A31001CBABF7C001B1D57 /* DataManager.h */,
 				D11A31011CBABF7C001B1D57 /* DataManager.m */,
 				D14431A51CCC039000FDE636 /* FeedSourceManager.h */,
@@ -702,7 +702,7 @@
 				D13848EA1CB948BB00C2FEF6 /* DomainModel+CoreDataProperties.m in Sources */,
 				D11A31351CC54E4B001B1D57 /* NSString+XMLEntities.m in Sources */,
 				D1F574C01CB541580044B494 /* AppUtil.m in Sources */,
-				D11A30EC1CBAA5C7001B1D57 /* FeedManager.m in Sources */,
+				D11A30EC1CBAA5C7001B1D57 /* FeedItemManager.m in Sources */,
 				D11A31341CC54E4B001B1D57 /* NSString+HTML.m in Sources */,
 				D14431D41CD0FC7F00FDE636 /* EEViewController.m in Sources */,
 				D11A312E1CC54E4B001B1D57 /* GTMNSString+HTML.m in Sources */,

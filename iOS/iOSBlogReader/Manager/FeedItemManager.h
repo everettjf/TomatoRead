@@ -31,7 +31,7 @@
 - (void)feedManagerLoadFinish;
 @end
 
-@interface FeedManager : NSObject
+@interface FeedItemManager : NSObject
 
 @property (assign,nonatomic) BOOL loadingFeeds;
 @property (weak,nonatomic) id<FeedManagerDelegate> delegate;

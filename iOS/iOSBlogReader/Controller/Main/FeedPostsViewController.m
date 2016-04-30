@@ -9,7 +9,7 @@
 #import "FeedPostsViewController.h"
 #import "FeedPostTableViewCell.h"
 #import "FeedPostOneImageTableViewCell.h"
-#import "FeedManager.h"
+#import "FeedItemManager.h"
 #import <MJRefresh.h>
 #import "MainContext.h"
 #import "FeedPostContentViewController.h"
@@ -24,7 +24,7 @@ static const NSUInteger kPageCount = 20;
 @property (strong,nonatomic) UIView *topPanel;
 @property (strong,nonatomic) UILabel *topInfoLabel;
 @property (strong,nonatomic) NSMutableArray<FeedItemUIEntity*> *dataset;
-@property (strong,nonatomic) FeedManager *feedManager;
+@property (strong,nonatomic) FeedItemManager *feedManager;
 
 @property (strong,nonatomic) FeedSourceUIEntity *oneFeed;
 
@@ -56,7 +56,7 @@ static const NSUInteger kPageCount = 20;
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"博客精选 iOS";
     
-    _feedManager = [FeedManager new];
+    _feedManager = [FeedItemManager new];
     _feedManager.delegate = self;
     
     if(_mode == FeedPostsViewControllerModeOne){

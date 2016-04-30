@@ -23,7 +23,7 @@ static NSManagedObjectContext *s_context;
     NSAssert(mom != nil, @"Error initializing Managed Object Model");
     
     NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
-    NSManagedObjectContext *moc = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    NSManagedObjectContext *moc = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
     [moc setPersistentStoreCoordinator:psc];
     
     NSDictionary *options = @{
@@ -106,7 +106,7 @@ static NSManagedObjectContext *s_context;
     [[[self class]mcd_context] performBlockAndWait:^{
         NSError *error = nil;
         NSArray *results = [[[self class]mcd_context] executeFetchRequest:req error:&error];
-        if(!error || !results){
+        if(error || !results){
             callback(nil);
             return;
         }
@@ -133,7 +133,7 @@ static NSManagedObjectContext *s_context;
     [[[self class]mcd_context] performBlockAndWait:^{
         NSError *error = nil;
         NSArray *results = [[[self class]mcd_context] executeFetchRequest:req error:&error];
-        if(!error || !results){
+        if(error || !results){
             return;
         }
         

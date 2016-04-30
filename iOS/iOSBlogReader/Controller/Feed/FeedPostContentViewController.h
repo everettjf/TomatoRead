@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FeedManager.h"
+#import "FeedItemManager.h"
 #import "EEViewController.h"
 
 @interface FeedPostContentViewController : EEViewController

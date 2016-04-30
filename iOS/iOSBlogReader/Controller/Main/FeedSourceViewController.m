@@ -12,7 +12,7 @@
 #import "MainContext.h"
 #import <MJRefresh.h>
 #import "FeedModel.h"
-#import "FeedManager.h"
+#import "FeedItemManager.h"
 #import "FeedPostsViewController.h"
 #import "AppUtil.h"
 
