@@ -59,7 +59,6 @@
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             for (RestLinkModel *feed in feeds) {
                 [[DataManager manager]findOrCreateFeed:feed.oid callback:^(FeedModel * _Nullable m) {
-                    m.oid = @(feed.oid);
                     m.feed_url = feed.feed_url;
                     m.name = feed.name;
                     m.url = feed.url;
@@ -68,6 +67,7 @@
                     m.favicon = feed.favicon;
                 }];
             }
+            
             dispatch_async(dispatch_get_main_queue(), ^{
                 completion(YES);
             });

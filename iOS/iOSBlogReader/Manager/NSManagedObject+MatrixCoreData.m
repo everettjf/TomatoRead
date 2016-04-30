@@ -137,7 +137,6 @@ static NSManagedObjectContext *s_context;
             return;
         }
         
-        NSManagedObject *model;
         if(results.count > 0){
             model = results.firstObject;
         }

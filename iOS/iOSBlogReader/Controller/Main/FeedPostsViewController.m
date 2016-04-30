@@ -13,6 +13,7 @@
 #import <MJRefresh.h>
 #import "MainContext.h"
 #import "FeedPostContentViewController.h"
+#import "DataManager.h"
 
 static NSString * kFeedOneImageCell = @"FeedOneImageCell";
 static NSString * kFeedCell = @"FeedCell";
@@ -47,6 +48,10 @@ static const NSUInteger kPageCount = 20;
     if(self){
         _mode = FeedPostsViewControllerModeOne;
         _oneFeed = feed;
+        
+        
+        FeedModel *model = [[DataManager manager]findFeed:_oneFeed.oid];
+        NSLog(@"model = %@",model);
     }
     return self;
 }
