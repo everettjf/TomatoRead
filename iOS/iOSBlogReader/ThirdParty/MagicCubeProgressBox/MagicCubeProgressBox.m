@@ -11,7 +11,6 @@
 
 NSString * const MagicCubeProgressBoxEventTapped= @"MagicCubeProgressBoxEventTapped";
 
-static MagicCubeProgressBox *s_box;
 
 @interface MagicCubeProgressBox ()
 @property (weak,nonatomic) UIView *parentView;
@@ -32,14 +31,8 @@ static MagicCubeProgressBox *s_box;
     BOOL _isMovedToBottomRight;
 }
 
-#pragma mark Static Methods
-+ (void)show{
-    [[self class]show:[UIApplication sharedApplication].delegate.window];
-}
-
-+ (void)show:(UIView *)parentView{
-    if(!parentView)return;
-    if(s_box)return;
++ (instancetype)boxWithParentView:(UIView *)parentView{
+    if(!parentView)return nil;
     
     CGSize size = CGSizeMake(120, 150);
     CGRect rect = CGRectMake(parentView.frame.size.width/2 - size.width/2,
@@ -47,34 +40,20 @@ static MagicCubeProgressBox *s_box;
                              size.width,
                              size.height);
     
-    s_box = [[MagicCubeProgressBox alloc]initWithFrame:rect];
-    s_box.parentView = parentView;
-    [parentView addSubview:s_box];
+    MagicCubeProgressBox *box = [[MagicCubeProgressBox alloc]initWithFrame:rect];
+    box.parentView = parentView;
+    [parentView addSubview:box];
+    return box;
 }
 
-+ (void)hide{
+- (void)hide{
     [UIView animateWithDuration:1 animations:^{
-        s_box.alpha = 0;
+        self.alpha = 0;
     } completion:^(BOOL finished) {
-        [s_box removeFromSuperview];
-        s_box = nil;
+        [self removeFromSuperview];
     }];
 }
 
-+ (void)setText:(NSString *)text{
-    if(!s_box)return;
-    [s_box setLabelText:text];
-}
-
-+ (void)moveToBottomRight{
-    if(!s_box)return;
-    [s_box moveToBottomRight];
-}
-
-+ (void)stop{
-    if(!s_box)return;
-    [s_box stopAnimate];
-}
 
 #pragma mark Member Methods
 - (instancetype)initWithFrame:(CGRect)frame
@@ -191,12 +170,12 @@ static MagicCubeProgressBox *s_box;
                                   _cubeView.frame.size.width,
                                   20);
 }
-- (void)setLabelText:(NSString*)text{
+- (void)setText:(NSString*)text{
     _textLabel.hidden = NO;
     _textLabel.text = text;
 }
 
-- (void)stopAnimate{
+- (void)stop{
     _animateStop = YES;
 }
 

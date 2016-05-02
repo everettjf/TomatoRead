@@ -12,6 +12,7 @@
 #import "LinkViewController.h"
 #import "PageDataset.h"
 #import "MainContext.h"
+#import "MagicCubeProgressBox.h"
 
 @interface DiscoverViewController ()<UIScrollViewDelegate>
 @property (strong,nonatomic) HMSegmentedControl *segmentedControl;
@@ -19,6 +20,7 @@
 @property (strong,nonatomic) NSMutableArray<__kindof UIView*> *subPageViews;
 @property (strong,nonatomic) NSMutableArray<__kindof UIViewController*> *subPageControllers;
 @property (strong,nonatomic) NSArray<PageItemEntity *> *pageItems;
+@property (strong,nonatomic) MagicCubeProgressBox *progressBox;
 @end
 
 @implementation DiscoverViewController
@@ -31,10 +33,11 @@
     
     [MainContext sharedContext].discoverNavigationController = self.navigationController;
     
-    [SVProgressHUD showWithStatus:@"加载中"];
+    _progressBox = [MagicCubeProgressBox boxWithParentView:self.view];
+    [_progressBox setText:@"加载中"];
     [[PageDataset dataset]prepareDiscover:^(NSArray<PageItemEntity *> *items, BOOL succeed) {
         if(!succeed){
-            [SVProgressHUD showWithStatus:@"无法连接至服务器"];
+            [_progressBox setText:@"无法连接至服务器"];
             return;
         }
         self.pageItems = items;
@@ -44,7 +47,8 @@
         
         [self _loadPageByIndex:0];
         
-        [SVProgressHUD dismiss];
+        [_progressBox hide];
+        _progressBox = nil;
     }];
     
 }

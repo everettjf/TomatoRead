@@ -12,13 +12,11 @@ extern NSString * const MagicCubeProgressBoxEventTapped;
 
 @interface MagicCubeProgressBox : UIView
 
-+ (void)show;
-+ (void)show:(UIView*)parentView;
++ (instancetype)boxWithParentView:(UIView *)parentView;
+- (void)hide;
+- (void)stop;
 
-+ (void)hide;
-+ (void)stop;
-
-+ (void)setText:(NSString*)text;
-+ (void)moveToBottomRight;
+- (void)setText:(NSString*)text;
+- (void)moveToBottomRight;
 
 @end

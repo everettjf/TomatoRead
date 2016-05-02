@@ -35,6 +35,7 @@ static const NSUInteger kPageCount = 20;
 @property (assign,nonatomic) NSUInteger totalItemCount;
 
 @property (assign,nonatomic) BOOL loadFeedFinished;
+@property (strong,nonatomic) MagicCubeProgressBox *progressBox;
 @end
 
 @implementation FeedPostsViewController
@@ -90,13 +91,13 @@ static const NSUInteger kPageCount = 20;
         make.edges.equalTo(self.view);
     }];
     
-    [MagicCubeProgressBox show:self.view];
+    _progressBox = [MagicCubeProgressBox boxWithParentView:self.view];
     
     [self _loadInitialFeeds:^{
         [self _enableHeader];
         
         if(_dataset.count > 0){
-            [MagicCubeProgressBox moveToBottomRight];
+            [_progressBox moveToBottomRight];
         }
     }];
     
@@ -114,7 +115,8 @@ static const NSUInteger kPageCount = 20;
         [self _loadInitialFeeds:^{
         }];
         
-        [MagicCubeProgressBox hide];
+        [_progressBox hide];
+        _progressBox = nil;
     }
 }
 
@@ -179,10 +181,10 @@ static const NSUInteger kPageCount = 20;
 
 - (void)feedManagerLoadProgress:(NSUInteger)loadCount totalCount:(NSUInteger)totalCount{
     NSString *text = [NSString stringWithFormat:@"%@ / %@",@(loadCount),@(totalCount)];
-    [MagicCubeProgressBox setText:text];
+    [_progressBox setText:text];
     
     if(loadCount > 5){
-        [MagicCubeProgressBox moveToBottomRight];
+        [_progressBox moveToBottomRight];
         if(_dataset.count == 0){
             [self _loadInitialFeeds:^{}];
         }
@@ -190,7 +192,8 @@ static const NSUInteger kPageCount = 20;
 }
 
 - (void)feedManagerLoadFinish{
-    [MagicCubeProgressBox setText:@"更新完成"];
+    [_progressBox setText:@"更新完成"];
+    [_progressBox stop];
     _loadFeedFinished = YES;
 }
 
