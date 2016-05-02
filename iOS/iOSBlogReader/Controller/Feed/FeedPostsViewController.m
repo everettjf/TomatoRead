@@ -14,6 +14,7 @@
 #import "MainContext.h"
 #import "FeedPostContentViewController.h"
 #import "DataManager.h"
+#import "MagicCubeProgressBox.h"
 
 static NSString * kFeedOneImageCell = @"FeedOneImageCell";
 static NSString * kFeedCell = @"FeedCell";
@@ -93,6 +94,8 @@ static const NSUInteger kPageCount = 20;
     }];
     
     [_feedManager loadFeeds];
+    
+    [MagicCubeProgressBox show:self.view];
 }
 
 - (void)_enableHeader{

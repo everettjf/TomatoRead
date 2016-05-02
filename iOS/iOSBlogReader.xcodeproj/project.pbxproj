@@ -46,7 +46,6 @@
 		D176AC671C7E221A001F25D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D176AC661C7E221A001F25D4 /* AppDelegate.m */; };
 		D176AC721C7E221A001F25D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D176AC711C7E221A001F25D4 /* Assets.xcassets */; };
 		D176AC751C7E221A001F25D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D176AC731C7E221A001F25D4 /* LaunchScreen.storyboard */; };
-		D182DE401CD4F773009BF3E9 /* NSManagedObject+MatrixCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = D182DE3F1CD4F773009BF3E9 /* NSManagedObject+MatrixCoreData.m */; };
 		D182DE4C1CD51CAF009BF3E9 /* FeedPostOneImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D182DE471CD51CAF009BF3E9 /* FeedPostOneImageTableViewCell.m */; };
 		D182DE4D1CD51CAF009BF3E9 /* FeedPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D182DE491CD51CAF009BF3E9 /* FeedPostTableViewCell.m */; };
 		D182DE4E1CD51CAF009BF3E9 /* FeedSourceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D182DE4B1CD51CAF009BF3E9 /* FeedSourceTableViewCell.m */; };
@@ -58,6 +57,8 @@
 		D182DE671CD51EC3009BF3E9 /* LinkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D182DE641CD51EC3009BF3E9 /* LinkTableViewCell.m */; };
 		D182DE6A1CD51ED8009BF3E9 /* FavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D182DE691CD51ED8009BF3E9 /* FavViewController.m */; };
 		D182DE6E1CD5228F009BF3E9 /* FeedLoadingProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D182DE6D1CD5228F009BF3E9 /* FeedLoadingProgressView.m */; };
+		D182DE731CD7937F009BF3E9 /* NSManagedObject+MatrixCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = D182DE721CD7937F009BF3E9 /* NSManagedObject+MatrixCoreData.m */; };
+		D182DE761CD793AB009BF3E9 /* MagicCubeProgressBox.m in Sources */ = {isa = PBXBuildFile; fileRef = D182DE751CD793AB009BF3E9 /* MagicCubeProgressBox.m */; };
 		D1F574C01CB541580044B494 /* AppUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574BF1CB541580044B494 /* AppUtil.m */; };
 		D1F574D61CB55F190044B494 /* PageDataset.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574D51CB55F190044B494 /* PageDataset.m */; };
 		D1F574E21CB5717C0044B494 /* RestApiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574E11CB5717C0044B494 /* RestApiTests.m */; };
@@ -149,8 +150,6 @@
 		D176AC711C7E221A001F25D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D176AC741C7E221A001F25D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D176AC761C7E221A001F25D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D182DE3E1CD4F773009BF3E9 /* NSManagedObject+MatrixCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObject+MatrixCoreData.h"; path = "Manager/NSManagedObject+MatrixCoreData.h"; sourceTree = "<group>"; };
-		D182DE3F1CD4F773009BF3E9 /* NSManagedObject+MatrixCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObject+MatrixCoreData.m"; path = "Manager/NSManagedObject+MatrixCoreData.m"; sourceTree = "<group>"; };
 		D182DE461CD51CAF009BF3E9 /* FeedPostOneImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedPostOneImageTableViewCell.h; sourceTree = "<group>"; };
 		D182DE471CD51CAF009BF3E9 /* FeedPostOneImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedPostOneImageTableViewCell.m; sourceTree = "<group>"; };
 		D182DE481CD51CAF009BF3E9 /* FeedPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedPostTableViewCell.h; sourceTree = "<group>"; };
@@ -173,6 +172,10 @@
 		D182DE691CD51ED8009BF3E9 /* FavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavViewController.m; path = Controller/Fav/FavViewController.m; sourceTree = "<group>"; };
 		D182DE6C1CD5228F009BF3E9 /* FeedLoadingProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedLoadingProgressView.h; sourceTree = "<group>"; };
 		D182DE6D1CD5228F009BF3E9 /* FeedLoadingProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedLoadingProgressView.m; sourceTree = "<group>"; };
+		D182DE711CD7937F009BF3E9 /* NSManagedObject+MatrixCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+MatrixCoreData.h"; sourceTree = "<group>"; };
+		D182DE721CD7937F009BF3E9 /* NSManagedObject+MatrixCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+MatrixCoreData.m"; sourceTree = "<group>"; };
+		D182DE741CD793AB009BF3E9 /* MagicCubeProgressBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicCubeProgressBox.h; sourceTree = "<group>"; };
+		D182DE751CD793AB009BF3E9 /* MagicCubeProgressBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicCubeProgressBox.m; sourceTree = "<group>"; };
 		D1F574BE1CB541580044B494 /* AppUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppUtil.h; path = Utility/AppUtil.h; sourceTree = "<group>"; };
 		D1F574BF1CB541580044B494 /* AppUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppUtil.m; path = Utility/AppUtil.m; sourceTree = "<group>"; };
 		D1F574D41CB55F190044B494 /* PageDataset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageDataset.h; path = Model/PageDataset.h; sourceTree = "<group>"; };
@@ -244,6 +247,8 @@
 		D11A31161CC54E4B001B1D57 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				D182DE701CD7937F009BF3E9 /* MatrixCoreData */,
+				D182DE6F1CD79372009BF3E9 /* MagicCubeProgressBox */,
 				D11A31171CC54E4B001B1D57 /* MWFeedParser */,
 			);
 			path = ThirdParty;
@@ -459,6 +464,24 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		D182DE6F1CD79372009BF3E9 /* MagicCubeProgressBox */ = {
+			isa = PBXGroup;
+			children = (
+				D182DE741CD793AB009BF3E9 /* MagicCubeProgressBox.h */,
+				D182DE751CD793AB009BF3E9 /* MagicCubeProgressBox.m */,
+			);
+			path = MagicCubeProgressBox;
+			sourceTree = "<group>";
+		};
+		D182DE701CD7937F009BF3E9 /* MatrixCoreData */ = {
+			isa = PBXGroup;
+			children = (
+				D182DE711CD7937F009BF3E9 /* NSManagedObject+MatrixCoreData.h */,
+				D182DE721CD7937F009BF3E9 /* NSManagedObject+MatrixCoreData.m */,
+			);
+			path = MatrixCoreData;
+			sourceTree = "<group>";
+		};
 		D1F574B91CB540050044B494 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -516,8 +539,6 @@
 				D11A31011CBABF7C001B1D57 /* DataManager.m */,
 				D14431A51CCC039000FDE636 /* FeedSourceManager.h */,
 				D14431A61CCC039000FDE636 /* FeedSourceManager.m */,
-				D182DE3E1CD4F773009BF3E9 /* NSManagedObject+MatrixCoreData.h */,
-				D182DE3F1CD4F773009BF3E9 /* NSManagedObject+MatrixCoreData.m */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -702,12 +723,14 @@
 				D1F574C01CB541580044B494 /* AppUtil.m in Sources */,
 				D182DE671CD51EC3009BF3E9 /* LinkTableViewCell.m in Sources */,
 				D11A30EC1CBAA5C7001B1D57 /* FeedItemManager.m in Sources */,
+				D182DE761CD793AB009BF3E9 /* MagicCubeProgressBox.m in Sources */,
 				D11A31341CC54E4B001B1D57 /* NSString+HTML.m in Sources */,
 				D14431D41CD0FC7F00FDE636 /* EEViewController.m in Sources */,
 				D11A312E1CC54E4B001B1D57 /* GTMNSString+HTML.m in Sources */,
 				D182DE4D1CD51CAF009BF3E9 /* FeedPostTableViewCell.m in Sources */,
 				D14431D71CD118AF00FDE636 /* FeedImageParser.m in Sources */,
 				D1F574D61CB55F190044B494 /* PageDataset.m in Sources */,
+				D182DE731CD7937F009BF3E9 /* NSManagedObject+MatrixCoreData.m in Sources */,
 				D1F574F11CB578890044B494 /* RestApi.m in Sources */,
 				D13848EB1CB948BB00C2FEF6 /* DomainModel.m in Sources */,
 				D11A31331CC54E4B001B1D57 /* NSDate+InternetDateTime.m in Sources */,
@@ -718,7 +741,6 @@
 				D13848E41CB948BB00C2FEF6 /* FeedModel+CoreDataProperties.m in Sources */,
 				D176AC641C7E221A001F25D4 /* main.m in Sources */,
 				D14431CB1CD0DA7E00FDE636 /* EETabBarController.m in Sources */,
-				D182DE401CD4F773009BF3E9 /* NSManagedObject+MatrixCoreData.m in Sources */,
 				D182DE531CD51D09009BF3E9 /* FavTableViewCell.m in Sources */,
 				D11A30FF1CBABEB1001B1D57 /* FeedItemModel.m in Sources */,
 				D11A31301CC54E4B001B1D57 /* MWFeedItem.m in Sources */,
