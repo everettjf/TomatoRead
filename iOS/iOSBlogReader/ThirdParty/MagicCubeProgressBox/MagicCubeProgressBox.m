@@ -207,7 +207,7 @@ static MagicCubeProgressBox *s_box;
 - (void)moveToBottomRight{
     if(_isMovedToBottomRight)return;
     
-    CGSize size = CGSizeMake(80, 100);
+    CGSize size = CGSizeMake(60, 80);
     CGRect rect = CGRectMake(_parentView.frame.size.width - size.width - 5,
                              _parentView.frame.size.height - size.height - 60,
                              size.width,
