@@ -113,6 +113,8 @@ static const NSUInteger kPageCount = 20;
     if(_loadFeedFinished){
         [self _loadInitialFeeds:^{
         }];
+        
+        [MagicCubeProgressBox hide];
     }
 }
 

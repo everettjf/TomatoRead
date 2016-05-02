@@ -175,7 +175,7 @@
                 });
             };
             
-            [endOperation addDependency:endOperation];
+            [endOperation addDependency:operation];
             [_operationQueue addOperation:operation];
         }
         

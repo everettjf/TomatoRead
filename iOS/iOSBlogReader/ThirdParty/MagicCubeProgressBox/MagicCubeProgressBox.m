@@ -53,8 +53,12 @@ static MagicCubeProgressBox *s_box;
 }
 
 + (void)hide{
-    [s_box removeFromSuperview];
-    s_box = nil;
+    [UIView animateWithDuration:1 animations:^{
+        s_box.alpha = 0;
+    } completion:^(BOOL finished) {
+        [s_box removeFromSuperview];
+        s_box = nil;
+    }];
 }
 
 + (void)setText:(NSString *)text{
