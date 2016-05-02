@@ -18,12 +18,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rss" translatesAutoresizingMaskIntoConstraints="NO" id="WjY-Oo-MAq">
-                                <rect key="frame" x="172" y="172" width="256" height="256"/>
+                                <rect key="frame" x="250" y="110" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="ZVJ-oS-atc"/>
+                                    <constraint firstAttribute="height" constant="100" id="kLl-7n-ern"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="WjY-Oo-MAq" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Isp-xr-aMN"/>
+                            <constraint firstItem="WjY-Oo-MAq" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-140" id="Isp-xr-aMN"/>
                             <constraint firstItem="WjY-Oo-MAq" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="VgW-Nm-ais"/>
                         </constraints>
                     </view>
