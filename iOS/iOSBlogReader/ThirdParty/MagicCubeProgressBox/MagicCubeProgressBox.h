@@ -8,13 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString * const MagicCubeProgressBoxEventTapped;
+
 @interface MagicCubeProgressBox : UIView
 
 + (void)show;
 + (void)show:(UIView*)parentView;
+
 + (void)hide;
++ (void)stop;
 
 + (void)setText:(NSString*)text;
-+ (void)moveTo:(CGRect*)rect;
++ (void)moveToBottomRight;
 
 @end

@@ -33,7 +33,8 @@ static const NSUInteger kPageCount = 20;
 
 // Status
 @property (assign,nonatomic) NSUInteger totalItemCount;
-@property (strong,nonatomic) NSString *loadingPercent;
+
+@property (assign,nonatomic) BOOL loadFeedFinished;
 @end
 
 @implementation FeedPostsViewController
@@ -89,13 +90,30 @@ static const NSUInteger kPageCount = 20;
         make.edges.equalTo(self.view);
     }];
     
+    [MagicCubeProgressBox show:self.view];
+    
     [self _loadInitialFeeds:^{
         [self _enableHeader];
+        
+        if(_dataset.count > 0){
+            [MagicCubeProgressBox moveToBottomRight];
+        }
     }];
     
-    [_feedManager loadFeeds];
     
-    [MagicCubeProgressBox show:self.view];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(_notificationCubeTapped:) name:MagicCubeProgressBoxEventTapped object:nil];
+    
+    [_feedManager loadFeeds];
+}
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+
+- (void)_notificationCubeTapped:(NSNotification*)o{
+    if(_loadFeedFinished){
+        [self _loadInitialFeeds:^{
+        }];
+    }
 }
 
 - (void)_enableHeader{
@@ -155,15 +173,23 @@ static const NSUInteger kPageCount = 20;
 }
 
 - (void)feedManagerLoadStart{
-    _loadingPercent = @"";
 }
 
 - (void)feedManagerLoadProgress:(NSUInteger)loadCount totalCount:(NSUInteger)totalCount{
-    _loadingPercent = [NSString stringWithFormat:@"(%@/%@)",@(loadCount),@(totalCount)];
+    NSString *text = [NSString stringWithFormat:@"%@ / %@",@(loadCount),@(totalCount)];
+    [MagicCubeProgressBox setText:text];
+    
+    if(loadCount > 5){
+        [MagicCubeProgressBox moveToBottomRight];
+        if(_dataset.count == 0){
+            [self _loadInitialFeeds:^{}];
+        }
+    }
 }
 
 - (void)feedManagerLoadFinish{
-    _loadingPercent = @"";
+    [MagicCubeProgressBox setText:@"更新完成"];
+    _loadFeedFinished = YES;
 }
 
 - (void)_loadInitialFeeds:(void(^)(void))completion{

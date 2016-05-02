@@ -9,7 +9,14 @@
 #import "MagicCubeProgressBox.h"
 #import <POP.h>
 
+NSString * const MagicCubeProgressBoxEventTapped= @"MagicCubeProgressBoxEventTapped";
+
 static MagicCubeProgressBox *s_box;
+
+@interface MagicCubeProgressBox ()
+@property (weak,nonatomic) UIView *parentView;
+
+@end
 
 @implementation MagicCubeProgressBox{
     UIView *_cubeView;
@@ -20,6 +27,9 @@ static MagicCubeProgressBox *s_box;
     
     NSUInteger _animatingIndex;
     NSUInteger _animatingTargetColorGroup;
+    BOOL _animateStop;
+    
+    BOOL _isMovedToBottomRight;
 }
 
 #pragma mark Static Methods
@@ -30,7 +40,15 @@ static MagicCubeProgressBox *s_box;
 + (void)show:(UIView *)parentView{
     if(!parentView)return;
     if(s_box)return;
-    s_box = [[MagicCubeProgressBox alloc]initWithFrame:parentView.frame];
+    
+    CGSize size = CGSizeMake(120, 150);
+    CGRect rect = CGRectMake(parentView.frame.size.width/2 - size.width/2,
+                             parentView.frame.size.height/2 - size.height/2,
+                             size.width,
+                             size.height);
+    
+    s_box = [[MagicCubeProgressBox alloc]initWithFrame:rect];
+    s_box.parentView = parentView;
     [parentView addSubview:s_box];
 }
 
@@ -40,11 +58,18 @@ static MagicCubeProgressBox *s_box;
 }
 
 + (void)setText:(NSString *)text{
-    
+    if(!s_box)return;
+    [s_box setLabelText:text];
 }
 
-+ (void)moveTo:(CGRect *)rect{
-    
++ (void)moveToBottomRight{
+    if(!s_box)return;
+    [s_box moveToBottomRight];
+}
+
++ (void)stop{
+    if(!s_box)return;
+    [s_box stopAnimate];
 }
 
 #pragma mark Member Methods
@@ -76,19 +101,25 @@ static MagicCubeProgressBox *s_box;
                           UIColorFromRGBA(0xcd0000, 1.0),
                           ];
         
-        CGSize cubeSize = CGSizeMake(120, 120);
-        _cubeView = [[UIView alloc]initWithFrame:CGRectMake(frame.size.width/2-cubeSize.width/2,
-                                                           frame.size.height/2-cubeSize.height/2,
-                                                           cubeSize.width,
-                                                           cubeSize.height)];
-        
+        _cubeView = [UIView new];
         [self addSubview:_cubeView];
         
         [self _setupCube];
-        [self _layoutCube];
+        [self _setupLabel];
         [self _startAnimate];
+        
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(_viewTapped:)];
+        [_cubeView addGestureRecognizer:tapGesture];
     }
     return self;
+}
+
+- (void)_layoutCubeContainer{
+    CGSize cubeSize = self.frame.size;
+    _cubeView.frame = CGRectMake(0,
+                                 0,
+                                 cubeSize.width,
+                                 cubeSize.width);
 }
 
 - (void)_setupCube{
@@ -114,28 +145,88 @@ static MagicCubeProgressBox *s_box;
 - (void)_startAnimate{
     POPBasicAnimation *animation = [POPBasicAnimation animation];
     animation.property = [POPAnimatableProperty propertyWithName:kPOPViewBackgroundColor];
+    animation.duration = 1;
     if(_animatingTargetColorGroup == 0)
         animation.toValue = [_squareColors2 objectAtIndex:_animatingIndex];
     else
         animation.toValue = [_squareColors objectAtIndex:_animatingIndex];
         
     animation.delegate = self;
-    animation.name = [NSString stringWithFormat:@"cubeAnimation-%@-%@",@(_animatingIndex),@(_animatingTargetColorGroup)];
+    animation.name = @"cubeSquareAnimation";
     
     UIView *oneView = [_squareViews objectAtIndex:_animatingIndex];
     [oneView pop_addAnimation:animation forKey:@"cubeAnimation"];
 }
 
 - (void)pop_animationDidStop:(POPAnimation *)anim finished:(BOOL)finished{
-    if(_animatingIndex == 8){
-        _animatingIndex = 0;
-        _animatingTargetColorGroup = ++_animatingTargetColorGroup%2;
-    }else{
-        ++_animatingIndex;
+    if([anim.name isEqualToString:@"cubeSquareAnimation"]){
+        if(_animatingIndex == 8){
+            _animatingIndex = 0;
+            _animatingTargetColorGroup = ++_animatingTargetColorGroup%2;
+        }else{
+            ++_animatingIndex;
+        }
+        
+        if(!_animateStop){
+            [self _startAnimate];
+        }
     }
-    
-    [self _startAnimate];
 }
 
+- (void)_setupLabel{
+    _textLabel = [UILabel new];
+    _textLabel.hidden = YES;
+    _textLabel.font = [UIFont systemFontOfSize:14];
+    _textLabel.textColor = [UIColor blackColor];
+    _textLabel.textAlignment = NSTextAlignmentCenter;
+    [self addSubview:_textLabel];
+}
+- (void)_layoutLabel{
+    _textLabel.frame = CGRectMake(_cubeView.frame.origin.x,
+                                  _cubeView.frame.origin.y + _cubeView.frame.size.height + 3,
+                                  _cubeView.frame.size.width,
+                                  20);
+}
+- (void)setLabelText:(NSString*)text{
+    _textLabel.hidden = NO;
+    _textLabel.text = text;
+}
+
+- (void)stopAnimate{
+    _animateStop = YES;
+}
+
+- (void)_viewTapped:(id)gesture{
+    [[NSNotificationCenter defaultCenter]postNotificationName:MagicCubeProgressBoxEventTapped object:nil];
+}
+
+- (void)moveToBottomRight{
+    if(_isMovedToBottomRight)return;
+    
+    CGSize size = CGSizeMake(80, 100);
+    CGRect rect = CGRectMake(_parentView.frame.size.width - size.width - 5,
+                             _parentView.frame.size.height - size.height - 60,
+                             size.width,
+                             size.height);
+    
+    POPBasicAnimation *animation = [POPBasicAnimation animation];
+    animation.property = [POPAnimatableProperty propertyWithName:kPOPViewFrame];
+    animation.toValue = [NSValue valueWithCGRect:rect];
+    
+    animation.delegate = self;
+    animation.name = @"moveAnimation";
+    
+    [self pop_addAnimation:animation forKey:@"moveToBottomRightAnimation"];
+    
+    _isMovedToBottomRight = YES;
+}
+
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    
+    [self _layoutCubeContainer];
+    [self _layoutCube];
+    [self _layoutLabel];
+}
 
 @end
