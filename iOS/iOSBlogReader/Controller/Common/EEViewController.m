@@ -7,6 +7,7 @@
 //
 
 #import "EEViewController.h"
+#import <MobClick.h>
 
 @interface EEViewController ()
 
@@ -23,6 +24,18 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    [MobClick beginLogPageView:NSStringFromClass([self class])];
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    
+    [MobClick endLogPageView:NSStringFromClass([self class])];
 }
 
 /*

@@ -14,6 +14,7 @@
 #import "EENavigationController.h"
 #import "EETabBarController.h"
 #import "DataManager.h"
+#import "PrivateHeader.h"
 
 @interface AppDelegate ()
 
@@ -23,9 +24,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // UMeng
+    [self _umengTrack];
     
-    [DataManager manager];
+    // CoreData
+    [self _dataEngine];
     
+    // Window
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     
@@ -89,4 +94,19 @@
     
 }
 
+- (void)_umengTrack{
+#ifndef DEBUG
+    [MobClick setCrashReportEnabled:YES];
+#endif
+    ReportPolicy policy = BATCH;
+#ifdef DEBUG
+    policy = REALTIME;
+#endif
+    [MobClick startWithAppkey:kUMengKey reportPolicy:policy  channelId:@"App Store"];
+    
+}
+
+- (void)_dataEngine{
+    [DataManager manager];
+}
 @end

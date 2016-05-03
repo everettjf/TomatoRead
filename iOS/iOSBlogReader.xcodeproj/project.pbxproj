@@ -393,7 +393,6 @@
 				D1F574BA1CB5405B0044B494 /* Resource */,
 				D1F574B91CB540050044B494 /* Utility */,
 				D176AC621C7E221A001F25D4 /* Supporting Files */,
-				D182DE771CD8E5FD009BF3E9 /* PrivateHeader.h */,
 			);
 			path = iOSBlogReader;
 			sourceTree = "<group>";
@@ -401,6 +400,7 @@
 		D176AC621C7E221A001F25D4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D182DE771CD8E5FD009BF3E9 /* PrivateHeader.h */,
 				D176AC651C7E221A001F25D4 /* AppDelegate.h */,
 				D176AC661C7E221A001F25D4 /* AppDelegate.m */,
 				D176AC631C7E221A001F25D4 /* main.m */,
@@ -884,6 +884,10 @@
 				INFOPLIST_FILE = iOSBlogReader/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iOSBlogReader/ThirdParty/UMAnalytics_Sdk_3.6.6",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.everettjf.iOSBlogReader;
 				PRODUCT_NAME = "博客精选 iOS";
 			};
@@ -900,6 +904,10 @@
 				INFOPLIST_FILE = iOSBlogReader/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iOSBlogReader/ThirdParty/UMAnalytics_Sdk_3.6.6",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.everettjf.iOSBlogReader;
 				PRODUCT_NAME = "博客精选 iOS";
 			};

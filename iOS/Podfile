@@ -26,5 +26,8 @@ pod 'KINWebBrowser', '~> 1.3'
 #https://github.com/ibireme/YYWebImage
 pod 'YYWebImage', '~> 1.0'
 
+# UMeng
+pod 'UMengAnalytics'
+
 end
 
