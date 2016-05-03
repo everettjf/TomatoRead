@@ -176,6 +176,7 @@
 		D182DE721CD7937F009BF3E9 /* NSManagedObject+MatrixCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+MatrixCoreData.m"; sourceTree = "<group>"; };
 		D182DE741CD793AB009BF3E9 /* MagicCubeProgressBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicCubeProgressBox.h; sourceTree = "<group>"; };
 		D182DE751CD793AB009BF3E9 /* MagicCubeProgressBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicCubeProgressBox.m; sourceTree = "<group>"; };
+		D182DE771CD8E5FD009BF3E9 /* PrivateHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrivateHeader.h; sourceTree = "<group>"; };
 		D1F574BE1CB541580044B494 /* AppUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppUtil.h; path = Utility/AppUtil.h; sourceTree = "<group>"; };
 		D1F574BF1CB541580044B494 /* AppUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppUtil.m; path = Utility/AppUtil.m; sourceTree = "<group>"; };
 		D1F574D41CB55F190044B494 /* PageDataset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageDataset.h; path = Model/PageDataset.h; sourceTree = "<group>"; };
@@ -392,6 +393,7 @@
 				D1F574BA1CB5405B0044B494 /* Resource */,
 				D1F574B91CB540050044B494 /* Utility */,
 				D176AC621C7E221A001F25D4 /* Supporting Files */,
+				D182DE771CD8E5FD009BF3E9 /* PrivateHeader.h */,
 			);
 			path = iOSBlogReader;
 			sourceTree = "<group>";

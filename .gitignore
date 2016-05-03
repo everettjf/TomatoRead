@@ -3,3 +3,6 @@
 *.pem
 instance/
 instance
+
+iOS/iOSBlogReader/PrivateHeader.h
+iOS/Pods/
