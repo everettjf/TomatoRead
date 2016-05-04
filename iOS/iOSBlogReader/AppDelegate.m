@@ -15,6 +15,7 @@
 #import "EETabBarController.h"
 #import "DataManager.h"
 #import "PrivateHeader.h"
+#import <JSPatch/JSPatch.h>
 
 @interface AppDelegate ()
 
@@ -24,6 +25,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // JSPatch
+    [self _initJSPatch];
+    
     // UMeng
     [self _umengTrack];
     
@@ -109,4 +113,11 @@
 - (void)_dataEngine{
     [DataManager manager];
 }
+
+- (void)_initJSPatch{
+    [JSPatch startWithAppKey:kJSPatchKey];
+    [JSPatch sync];
+}
+
+
 @end

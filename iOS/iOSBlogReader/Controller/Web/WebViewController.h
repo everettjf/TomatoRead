@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <KINWebBrowserViewController.h>
+#import "KINWebBrowserViewController.h"
 
 @interface WebViewController : KINWebBrowserViewController
 @end

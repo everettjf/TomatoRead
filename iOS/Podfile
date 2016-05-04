@@ -9,8 +9,6 @@ target 'iOSBlogReader' do
 pod 'Masonry', '~> 0.6'
 #https://github.com/magicalpanda/MagicalRecord
 pod 'pop', '~> 1.0'
-#https://github.com/mwaterfall/MWFeedParser
-#pod 'MWFeedParser', '~> 1.0'
 #https://github.com/AFNetworking/AFNetworking
 pod 'AFNetworking', '~> 3.0'
 #https://github.com/HeshamMegid/HMSegmentedControl
@@ -21,13 +19,16 @@ pod 'YYModel', '~> 1.0'
 pod 'CocoaLumberjack', '~> 2.2'
 #https://github.com/CoderMJLee/MJRefresh
 pod 'MJRefresh', '~> 3.1'
-#https://github.com/dfmuir/KINWebBrowser
-pod 'KINWebBrowser', '~> 1.3'
 #https://github.com/ibireme/YYWebImage
 pod 'YYWebImage', '~> 1.0'
 
 # UMeng
 pod 'UMengAnalytics-NO-IDFA'
+
+#https://github.com/dfmuir/KINWebBrowser
+#pod 'KINWebBrowser', '~> 1.3'
+#https://github.com/mwaterfall/MWFeedParser
+#pod 'MWFeedParser', '~> 1.0'
 
 end
 
