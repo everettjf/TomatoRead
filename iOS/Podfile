@@ -27,7 +27,7 @@ pod 'KINWebBrowser', '~> 1.3'
 pod 'YYWebImage', '~> 1.0'
 
 # UMeng
-pod 'UMengAnalytics'
+pod 'UMengAnalytics-NO-IDFA'
 
 end
 
