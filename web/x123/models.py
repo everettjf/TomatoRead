@@ -86,7 +86,7 @@ class Bookmark(models.Model):
     large_icon = models.ImageField('图标', upload_to='siteicons', null=True, blank=True)
 
     # parser name, default blank
-    spider = models.TextField('爬虫', max_length=20, blank=True, null=True)
+    spider = models.TextField('爬虫', max_length=20, blank=True, default='')
 
 
     class Meta:

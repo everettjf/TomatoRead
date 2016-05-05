@@ -21,14 +21,14 @@ Why's Blog | [http://blog.callmewhy.com/](http://blog.callmewhy.com/) | http://b
 yulingtianxia's blog | [http://yulingtianxia.com/](http://yulingtianxia.com/) | http://yulingtianxia.com/atom.xml |  
 码农人生 | [http://msching.github.io/](http://msching.github.io/) | http://msching.github.io/atom.xml |  
 KooFrank's Den | [http://koofrank.com/](http://koofrank.com/) | http://koofrank.com/rss/ |  
-萧宸宇 | 如果不能成为拯救世界的神，那就堕落到征服世界的魔吧。 | [http://iiiyu.com/](http://iiiyu.com/) | http://iiiyu.com/atom.xml |  
-Luke's Homepage | 卢克 | [http://geeklu.com/](http://geeklu.com/) | http://geeklu.com/feed |  
+萧宸宇   如果不能成为拯救世界的神，那就堕落到征服世界的魔吧。 | [http://iiiyu.com/](http://iiiyu.com/) | http://iiiyu.com/atom.xml |  
+Luke's Homepage   卢克 | [http://geeklu.com/](http://geeklu.com/) | http://geeklu.com/feed |  
 摇滚诗人 - 博客园 | [http://www.cnblogs.com/biosli](http://www.cnblogs.com/biosli) | http://www.cnblogs.com/biosli/rss |  
 王中周的技术博客 | [http://foggry.com/](http://foggry.com/) | http://foggry.com/atom.xml |  
 Travis.Wang | [http://imi.im/](http://imi.im/) | http://travis.wang/rss/ |  
 Allen's Memos | [http://imallen.com/](http://imallen.com/) | http://imallen.com/rss/ |  
 Lancy's Blog | [http://gracelancy.com/](http://gracelancy.com/) | http://gracelancy.com/atom.xml |  
-nswebfrog' Homepage | nswebfrog | [http://blog.nswebfrog.com/](http://blog.nswebfrog.com/) | http://blog.nswebfrog.com/feed/ |  
+nswebfrog' Homepage   nswebfrog | [http://blog.nswebfrog.com/](http://blog.nswebfrog.com/) | http://blog.nswebfrog.com/feed/ |  
 answer_huang - iOS developer，Python fans | [http://answerhuang.duapp.com/](http://answerhuang.duapp.com/) | http://answerhuang.duapp.com/index.php/feed/ |  
 不会开机的男孩 | [http://studentdeng.github.io/](http://studentdeng.github.io/) | http://studentdeng.github.io/atom.xml |  
 Wonderffee's Blog | [http://wonderffee.github.io/](http://wonderffee.github.io/) | http://wonderffee.github.io/atom.xml |  
@@ -37,7 +37,7 @@ Nonomori - Let monkeys coding for iOS | [http://nonomori.farbox.com/](http://non
 阿毛的蛋疼地 | [http://xiangwangfeng.com/](http://xiangwangfeng.com/) | http://xiangwangfeng.com/atom.xml |  
 Kevin | [http://blog.zhowkev.in/](http://blog.zhowkev.in/) | http://blog.zhowkev.in/rss/ |  
 sunnyxx的技术博客 | [http://blog.sunnyxx.com/](http://blog.sunnyxx.com/) | http://blog.sunnyxx.com/atom.xml |  
-Ted's Homepage | Ted | [http://wufawei.com/](http://wufawei.com/) | http://wufawei.com/feed/ |  
+Ted's Homepage   Ted | [http://wufawei.com/](http://wufawei.com/) | http://wufawei.com/feed/ |  
 念茜的博客 - 博客频道 - CSDN.NET | [http://blog.csdn.net/yiyaaixuexi](http://blog.csdn.net/yiyaaixuexi) | http://blog.csdn.net/yiyaaixuexi/rss/list |  
 everettjf | [http://everettjf.github.io/](http://everettjf.github.io/) | http://everettjf.github.io/feed.xml |  
 NSHipster 中文版 | [http://nshipster.cn/](http://nshipster.cn/) | http://nshipster.cn/feed.xml |  
@@ -46,4 +46,4 @@ OneV's Den | [http://onevcat.com/](http://onevcat.com/) | http://onevcat.com/fee
 唐巧的技术博客 | [http://blog.devtang.com/](http://blog.devtang.com/) | http://blog.devtang.com/atom.xml |  
 
 
-Updated at 2016-05-06T02:21:57.122941
+Updated at 2016-05-06T02:30:20.452624
