@@ -10,18 +10,25 @@
 
 @interface RestLinkModel : NSObject
 @property (assign,nonatomic) NSUInteger oid;
-@property (assign,nonatomic) NSUInteger zindex;
 @property (strong,nonatomic) NSString *name;
 @property (strong,nonatomic) NSString *url;
 @property (strong,nonatomic) NSString *feed_url;
 @property (strong,nonatomic) NSString *favicon;
 @property (strong,nonatomic) NSString *spider;
 @property (strong,nonatomic) NSDate *updated_at;
+@property (assign,nonatomic) NSUInteger zindex;
 
-@property (assign,nonatomic) NSUInteger domain_oid;
-@property (assign,nonatomic) NSUInteger aspect_oid;
+@property (assign,nonatomic) NSUInteger domain_id;
+@property (assign,nonatomic) NSUInteger aspect_id;
+@end
+
+@interface RestFeedListModel : NSObject
+@property (strong,nonatomic) NSArray<RestLinkModel*> *feeds;
 @end
 
 @interface RestLinkListModel : NSObject
-@property (strong,nonatomic) NSArray<RestLinkModel*> *feeds;
+@property (assign,nonatomic) NSUInteger count;
+@property (assign,nonatomic) NSUInteger cur_page;
+@property (assign,nonatomic) NSUInteger num_pages;
+@property (strong,nonatomic) NSArray<RestLinkModel*> *links;
 @end

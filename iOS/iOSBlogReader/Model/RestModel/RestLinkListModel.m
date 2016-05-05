@@ -11,14 +11,18 @@
 @implementation RestLinkModel
 + (NSDictionary*)modelCustomPropertyMapper{
     return @{@"oid":@"id",
-             @"aspect_id":@"aspect.id",
-             @"domain_id":@"domain.id"
              };
+}
+@end
+
+@implementation RestFeedListModel
++ (NSDictionary*)modelContainerPropertyGenericClass{
+    return @{ @"feeds":RestLinkModel.class };
 }
 @end
 
 @implementation RestLinkListModel
 + (NSDictionary*)modelContainerPropertyGenericClass{
-    return @{ @"results":RestLinkModel.class };
+    return @{ @"links":RestLinkModel.class };
 }
 @end
