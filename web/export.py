@@ -13,6 +13,7 @@ import json
 from django.db.models import F, Q
 from django.core.paginator import Paginator
 import hashlib
+import datetime
 
 target_json_dir = '/Users/everettjf/GitHub/everettjf.github.com/app/blogreader/'
 target_markdown_dir = '/Users/everettjf/GitHub/iOSBlog/'
@@ -25,8 +26,21 @@ def local_open(filename):
     return open(os.path.join(target_json_dir, filename), 'w+', encoding='utf-8')
 
 
+def local_markdown_open(filename):
+    return open(os.path.join(target_markdown_dir, filename), 'w+', encoding='utf-8')
+
+
 def local_dump(obj, f):
-    json.dump(obj, f, indent=4, ensure_ascii=False)
+    json.dump(obj, f, indent=4, ensure_ascii=False, sort_keys=True)
+
+
+# Helper
+def all_feeds():
+    return Bookmark.objects.filter(~Q(feed_url='') | ~Q(spider=None)).order_by('-created_at', '-zindex', 'feed_url','spider')
+
+
+def all_links(aspect_id):
+    return Bookmark.objects.filter(aspect_id=aspect_id).order_by('-created_at')
 
 
 # Json export
@@ -59,7 +73,7 @@ def export_json():
         version = hashlib.md5()
         with local_open(jsonfilename) as f:
             feeds = []
-            for link in Bookmark.objects.filter(~Q(feed_url='')).order_by('-created_at', '-zindex'):
+            for link in all_feeds():
                 feeds.append({
                     'id': link.id,
                     'name': link.name,
@@ -68,6 +82,7 @@ def export_json():
                     'feed_url': link.feed_url,
                     'zindex': link.zindex,
                     'created_at': link.created_at.timestamp(),
+                    'spider':link.spider,
                 })
 
                 version.update(link.feed_url.encode('utf-8'))
@@ -81,10 +96,8 @@ def export_json():
 
     # Links
     for aspect in Aspect.objects.all():
-        linkmodels = Bookmark.objects.filter(aspect_id=aspect.id).order_by('-created_at')
+        linkmodels = all_links(aspect.id)
         p = Paginator(linkmodels,20)
-        p.count
-        p.num_pages
         for num in p.page_range:
             pagemodels = p.page(num).object_list
 
@@ -100,6 +113,7 @@ def export_json():
                         'feed_url': link.feed_url,
                         'zindex': link.zindex,
                         'created_at': link.created_at.timestamp(),
+                        'spider':link.spider,
                     })
                 local_dump({
                     'count': p.count,
@@ -109,7 +123,30 @@ def export_json():
                 }, f)
             print(filename, ' exported')
 
+
+def export_markdown():
+    f = local_markdown_open('README.md')
+
+    f.write('# iOS Developer Blogs \n\n')
+
+    f.write('[http://iosblog.cc](http://iosblog.cc)\n')
+    f.write('[这里查看介绍](http://everettjf.github.io/2016/02/24/iosblog-cc-dev-memory)\n\n')
+
+    f.write('Blog | URL | Feed | Last Update Time\n')
+    f.write('-----|-----|------|-----\n')
+
+    for domain in Domain.objects.all():
+        for link in all_feeds():
+            f.write('%s | [%s](%s) | %s | %s \n' % (link.name, link.url,link.url, link.feed_url, ''))
+
+    f.write('\n\n')
+    f.write('Updated at %s'% datetime.datetime.now().isoformat())
+
+    f.close()
+
+
 ########################################################
 if __name__ == '__main__':
     export_json()
+    export_markdown()
 
