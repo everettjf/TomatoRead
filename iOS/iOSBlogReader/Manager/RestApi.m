@@ -8,9 +8,7 @@
 
 #import "RestApi.h"
 
-//static NSString * const kRestServer = @"http://127.0.0.1:8888/api/";
-//static NSString * const kRestServer = @"http://192.168.199.126:8888/api/";
-static NSString * const kRestServer = @"http://iosblog.cc/api/";
+static NSString * const kRestServer = @"https://everettjf.github.io/app/blogreader/";
 
 @implementation RestApi
 
@@ -29,7 +27,7 @@ static NSString * const kRestServer = @"http://iosblog.cc/api/";
 
 - (void)queryDomainList:(void (^)(RestDomainListModel *, NSError *))complete{
     
-    [[AFHTTPSessionManager manager]GET:[self _service:@"domains"]
+    [[AFHTTPSessionManager manager]GET:[self _service:@"domains.json"]
                             parameters:nil
                               progress:nil
                                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -43,7 +41,7 @@ static NSString * const kRestServer = @"http://iosblog.cc/api/";
 
 - (void)queryFeedList:(void (^)(RestLinkListModel * , NSError * ))complete url:(NSString *)url{
     NSString *requestUrl = url;
-    if(!requestUrl)requestUrl=[self _service:@"feeds"];
+    if(!requestUrl)requestUrl=[self _service:@"1_feeds.json"];
     
     [[AFHTTPSessionManager manager]GET:requestUrl
                             parameters:nil

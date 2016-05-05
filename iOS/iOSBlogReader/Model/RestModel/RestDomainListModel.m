@@ -19,12 +19,12 @@
     return @{@"oid":@"id"};
 }
 + (NSDictionary*)modelContainerPropertyGenericClass{
-    return @{ @"aspect_set":RestAspectModel.class };
+    return @{ @"aspects":RestAspectModel.class };
 }
 @end
 
 @implementation RestDomainListModel
 + (NSDictionary*)modelContainerPropertyGenericClass{
-    return @{ @"results":RestDomainModel.class };
+    return @{ @"domains":RestDomainModel.class };
 }
 @end

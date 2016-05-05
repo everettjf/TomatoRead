@@ -11,17 +11,16 @@
 @interface RestAspectModel : NSObject
 @property (assign,nonatomic) NSUInteger oid;
 @property (strong,nonatomic) NSString *name;
+@property (assign,nonatomic) NSUInteger zindex;
 @end
 
 @interface RestDomainModel : NSObject
 @property (assign,nonatomic) NSUInteger oid;
 @property (strong,nonatomic) NSString *name;
-@property (strong,nonatomic) NSArray<RestAspectModel*> *aspect_set;
+@property (assign,nonatomic) NSUInteger zindex;
+@property (strong,nonatomic) NSArray<RestAspectModel*> *aspects;
 @end
 
 @interface RestDomainListModel : NSObject
-@property (assign,nonatomic) NSUInteger count;
-@property (strong,nonatomic) NSString *next;
-@property (strong,nonatomic) NSString *previous;
-@property (strong,nonatomic) NSArray<RestDomainModel*> *results;
+@property (strong,nonatomic) NSArray<RestDomainModel*> *domains;
 @end
