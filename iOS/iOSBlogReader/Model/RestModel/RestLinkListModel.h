@@ -22,8 +22,5 @@
 @end
 
 @interface RestLinkListModel : NSObject
-@property (assign,nonatomic) NSUInteger count;
-@property (strong,nonatomic) NSString *next;
-@property (strong,nonatomic) NSString *previous;
-@property (strong,nonatomic) NSArray<RestLinkModel*> *results;
+@property (strong,nonatomic) NSArray<RestLinkModel*> *feeds;
 @end

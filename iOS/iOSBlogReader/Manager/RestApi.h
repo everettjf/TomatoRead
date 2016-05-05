@@ -15,7 +15,10 @@
 + (RestApi*)api;
 
 - (void)queryDomainList:(void(^)(RestDomainListModel* model, NSError *error))complete;
-- (void)queryFeedList:(void(^)(RestLinkListModel * model, NSError *error))complete url:(NSString*)url;
+
+- (void)queryFeedVersion:(void(^)(NSString * version, NSError *error))complete;
+- (void)queryFeedList:(void(^)(RestLinkListModel * model, NSError *error))complete;
+
 - (void)queryLinkList:(NSUInteger)aspectID complete:(void(^)(RestLinkListModel* model, NSError *error))complete url:(NSString*)url;
 
 @end

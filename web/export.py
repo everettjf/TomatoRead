@@ -85,6 +85,8 @@ def export_json():
                     'zindex': link.zindex,
                     'created_at': link.created_at.timestamp(),
                     'spider':link.spider,
+                    'domain_id': link.aspect.domain_id,
+                    'aspect_id': link.aspect_id,
                 })
 
                 version.update(link.feed_url.encode('utf-8'))
@@ -117,7 +119,9 @@ def export_json():
                         'feed_url': link.feed_url,
                         'zindex': link.zindex,
                         'created_at': link.created_at.timestamp(),
-                        'spider':link.spider,
+                        'spider': link.spider,
+                        'domain_id': link.aspect.domain_id,
+                        'aspect_id': link.aspect_id,
                     })
                 local_dump({
                     'count': p.count,
