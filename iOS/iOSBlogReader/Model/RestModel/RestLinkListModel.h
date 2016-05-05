@@ -10,11 +10,12 @@
 
 @interface RestLinkModel : NSObject
 @property (assign,nonatomic) NSUInteger oid;
+@property (assign,nonatomic) NSUInteger zindex;
 @property (strong,nonatomic) NSString *name;
 @property (strong,nonatomic) NSString *url;
 @property (strong,nonatomic) NSString *feed_url;
 @property (strong,nonatomic) NSString *favicon;
-@property (strong,nonatomic) NSString *desc;
+@property (strong,nonatomic) NSString *spider;
 @property (strong,nonatomic) NSDate *updated_at;
 
 @property (assign,nonatomic) NSUInteger domain_oid;

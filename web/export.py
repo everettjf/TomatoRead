@@ -43,6 +43,21 @@ def all_links(aspect_id):
     return Bookmark.objects.filter(aspect_id=aspect_id).order_by('-created_at')
 
 
+def link_to_dict(link):
+    return {
+        'id': link.id,
+        'name': link.name,
+        'url': link.url,
+        'favicon': link.favicon,
+        'feed_url': link.feed_url,
+        'zindex': link.zindex,
+        'created_at': link.created_at.timestamp(),
+        'spider': link.spider,
+        'domain_id': link.aspect.domain_id,
+        'aspect_id': link.aspect_id,
+    }
+
+
 # Json export
 def export_json():
     # Domains
@@ -76,18 +91,7 @@ def export_json():
         with local_open(jsonfilename) as f:
             feeds = []
             for link in all_feeds():
-                feeds.append({
-                    'id': link.id,
-                    'name': link.name,
-                    'url': link.url,
-                    'favicon': link.favicon,
-                    'feed_url': link.feed_url,
-                    'zindex': link.zindex,
-                    'created_at': link.created_at.timestamp(),
-                    'spider':link.spider,
-                    'domain_id': link.aspect.domain_id,
-                    'aspect_id': link.aspect_id,
-                })
+                feeds.append(link_to_dict(link))
 
                 version.update(link.feed_url.encode('utf-8'))
             local_dump({
@@ -111,18 +115,8 @@ def export_json():
             with local_open(filename) as f:
                 pagelinks = []
                 for link in pagemodels:
-                    pagelinks.append({
-                        'id': link.id,
-                        'name': link.name,
-                        'url': link.url,
-                        'favicon': link.favicon,
-                        'feed_url': link.feed_url,
-                        'zindex': link.zindex,
-                        'created_at': link.created_at.timestamp(),
-                        'spider': link.spider,
-                        'domain_id': link.aspect.domain_id,
-                        'aspect_id': link.aspect_id,
-                    })
+                    pagelinks.append(link_to_dict(link))
+
                 local_dump({
                     'count': p.count,
                     'num_pages': p.num_pages,
