@@ -63,7 +63,9 @@ def export_json():
                 'zindex': domain.zindex,
                 'aspects': aspects,
             })
-        local_dump(domains,f)
+        local_dump({
+            'domains': domains
+        }, f)
     print('domains exported')
 
     # Feeds
@@ -86,7 +88,9 @@ def export_json():
                 })
 
                 version.update(link.feed_url.encode('utf-8'))
-            local_dump(feeds,f)
+            local_dump({
+                'feeds': feeds
+            }, f)
 
         versionfilename = '%d_feeds.version' % domain.id
         with local_open(versionfilename) as f:
@@ -127,7 +131,7 @@ def export_json():
 def export_markdown():
     f = local_markdown_open('README.md')
 
-    f.write('# iOS Developer Blogs \n\n')
+    f.write('# iOS 博客精选 \n\n')
 
     f.write('[http://iosblog.cc](http://iosblog.cc)\n')
     f.write('[这里查看介绍](http://everettjf.github.io/2016/02/24/iosblog-cc-dev-memory)\n\n')

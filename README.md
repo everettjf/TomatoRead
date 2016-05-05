@@ -1,4 +1,4 @@
-# iOS Developer Blogs 
+# iOS 博客精选 
 
 [http://iosblog.cc](http://iosblog.cc)
 [这里查看介绍](http://everettjf.github.io/2016/02/24/iosblog-cc-dev-memory)
@@ -46,4 +46,4 @@ OneV's Den | [http://onevcat.com/](http://onevcat.com/) | http://onevcat.com/fee
 唐巧的技术博客 | [http://blog.devtang.com/](http://blog.devtang.com/) | http://blog.devtang.com/atom.xml |  
 
 
-Updated at 2016-05-06T02:30:20.452624
+Updated at 2016-05-06T02:40:18.978769
