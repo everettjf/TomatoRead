@@ -24,10 +24,23 @@
                                     <constraint firstAttribute="height" constant="100" id="kLl-7n-ern"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOS 博客精选" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WW2-DW-2VO">
+                                <rect key="frame" x="251" y="251" width="99.5" height="54.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54.5" id="7KJ-U7-6Hu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="0.0" height="-12"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="WW2-DW-2VO" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="FLl-ia-Tgr"/>
                             <constraint firstItem="WjY-Oo-MAq" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-140" id="Isp-xr-aMN"/>
+                            <constraint firstItem="WW2-DW-2VO" firstAttribute="top" secondItem="WjY-Oo-MAq" secondAttribute="bottom" constant="41" id="RP5-AD-s8K"/>
                             <constraint firstItem="WjY-Oo-MAq" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="VgW-Nm-ais"/>
                         </constraints>
                     </view>

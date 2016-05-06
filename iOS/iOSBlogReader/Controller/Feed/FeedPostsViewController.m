@@ -130,7 +130,9 @@ static const NSUInteger kPageCount = 20;
 - (void)_enableHeader{
     if(_tableView.mj_header)return;
     
-    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(_pullDown)];
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(_pullDown)];
+    header.lastUpdatedTimeLabel.hidden = YES;
+    _tableView.mj_header = header;
 }
 
 - (void)_enableFooter{
@@ -258,6 +260,16 @@ static const NSUInteger kPageCount = 20;
 }
 
 - (void)_forceReloadFeeds:(id)sender{
+    if(_progressBox){
+        [_progressBox hide];
+        _progressBox = nil;
+    }
+    _progressBox = [MagicCubeProgressBox boxWithParentView:self.view];
+    
+    if(_dataset.count > 0){
+        [_progressBox moveToBottomRight];
+    }
+    
     [_feedManager loadFeeds];
 }
 

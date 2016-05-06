@@ -69,7 +69,10 @@ static NSString * const kLinkCell = @"LinkCell";
 - (void)_addHeaderFooter{
     if(_tableView.mj_header)return;
     
-    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(_pullDown)];
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(_pullDown)];
+    header.lastUpdatedTimeLabel.hidden = YES;
+    _tableView.mj_header = header;
+    
     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(_pullUp)];
     [footer setTitle:@"" forState:MJRefreshStateIdle];
     _tableView.mj_footer = footer;

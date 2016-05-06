@@ -92,6 +92,7 @@
 		D1F574D61CB55F190044B494 /* PageDataset.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574D51CB55F190044B494 /* PageDataset.m */; };
 		D1F574E21CB5717C0044B494 /* RestApiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574E11CB5717C0044B494 /* RestApiTests.m */; };
 		D1F574F11CB578890044B494 /* RestApi.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574F01CB578890044B494 /* RestApi.m */; };
+		D1F9D5A31CDD0453001F6FE6 /* SpiderParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F9D5A21CDD0453001F6FE6 /* SpiderParseOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -266,6 +267,8 @@
 		D1F574EE1CB574680044B494 /* PrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.h; sourceTree = "<group>"; };
 		D1F574EF1CB578890044B494 /* RestApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestApi.h; path = Manager/RestApi.h; sourceTree = "<group>"; };
 		D1F574F01CB578890044B494 /* RestApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestApi.m; path = Manager/RestApi.m; sourceTree = "<group>"; };
+		D1F9D5A11CDD0453001F6FE6 /* SpiderParseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpiderParseOperation.h; path = Manager/Spider/SpiderParseOperation.h; sourceTree = "<group>"; };
+		D1F9D5A21CDD0453001F6FE6 /* SpiderParseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpiderParseOperation.m; path = Manager/Spider/SpiderParseOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,6 +328,8 @@
 				D11A30EF1CBAA6C1001B1D57 /* FeedParseOperation.m */,
 				D14431D51CD118AF00FDE636 /* FeedImageParser.h */,
 				D14431D61CD118AF00FDE636 /* FeedImageParser.m */,
+				D1F9D5A11CDD0453001F6FE6 /* SpiderParseOperation.h */,
+				D1F9D5A21CDD0453001F6FE6 /* SpiderParseOperation.m */,
 			);
 			name = Feed;
 			sourceTree = "<group>";
@@ -953,6 +958,7 @@
 				D11A30FF1CBABEB1001B1D57 /* FeedItemModel.m in Sources */,
 				D11A31301CC54E4B001B1D57 /* MWFeedItem.m in Sources */,
 				D13848E61CB948BB00C2FEF6 /* AspectModel+CoreDataProperties.m in Sources */,
+				D1F9D5A31CDD0453001F6FE6 /* SpiderParseOperation.m in Sources */,
 				D13848E51CB948BB00C2FEF6 /* FeedModel.m in Sources */,
 				D182DE4E1CD51CAF009BF3E9 /* FeedSourceTableViewCell.m in Sources */,
 				D182DE5B1CD51E05009BF3E9 /* FeedPostsViewController.m in Sources */,

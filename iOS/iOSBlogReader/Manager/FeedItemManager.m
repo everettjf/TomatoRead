@@ -97,7 +97,8 @@
             [[FeedSourceManager manager]loadFeedSources:^(BOOL succeed) {
                 dispatch_async(dispatch_get_global_queue(0, 0), ^{
                     NSArray<FeedModel*> *feeds = [FeedModel mcd_findAll:@{
-                                                                          @"latest_post_date" : @NO
+                                                                          @"latest_post_date" : @NO,
+                                                                          @"zindex": @NO
                                                                           }];
                     if(!feeds || feeds.count == 0){
                         [self _onErrorLoadFeeds];
@@ -136,6 +137,9 @@
         
         for (FeedModel *feed in feeds) {
             FeedParseOperation *operation = [[FeedParseOperation alloc]init];
+            if(!feed.feed_url || [feed.feed_url isEqualToString:@""])
+                continue;
+            
             operation.feedURLString = feed.feed_url;
             
             operation.onParseFinished = ^(MWFeedInfo*feedInfo,NSArray<MWFeedItem*> *feedItems){
