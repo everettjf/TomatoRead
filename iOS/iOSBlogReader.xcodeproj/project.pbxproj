@@ -51,7 +51,6 @@
 		D134CFAA1CDA29970055E1B0 /* forwardbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D134CFA21CDA29970055E1B0 /* forwardbutton@2x.png */; };
 		D134CFAB1CDA29970055E1B0 /* forwardbutton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D134CFA31CDA29970055E1B0 /* forwardbutton@3x.png */; };
 		D134CFAC1CDA29970055E1B0 /* KINWebBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D134CFA51CDA29970055E1B0 /* KINWebBrowserViewController.m */; };
-		D134CFAE1CDA2A7D0055E1B0 /* JSPatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D134CFAD1CDA2A7D0055E1B0 /* JSPatch.framework */; };
 		D134CFB01CDA2AAA0055E1B0 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D134CFAF1CDA2AAA0055E1B0 /* libz.tbd */; };
 		D134CFB21CDA2AB10055E1B0 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D134CFB11CDA2AB10055E1B0 /* JavaScriptCore.framework */; };
 		D13848E41CB948BB00C2FEF6 /* FeedModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D13848D31CB948BB00C2FEF6 /* FeedModel+CoreDataProperties.m */; };
@@ -189,7 +188,6 @@
 		D134CFA31CDA29970055E1B0 /* forwardbutton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "forwardbutton@3x.png"; sourceTree = "<group>"; };
 		D134CFA41CDA29970055E1B0 /* KINWebBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KINWebBrowserViewController.h; sourceTree = "<group>"; };
 		D134CFA51CDA29970055E1B0 /* KINWebBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KINWebBrowserViewController.m; sourceTree = "<group>"; };
-		D134CFAD1CDA2A7D0055E1B0 /* JSPatch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JSPatch.framework; sourceTree = "<group>"; };
 		D134CFAF1CDA2AAA0055E1B0 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		D134CFB11CDA2AB10055E1B0 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		D13848D21CB948BB00C2FEF6 /* FeedModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FeedModel+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -278,7 +276,6 @@
 			files = (
 				D134CFB21CDA2AB10055E1B0 /* JavaScriptCore.framework in Frameworks */,
 				D134CFB01CDA2AAA0055E1B0 /* libz.tbd in Frameworks */,
-				D134CFAE1CDA2A7D0055E1B0 /* JSPatch.framework in Frameworks */,
 				35354CAE9B6B6421FE6002D4 /* libPods-iOSBlogReader.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,7 +334,6 @@
 		D11A31161CC54E4B001B1D57 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
-				D134CFAD1CDA2A7D0055E1B0 /* JSPatch.framework */,
 				D134CF9C1CDA29970055E1B0 /* KINWebBrowser */,
 				D134CF8C1CDA297F0055E1B0 /* ARChromeActivity */,
 				D134CF5D1CDA296F0055E1B0 /* TUSafariActivity */,
@@ -775,7 +771,7 @@
 				TargetAttributes = {
 					D176AC5E1C7E221A001F25D4 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 7Y7Q3C5XPJ;
+						DevelopmentTeam = YPV49M8592;
 					};
 					D1F574DE1CB5717C0044B494 = {
 						CreatedOnToolsVersion = 7.3;
@@ -1130,7 +1126,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/iOSBlogReader/ThirdParty/UMAnalytics_Sdk_3.6.6",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.everettjf.iOSBlogReader;
+				PRODUCT_BUNDLE_IDENTIFIER = com.everettjf.blogreader;
 				PRODUCT_NAME = "iOS博客精选";
 			};
 			name = Debug;
@@ -1154,7 +1150,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/iOSBlogReader/ThirdParty/UMAnalytics_Sdk_3.6.6",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.everettjf.iOSBlogReader;
+				PRODUCT_BUNDLE_IDENTIFIER = com.everettjf.blogreader;
 				PRODUCT_NAME = "iOS博客精选";
 			};
 			name = Release;

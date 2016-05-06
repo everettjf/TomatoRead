@@ -15,7 +15,7 @@
 #import "EETabBarController.h"
 #import "DataManager.h"
 #import "PrivateHeader.h"
-#import <JSPatch/JSPatch.h>
+//#import <JSPatch/JSPatch.h>
 
 @interface AppDelegate ()
 
@@ -116,8 +116,8 @@
 }
 
 - (void)_initJSPatch{
-    [JSPatch startWithAppKey:kJSPatchKey];
-    [JSPatch sync];
+//    [JSPatch startWithAppKey:kJSPatchKey];
+//    [JSPatch sync];
 }
 
 
