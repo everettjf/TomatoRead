@@ -25,4 +25,13 @@
 + (NSDictionary*)modelContainerPropertyGenericClass{
     return @{ @"links":RestLinkModel.class };
 }
+
+- (NSUInteger)next_page{
+    if(_cur_page >= _num_pages) return _cur_page;
+    return _cur_page + 1;
+}
+
+- (BOOL)is_end_page{
+    return _cur_page == _num_pages;
+}
 @end

@@ -31,4 +31,7 @@
 @property (assign,nonatomic) NSUInteger cur_page;
 @property (assign,nonatomic) NSUInteger num_pages;
 @property (strong,nonatomic) NSArray<RestLinkModel*> *links;
+
+@property (assign,nonatomic,readonly) NSUInteger next_page;
+@property (assign,nonatomic,readonly) BOOL is_end_page;
 @end

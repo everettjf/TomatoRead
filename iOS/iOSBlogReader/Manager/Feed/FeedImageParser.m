@@ -36,6 +36,7 @@
 
 - (NSString *)parseFirstImage:(NSString *)htmlContent baseUri:(NSString *)baseUri{
     if(!_expression)return @"";
+    if(!htmlContent)return @"";
     
     NSArray<NSTextCheckingResult*> *results = [_expression matchesInString:htmlContent
                                                         options:0

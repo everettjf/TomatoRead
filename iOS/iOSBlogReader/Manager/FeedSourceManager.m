@@ -12,6 +12,14 @@
 #import "FeedModel.h"
 
 @implementation FeedSourceUIEntity
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _link = [RestLinkModel new];
+    }
+    return self;
+}
 @end
 
 @implementation FeedSourceManager

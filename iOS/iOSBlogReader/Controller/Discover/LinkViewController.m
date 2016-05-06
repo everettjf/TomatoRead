@@ -18,8 +18,9 @@ static NSString * const kLinkCell = @"LinkCell";
 @interface LinkViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (strong,nonatomic) UITableView *tableView;
 @property (strong,nonatomic) NSMutableArray<RestLinkModel*> *dataset;
-@property (strong,nonatomic) RestLinkListModel *lastQuery;
 @property (strong,nonatomic) UIActivityIndicatorView *indicator;
+
+@property (assign,nonatomic) NSUInteger nextPage;
 @end
 
 @implementation LinkViewController
@@ -29,6 +30,7 @@ static NSString * const kLinkCell = @"LinkCell";
     self = [super init];
     if (self) {
         _dataset = [NSMutableArray new];
+        _nextPage = 1;
     }
     return self;
 }
@@ -74,26 +76,26 @@ static NSString * const kLinkCell = @"LinkCell";
 }
 
 - (void)_loadInitialData{
-//    [[RestApi api] queryLinkList:self.item.aspectID complete:^(RestLinkListModel *model, NSError *error) {
-//        [_indicator stopAnimating];
-//        [_indicator removeFromSuperview];
-//        _indicator = nil;
-//        
-//        [self _addHeaderFooter];
-//        
-//        if(error) {
-//            [_tableView.mj_header endRefreshing];
-//            return;
-//        }
-//        self.lastQuery = model;
-//        
-//        _dataset = [model.results mutableCopy];
-//        
-//        [_tableView reloadData];
-//        
-//        [_tableView.mj_header endRefreshing];
-//        if(!model.next) [_tableView.mj_footer endRefreshingWithNoMoreData];
-//    } url:nil];
+    _nextPage = 1;
+    [[RestApi api]queryLinkList:self.item.aspectID page:_nextPage complete:^(RestLinkListModel *model, NSError *error) {
+        [self _addHeaderFooter];
+        
+        [_indicator stopAnimating];
+        [_indicator removeFromSuperview];
+        _indicator = nil;
+        
+        if(error) {
+            [_tableView.mj_header endRefreshing];
+            return;
+        }
+        
+        _nextPage = model.next_page;
+        _dataset = [model.links mutableCopy];
+        [_tableView reloadData];
+        
+        [_tableView.mj_header endRefreshing];
+        if(model.is_end_page) [_tableView.mj_footer endRefreshingWithNoMoreData];
+    }];
 }
 
 - (void)_pullDown{
@@ -101,24 +103,21 @@ static NSString * const kLinkCell = @"LinkCell";
 }
 
 - (void)_pullUp{
-//    if(!self.lastQuery.next){
-//        [_tableView.mj_footer endRefreshingWithNoMoreData];
-//        return;
-//    }
-    
-//    [[RestApi api] queryLinkList:self.item.aspectID complete:^(RestLinkListModel *model, NSError *error) {
-//        if(error) {
-//            [_tableView.mj_footer endRefreshing];
-//            return;
-//        }
-//        self.lastQuery = model;
-//        
-//        [_dataset addObjectsFromArray:model.results];
-//        [_tableView reloadData];
-//        
-//        if(model.next) [_tableView.mj_footer endRefreshing];
-//        else [_tableView.mj_footer endRefreshingWithNoMoreData];
-//    } url:self.lastQuery.next];
+    [[RestApi api] queryLinkList:self.item.aspectID page:_nextPage complete:^(RestLinkListModel *model, NSError *error) {
+        if(error) {
+            [_tableView.mj_footer endRefreshing];
+            return;
+        }
+        _nextPage = model.next_page;
+        
+        [_dataset addObjectsFromArray:model.links];
+        [_tableView reloadData];
+        
+        if(model.is_end_page)
+            [_tableView.mj_footer endRefreshingWithNoMoreData];
+        else
+            [_tableView.mj_footer endRefreshing];
+    }];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
