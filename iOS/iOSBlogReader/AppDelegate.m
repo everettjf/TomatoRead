@@ -40,7 +40,7 @@
     
     FeedPostsViewController *feedPostsViewController = [[FeedPostsViewController alloc]init];
     EENavigationController *feedPostsNavigationController = [[EENavigationController alloc]initWithRootViewController:feedPostsViewController];
-    feedPostsNavigationController.tabBarItem.title = @"精选";
+    feedPostsNavigationController.tabBarItem.title = @"博文";
     feedPostsNavigationController.tabBarItem.image = [UIImage imageNamed:@"tab_article"];
     feedPostsNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"tab_article_selected"];
     
@@ -56,17 +56,18 @@
     discoverNavigationController.tabBarItem.image = [UIImage imageNamed:@"tab_discover"];
     discoverNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"tab_discover_selected"];
     
-    FavViewController *favViewController = [[FavViewController alloc]init];
-    EENavigationController *favNavigationController = [[EENavigationController alloc]initWithRootViewController:favViewController];
-    favNavigationController.tabBarItem.title = @"收藏";
-    favNavigationController.tabBarItem.image = [UIImage imageNamed:@"tab_fav"];
-    favNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"tab_fav_selected"];
+//    FavViewController *favViewController = [[FavViewController alloc]init];
+//    EENavigationController *favNavigationController = [[EENavigationController alloc]initWithRootViewController:favViewController];
+//    favNavigationController.tabBarItem.title = @"收藏";
+//    favNavigationController.tabBarItem.image = [UIImage imageNamed:@"tab_fav"];
+//    favNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"tab_fav_selected"];
     
     EETabBarController *tabBarController = [[EETabBarController alloc]init];
     tabBarController.viewControllers = @[feedPostsNavigationController,
                                          feedSourceNavigationController,
                                          discoverNavigationController,
-                                         favNavigationController];
+//                                         favNavigationController,
+                                         ];
     
     self.window.rootViewController = tabBarController;
     [self.window makeKeyAndVisible];

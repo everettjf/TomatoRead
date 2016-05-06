@@ -51,7 +51,7 @@ static NSString * const kLinkCell = @"LinkCell";
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
         make.top.equalTo(self.view);
-        make.bottom.equalTo(self.view).offset(-60);
+        make.bottom.equalTo(self.view).offset(-110);
     }];
     
     

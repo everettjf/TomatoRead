@@ -64,7 +64,7 @@ static const NSUInteger kPageCount = 20;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.title = @"博客精选 iOS";
+    self.navigationItem.title = @"博文";
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
     
     _feedManager = [FeedItemManager new];

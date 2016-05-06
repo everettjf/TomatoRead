@@ -104,7 +104,7 @@
         make.top.equalTo(_segmentedControl.mas_bottom);
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
-        make.bottom.equalTo(self.view);
+        make.bottom.equalTo(self.mas_bottomLayoutGuide);
     }];
     
     _subPageViews = [NSMutableArray new];
@@ -128,7 +128,7 @@
 - (void)_adjustScrollPageSize{
     CGFloat pageWidth = [UIScreen mainScreen].bounds.size.width;
     CGFloat pageTopY = 40 + [UIApplication sharedApplication].statusBarFrame.size.height + self.navigationController.navigationBar.bounds.size.height;
-    CGFloat pageHeight = [UIScreen mainScreen].bounds.size.height - pageTopY;
+    CGFloat pageHeight = [UIScreen mainScreen].bounds.size.height - pageTopY - self.tabBarController.tabBar.bounds.size.height;
     _scrollView.contentSize = CGSizeMake(pageWidth * _subPageViews.count, pageHeight);
     
     [_subPageViews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
