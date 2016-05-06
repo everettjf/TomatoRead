@@ -64,13 +64,13 @@
             return;
         }
         
-        if(model.results.count == 0){
+        if(model.domains.count == 0){
             complete(nil,NO);
             return;
         }
         
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            for (RestDomainModel *domain in model.results) {
+            for (RestDomainModel *domain in model.domains) {
                 
                 __block DomainModel *domainModel;
                 [DomainModel mcd_findOrCreate:@"oid" value:@(domain.oid) callback:^(NSManagedObject *m) {
@@ -78,7 +78,7 @@
                     domainModel.name = domain.name;
                 }];
                 
-                for (RestAspectModel *aspect in domain.aspect_set) {
+                for (RestAspectModel *aspect in domain.aspects) {
                     [AspectModel mcd_findOrCreate:@"oid" value:@(aspect.oid) callback:^(NSManagedObject *m) {
                         AspectModel *aspectModel = (id)m;
                         aspectModel.name = aspect.name;

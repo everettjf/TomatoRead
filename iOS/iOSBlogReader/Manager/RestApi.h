@@ -16,9 +16,8 @@
 
 - (void)queryDomainList:(void(^)(RestDomainListModel* model, NSError *error))complete;
 
-- (void)queryFeedVersion:(void(^)(NSString * version, NSError *error))complete;
 - (void)queryFeedList:(void(^)(RestFeedListModel * model, NSError *error))complete;
 
-- (void)queryLinkList:(NSUInteger)aspectID complete:(void(^)(RestLinkListModel* model, NSError *error))complete url:(NSString*)url;
+- (void)queryLinkList:(NSUInteger)aspectID page:(NSUInteger)page complete:(void(^)(RestLinkListModel* model, NSError *error))complete;
 
 @end

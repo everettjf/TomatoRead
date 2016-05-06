@@ -2,7 +2,7 @@
 //  FeedModel+CoreDataProperties.m
 //  iOSBlogReader
 //
-//  Created by everettjf on 16/5/1.
+//  Created by everettjf on 16/5/6.
 //  Copyright © 2016年 everettjf. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -13,16 +13,16 @@
 
 @implementation FeedModel (CoreDataProperties)
 
-@dynamic desc;
 @dynamic favicon;
 @dynamic feed_url;
+@dynamic last_parse_date;
+@dynamic latest_post_date;
 @dynamic name;
 @dynamic oid;
-@dynamic type;
-@dynamic updated_at;
 @dynamic url;
-@dynamic latest_post_date;
-@dynamic last_parse_date;
+@dynamic spider;
+@dynamic zindex;
+@dynamic last_parse_timeinterval;
 @dynamic items;
 
 @end

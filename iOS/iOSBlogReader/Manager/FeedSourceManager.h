@@ -7,16 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RestLinkListModel.h"
 
 @interface FeedSourceUIEntity : NSObject
-@property (assign,nonatomic) NSUInteger oid;
-@property (strong,nonatomic) NSString *name;
-@property (strong,nonatomic) NSString *url;
-@property (strong,nonatomic) NSString *feed_url;
-@property (strong,nonatomic) NSString *favicon;
-@property (strong,nonatomic) NSString *desc;
-@property (strong,nonatomic) NSDate *updated_at;
-
+@property (strong,nonatomic) RestLinkModel *link;
 @property (strong,nonatomic) NSDate *latest_post_date;
 @property (assign,nonatomic) NSUInteger post_count;
 @end

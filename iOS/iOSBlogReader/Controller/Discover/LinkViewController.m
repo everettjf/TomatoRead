@@ -74,26 +74,26 @@ static NSString * const kLinkCell = @"LinkCell";
 }
 
 - (void)_loadInitialData{
-    [[RestApi api] queryLinkList:self.item.aspectID complete:^(RestLinkListModel *model, NSError *error) {
-        [_indicator stopAnimating];
-        [_indicator removeFromSuperview];
-        _indicator = nil;
-        
-        [self _addHeaderFooter];
-        
-        if(error) {
-            [_tableView.mj_header endRefreshing];
-            return;
-        }
-        self.lastQuery = model;
-        
-        _dataset = [model.results mutableCopy];
-        
-        [_tableView reloadData];
-        
-        [_tableView.mj_header endRefreshing];
-        if(!model.next) [_tableView.mj_footer endRefreshingWithNoMoreData];
-    } url:nil];
+//    [[RestApi api] queryLinkList:self.item.aspectID complete:^(RestLinkListModel *model, NSError *error) {
+//        [_indicator stopAnimating];
+//        [_indicator removeFromSuperview];
+//        _indicator = nil;
+//        
+//        [self _addHeaderFooter];
+//        
+//        if(error) {
+//            [_tableView.mj_header endRefreshing];
+//            return;
+//        }
+//        self.lastQuery = model;
+//        
+//        _dataset = [model.results mutableCopy];
+//        
+//        [_tableView reloadData];
+//        
+//        [_tableView.mj_header endRefreshing];
+//        if(!model.next) [_tableView.mj_footer endRefreshingWithNoMoreData];
+//    } url:nil];
 }
 
 - (void)_pullDown{
@@ -101,24 +101,24 @@ static NSString * const kLinkCell = @"LinkCell";
 }
 
 - (void)_pullUp{
-    if(!self.lastQuery.next){
-        [_tableView.mj_footer endRefreshingWithNoMoreData];
-        return;
-    }
+//    if(!self.lastQuery.next){
+//        [_tableView.mj_footer endRefreshingWithNoMoreData];
+//        return;
+//    }
     
-    [[RestApi api] queryLinkList:self.item.aspectID complete:^(RestLinkListModel *model, NSError *error) {
-        if(error) {
-            [_tableView.mj_footer endRefreshing];
-            return;
-        }
-        self.lastQuery = model;
-        
-        [_dataset addObjectsFromArray:model.results];
-        [_tableView reloadData];
-        
-        if(model.next) [_tableView.mj_footer endRefreshing];
-        else [_tableView.mj_footer endRefreshingWithNoMoreData];
-    } url:self.lastQuery.next];
+//    [[RestApi api] queryLinkList:self.item.aspectID complete:^(RestLinkListModel *model, NSError *error) {
+//        if(error) {
+//            [_tableView.mj_footer endRefreshing];
+//            return;
+//        }
+//        self.lastQuery = model;
+//        
+//        [_dataset addObjectsFromArray:model.results];
+//        [_tableView reloadData];
+//        
+//        if(model.next) [_tableView.mj_footer endRefreshing];
+//        else [_tableView.mj_footer endRefreshingWithNoMoreData];
+//    } url:self.lastQuery.next];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

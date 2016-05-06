@@ -55,7 +55,7 @@ static const NSUInteger kPageCount = 20;
         _oneFeed = feed;
         
         
-        FeedModel *model = [[DataManager manager]findFeed:_oneFeed.oid];
+        FeedModel *model = [[DataManager manager]findFeed:_oneFeed.link.oid];
         NSLog(@"model = %@",model);
     }
     return self;

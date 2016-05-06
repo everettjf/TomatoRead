@@ -78,7 +78,7 @@
     
     if(_bindedOneFeed){
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            FeedModel *model = [[DataManager manager]findFeed:_bindedOneFeed.oid];
+            FeedModel *model = [[DataManager manager]findFeed:_bindedOneFeed.link.oid];
             if(!model)return;
             
             [self _enumerateFeedsInCoreData:@[model]];
@@ -187,7 +187,7 @@
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSNumber *filterFeedOid;
         if(_bindedOneFeed){
-            filterFeedOid = @(_bindedOneFeed.oid);
+            filterFeedOid = @(_bindedOneFeed.link.oid);
         }
         
         NSArray<FeedItemModel*> *feedItems = [[DataManager manager]findAllFeedItem:offset limit:limit filter:filterFeedOid];

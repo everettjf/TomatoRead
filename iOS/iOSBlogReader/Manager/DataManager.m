@@ -67,7 +67,7 @@
 
 - (NSArray<FeedModel *> *)findAllFeed:(NSUInteger)offset limit:(NSUInteger)limit{
     return [FeedModel mcd_findAll:offset limit:limit sort:@{
-                                                            @"updated_at":@(NO)
+                                                            @"oid":@(NO)
                                                             }];
 }
 

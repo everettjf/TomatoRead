@@ -111,7 +111,7 @@ def export_json():
         for num in p.page_range:
             pagemodels = p.page(num).object_list
 
-            filename = '%d_%d_link%d.json' % (aspect.domain_id, aspect.id, num)
+            filename = '%d_link%d.json' % (aspect.id, num)
             with local_open(filename) as f:
                 pagelinks = []
                 for link in pagemodels:

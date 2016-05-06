@@ -146,8 +146,8 @@ static NSString * const kLinkCell = @"FeedSourceCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     FeedSourceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLinkCell forIndexPath:indexPath];
     FeedSourceUIEntity *entity = [_dataset objectAtIndex:indexPath.row];
-    cell.favicon = entity.favicon;
-    cell.title = entity.name;
+    cell.favicon = entity.link.favicon;
+    cell.title = entity.link.name;
     if(entity.latest_post_date){
         cell.subTitle = [NSString stringWithFormat:@"%@篇 最后更新于%@",
                          @(entity.post_count),
@@ -166,7 +166,7 @@ static NSString * const kLinkCell = @"FeedSourceCell";
     
     FeedPostsViewController *postsViewController = [[FeedPostsViewController alloc]initWithOne:entity];
     postsViewController.hidesBottomBarWhenPushed = YES;
-    postsViewController.title = entity.name;
+    postsViewController.title = entity.link.name;
     [self.navigationController pushViewController:postsViewController animated:YES];
 }
 

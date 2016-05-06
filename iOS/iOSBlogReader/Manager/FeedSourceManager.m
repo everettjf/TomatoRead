@@ -26,45 +26,24 @@
 }
 
 
-- (void)_queryAllFeeds:(void (^)(NSMutableArray<RestLinkModel*> *feeds))completion{
-    NSMutableArray<RestLinkModel*> *feeds = [NSMutableArray new];
-    [self _queryAllFeeds:completion next:nil feeds:feeds];
-    
-}
-- (void)_queryAllFeeds:(void (^)(NSMutableArray<RestLinkModel*> *feeds))completion next:(NSString*)next feeds:(NSMutableArray*)feeds{
-    [[RestApi api]queryFeedList:^(RestLinkListModel *model, NSError *error) {
-        if(error){
-            completion(nil);
-            return;
-        }
-        
-        [feeds addObjectsFromArray:model.results];
-        
-        if(model.next){
-            // call
-            [self _queryAllFeeds:completion next:model.next feeds:feeds];
-        }else{
-            completion(feeds);
-        }
-    } url:next];
-}
 - (void)loadFeedSources:(void (^)(BOOL))completion{
-    [self _queryAllFeeds:^(NSMutableArray<RestLinkModel *> *feeds) {
-        if(!feeds){
+    [[RestApi api]queryFeedList:^(RestFeedListModel *model, NSError *error) {
+        if(!model){
             completion(NO);
             return;
         }
         
         // Persist
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            for (RestLinkModel *feed in feeds) {
+            for (RestLinkModel *feed in model.feeds) {
                 [[DataManager manager]findOrCreateFeed:feed.oid callback:^(FeedModel * _Nullable m) {
+                    m.favicon = feed.favicon;
                     m.feed_url = feed.feed_url;
                     m.name = feed.name;
+                    m.oid = @(feed.oid);
                     m.url = feed.url;
-                    m.desc = feed.desc;
-                    m.updated_at = feed.updated_at;
-                    m.favicon = feed.favicon;
+                    m.spider = feed.spider;
+                    m.zindex = @(feed.zindex);
                 }];
             }
             
@@ -83,13 +62,13 @@
         NSMutableArray<FeedSourceUIEntity*> *entities = [NSMutableArray new];
         for (FeedModel *model in feedSources) {
             FeedSourceUIEntity *entity = [FeedSourceUIEntity new];
-            entity.oid = model.oid.unsignedIntegerValue;
-            entity.name = model.name;
-            entity.url = model.url;
-            entity.feed_url = model.feed_url;
-            entity.favicon = model.favicon;
-            entity.desc = model.desc;
-            entity.updated_at = model.updated_at;
+            entity.link.favicon = model.favicon;
+            entity.link.feed_url = model.feed_url;
+            entity.link.name = model.name;
+            entity.link.oid = model.oid.unsignedIntegerValue;
+            entity.link.url = model.url;
+            entity.link.spider = model.spider;
+            entity.link.zindex = model.zindex.unsignedIntegerValue;
             
             entity.post_count = model.items.count;
             entity.latest_post_date = model.latest_post_date;

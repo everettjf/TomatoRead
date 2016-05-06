@@ -15,7 +15,7 @@
 @property (strong,nonatomic) NSString *feed_url;
 @property (strong,nonatomic) NSString *favicon;
 @property (strong,nonatomic) NSString *spider;
-@property (strong,nonatomic) NSDate *updated_at;
+@property (strong,nonatomic) NSDate *created_at;
 @property (assign,nonatomic) NSUInteger zindex;
 
 @property (assign,nonatomic) NSUInteger domain_id;
