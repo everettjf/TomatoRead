@@ -110,6 +110,13 @@ static const NSUInteger kPageCount = 20;
     [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
+- (void)_showRefreshBarButton:(BOOL)show{
+    if(show)
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(_forceReloadFeeds:)];
+    else
+        self.navigationItem.rightBarButtonItem = nil;
+}
+
 - (void)_notificationCubeTapped:(NSNotification*)o{
     if(_loadFeedFinished){
         [self _loadInitialFeeds:^{
@@ -177,6 +184,7 @@ static const NSUInteger kPageCount = 20;
 }
 
 - (void)feedManagerLoadStart{
+    [self _showRefreshBarButton:NO];
 }
 
 - (void)feedManagerLoadProgress:(NSUInteger)loadCount totalCount:(NSUInteger)totalCount{
@@ -195,6 +203,14 @@ static const NSUInteger kPageCount = 20;
     [_progressBox setText:@"更新完成"];
     [_progressBox stop];
     _loadFeedFinished = YES;
+    [self _showRefreshBarButton:YES];
+}
+
+- (void)feedManagerLoadError{
+    [_progressBox setText:@"网络出错"];
+    [_progressBox stop];
+    _loadFeedFinished = YES;
+    [self _showRefreshBarButton:YES];
 }
 
 - (void)_loadInitialFeeds:(void(^)(void))completion{
@@ -239,6 +255,10 @@ static const NSUInteger kPageCount = 20;
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     cell.separatorInset = UIEdgeInsetsZero;
     cell.layoutMargins = UIEdgeInsetsZero;
+}
+
+- (void)_forceReloadFeeds:(id)sender{
+    [_feedManager loadFeeds];
 }
 
 @end

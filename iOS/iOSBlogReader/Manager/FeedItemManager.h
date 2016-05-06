@@ -30,6 +30,7 @@
 - (void)feedManagerLoadStart;
 - (void)feedManagerLoadProgress:(NSUInteger)loadCount totalCount:(NSUInteger)totalCount;
 - (void)feedManagerLoadFinish;
+- (void)feedManagerLoadError;
 @end
 
 @interface FeedItemManager : NSObject

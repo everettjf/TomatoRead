@@ -38,7 +38,7 @@
     if (self) {
         NSLog(@"data path = %@", [self _dataPath]);
 #ifdef DEBUG
-        [[NSFileManager defaultManager]removeItemAtURL:[self _dataPath] error:nil];
+//        [[NSFileManager defaultManager]removeItemAtURL:[self _dataPath] error:nil];
 #endif
         
         self.managedObjectContext = [NSManagedObject mcd_init:@"BlogModel" storePath:[self _dataPath]];

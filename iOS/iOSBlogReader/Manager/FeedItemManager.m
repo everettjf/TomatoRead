@@ -48,6 +48,12 @@
     if(_delegate)[_delegate feedManagerLoadStart];
 }
 
+- (void)_onErrorLoadFeeds{
+    _loadingFeeds = YES;
+    
+    if(_delegate)[_delegate feedManagerLoadError];
+}
+
 - (void)_increaseFeedCounter{
     [_feedCounterLock lock];
     ++_feedCounter;
@@ -79,7 +85,10 @@
     if(_bindedOneFeed){
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             FeedModel *model = [[DataManager manager]findFeed:_bindedOneFeed.link.oid];
-            if(!model)return;
+            if(!model){
+                [self _onErrorLoadFeeds];
+                return;
+            }
             
             [self _enumerateFeedsInCoreData:@[model]];
         });
@@ -90,7 +99,10 @@
                     NSArray<FeedModel*> *feeds = [FeedModel mcd_findAll:@{
                                                                           @"latest_post_date" : @NO
                                                                           }];
-                    if(!feeds)return;
+                    if(!feeds || feeds.count == 0){
+                        [self _onErrorLoadFeeds];
+                        return;
+                    }
                     
                     [self _enumerateFeedsInCoreData:feeds];
                 });
