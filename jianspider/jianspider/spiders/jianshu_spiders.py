@@ -5,9 +5,12 @@ from jianspider.items import JianshuItem
 class JianshuSpider(scrapy.Spider):
     name = "jianshu"
     allowed_domains = ['jianshu.com']
-    start_urls = [
-        "http://www.jianshu.com/users/b82d2721ba07/latest_articles"
-    ]
+    start_urls = []
+
+    def __init__(self):
+        self.start_urls = [
+            "http://www.jianshu.com/users/b82d2721ba07/latest_articles"
+        ]
 
     def parse(self, response):
         for post in response.xpath('//div[@id="list-container"]/ul/li'):
