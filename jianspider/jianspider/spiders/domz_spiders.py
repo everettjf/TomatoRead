@@ -1,5 +1,5 @@
 import scrapy
-from jianspider.items import JianspiderItem
+from jianspider.items import DomzItem
 
 class DmozSpider(scrapy.Spider):
     name = "dmoz"
@@ -35,7 +35,7 @@ class DmozSpider(scrapy.Spider):
 
     def parse_dir_contents(self, response):
         for sel in response.xpath('//ul/li'):
-            item = JianspiderItem()
+            item = DomzItem()
             item['title'] = sel.xpath('a/text()').extract()
             item['link'] = sel.xpath('a/@href').extract()
             item['desc'] = sel.xpath('text()').extract()
