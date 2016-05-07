@@ -19,4 +19,4 @@ class JianshuItem(scrapy.Item):
     title = scrapy.Field()
     link = scrapy.Field()
     image = scrapy.Field()
-    sharetime = scrapy.Field()
+    createtime = scrapy.Field()
