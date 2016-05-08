@@ -7,4 +7,4 @@ python export.py
 
 pyenv local scrapy
 
-scrapy 
+scrapy crawl jianshu -o jianshu.json
