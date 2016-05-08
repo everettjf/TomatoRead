@@ -5,6 +5,7 @@
 
 Blog | URL | Feed | Last Update Time
 -----|-----|------|-----
+叶孤城___ - 简书 | [http://www.jianshu.com/users/b82d2721ba07/latest_articles](http://www.jianshu.com/users/b82d2721ba07/latest_articles) | jianshu |  
 刘坤的技术博客 | [https://blog.cnbluebox.com/](https://blog.cnbluebox.com/) | https://blog.cnbluebox.com/atom.xml |  
 kt's Dev | [https://bestswifter.com/](https://bestswifter.com/) | https://bestswifter.com/rss/ |  
 NSHipster | [http://nshipster.com/](http://nshipster.com/) | http://nshipster.com/feed.xml |  
@@ -46,4 +47,4 @@ OneV's Den | [http://onevcat.com/](http://onevcat.com/) | http://onevcat.com/fee
 唐巧的技术博客 | [http://blog.devtang.com/](http://blog.devtang.com/) | http://blog.devtang.com/atom.xml |  
 
 
-Updated at 2016-05-08T21:55:49.480136
+Updated at 2016-05-09T00:47:52.781077
