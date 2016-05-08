@@ -2,6 +2,7 @@ import scrapy
 from jianspider.items import JianshuItem
 import json
 import codecs
+import datetime
 
 import os
 
@@ -70,7 +71,8 @@ class JianshuSpider(scrapy.Spider):
 
         f = codecs.open(filepath,'w+',encoding='utf-8')
         local_dump({
-            'posts': items
+            'posts': items,
+            'updated_at': datetime.datetime.now().isoformat()
         }, f)
 
 
