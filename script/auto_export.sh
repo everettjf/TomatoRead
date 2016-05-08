@@ -1,10 +1,10 @@
 
 pyenv local 3.5.0
 
-cd ./web
+cd ../web
 python export.py
 
 
-pyenv local scrapy
+cd ../jianspider
 
-scrapy crawl jianshu -o jianshu.json
+scrapy crawl jianshu
