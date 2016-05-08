@@ -4,6 +4,7 @@
 
 Blog | URL | Feed | Last Update Time
 -----|-----|------|-----
+YM2rr - 简书 | [http://www.jianshu.com/users/ee84d859d5f0/latest_articles](http://www.jianshu.com/users/ee84d859d5f0/latest_articles) | jianshu |  
 叶孤城___ - 简书 | [http://www.jianshu.com/users/b82d2721ba07/latest_articles](http://www.jianshu.com/users/b82d2721ba07/latest_articles) | jianshu |  
 刘坤的技术博客 | [https://blog.cnbluebox.com/](https://blog.cnbluebox.com/) | https://blog.cnbluebox.com/atom.xml |  
 kt's Dev | [https://bestswifter.com/](https://bestswifter.com/) | https://bestswifter.com/rss/ |  
@@ -46,4 +47,4 @@ OneV's Den | [http://onevcat.com/](http://onevcat.com/) | http://onevcat.com/fee
 唐巧的技术博客 | [http://blog.devtang.com/](http://blog.devtang.com/) | http://blog.devtang.com/atom.xml |  
 
 
-Updated at 2016-05-09T03:07:00.329661
+Updated at 2016-05-09T03:22:40.026360

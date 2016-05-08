@@ -12,6 +12,6 @@ cd ../jianspider
 scrapy crawl jianshu
 
 
-cd ../script
+cd ../web
 pyenv local 3.5.0
 python gitcommit.py
