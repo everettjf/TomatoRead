@@ -101,7 +101,8 @@ def export_json():
         versionfilename = '%d_feeds_info.json' % domain.id
         with local_open(versionfilename) as f:
             local_dump({
-                'version': version.hexdigest()
+                'version': version.hexdigest(),
+                'updated_at': datetime.datetime.now().isoformat(),
             }, f)
 
         print(jsonfilename, 'exported , version=',version.hexdigest())
