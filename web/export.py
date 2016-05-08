@@ -185,6 +185,7 @@ def export_markdown():
 # Git
 def commit_and_push(dir):
     print(dir)
+    os.system('cd %s;git pull' % dir)
     os.system('cd %s;git add .' % dir)
     os.system('cd %s;git commit -m autocommit%s' % (dir, datetime.datetime.now().isoformat()))
     os.system('cd %s;git push origin master'% dir)
