@@ -7,6 +7,7 @@ cd ../web
 python export.py
 
 
+pyenv local 2.7.10
 cd ../jianspider
 
 scrapy crawl jianshu
