@@ -163,8 +163,7 @@ def export_markdown():
 
     f.write('# iOS 博客精选 \n\n')
 
-    f.write('[http://iosblog.cc](http://iosblog.cc)\n')
-    f.write('[这里查看介绍](http://everettjf.github.io/2016/02/24/iosblog-cc-dev-memory)\n\n')
+    f.write('[介绍](http://everettjf.github.io/2016/02/24/iosblog-cc-dev-memory)\n\n')
 
     f.write('Blog | URL | Feed | Last Update Time\n')
     f.write('-----|-----|------|-----\n')
@@ -185,6 +184,7 @@ def export_markdown():
 
 # Git
 def commit_and_push(dir):
+    print(dir)
     os.system('cd %s;git add .' % dir)
     os.system('cd %s;git commit -m autocommit%s' % (dir, datetime.datetime.now().isoformat()))
     os.system('cd %s;git push origin master'% dir)
