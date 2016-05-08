@@ -3,6 +3,32 @@
 import os
 import django
 
+
+def is_in_production():
+    if 'IOSBLOGRUNMODE' in os.environ:
+        RUNMODE = os.environ['IOSBLOGRUNMODE']
+    else:
+        RUNMODE = 'develop'
+
+    return RUNMODE == 'production'
+
+if is_in_production():
+    target_json_dir = '/root/everettjf.github.com/app/blogreader/'
+    target_markdown_dir = '/root/iOSBlog/'
+else:
+    target_json_dir = '/Users/everettjf/GitHub/everettjf.github.com/app/blogreader/'
+    target_markdown_dir = '/Users/everettjf/GitHub/iOSBlog/'
+
+###########################################################
+spider_mapper = {
+    'http://www.jianshu.com': 'jianshu',
+    'https://www.jianshu.com': 'jianshu',
+}
+
+
+###########################################################
+
+
 os.environ['DJANGO_SETTINGS_MODULE'] = 'iosblog.settings'
 django.setup()
 
@@ -14,12 +40,6 @@ from django.db.models import F, Q
 from django.core.paginator import Paginator
 import hashlib
 import datetime
-
-target_json_dir = '/Users/everettjf/GitHub/everettjf.github.com/app/blogreader/'
-target_markdown_dir = '/Users/everettjf/GitHub/iOSBlog/'
-
-########################################################
-
 
 # Util
 def local_open(filename):
@@ -36,7 +56,7 @@ def local_dump(obj, f):
 
 # Helper
 def all_feeds():
-    return Bookmark.objects.filter(~Q(feed_url='') | ~Q(spider='')).order_by('-created_at', '-zindex', 'feed_url','spider')
+    return Bookmark.objects.filter(~Q(feed_url='') | ~Q(spider='') ).order_by('-created_at', '-zindex', 'feed_url','spider')
 
 
 def all_links(aspect_id):
@@ -57,6 +77,15 @@ def link_to_dict(link):
         'aspect_id': link.aspect_id,
     }
 
+
+# Preprocess links
+def preprocess_links():
+    for link in Bookmark.objects.filter(aspect__tag='blog').order_by('-created_at'):
+        for k in spider_mapper:
+            if link.url.startswith(k):
+                link.spider = spider_mapper[k]
+                link.save()
+                break
 
 # Json export
 def export_json():
@@ -142,8 +171,11 @@ def export_markdown():
 
     for domain in Domain.objects.all():
         for link in all_feeds():
-            name = link.name.replace('|',' ')
-            f.write('%s | [%s](%s) | %s | %s \n' % (name, link.url,link.url, link.feed_url, ''))
+            name = link.name.replace('|', ' ')
+            spider = link.feed_url
+            if spider == '':
+                spider = link.spider
+            f.write('%s | [%s](%s) | %s | %s \n' % (name, link.url,link.url, spider, ''))
 
     f.write('\n\n')
     f.write('Updated at %s'% datetime.datetime.now().isoformat())
@@ -151,8 +183,19 @@ def export_markdown():
     f.close()
 
 
+# Git
+def commit_and_push(dir):
+    os.system('cd ' + dir)
+    os.system('git add .')
+    os.system('git commit -m autocommit' + datetime.datetime.now().isoformat())
+    os.system('git push origin master')
+
 ########################################################
 if __name__ == '__main__':
+    preprocess_links()
     export_json()
     export_markdown()
+
+    commit_and_push(target_json_dir)
+    commit_and_push(target_markdown_dir)
 
