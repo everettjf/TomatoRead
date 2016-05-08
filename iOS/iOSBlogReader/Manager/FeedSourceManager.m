@@ -34,35 +34,59 @@
 }
 
 
-- (void)loadFeedSources:(void (^)(BOOL))completion{
-    [[RestApi api]queryFeedList:^(RestFeedListModel *model, NSError *error) {
-        if(!model){
+- (void)requestFeedSources:(void (^)(BOOL))completion{
+    [[RestApi api]queryFeedVersion:^(NSString *version) {
+        if(!version){
             completion(NO);
             return;
         }
         
-        // Persist
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            for (RestLinkModel *feed in model.feeds) {
-                [[DataManager manager]findOrCreateFeed:feed.oid callback:^(FeedModel * _Nullable m) {
-                    m.favicon = feed.favicon;
-                    m.feed_url = feed.feed_url;
-                    m.name = feed.name;
-                    m.oid = @(feed.oid);
-                    m.url = feed.url;
-                    m.spider = feed.spider;
-                    m.zindex = @(feed.zindex);
-                }];
+        BOOL needRequest = NO;
+        NSString *localVersion = [[DataManager manager]getFeedVersion];
+        if(localVersion){
+            needRequest = ![localVersion isEqualToString:version];
+        }else{
+            needRequest = YES;
+        }
+        
+        if(!needRequest){
+            NSLog(@"Feed list version is already latest : %@", version);
+            completion(YES);
+            return;
+        }
+        
+        
+        [[RestApi api]queryFeedList:^(RestFeedListModel *model, NSError *error) {
+            if(!model){
+                completion(NO);
+                return;
             }
             
-            dispatch_async(dispatch_get_main_queue(), ^{
-                completion(YES);
+            // Persist
+            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                for (RestLinkModel *feed in model.feeds) {
+                    [[DataManager manager]findOrCreateFeed:feed.oid callback:^(FeedModel * _Nullable m) {
+                        m.favicon = feed.favicon;
+                        m.feed_url = feed.feed_url;
+                        m.name = feed.name;
+                        m.oid = @(feed.oid);
+                        m.url = feed.url;
+                        m.spider = feed.spider;
+                        m.zindex = @(feed.zindex);
+                    }];
+                }
+                
+                [[DataManager manager]saveFeedVersion:version];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completion(YES);
+                });
             });
-        });
+        }];
     }];
 }
 
-- (void)fetchFeedSources:(NSUInteger)offset limit:(NSUInteger)limit completion:(void (^)(NSArray<FeedSourceUIEntity *> *, NSUInteger))completion{
+- (void)queryFeedSources:(NSUInteger)offset limit:(NSUInteger)limit completion:(void (^)(NSArray<FeedSourceUIEntity *> *, NSUInteger))completion{
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSArray<FeedModel*> *feedSources = [[DataManager manager]findAllFeed:offset limit:limit];
         NSUInteger totalCount = [[DataManager manager]countFeed];

@@ -19,6 +19,6 @@
 
 + (FeedSourceManager *)manager;
 
-- (void)loadFeedSources:(void (^)(BOOL succeed))completion;
-- (void)fetchFeedSources:(NSUInteger)offset limit:(NSUInteger)limit completion:(void(^)(NSArray<FeedSourceUIEntity*> *feedItems, NSUInteger totalCount))completion;
+- (void)requestFeedSources:(void (^)(BOOL succeed))completion;
+- (void)queryFeedSources:(NSUInteger)offset limit:(NSUInteger)limit completion:(void(^)(NSArray<FeedSourceUIEntity*> *feedItems, NSUInteger totalCount))completion;
 @end

@@ -98,9 +98,11 @@ def export_json():
                 'feeds': feeds
             }, f)
 
-        versionfilename = '%d_feeds.version' % domain.id
+        versionfilename = '%d_feeds_info.json' % domain.id
         with local_open(versionfilename) as f:
-            f.write(version.hexdigest())
+            local_dump({
+                'version': version.hexdigest()
+            }, f)
 
         print(jsonfilename, 'exported , version=',version.hexdigest())
 

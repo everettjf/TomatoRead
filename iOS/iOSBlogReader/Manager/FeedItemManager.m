@@ -94,7 +94,7 @@
         });
     }else{
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            [[FeedSourceManager manager]loadFeedSources:^(BOOL succeed) {
+            [[FeedSourceManager manager]requestFeedSources:^(BOOL succeed) {
                 dispatch_async(dispatch_get_global_queue(0, 0), ^{
                     NSArray<FeedModel*> *feeds = [FeedModel mcd_findAll:@{
                                                                           @"latest_post_date" : @NO,

@@ -100,15 +100,14 @@
 }
 
 - (void)_umengTrack{
-#ifndef DEBUG
+#ifdef DEBUG
+    [MobClick setCrashReportEnabled:NO];
+#else
     [MobClick setCrashReportEnabled:YES];
 #endif
-    ReportPolicy policy = BATCH;
-#ifdef DEBUG
-    policy = REALTIME;
-#endif
-    [MobClick startWithAppkey:kUMengKey reportPolicy:policy  channelId:@"App Store"];
     
+    ReportPolicy policy = BATCH;
+    [MobClick startWithAppkey:kUMengKey reportPolicy:policy  channelId:@"App Store"];
 }
 
 - (void)_dataEngine{

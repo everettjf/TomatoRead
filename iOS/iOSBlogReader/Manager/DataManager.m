@@ -118,5 +118,18 @@
     return [FeedItemModel mcd_count:predicate];
 }
 
+- (void)saveFeedVersion:(NSString*)version{
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    [def setObject:version forKey:@"1_feed.version"];
+    [def synchronize];
+}
+
+- (NSString*)getFeedVersion{
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    NSString *ver = [def objectForKey:@"1_feed.version"];
+    if(!ver) ver = @"";
+    return ver;
+}
+
 
 @end

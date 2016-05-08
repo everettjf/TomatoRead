@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D176AC5E1C7E221A001F25D4"
-               BuildableName = "&#x535a;&#x5ba2;&#x7cbe;&#x9009; iOS.app"
+               BuildableName = "iOS&#x535a;&#x5ba2;&#x7cbe;&#x9009;.app"
                BlueprintName = "iOSBlogReader"
                ReferencedContainer = "container:iOSBlogReader.xcodeproj">
             </BuildableReference>
@@ -54,7 +54,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D176AC5E1C7E221A001F25D4"
-            BuildableName = "&#x535a;&#x5ba2;&#x7cbe;&#x9009; iOS.app"
+            BuildableName = "iOS&#x535a;&#x5ba2;&#x7cbe;&#x9009;.app"
             BlueprintName = "iOSBlogReader"
             ReferencedContainer = "container:iOSBlogReader.xcodeproj">
          </BuildableReference>
@@ -77,7 +77,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D176AC5E1C7E221A001F25D4"
-            BuildableName = "&#x535a;&#x5ba2;&#x7cbe;&#x9009; iOS.app"
+            BuildableName = "iOS&#x535a;&#x5ba2;&#x7cbe;&#x9009;.app"
             BlueprintName = "iOSBlogReader"
             ReferencedContainer = "container:iOSBlogReader.xcodeproj">
          </BuildableReference>
@@ -96,7 +96,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D176AC5E1C7E221A001F25D4"
-            BuildableName = "&#x535a;&#x5ba2;&#x7cbe;&#x9009; iOS.app"
+            BuildableName = "iOS&#x535a;&#x5ba2;&#x7cbe;&#x9009;.app"
             BlueprintName = "iOSBlogReader"
             ReferencedContainer = "container:iOSBlogReader.xcodeproj">
          </BuildableReference>
