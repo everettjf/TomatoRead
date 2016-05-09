@@ -78,4 +78,18 @@ static NSString * const kRestServer = @"https://everettjf.github.io/app/blogread
                                }];
     
 }
+
+- (void)querySpiderPostList:(NSString *)spider feedID:(NSUInteger)feedID complete:(void (^)(RestSpiderPostListModel *, NSError *))complete{
+    NSString *url = [NSString stringWithFormat:@"spider/%@/%@.json", spider, @(feedID)];
+    [[AFHTTPSessionManager manager]GET:[self _service:url]
+                            parameters:nil
+                              progress:nil
+                               success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                   RestSpiderPostListModel *model = [RestSpiderPostListModel yy_modelWithDictionary:responseObject];
+                                   complete(model,nil);
+                               } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                   complete(nil,error);
+                               }];
+    
+}
 @end

@@ -35,3 +35,5 @@
 @property (assign,nonatomic,readonly) NSUInteger next_page;
 @property (assign,nonatomic,readonly) BOOL is_end_page;
 @end
+
+

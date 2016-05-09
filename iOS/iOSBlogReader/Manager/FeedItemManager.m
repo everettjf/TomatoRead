@@ -15,6 +15,7 @@
 #import "FeedSourceManager.h"
 #import "DataManager.h"
 #import "FeedImageParser.h"
+#import "SpiderParseOperation.h"
 
 @implementation FeedItemUIEntity
 @end
@@ -112,14 +113,12 @@
     }
 }
 
-- (NSString*)_computeFirstImage:(MWFeedInfo*)feedInfo feedItem:(MWFeedItem*)feedItem{
-    NSString *baseUri = feedInfo.link;
-    if(!baseUri)baseUri = [feedInfo.url URLByDeletingLastPathComponent].absoluteString;
+- (NSString*)_computeFirstImage:(FeedModel*)feedInfo feedItem:(ParseFeedItem*)feedItem{
+    NSString *baseUri = feedInfo.url;
+    // todo
+//    if(!baseUri)baseUri = [feedInfo.url URLByDeletingLastPathComponent].absoluteString;
     
-    NSString *htmlContent = feedItem.content;
-    if(!htmlContent) htmlContent = feedItem.summary;
-    
-    return [[FeedImageParser parser]parseFirstImage:htmlContent baseUri:baseUri];
+    return [[FeedImageParser parser]parseFirstImage:feedItem.content baseUri:baseUri];
 }
 
 - (void)_enumerateFeedsInCoreData:(NSArray<FeedModel*> *)feeds{
@@ -136,25 +135,30 @@
         };
         
         for (FeedModel *feed in feeds) {
-            FeedParseOperation *operation = [[FeedParseOperation alloc]init];
-            if(!feed.feed_url || [feed.feed_url isEqualToString:@""])
+            ParseOperationBase *operation;
+            if(feed.feed_url && ![feed.feed_url isEqualToString:@""]){
+                operation = [[FeedParseOperation alloc]init];
+            }else if(feed.spider && ![feed.spider isEqualToString:@""]){
+                operation = [[SpiderParseOperation alloc]init];
+            }else{
+                [self _increaseFeedCounter];
                 continue;
+            }
             
-            operation.feedURLString = feed.feed_url;
-            
-            operation.onParseFinished = ^(MWFeedInfo*feedInfo,NSArray<MWFeedItem*> *feedItems){
+            operation.feed = feed;
+            operation.onParseFinished = ^(FeedModel* feedInfo,NSArray<ParseFeedItem*> *feedItems){
                 
                 __block NSDate *latest_post_date;
-                for (MWFeedItem* feedItem in feedItems) {
-                    NSString *firstImage = [self _computeFirstImage:feedInfo feedItem:feedItem];
+                for (ParseFeedItem* feedItem in feedItems) {
+                    
+                    NSString *firstImage = feedItem.image;
+                    if(!firstImage) firstImage = [self _computeFirstImage:feedInfo feedItem:feedItem];
                     
                     [[DataManager manager]findOrCreateFeedItem:feedItem.identifier callback:^(FeedItemModel *m) {
+                        m.type = @(feedItem.type);
                         m.title = feedItem.title;
                         m.link = feedItem.link;
-                        m.summary = feedItem.summary;
                         m.content = feedItem.content;
-                        m.author = feedItem.author;
-                        m.updated = feedItem.updated;
                         m.image = firstImage;
                         
                         m.feed = feed;
@@ -214,13 +218,11 @@
         for (FeedItemModel *item in feedItems) {
             FeedItemUIEntity *entity = [FeedItemUIEntity new];
             entity.identifier = item.identifier;
+            entity.type = (ParseItemType)item.type.unsignedIntegerValue;
             entity.title = item.title;
             entity.link = item.link;
             entity.date = item.date;
-            entity.updated = item.updated;
-            entity.summary = item.summary;
             entity.content = item.content;
-            entity.author = item.author;
             entity.feed_oid = item.feed.oid;
             entity.image = item.image;
             entity.feed_name = item.feed.name;

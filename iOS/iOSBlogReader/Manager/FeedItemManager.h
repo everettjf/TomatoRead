@@ -9,18 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "FeedModel.h"
 #import "FeedSourceManager.h"
+#import "ParseOperationBase.h"
 
 
 @interface FeedItemUIEntity : NSObject
+@property (nonatomic, assign) ParseItemType type;
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *link;
 @property (nonatomic, strong) NSDate *date;
-@property (nonatomic, strong) NSDate *updated;
-@property (nonatomic, strong) NSString *summary;
 @property (nonatomic, strong) NSString *content;
-@property (nonatomic, strong) NSString *author;
 @property (nonatomic, strong) NSString *image;
+
 @property (nonatomic, strong) NSNumber *feed_oid;
 @property (nonatomic, strong) NSString *feed_name;
 @end

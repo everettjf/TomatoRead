@@ -15,6 +15,7 @@
 #import "FeedPostContentViewController.h"
 #import "DataManager.h"
 #import "MagicCubeProgressBox.h"
+#import "WebViewController.h"
 
 static NSString * kFeedOneImageCell = @"FeedOneImageCell";
 static NSString * kFeedCell = @"FeedCell";
@@ -249,9 +250,19 @@ static const NSUInteger kPageCount = 20;
     FeedItemUIEntity *feedItem = [_dataset objectAtIndex:indexPath.row];
     NSLog(@"image = %@", feedItem.image);
     
-    FeedPostContentViewController *contentViewController = [[FeedPostContentViewController alloc]initWithFeedPost:feedItem];
-    contentViewController.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:contentViewController animated:YES];
+    if(feedItem.type == ParseItemType_Feed){
+        FeedPostContentViewController *contentViewController = [[FeedPostContentViewController alloc]initWithFeedPost:feedItem];
+        contentViewController.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:contentViewController animated:YES];
+    }else{
+        WebViewController *webViewController = [[WebViewController alloc]init];
+        webViewController.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:webViewController animated:YES];
+        webViewController.title = feedItem.title;
+        
+        NSString *url = feedItem.link;
+        [webViewController loadURLString:url];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -60,7 +60,6 @@
     NSString *postString = [NSString stringWithContentsOfFile:postFilePath encoding:NSUTF8StringEncoding error:nil];
 
     NSString *content = _post.content;
-    if(!content) content = _post.summary;
     
     NSString *htmlContent = [NSString stringWithFormat:postString, cssString, _post.title, content];
     [_webView loadHTMLString:htmlContent baseURL:nil];
@@ -72,7 +71,6 @@
     webViewController.title = _post.title;
     
     NSString *url = _post.link;
-    if(!url) url = _post.identifier;
     NSLog(@"url = %@", url);
     [webViewController loadURLString:url];
 }

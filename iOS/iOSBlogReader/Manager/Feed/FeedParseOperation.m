@@ -7,41 +7,20 @@
 //
 
 #import "FeedParseOperation.h"
+#import "MWFeedParser.h"
 
 @interface FeedParseOperation ()<MWFeedParserDelegate>
-@property (assign,nonatomic,getter=isFinished) BOOL finished;
-@property (assign,nonatomic,getter=isExecuting) BOOL executing;
 
 @property (strong,nonatomic) MWFeedParser *parser;
-
-@property (strong,nonatomic) NSMutableArray<MWFeedItem*> *feedItemsForAppend;
+@property (strong,nonatomic) NSMutableArray<ParseFeedItem*> *feedItemsForAppend;
 @property (strong,nonatomic) MWFeedInfo *feedInfo;
 
 @end
 
 @implementation FeedParseOperation
 
-@synthesize finished = _finished;
-@synthesize executing = _executing;
-
-- (void)setFinished:(BOOL)finished{
-    [self willChangeValueForKey:@"isFinished"];
-    _finished = finished;
-    [self didChangeValueForKey:@"isFinished"];
-}
-
-- (void)setExecuting:(BOOL)executing{
-    [self willChangeValueForKey:@"isExecuting"];
-    _executing = executing;
-    [self didChangeValueForKey:@"isExecuting"];
-}
-
-- (BOOL)isAsynchronous{
-    return YES;
-}
-
 - (void)start{
-    if(!_feedURLString || [_feedURLString isEqualToString:@""]){
+    if(!self.feed || [self.feed.feed_url isEqualToString:@""]){
         self.finished = YES;
         return;
     }
@@ -53,8 +32,7 @@
     
     self.executing = YES;
     
-    
-    _parser = [[MWFeedParser alloc]initWithFeedURL:[NSURL URLWithString:self.feedURLString]];
+    _parser = [[MWFeedParser alloc]initWithFeedURL:[NSURL URLWithString:self.feed.feed_url]];
     _parser.delegate = self;
     if(![_parser parse]){
         NSLog(@"run parse failed");
@@ -69,25 +47,32 @@
 }
 
 - (void)feedParserDidStart:(MWFeedParser *)parser{
-//    NSLog(@"parse start");
     _feedItemsForAppend = [NSMutableArray new];
 }
 - (void)feedParser:(MWFeedParser *)parser didParseFeedInfo:(MWFeedInfo *)info{
-//    NSLog(@"feed info = %@ , %@", info.title , info.url);
     _feedInfo = info;
 }
 - (void)feedParser:(MWFeedParser *)parser didParseFeedItem:(MWFeedItem *)item{
-//    NSLog(@"feed item = %@ , %@", item.identifier, item.title);
-    [_feedItemsForAppend addObject:item];
+    ParseFeedItem *feedItem = [ParseFeedItem new];
+    feedItem.type = ParseItemType_Feed;
+    feedItem.identifier = item.identifier;
+    feedItem.title = item.title;
+    feedItem.link = item.link;
+    feedItem.date = item.date;
+    
+    feedItem.content = item.content;
+    if(!feedItem.content)feedItem.content = item.summary;
+    
+    if(!feedItem.link) feedItem.link = feedItem.identifier;
+    
+    [_feedItemsForAppend addObject:feedItem];
 }
 - (void)feedParserDidFinish:(MWFeedParser *)parser{
-//    NSLog(@"parse finish : %@", @(_feedItemsForAppend.count));
-    if(_onParseFinished)_onParseFinished(_feedInfo,_feedItemsForAppend);
+    self.onParseFinished(self.feed,_feedItemsForAppend);
     self.finished = YES;
 }
 - (void)feedParser:(MWFeedParser *)parser didFailWithError:(NSError *)error{
-//    NSLog(@"feed parse error : %@",error);
-    if(_onParseFinished)_onParseFinished(_feedInfo,_feedItemsForAppend);
+    self.onParseFinished(self.feed,_feedItemsForAppend);
     self.finished = YES;
 }
 

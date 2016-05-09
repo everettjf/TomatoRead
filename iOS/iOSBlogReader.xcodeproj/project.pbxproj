@@ -68,8 +68,11 @@
 		D14431CA1CD0DA7E00FDE636 /* EENavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431C71CD0DA7E00FDE636 /* EENavigationController.m */; };
 		D14431CB1CD0DA7E00FDE636 /* EETabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431C91CD0DA7E00FDE636 /* EETabBarController.m */; };
 		D14431D41CD0FC7F00FDE636 /* EEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431D31CD0FC7F00FDE636 /* EEViewController.m */; };
-		D14431D71CD118AF00FDE636 /* FeedImageParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431D61CD118AF00FDE636 /* FeedImageParser.m */; };
 		D14431D91CD119CD00FDE636 /* FeedImageParseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431D81CD119CD00FDE636 /* FeedImageParseTests.m */; };
+		D1633E721CE0D517009BF7E1 /* RestSpiderPostListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D1633E711CE0D517009BF7E1 /* RestSpiderPostListModel.m */; };
+		D1633E751CE0D962009BF7E1 /* ParseOperationBase.m in Sources */ = {isa = PBXBuildFile; fileRef = D1633E741CE0D962009BF7E1 /* ParseOperationBase.m */; };
+		D1633E781CE0D9A9009BF7E1 /* SpiderParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D1633E771CE0D9A9009BF7E1 /* SpiderParseOperation.m */; };
+		D1633E7B1CE0DA23009BF7E1 /* FeedImageParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D1633E7A1CE0DA23009BF7E1 /* FeedImageParser.m */; };
 		D176AC641C7E221A001F25D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D176AC631C7E221A001F25D4 /* main.m */; };
 		D176AC671C7E221A001F25D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D176AC661C7E221A001F25D4 /* AppDelegate.m */; };
 		D176AC721C7E221A001F25D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D176AC711C7E221A001F25D4 /* Assets.xcassets */; };
@@ -91,7 +94,6 @@
 		D1F574D61CB55F190044B494 /* PageDataset.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574D51CB55F190044B494 /* PageDataset.m */; };
 		D1F574E21CB5717C0044B494 /* RestApiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574E11CB5717C0044B494 /* RestApiTests.m */; };
 		D1F574F11CB578890044B494 /* RestApi.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574F01CB578890044B494 /* RestApi.m */; };
-		D1F9D5A31CDD0453001F6FE6 /* SpiderParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F9D5A21CDD0453001F6FE6 /* SpiderParseOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -218,9 +220,15 @@
 		D14431C91CD0DA7E00FDE636 /* EETabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EETabBarController.m; sourceTree = "<group>"; };
 		D14431D21CD0FC7F00FDE636 /* EEViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEViewController.h; sourceTree = "<group>"; };
 		D14431D31CD0FC7F00FDE636 /* EEViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEViewController.m; sourceTree = "<group>"; };
-		D14431D51CD118AF00FDE636 /* FeedImageParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedImageParser.h; path = Manager/Feed/FeedImageParser.h; sourceTree = "<group>"; };
-		D14431D61CD118AF00FDE636 /* FeedImageParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedImageParser.m; path = Manager/Feed/FeedImageParser.m; sourceTree = "<group>"; };
 		D14431D81CD119CD00FDE636 /* FeedImageParseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedImageParseTests.m; sourceTree = "<group>"; };
+		D1633E701CE0D517009BF7E1 /* RestSpiderPostListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestSpiderPostListModel.h; path = Model/RestModel/RestSpiderPostListModel.h; sourceTree = "<group>"; };
+		D1633E711CE0D517009BF7E1 /* RestSpiderPostListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestSpiderPostListModel.m; path = Model/RestModel/RestSpiderPostListModel.m; sourceTree = "<group>"; };
+		D1633E731CE0D962009BF7E1 /* ParseOperationBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParseOperationBase.h; path = Manager/Feed/ParseOperationBase.h; sourceTree = "<group>"; };
+		D1633E741CE0D962009BF7E1 /* ParseOperationBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParseOperationBase.m; path = Manager/Feed/ParseOperationBase.m; sourceTree = "<group>"; };
+		D1633E761CE0D9A9009BF7E1 /* SpiderParseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpiderParseOperation.h; path = Manager/Feed/SpiderParseOperation.h; sourceTree = "<group>"; };
+		D1633E771CE0D9A9009BF7E1 /* SpiderParseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpiderParseOperation.m; path = Manager/Feed/SpiderParseOperation.m; sourceTree = "<group>"; };
+		D1633E791CE0DA23009BF7E1 /* FeedImageParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedImageParser.h; path = Utility/FeedImageParser.h; sourceTree = "<group>"; };
+		D1633E7A1CE0DA23009BF7E1 /* FeedImageParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedImageParser.m; path = Utility/FeedImageParser.m; sourceTree = "<group>"; };
 		D176AC5F1C7E221A001F25D4 /* iOS博客精选.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS博客精选.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D176AC631C7E221A001F25D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D176AC651C7E221A001F25D4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -265,8 +273,6 @@
 		D1F574EE1CB574680044B494 /* PrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.h; sourceTree = "<group>"; };
 		D1F574EF1CB578890044B494 /* RestApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestApi.h; path = Manager/RestApi.h; sourceTree = "<group>"; };
 		D1F574F01CB578890044B494 /* RestApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestApi.m; path = Manager/RestApi.m; sourceTree = "<group>"; };
-		D1F9D5A11CDD0453001F6FE6 /* SpiderParseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpiderParseOperation.h; path = Manager/Spider/SpiderParseOperation.h; sourceTree = "<group>"; };
-		D1F9D5A21CDD0453001F6FE6 /* SpiderParseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpiderParseOperation.m; path = Manager/Spider/SpiderParseOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,10 +329,10 @@
 			children = (
 				D11A30EE1CBAA6C1001B1D57 /* FeedParseOperation.h */,
 				D11A30EF1CBAA6C1001B1D57 /* FeedParseOperation.m */,
-				D14431D51CD118AF00FDE636 /* FeedImageParser.h */,
-				D14431D61CD118AF00FDE636 /* FeedImageParser.m */,
-				D1F9D5A11CDD0453001F6FE6 /* SpiderParseOperation.h */,
-				D1F9D5A21CDD0453001F6FE6 /* SpiderParseOperation.m */,
+				D1633E731CE0D962009BF7E1 /* ParseOperationBase.h */,
+				D1633E741CE0D962009BF7E1 /* ParseOperationBase.m */,
+				D1633E761CE0D9A9009BF7E1 /* SpiderParseOperation.h */,
+				D1633E771CE0D9A9009BF7E1 /* SpiderParseOperation.m */,
 			);
 			name = Feed;
 			sourceTree = "<group>";
@@ -373,6 +379,8 @@
 				D13293671CB7E2A60091DA58 /* RestDomainListModel.m */,
 				D132936C1CB7F1770091DA58 /* RestLinkListModel.h */,
 				D132936D1CB7F1770091DA58 /* RestLinkListModel.m */,
+				D1633E701CE0D517009BF7E1 /* RestSpiderPostListModel.h */,
+				D1633E711CE0D517009BF7E1 /* RestSpiderPostListModel.m */,
 			);
 			name = RestModel;
 			sourceTree = "<group>";
@@ -650,6 +658,8 @@
 		D1F574B91CB540050044B494 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				D1633E791CE0DA23009BF7E1 /* FeedImageParser.h */,
+				D1633E7A1CE0DA23009BF7E1 /* FeedImageParser.m */,
 				D1F574BE1CB541580044B494 /* AppUtil.h */,
 				D1F574BF1CB541580044B494 /* AppUtil.m */,
 			);
@@ -921,6 +931,7 @@
 				D182DE4C1CD51CAF009BF3E9 /* FeedPostOneImageTableViewCell.m in Sources */,
 				D11A30F01CBAA6C1001B1D57 /* FeedParseOperation.m in Sources */,
 				D134CFAC1CDA29970055E1B0 /* KINWebBrowserViewController.m in Sources */,
+				D1633E721CE0D517009BF7E1 /* RestSpiderPostListModel.m in Sources */,
 				D182DE6A1CD51ED8009BF3E9 /* FavViewController.m in Sources */,
 				D182DE651CD51EC3009BF3E9 /* DiscoverViewController.m in Sources */,
 				D132936E1CB7F1770091DA58 /* RestLinkListModel.m in Sources */,
@@ -935,8 +946,8 @@
 				D11A31341CC54E4B001B1D57 /* NSString+HTML.m in Sources */,
 				D14431D41CD0FC7F00FDE636 /* EEViewController.m in Sources */,
 				D11A312E1CC54E4B001B1D57 /* GTMNSString+HTML.m in Sources */,
+				D1633E7B1CE0DA23009BF7E1 /* FeedImageParser.m in Sources */,
 				D182DE4D1CD51CAF009BF3E9 /* FeedPostTableViewCell.m in Sources */,
-				D14431D71CD118AF00FDE636 /* FeedImageParser.m in Sources */,
 				D1F574D61CB55F190044B494 /* PageDataset.m in Sources */,
 				D182DE731CD7937F009BF3E9 /* NSManagedObject+MatrixCoreData.m in Sources */,
 				D1F574F11CB578890044B494 /* RestApi.m in Sources */,
@@ -951,10 +962,10 @@
 				D176AC641C7E221A001F25D4 /* main.m in Sources */,
 				D14431CB1CD0DA7E00FDE636 /* EETabBarController.m in Sources */,
 				D182DE531CD51D09009BF3E9 /* FavTableViewCell.m in Sources */,
+				D1633E751CE0D962009BF7E1 /* ParseOperationBase.m in Sources */,
 				D11A30FF1CBABEB1001B1D57 /* FeedItemModel.m in Sources */,
 				D11A31301CC54E4B001B1D57 /* MWFeedItem.m in Sources */,
 				D13848E61CB948BB00C2FEF6 /* AspectModel+CoreDataProperties.m in Sources */,
-				D1F9D5A31CDD0453001F6FE6 /* SpiderParseOperation.m in Sources */,
 				D13848E51CB948BB00C2FEF6 /* FeedModel.m in Sources */,
 				D182DE4E1CD51CAF009BF3E9 /* FeedSourceTableViewCell.m in Sources */,
 				D182DE5B1CD51E05009BF3E9 /* FeedPostsViewController.m in Sources */,
@@ -963,6 +974,7 @@
 				D14431961CCBC8E800FDE636 /* ConfigViewController.m in Sources */,
 				D182DE661CD51EC3009BF3E9 /* LinkViewController.m in Sources */,
 				D144319D1CCBC8E800FDE636 /* WebViewController.m in Sources */,
+				D1633E781CE0D9A9009BF7E1 /* SpiderParseOperation.m in Sources */,
 				D11A30E71CB978E3001B1D57 /* MainContext.m in Sources */,
 				D14431AA1CCD054400FDE636 /* FeedPostContentViewController.m in Sources */,
 				D182DE6E1CD5228F009BF3E9 /* FeedLoadingProgressView.m in Sources */,

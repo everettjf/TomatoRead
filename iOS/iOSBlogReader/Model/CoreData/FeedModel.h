@@ -11,12 +11,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-
-typedef NS_ENUM(NSUInteger, FeedModelType) {
-    FeedModelType_Feed = 0,
-    FeedModelType_Link = 1,
-};
-
 @class FeedItemModel;
 @interface FeedModel : NSManagedObject
 

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "RestDomainListModel.h"
 #import "RestLinkListModel.h"
+#import "RestSpiderPostListModel.h"
 
 @interface RestApi : NSObject
 
@@ -20,5 +21,7 @@
 - (void)queryFeedList:(void(^)(RestFeedListModel * model, NSError *error))complete;
 
 - (void)queryLinkList:(NSUInteger)aspectID page:(NSUInteger)page complete:(void(^)(RestLinkListModel* model, NSError *error))complete;
+
+- (void)querySpiderPostList:(NSString *)spider feedID:(NSUInteger)feedID complete:(void(^)(RestSpiderPostListModel *model, NSError *error))complete;
 
 @end
