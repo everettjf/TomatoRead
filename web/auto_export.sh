@@ -1,18 +1,24 @@
 
-git pull
+cd /root/iOSBlog/
 
+git pull
 pyenv local 3.5.0
 
-cd ../web
+cd web
 python export.py
+cd ..
 
 
 pyenv local 2.7.10
-cd ../jianspider
+cd jianspider
 
 scrapy crawl jianshu
 
+cd ..
 
-cd ../web
+
+cd web
 pyenv local 3.5.0
 python gitcommit.py
+
+cd ..
