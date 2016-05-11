@@ -13,6 +13,7 @@
 #import "PageDataset.h"
 #import "MainContext.h"
 #import "MagicCubeProgressBox.h"
+#import "AboutViewController.h"
 
 @interface DiscoverViewController ()<UIScrollViewDelegate>
 @property (strong,nonatomic) HMSegmentedControl *segmentedControl;
@@ -30,6 +31,7 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"发现";
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"  " style:UIBarButtonItemStylePlain target:self action:@selector(_aboutTapped:)];
     
     [MainContext sharedContext].discoverNavigationController = self.navigationController;
     
@@ -181,15 +183,9 @@
     [self _selectPageByIndex:_segmentedControl.selectedSegmentIndex];
 }
 
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
-
+- (void)_aboutTapped:(id)sender{
+    AboutViewController *vc = [[AboutViewController alloc]init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 @end

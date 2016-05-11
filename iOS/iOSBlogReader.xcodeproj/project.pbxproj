@@ -73,6 +73,7 @@
 		D1633E751CE0D962009BF7E1 /* ParseOperationBase.m in Sources */ = {isa = PBXBuildFile; fileRef = D1633E741CE0D962009BF7E1 /* ParseOperationBase.m */; };
 		D1633E781CE0D9A9009BF7E1 /* SpiderParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D1633E771CE0D9A9009BF7E1 /* SpiderParseOperation.m */; };
 		D1633E7B1CE0DA23009BF7E1 /* FeedImageParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D1633E7A1CE0DA23009BF7E1 /* FeedImageParser.m */; };
+		D16540251CE37EF600A41863 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D16540241CE37EF600A41863 /* AboutViewController.m */; };
 		D176AC641C7E221A001F25D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D176AC631C7E221A001F25D4 /* main.m */; };
 		D176AC671C7E221A001F25D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D176AC661C7E221A001F25D4 /* AppDelegate.m */; };
 		D176AC721C7E221A001F25D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D176AC711C7E221A001F25D4 /* Assets.xcassets */; };
@@ -229,6 +230,8 @@
 		D1633E771CE0D9A9009BF7E1 /* SpiderParseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpiderParseOperation.m; path = Manager/Feed/SpiderParseOperation.m; sourceTree = "<group>"; };
 		D1633E791CE0DA23009BF7E1 /* FeedImageParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedImageParser.h; path = Utility/FeedImageParser.h; sourceTree = "<group>"; };
 		D1633E7A1CE0DA23009BF7E1 /* FeedImageParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedImageParser.m; path = Utility/FeedImageParser.m; sourceTree = "<group>"; };
+		D16540231CE37EF600A41863 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = Controller/About/AboutViewController.h; sourceTree = "<group>"; };
+		D16540241CE37EF600A41863 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = Controller/About/AboutViewController.m; sourceTree = "<group>"; };
 		D176AC5F1C7E221A001F25D4 /* 博客精选.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "博客精选.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D176AC631C7E221A001F25D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D176AC651C7E221A001F25D4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -533,6 +536,15 @@
 			path = Controller/Common;
 			sourceTree = "<group>";
 		};
+		D16540221CE37ED700A41863 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				D16540231CE37EF600A41863 /* AboutViewController.h */,
+				D16540241CE37EF600A41863 /* AboutViewController.m */,
+			);
+			name = About;
+			sourceTree = "<group>";
+		};
 		D176AC561C7E221A001F25D4 = {
 			isa = PBXGroup;
 			children = (
@@ -681,6 +693,7 @@
 		D1F574BB1CB540740044B494 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D16540221CE37ED700A41863 /* About */,
 				D182DE5D1CD51EC3009BF3E9 /* Discover */,
 				D182DE4F1CD51CD9009BF3E9 /* Fav */,
 				D14431C51CD0DA7E00FDE636 /* Common */,
@@ -965,6 +978,7 @@
 				D1633E751CE0D962009BF7E1 /* ParseOperationBase.m in Sources */,
 				D11A30FF1CBABEB1001B1D57 /* FeedItemModel.m in Sources */,
 				D11A31301CC54E4B001B1D57 /* MWFeedItem.m in Sources */,
+				D16540251CE37EF600A41863 /* AboutViewController.m in Sources */,
 				D13848E61CB948BB00C2FEF6 /* AspectModel+CoreDataProperties.m in Sources */,
 				D13848E51CB948BB00C2FEF6 /* FeedModel.m in Sources */,
 				D182DE4E1CD51CAF009BF3E9 /* FeedSourceTableViewCell.m in Sources */,
