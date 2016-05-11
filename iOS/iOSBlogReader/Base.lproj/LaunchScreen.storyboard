@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -17,15 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rss" translatesAutoresizingMaskIntoConstraints="NO" id="WjY-Oo-MAq">
-                                <rect key="frame" x="250" y="110" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="ZVJ-oS-atc"/>
-                                    <constraint firstAttribute="height" constant="100" id="kLl-7n-ern"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOS 博客精选" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WW2-DW-2VO">
-                                <rect key="frame" x="251" y="251" width="99.5" height="54.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="博客精选" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WW2-DW-2VO">
+                                <rect key="frame" x="266" y="210" width="68" height="54.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54.5" id="7KJ-U7-6Hu"/>
                                 </constraints>
@@ -35,13 +28,34 @@
                                 <color key="shadowColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="0.0" height="-12"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="专注于精选 iOS/OS X 开发者博客" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csr-4J-0TK">
+                                <rect key="frame" x="196" y="266" width="208" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.44769965280000001" green="0.44769965280000001" blue="0.44769965280000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main" translatesAutoresizingMaskIntoConstraints="NO" id="7aK-Oh-GA6">
+                                <rect key="frame" x="250" y="110" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="qdY-i4-1Gl"/>
+                                    <constraint firstAttribute="width" constant="100" id="zMu-7P-Osi"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lMy-BR-iVr">
+                                <rect key="frame" x="2" y="20" width="240" height="128"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HEe-bt-kqq">
+                                <rect key="frame" x="266" y="0.0" width="240" height="128"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="7aK-Oh-GA6" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-140" id="BfW-wS-UlF"/>
                             <constraint firstItem="WW2-DW-2VO" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="FLl-ia-Tgr"/>
-                            <constraint firstItem="WjY-Oo-MAq" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-140" id="Isp-xr-aMN"/>
-                            <constraint firstItem="WW2-DW-2VO" firstAttribute="top" secondItem="WjY-Oo-MAq" secondAttribute="bottom" constant="41" id="RP5-AD-s8K"/>
-                            <constraint firstItem="WjY-Oo-MAq" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="VgW-Nm-ais"/>
+                            <constraint firstItem="7aK-Oh-GA6" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Oba-Uu-4EP"/>
+                            <constraint firstItem="csr-4J-0TK" firstAttribute="top" secondItem="WW2-DW-2VO" secondAttribute="bottom" constant="1.5" id="hcI-Dw-qMk"/>
+                            <constraint firstItem="csr-4J-0TK" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="r0G-he-gzN"/>
+                            <constraint firstItem="WW2-DW-2VO" firstAttribute="top" secondItem="7aK-Oh-GA6" secondAttribute="bottom" id="yKs-Rx-Gsf"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -51,6 +65,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="rss" width="256" height="256"/>
+        <image name="main" width="100" height="100"/>
     </resources>
 </document>

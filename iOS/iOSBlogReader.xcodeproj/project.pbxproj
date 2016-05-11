@@ -229,7 +229,7 @@
 		D1633E771CE0D9A9009BF7E1 /* SpiderParseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpiderParseOperation.m; path = Manager/Feed/SpiderParseOperation.m; sourceTree = "<group>"; };
 		D1633E791CE0DA23009BF7E1 /* FeedImageParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedImageParser.h; path = Utility/FeedImageParser.h; sourceTree = "<group>"; };
 		D1633E7A1CE0DA23009BF7E1 /* FeedImageParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedImageParser.m; path = Utility/FeedImageParser.m; sourceTree = "<group>"; };
-		D176AC5F1C7E221A001F25D4 /* iOS博客精选.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS博客精选.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D176AC5F1C7E221A001F25D4 /* 博客精选.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "博客精选.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D176AC631C7E221A001F25D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D176AC651C7E221A001F25D4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D176AC661C7E221A001F25D4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -547,7 +547,7 @@
 		D176AC601C7E221A001F25D4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D176AC5F1C7E221A001F25D4 /* iOS博客精选.app */,
+				D176AC5F1C7E221A001F25D4 /* 博客精选.app */,
 				D1F574DF1CB5717C0044B494 /* iOSBlogReaderTests.xctest */,
 			);
 			name = Products;
@@ -749,7 +749,7 @@
 			);
 			name = iOSBlogReader;
 			productName = iOSBlogReader;
-			productReference = D176AC5F1C7E221A001F25D4 /* iOS博客精选.app */;
+			productReference = D176AC5F1C7E221A001F25D4 /* 博客精选.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D1F574DE1CB5717C0044B494 /* iOSBlogReaderTests */ = {
@@ -1139,7 +1139,7 @@
 					"$(PROJECT_DIR)/iOSBlogReader/ThirdParty/UMAnalytics_Sdk_3.6.6",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.everettjf.blogreader;
-				PRODUCT_NAME = "iOS博客精选";
+				PRODUCT_NAME = "博客精选";
 			};
 			name = Debug;
 		};
@@ -1163,7 +1163,7 @@
 					"$(PROJECT_DIR)/iOSBlogReader/ThirdParty/UMAnalytics_Sdk_3.6.6",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.everettjf.blogreader;
-				PRODUCT_NAME = "iOS博客精选";
+				PRODUCT_NAME = "博客精选";
 			};
 			name = Release;
 		};
