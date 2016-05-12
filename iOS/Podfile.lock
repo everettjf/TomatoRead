@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
   - ARChromeActivity (1.0.6)
+  - Bugly (2.2)
   - CocoaLumberjack (2.2.0):
     - CocoaLumberjack/Default (= 2.2.0)
     - CocoaLumberjack/Extensions (= 2.2.0)
@@ -41,6 +42,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - ARChromeActivity (~> 1.0)
+  - Bugly
   - CocoaLumberjack (~> 2.2)
   - HMSegmentedControl (~> 1.5)
   - Masonry (~> 0.6)
@@ -54,6 +56,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   ARChromeActivity: 5dcf9b9f09323761f992aff3525cdd777f83609d
+  Bugly: b24bdd3017bb05d4749d66e1b95bd1ba7207e7bd
   CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
   HMSegmentedControl: 83b9686022d2176fb6457d2bdb61e5d6393fed7d
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2

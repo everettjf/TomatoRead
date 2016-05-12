@@ -36,5 +36,7 @@ pod 'TUSafariActivity', '~> 1.0'
 #https://github.com/alextrob/ARChromeActivity
 pod 'ARChromeActivity', '~> 1.0'
 
+pod 'Bugly'
+
 end
 

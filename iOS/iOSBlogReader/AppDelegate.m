@@ -15,7 +15,9 @@
 #import "EETabBarController.h"
 #import "DataManager.h"
 #import "PrivateHeader.h"
-//#import <JSPatch/JSPatch.h>
+#import <JSPatch/JSPatch.h>
+#import <Bugly/Bugly.h>
+
 
 @interface AppDelegate ()
 
@@ -25,6 +27,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Bugly
+    [self _initBugly];
+    
     // JSPatch
     [self _initJSPatch];
     
@@ -100,12 +105,7 @@
 }
 
 - (void)_umengTrack{
-#ifdef DEBUG
     [MobClick setCrashReportEnabled:NO];
-#else
-    [MobClick setCrashReportEnabled:YES];
-#endif
-    
     ReportPolicy policy = BATCH;
     [MobClick startWithAppkey:kUMengKey reportPolicy:policy  channelId:@"App Store"];
 }
@@ -115,8 +115,12 @@
 }
 
 - (void)_initJSPatch{
-//    [JSPatch startWithAppKey:kJSPatchKey];
-//    [JSPatch sync];
+    [JSPatch startWithAppKey:kJSPatchKey];
+    [JSPatch sync];
+}
+
+- (void)_initBugly{
+    [Bugly startWithAppId:kBuglyAppId];
 }
 
 
