@@ -46,13 +46,21 @@
     _feedCounter = 0;
     _feedTotalCount = 0;
     
-    if(_delegate)[_delegate feedManagerLoadStart];
+    if(_delegate){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_delegate feedManagerLoadStart];
+        });
+    }
 }
 
 - (void)_onErrorLoadFeeds{
     _loadingFeeds = YES;
     
-    if(_delegate)[_delegate feedManagerLoadError];
+    if(_delegate){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_delegate feedManagerLoadError];
+        });
+    }
 }
 
 - (void)_increaseFeedCounter{
@@ -72,7 +80,11 @@
 - (void)_onStopLoadFeeds{
     _loadingFeeds = NO;
     
-    if(_delegate)[_delegate feedManagerLoadFinish];
+    if(_delegate){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_delegate feedManagerLoadFinish];
+        });
+    }
 }
 
 - (void)bindOne:(FeedSourceUIEntity *)feed{

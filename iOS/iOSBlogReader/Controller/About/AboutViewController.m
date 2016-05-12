@@ -31,7 +31,7 @@
     
     UILabel *title = [UILabel new];
     title.font = [UIFont systemFontOfSize:17];
-    title.text = @"博客精选";
+    title.text = @"番茄阅读";
     title.textColor = [UIColor blackColor];
     [self.view addSubview:title];
     [title mas_makeConstraints:^(MASConstraintMaker *make){

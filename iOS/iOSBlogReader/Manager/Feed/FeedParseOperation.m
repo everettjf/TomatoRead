@@ -35,7 +35,7 @@
     _parser = [[MWFeedParser alloc]initWithFeedURL:[NSURL URLWithString:self.feed.feed_url]];
     _parser.delegate = self;
     if(![_parser parse]){
-        NSLog(@"run parse failed");
+        NSLog(@"run parse failed : %@", self.feed.feed_url);
         self.finished = YES;
         return;
     }

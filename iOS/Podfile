@@ -30,5 +30,11 @@ pod 'UMengAnalytics-NO-IDFA'
 #https://github.com/mwaterfall/MWFeedParser
 #pod 'MWFeedParser', '~> 1.0'
 
+#https://github.com/davbeck/TUSafariActivity
+pod 'TUSafariActivity', '~> 1.0'
+
+#https://github.com/alextrob/ARChromeActivity
+pod 'ARChromeActivity', '~> 1.0'
+
 end
 
