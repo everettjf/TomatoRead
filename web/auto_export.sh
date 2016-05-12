@@ -1,6 +1,8 @@
 
 cd /root/iOSBlog/
 
+date >> date.txt
+
 git pull
 pyenv local 3.5.0
 
