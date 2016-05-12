@@ -1,4 +1,4 @@
-# iOS 博客精选 
+# 番茄阅读 - 专注于精选 iOS/OS X 开发者博客
 
 [介绍](http://everettjf.github.io/2016/02/24/iosblog-cc-dev-memory)
 
@@ -49,4 +49,4 @@ OneV's Den | [http://onevcat.com/](http://onevcat.com/) | http://onevcat.com/fee
 唐巧的技术博客 | [http://blog.devtang.com/](http://blog.devtang.com/) | http://blog.devtang.com/atom.xml |  
 
 
-Updated at 2016-05-12T01:00:30.160136
+Updated at 2016-05-12T23:34:54.526970
