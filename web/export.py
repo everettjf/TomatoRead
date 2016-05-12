@@ -146,7 +146,7 @@ def export_json():
 def export_markdown():
     f = local_markdown_open('README.md')
 
-    f.write('# iOS 博客精选 \n\n')
+    f.write('# 番茄阅读 - 专注于精选 iOS/OS X 开发者博客\n\n')
 
     f.write('[介绍](http://everettjf.github.io/2016/02/24/iosblog-cc-dev-memory)\n\n')
 
@@ -159,7 +159,7 @@ def export_markdown():
             spider = link.feed_url
             if spider == '':
                 spider = link.spider
-            f.write('%s | [%s](%s) | %s | %s \n' % (name, link.url,link.url, spider, ''))
+            f.write('%s | [%s](%s) | %s | %s \n' % (name, link.url, link.url, spider, ''))
 
     f.write('\n\n')
     f.write('Updated at %s'% datetime.datetime.now().isoformat())
