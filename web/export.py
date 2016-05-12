@@ -163,6 +163,8 @@ def export_markdown():
 
     f.write('\n\n')
     f.write('Updated at %s'% datetime.datetime.now().isoformat())
+    f.write('\n\n---\n\n')
+    f.write('感谢 https://github.com/tangqiaoboy/iOSBlogCN 提供基础数据,我在此基础上进行了增删.')
 
     f.close()
 
