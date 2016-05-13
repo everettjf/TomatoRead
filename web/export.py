@@ -155,7 +155,7 @@ def export_markdown():
     f.write('Blog | URL | Feed | Last Update Time\n')
     f.write('-----|-----|------|-----\n')
 
-    for domain in Domain.objects.order_by('_zindex'):
+    for domain in Domain.objects.order_by('-zindex'):
         for link in all_feeds():
             name = link.name.replace('|', ' ')
             spider = link.feed_url
