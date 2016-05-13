@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15E65" minimumToolsVersion="Xcode 7.0">
+    <entity name="AspectModel" representedClassName="AspectModel" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="oid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="zindex" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="domain" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DomainModel" inverseName="aspects" inverseEntity="DomainModel" syncable="YES"/>
+    </entity>
+    <entity name="DomainModel" representedClassName="DomainModel" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="oid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="zindex" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="aspects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AspectModel" inverseName="domain" inverseEntity="AspectModel" syncable="YES"/>
+    </entity>
+    <entity name="FeedItemModel" representedClassName="FeedItemModel" syncable="YES">
+        <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="updated" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="feed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FeedModel" inverseName="items" inverseEntity="FeedModel" syncable="YES"/>
+    </entity>
+    <entity name="FeedModel" representedClassName="FeedModel" syncable="YES">
+        <attribute name="favicon" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="feed_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="last_parse_date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="last_parse_timeinterval" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="latest_post_date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="oid" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="spider" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" attributeType="String" syncable="YES"/>
+        <attribute name="zindex" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FeedItemModel" inverseName="feed" inverseEntity="FeedItemModel" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="AspectModel" positionX="-18" positionY="81" width="128" height="105"/>
+        <element name="DomainModel" positionX="-36" positionY="72" width="128" height="105"/>
+        <element name="FeedItemModel" positionX="0" positionY="99" width="128" height="210"/>
+        <element name="FeedModel" positionX="-63" positionY="-18" width="128" height="210"/>
+    </elements>
+</model>

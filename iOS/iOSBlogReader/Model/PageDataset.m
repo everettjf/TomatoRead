@@ -42,7 +42,10 @@
         if(![domain.name isEqualToString:@"iOS"])
             continue;
         // iOS
-        NSArray *arrayAspects = [domain.aspects sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"oid" ascending:YES]]];
+        NSArray *arrayAspects = [domain.aspects sortedArrayUsingDescriptors:@[
+                                                                              [NSSortDescriptor sortDescriptorWithKey:@"zindex" ascending:NO],
+                                                                              [NSSortDescriptor sortDescriptorWithKey:@"oid" ascending:YES],
+                                                                              ]];
         for (AspectModel *aspect in arrayAspects) {
             PageItemEntity *linkEntity = [PageItemEntity new];
             linkEntity.title = aspect.name;
@@ -76,6 +79,7 @@
                 [DomainModel mcd_findOrCreate:@"oid" value:@(domain.oid) callback:^(NSManagedObject *m) {
                     domainModel = (id)m;
                     domainModel.name = domain.name;
+                    domainModel.zindex = @(domain.zindex);
                 }];
                 
                 for (RestAspectModel *aspect in domain.aspects) {
@@ -83,6 +87,7 @@
                         AspectModel *aspectModel = (id)m;
                         aspectModel.name = aspect.name;
                         aspectModel.domain = domainModel;
+                        aspectModel.zindex = @(aspect.zindex);
                     }];
                     
                     if(!alreadyCallback){

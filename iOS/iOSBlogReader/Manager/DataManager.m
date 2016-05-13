@@ -63,12 +63,16 @@
 }
 
 - (NSArray<FeedModel *> *)findAllFeed{
-    return [FeedModel mcd_findAll];
+    return [FeedModel mcd_findAll:@{
+                                    @"zindex":@(NO),
+                                    @"oid":@(YES),
+                                    }];
 }
 
 - (NSArray<FeedModel *> *)findAllFeed:(NSUInteger)offset limit:(NSUInteger)limit{
     return [FeedModel mcd_findAll:offset limit:limit sort:@{
-                                                            @"oid":@(NO)
+                                                            @"zindex":@(NO),
+                                                            @"oid":@(YES),
                                                             }];
 }
 
