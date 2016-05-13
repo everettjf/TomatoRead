@@ -1,9 +1,23 @@
 # 番茄阅读 - 专注于精选 iOS/OS X 开发者博客
 
+QQ交流群 : 157422249 (欢迎交流不限于番茄阅读的任何问题)
+
 [介绍](http://everettjf.github.io/2016/02/24/iosblog-cc-dev-memory)
 
 Blog | URL | Feed | Last Update Time
 -----|-----|------|-----
+Girl_iOS - 简书 | [http://www.jianshu.com/users/1fb7af67f724/latest_articles](http://www.jianshu.com/users/1fb7af67f724/latest_articles) | jianshu |  
+iOS_Cqlee - 简书 | [http://www.jianshu.com/users/789039ed7f4c/latest_articles](http://www.jianshu.com/users/789039ed7f4c/latest_articles) | jianshu |  
+Boy_iOS - 简书 | [http://www.jianshu.com/users/7f2da8d4ae92/latest_articles](http://www.jianshu.com/users/7f2da8d4ae92/latest_articles) | jianshu |  
+Kitten's 时间胶囊 | [http://kittenyang.com/](http://kittenyang.com/) | http://kittenyang.com/rss |  
+魏先宇的程序人生 - 博客频道 - CSDN.NET | [http://blog.csdn.net/likendsl](http://blog.csdn.net/likendsl) | http://blog.csdn.net/likendsl/rss/list |  
+HenryCheng - 简书 | [http://www.jianshu.com/users/233c37d8a732/latest_articles](http://www.jianshu.com/users/233c37d8a732/latest_articles) | jianshu |  
+Realank - 简书 | [http://www.jianshu.com/users/aa6c2a4a126c/latest_articles](http://www.jianshu.com/users/aa6c2a4a126c/latest_articles) | jianshu |  
+AlexPei - 简书 | [http://www.jianshu.com/users/476877f2e719/latest_articles](http://www.jianshu.com/users/476877f2e719/latest_articles) | jianshu |  
+Migi000 - 简书 | [http://www.jianshu.com/users/4633193fb272/latest_articles](http://www.jianshu.com/users/4633193fb272/latest_articles) | jianshu |  
+康大亮 - 简书 | [http://www.jianshu.com/users/da3e1f68113d/latest_articles](http://www.jianshu.com/users/da3e1f68113d/latest_articles) | jianshu |  
+饶志臻 - 简书 | [http://www.jianshu.com/users/263107bb1199/latest_articles](http://www.jianshu.com/users/263107bb1199/latest_articles) | jianshu |  
+小笨狼 - 简书 | [http://www.jianshu.com/users/1f93e3b1f3da/latest_articles](http://www.jianshu.com/users/1f93e3b1f3da/latest_articles) | jianshu |  
 YM2rr - 简书 | [http://www.jianshu.com/users/ee84d859d5f0/latest_articles](http://www.jianshu.com/users/ee84d859d5f0/latest_articles) | jianshu |  
 韩七夏 - 简书 | [http://www.jianshu.com/users/8c113f14f2e3/latest_articles](http://www.jianshu.com/users/8c113f14f2e3/latest_articles) | jianshu |  
 叶孤城___ - 简书 | [http://www.jianshu.com/users/b82d2721ba07/latest_articles](http://www.jianshu.com/users/b82d2721ba07/latest_articles) | jianshu |  
@@ -42,6 +56,7 @@ Kevin | [http://blog.zhowkev.in/](http://blog.zhowkev.in/) | http://blog.zhowkev
 sunnyxx的技术博客 | [http://blog.sunnyxx.com/](http://blog.sunnyxx.com/) | http://blog.sunnyxx.com/atom.xml |  
 Ted's Homepage   Ted | [http://wufawei.com/](http://wufawei.com/) | http://wufawei.com/feed/ |  
 念茜的博客 - 博客频道 - CSDN.NET | [http://blog.csdn.net/yiyaaixuexi](http://blog.csdn.net/yiyaaixuexi) | http://blog.csdn.net/yiyaaixuexi/rss/list |  
+Limboy's HQ | [http://limboy.me/](http://limboy.me/) | http://feeds.feedburner.com/lzyy |  
 everettjf | [http://everettjf.github.io/](http://everettjf.github.io/) | http://everettjf.github.io/feed.xml |  
 NSHipster 中文版 | [http://nshipster.cn/](http://nshipster.cn/) | http://nshipster.cn/feed.xml |  
 破船之家 | [http://beyondvincent.com/](http://beyondvincent.com/) | http://beyondvincent.com/atom.xml |  
@@ -49,7 +64,7 @@ OneV's Den | [http://onevcat.com/](http://onevcat.com/) | http://onevcat.com/fee
 唐巧的技术博客 | [http://blog.devtang.com/](http://blog.devtang.com/) | http://blog.devtang.com/atom.xml |  
 
 
-Updated at 2016-05-13T14:02:13.114618
+Updated at 2016-05-14T00:55:06.867864
 
 ---
 
