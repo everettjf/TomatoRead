@@ -148,6 +148,8 @@ def export_markdown():
 
     f.write('# 番茄阅读 - 专注于精选 iOS/OS X 开发者博客\n\n')
 
+    f.write('QQ交流群 : 157422249 (欢迎交流不限于番茄阅读的任何问题)\n\n')
+
     f.write('[介绍](http://everettjf.github.io/2016/02/24/iosblog-cc-dev-memory)\n\n')
 
     f.write('Blog | URL | Feed | Last Update Time\n')
