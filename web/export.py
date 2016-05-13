@@ -41,7 +41,7 @@ def local_dump(obj, f):
 
 # Helper
 def all_feeds():
-    return Bookmark.objects.filter(~Q(feed_url='') | ~Q(spider='') ).order_by('-created_at', '-zindex', 'feed_url','spider')
+    return Bookmark.objects.filter(~Q(feed_url='') | ~Q(spider='') ).order_by('-zindex', 'created_at')
 
 
 def all_links(aspect_id):
@@ -155,7 +155,7 @@ def export_markdown():
     f.write('Blog | URL | Feed | Last Update Time\n')
     f.write('-----|-----|------|-----\n')
 
-    for domain in Domain.objects.all():
+    for domain in Domain.objects.order_by('_zindex'):
         for link in all_feeds():
             name = link.name.replace('|', ' ')
             spider = link.feed_url
