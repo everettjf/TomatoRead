@@ -21,6 +21,16 @@ from django.db.models import F, Q
 from django.core.paginator import Paginator
 import hashlib
 import datetime
+import re
+
+# 2016/5/15 21:33:46
+_my_date_pattern = re.compile(r'(\d{4})/(\d{,2})/(\d{,2}) (\d{,2}):(\d{,2}):(\d{,2})')
+def myDateHandler(aDateString):
+    res = _my_date_pattern.search(aDateString)
+    if res is None:
+        return None
+    year, month, day, hour, minute, second = res.groups()
+    return (int(year), int(month), int(day), int(hour), int(minute), int(second), 0, 0, 0)
 
 # Util
 def local_markdown_open(filename):
@@ -63,6 +73,20 @@ def get_update_time_string(spider, oid):
     return dates[0][0:10]
 
 
+def get_update_time_from_feed(feed_url):
+    feedparser.registerDateHandler(myDateHandler)
+    feed = feedparser.parse(feed_url)
+
+    update_time = ''
+    if len(feed.entries) > 0:
+        one = feed.entries[0]
+        if 'published_parsed' in one:
+            update_time = time_as_string(feed.entries[0].published_parsed)
+        elif 'updated_parsed' in one:
+            update_time = time_as_string(feed.entries[0].updated_parsed)
+    return update_time
+
+
 def export_markdown():
     f = local_markdown_open('README.md')
 
@@ -79,43 +103,40 @@ def export_markdown():
     items = []
     for link in all_feeds():
         name = link.name.replace('|', ' ')
-        spider = link.feed_url
-        if spider == '':
+        if link.feed_url == '':
             spider = link.spider
+            spider_url = 'https://everettjf.github.io/app/blogreader/spider/%s/%d.json' %(spider, link.id)
+        else:
+            spider = 'feed'
+            spider_url = link.feed_url
 
         update_time = ''
-        if link.feed_url == '':
+        if spider != 'feed':
             start = time.time()
-            if link.spider != '':
-                update_time = get_update_time_string(link.spider,link.id)
+            update_time = get_update_time_string(spider, link.id)
             end = time.time()
         else:
             start = time.time()
-            feed = feedparser.parse(link.feed_url)
+            update_time = get_update_time_from_feed(spider_url)
             end = time.time()
 
-            if len(feed.entries) > 0:
-                one = feed.entries[0]
-                if 'published_parsed' in one:
-                    update_time = time_as_string(feed.entries[0].published_parsed)
-                elif 'updated_parsed' in one:
-                    update_time = time_as_string(feed.entries[0].updated_parsed)
-
-        print('(%d)%s[%s](%s) | %s ' % (math.ceil(end-start),update_time,name, link.url, spider ))
+        print('(%d)%s[%s](%s) | %s ' % (math.ceil(end-start),update_time,name, spider_url, spider))
 
         # f.write('[%s](%s) | %s | %s \n' % (name, link.url, spider, update_time))
         items.append({
             'name': name,
             'url': link.url,
             'spider': spider,
+            'spider_url': spider_url,
             'update_time': update_time,
         })
     items = sorted(items, key=lambda item: item['update_time'], reverse=True)
     for item in items:
-        f.write('[%s](%s) | %s | %s \n' % (
+        f.write('[%s](%s) | [%s](%s) | %s \n' % (
             item['name'],
             item['url'],
             item['spider'],
+            item['spider_url'],
             item['update_time'],
         ))
 
