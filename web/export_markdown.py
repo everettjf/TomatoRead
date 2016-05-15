@@ -83,14 +83,13 @@ def export_markdown():
         if spider == '':
             spider = link.spider
 
-        update_time = '0'
+        update_time = ''
         if link.feed_url == '':
             start = time.time()
             if link.spider != '':
                 update_time = get_update_time_string(link.spider,link.id)
             end = time.time()
         else:
-            continue
             start = time.time()
             feed = feedparser.parse(link.feed_url)
             end = time.time()
@@ -114,7 +113,7 @@ def export_markdown():
             'spider': spider,
             'update_time': update_time,
         })
-    items = sorted(items, key=lambda item: item['updated_time'])
+    items = sorted(items, key=lambda item: item['update_time'], reverse=True)
     for item in items:
         f.write('[%s](%s) | %s | %s \n' % (
             item['name'],
