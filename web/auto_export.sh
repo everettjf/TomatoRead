@@ -8,8 +8,8 @@ pyenv local 3.5.0 >> /root/log.txt
 pyenv versions >> /root/log.txt
 
 cd web
-echo 'export'
-python export.py >> /root/log.txt
+echo 'export json'
+python export_json.py >> /root/log.txt
 python -V >> /root/log.txt
 cd ..
 
@@ -26,6 +26,10 @@ cd ..
 
 
 cd web
+echo 'export markdown'
+python export_markdown.py >> /root/log.txt
+python -V >> /root/log.txt
+
 echo 'local'
 pyenv local 3.5.0 >> /root/log.txt
 pyenv versions >> /root/log.txt

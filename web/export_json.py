@@ -3,6 +3,7 @@
 import os
 import django
 from envconfig import target_json_dir,target_markdown_dir
+import feedparser
 
 ###########################################################
 spider_mapper = {
@@ -147,13 +148,14 @@ def export_markdown():
     f = local_markdown_open('README.md')
 
     f.write('# 番茄阅读 - 专注于精选 iOS/OS X 开发者博客\n\n')
-
     f.write('QQ交流群 : 157422249 (欢迎交流不限于番茄阅读的任何问题)\n\n')
+    f.write('[相关介绍](http://everettjf.github.io/2016/02/24/iosblog-cc-dev-memory)\n\n')
+    f.write('感谢 https://github.com/tangqiaoboy/iOSBlogCN 提供基础数据,我在此基础上进行了较多的增删.\n\n')
 
-    f.write('[介绍](http://everettjf.github.io/2016/02/24/iosblog-cc-dev-memory)\n\n')
+    f.write('---\n\n')
 
-    f.write('Blog | URL | Feed | Last Update Time\n')
-    f.write('-----|-----|------|-----\n')
+    f.write('Blog | Feed | Update Time\n')
+    f.write('-----|------|-----\n')
 
     for domain in Domain.objects.order_by('-zindex'):
         for link in all_feeds():
@@ -161,12 +163,11 @@ def export_markdown():
             spider = link.feed_url
             if spider == '':
                 spider = link.spider
-            f.write('%s | [%s](%s) | %s | %s \n' % (name, link.url, link.url, spider, ''))
+            f.write('[%s](%s) | %s | %s \n' % (name, link.url, spider, ''))
 
     f.write('\n\n')
     f.write('Updated at %s'% datetime.datetime.now().isoformat())
-    f.write('\n\n---\n\n')
-    f.write('感谢 https://github.com/tangqiaoboy/iOSBlogCN 提供基础数据,我在此基础上进行了增删.')
+    f.write('\n\n')
 
     f.close()
 
