@@ -101,8 +101,8 @@ def export_markdown():
                     one = feed.entries[0]
                     if 'published_parsed' in one:
                         update_time = time_as_string(feed.entries[0].published_parsed)
-                    else:
-                        print(link.feed_url,' - ', one.keys())
+                    elif 'updated_parsed' in one:
+                        update_time = time_as_string(feed.entries[0].updated_parsed)
 
         print('(%d)%s[%s](%s) | %s ' % (math.ceil(end-start),update_time,name, link.url, spider ))
 
