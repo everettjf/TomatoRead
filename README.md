@@ -1,7 +1,5 @@
 # 番茄阅读 - 专注于精选 iOS/OS X 开发者博客
 
-QQ交流群 : 157422249 (欢迎交流不限于番茄阅读的任何问题)
-
 [相关介绍](http://everettjf.github.io/2016/02/24/iosblog-cc-dev-memory)
 
 感谢 https://github.com/tangqiaoboy/iOSBlogCN 提供基础数据,我在此基础上进行了较多的增删.
@@ -71,5 +69,5 @@ Blog | Feed | Update Time
 
 ---
 
-Updated at 2016-05-15T21:47:44.306458
+Updated at 2016-05-15T23:07:52.924024
 
