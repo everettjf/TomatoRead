@@ -94,15 +94,12 @@ def export_markdown():
             feed = feedparser.parse(link.feed_url)
             end = time.time()
 
-            if 'updated_parsed' in feed:
-                update_time = time_as_string(feed.updated_parsed)
-            else:
-                if len(feed.entries) > 0:
-                    one = feed.entries[0]
-                    if 'published_parsed' in one:
-                        update_time = time_as_string(feed.entries[0].published_parsed)
-                    elif 'updated_parsed' in one:
-                        update_time = time_as_string(feed.entries[0].updated_parsed)
+            if len(feed.entries) > 0:
+                one = feed.entries[0]
+                if 'published_parsed' in one:
+                    update_time = time_as_string(feed.entries[0].published_parsed)
+                elif 'updated_parsed' in one:
+                    update_time = time_as_string(feed.entries[0].updated_parsed)
 
         print('(%d)%s[%s](%s) | %s ' % (math.ceil(end-start),update_time,name, link.url, spider ))
 
