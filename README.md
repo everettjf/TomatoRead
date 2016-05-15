@@ -65,8 +65,11 @@ Blog | Feed | Update Time
 [亚庆的 Blog](http://billwang1990.github.io/) | [feed](http://billwang1990.github.io/atom.xml) | 2014-09-29 
 [念茜的博客 - 博客频道 - CSDN.NET](http://blog.csdn.net/yiyaaixuexi) | [feed](http://blog.csdn.net/yiyaaixuexi/rss/list) | 2014-06-07 
 [KooFrank's Den](http://koofrank.com/) | [feed](http://koofrank.com/rss/) | 2014-04-03 
-[SindriLin's 小巢 - Blog for SindriLin](http://sindrilin.com/) | [feed](http://sindrilin.com/rss.xml) |  
 
 
-Updated at 2016-05-15T21:41:59.741866
+*按最后更新时间倒序排列*
+
+---
+
+Updated at 2016-05-15T21:47:44.306458
 
