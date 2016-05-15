@@ -142,6 +142,8 @@ def export_markdown():
 
     print('finished')
     f.write('\n\n')
+    f.write('*按最后更新时间倒序排列*\n\n')
+    f.write('---\n\n')
     f.write('Updated at %s'% datetime.datetime.now().isoformat())
     f.write('\n\n')
 
