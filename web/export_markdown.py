@@ -91,7 +91,6 @@ def export_markdown():
     f = local_markdown_open('README.md')
 
     f.write('# 番茄阅读 - 专注于精选 iOS/OS X 开发者博客\n\n')
-    f.write('QQ交流群 : 157422249 (欢迎交流不限于番茄阅读的任何问题)\n\n')
     f.write('[相关介绍](http://everettjf.github.io/2016/02/24/iosblog-cc-dev-memory)\n\n')
     f.write('感谢 https://github.com/tangqiaoboy/iOSBlogCN 提供基础数据,我在此基础上进行了较多的增删.\n\n')
 
