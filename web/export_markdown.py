@@ -91,8 +91,14 @@ def export_markdown():
     f = local_markdown_open('README.md')
 
     f.write('# 番茄阅读 - 专注于精选 iOS/OS X 开发者博客\n\n')
-    f.write('[相关介绍](http://everettjf.github.io/2016/02/24/iosblog-cc-dev-memory)\n\n')
-    f.write('感谢 https://github.com/tangqiaoboy/iOSBlogCN 提供基础数据,我在此基础上进行了较多的增删.\n\n')
+    f.write('[AppStore地址](https://itunes.apple.com/us/app/id1111654149)\n\n')
+    f.write('[开发总结](https://everettjf.github.io/2016/05/13/how-to-write-a-simple-feed-reader)\n\n')
+
+    f.write('\n\n')
+    f.write('- 感谢 https://github.com/tangqiaoboy/iOSBlogCN 提供基础数据,我在此基础上进行了较多的增删.'
+            ' 且不同之处在于,我会主动收集选择博客,并根据博客文章的质量随时增减.\n\n')
+    f.write('- 此列表大约每天更新一次\n\n')
+    f.write('- 按最后更新时间倒序排列\n\n')
 
     f.write('---\n\n')
 
@@ -140,8 +146,6 @@ def export_markdown():
         ))
 
     print('finished')
-    f.write('\n\n')
-    f.write('*按最后更新时间倒序排列*\n\n')
     f.write('---\n\n')
     f.write('Updated at %s'% datetime.datetime.now().isoformat())
     f.write('\n\n')
