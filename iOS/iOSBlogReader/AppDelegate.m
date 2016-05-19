@@ -15,7 +15,6 @@
 #import "EETabBarController.h"
 #import "DataManager.h"
 #import "PrivateHeader.h"
-#import <JSPatch/JSPatch.h>
 #import <Bugly/Bugly.h>
 
 
@@ -29,9 +28,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Bugly
     [self _initBugly];
-    
-    // JSPatch
-    [self _initJSPatch];
     
     // UMeng
     [self _umengTrack];
@@ -112,11 +108,6 @@
 
 - (void)_dataEngine{
     [DataManager manager];
-}
-
-- (void)_initJSPatch{
-    [JSPatch startWithAppKey:kJSPatchKey];
-    [JSPatch sync];
 }
 
 - (void)_initBugly{

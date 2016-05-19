@@ -10,7 +10,6 @@
 #define PrivateHeader_h
 
 #define kUMengKey @"111"
-#define kJSPatchKey @"111"
 #define kBuglyAppId @"111"
 
 #endif /* PrivateHeader_h */
