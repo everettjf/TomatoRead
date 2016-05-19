@@ -40,7 +40,7 @@ var _hmt = _hmt || [];
     <a class="item" href="/">首页</a>
 
     {% for domain in domains %}
-    {% for aspect in domain.aspect_set.all %}
+    {% for aspect in domain.aspects %}
 
     <a class="item" href="{% url 'x123:aspect' aspect.id %}">{{ aspect.name }}</a>
 

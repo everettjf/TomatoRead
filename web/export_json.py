@@ -80,7 +80,7 @@ def export_json():
         domains = []
         for domain in Domain.objects.all():
             aspects = []
-            for aspect in domain.aspect_set.all():
+            for aspect in domain.aspects():
                 aspects.append({
                     'id': aspect.id,
                     'name': aspect.name,

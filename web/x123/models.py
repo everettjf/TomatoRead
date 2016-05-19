@@ -16,6 +16,9 @@ class Domain(models.Model):
         verbose_name_plural = '一级分类'
         ordering = ['zindex']
 
+    def aspects(self):
+        return Aspect.objects.filter(domain_id=self.id).order_by('-zindex','id')
+
     def __str__(self):
         return self.name
 

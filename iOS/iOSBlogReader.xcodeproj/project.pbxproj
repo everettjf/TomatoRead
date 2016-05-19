@@ -175,6 +175,7 @@
 		D1633E7A1CE0DA23009BF7E1 /* FeedImageParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedImageParser.m; path = Utility/FeedImageParser.m; sourceTree = "<group>"; };
 		D16540231CE37EF600A41863 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = Controller/About/AboutViewController.h; sourceTree = "<group>"; };
 		D16540241CE37EF600A41863 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = Controller/About/AboutViewController.m; sourceTree = "<group>"; };
+		D174B0F11CED419600FA6EF1 /* PrivateHeaderSample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrivateHeaderSample.h; sourceTree = "<group>"; };
 		D176AC5F1C7E221A001F25D4 /* 番茄阅读.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "番茄阅读.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D176AC631C7E221A001F25D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D176AC651C7E221A001F25D4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -482,6 +483,7 @@
 				D176AC661C7E221A001F25D4 /* AppDelegate.m */,
 				D176AC631C7E221A001F25D4 /* main.m */,
 				D1F574EE1CB574680044B494 /* PrefixHeader.h */,
+				D174B0F11CED419600FA6EF1 /* PrivateHeaderSample.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

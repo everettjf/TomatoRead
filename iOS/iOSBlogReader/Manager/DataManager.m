@@ -38,8 +38,8 @@
     if (self) {
         NSLog(@"data path = %@", [self _dataPath]);
 #ifdef DEBUG
-//        [[NSFileManager defaultManager]removeItemAtURL:[self _dataPath] error:nil];
-//        [self saveFeedVersion:@""];
+        [[NSFileManager defaultManager]removeItemAtURL:[self _dataPath] error:nil];
+        [self saveFeedVersion:@""];
 #endif
         
         self.managedObjectContext = [NSManagedObject mcd_init:@"BlogModel" storePath:[self _dataPath]];
