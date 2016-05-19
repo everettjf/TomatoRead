@@ -8,7 +8,6 @@
 
 Blog | Feed | Update Time
 -----|------|-----
-[魏先宇的程序人生 - 博客频道 - CSDN.NET](http://blog.csdn.net/likendsl) | [feed](http://blog.csdn.net/likendsl/rss/list) | 2016-05-18 
 [YM2rr - 简书](http://www.jianshu.com/users/ee84d859d5f0/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/152.json) | 2016-05-17 
 [AlexPei - 简书](http://www.jianshu.com/users/476877f2e719/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/160.json) | 2016-05-17 
 [一个iOS菜菜的白话文记录](http://xiongzenghuidegithub.github.io/) | [feed](http://xiongzenghuidegithub.github.io/atom.xml) | 2016-05-17 
@@ -70,5 +69,5 @@ Blog | Feed | Update Time
 
 ---
 
-Updated at 2016-05-19T22:13:01.158424
+Updated at 2016-05-19T22:21:47.400691
 
