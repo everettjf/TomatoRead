@@ -1,8 +1,16 @@
 # 番茄阅读 - 专注于精选 iOS/OS X 开发者博客
 
-[相关介绍](http://everettjf.github.io/2016/02/24/iosblog-cc-dev-memory)
+[AppStore地址](https://itunes.apple.com/us/app/id1111654149)
 
-感谢 https://github.com/tangqiaoboy/iOSBlogCN 提供基础数据,我在此基础上进行了较多的增删.
+[开发总结](https://everettjf.github.io/2016/05/13/how-to-write-a-simple-feed-reader)
+
+
+
+- 感谢 https://github.com/tangqiaoboy/iOSBlogCN 提供基础数据,我在此基础上进行了较多的增删. 且不同之处在于,我会主动收集选择博客,并根据博客文章的质量随时增减.
+
+- 此列表大约每天更新一次
+
+- 按最后更新时间倒序排列
 
 ---
 
@@ -60,14 +68,10 @@ Blog | Feed | Update Time
 [码农人生](http://msching.github.io/) | [feed](http://msching.github.io/atom.xml) | 2014-11-06 
 [Ted's Homepage   Ted](http://wufawei.com/) | [feed](http://wufawei.com/feed/) | 2014-11-04 
 [亚庆的 Blog](http://billwang1990.github.io/) | [feed](http://billwang1990.github.io/atom.xml) | 2014-09-29 
-[念茜的博客 - 博客频道 - CSDN.NET](http://blog.csdn.net/yiyaaixuexi) | [feed](http://blog.csdn.net/yiyaaixuexi/rss/list) | 2014-06-07 
 [KooFrank's Den](http://koofrank.com/) | [feed](http://koofrank.com/rss/) | 2014-04-03 
 [Starming星光社](http://www.starming.com/) | [feed](http://www.starming.com/index.php?v=index&rss=all) | 1970-01-01 
-
-
-*按最后更新时间倒序排列*
-
+[念茜的博客 - 博客频道 - CSDN.NET](http://blog.csdn.net/yiyaaixuexi) | [feed](http://blog.csdn.net/yiyaaixuexi/rss/list) |  
 ---
 
-Updated at 2016-05-19T22:24:17.166899
+Updated at 2016-05-19T23:17:09.061238
 
