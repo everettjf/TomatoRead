@@ -69,5 +69,5 @@ Blog | Feed | Update Time
 
 ---
 
-Updated at 2016-05-19T22:21:47.400691
+Updated at 2016-05-19T22:24:17.166899
 
