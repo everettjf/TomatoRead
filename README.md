@@ -16,6 +16,8 @@
 
 Blog | Feed | Update Time
 -----|------|-----
+[Realank - 简书](http://www.jianshu.com/users/aa6c2a4a126c/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/161.json) | 2016-05-20 
+[Bison的技术博客 – iOS开发](http://allluckly.cn/) | [feed](http://allluckly.cn/feed.xml) | 2016-05-19 
 [YM2rr - 简书](http://www.jianshu.com/users/ee84d859d5f0/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/152.json) | 2016-05-17 
 [AlexPei - 简书](http://www.jianshu.com/users/476877f2e719/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/160.json) | 2016-05-17 
 [一个iOS菜菜的白话文记录](http://xiongzenghuidegithub.github.io/) | [feed](http://xiongzenghuidegithub.github.io/atom.xml) | 2016-05-17 
@@ -23,14 +25,13 @@ Blog | Feed | Update Time
 [sunnyxx的技术博客](http://blog.sunnyxx.com/) | [feed](http://blog.sunnyxx.com/atom.xml) | 2016-05-14 
 [everettjf](http://everettjf.github.io/) | [feed](http://everettjf.github.io/feed.xml) | 2016-05-13 
 [饶志臻 - 简书](http://www.jianshu.com/users/263107bb1199/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/157.json) | 2016-05-12 
-[Bison的技术博客 – iOS开发](http://allluckly.cn/) | [feed](http://allluckly.cn/feed.xml) | 2016-05-12 
 [Why's Blog](http://blog.callmewhy.com/) | [feed](http://blog.callmewhy.com/atom.xml) | 2016-05-11 
-[Realank - 简书](http://www.jianshu.com/users/aa6c2a4a126c/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/161.json) | 2016-05-11 
 [康大亮 - 简书](http://www.jianshu.com/users/da3e1f68113d/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/158.json) | 2016-05-10 
 [唐巧的技术博客](http://blog.devtang.com/) | [feed](http://blog.devtang.com/atom.xml) | 2016-05-08 
 [yulingtianxia's blog](http://yulingtianxia.com/) | [feed](http://yulingtianxia.com/atom.xml) | 2016-05-06 
 [土土哥的技术Blog](http://tutuge.me/) | [feed](http://tutuge.me/atom.xml) | 2016-05-02 
 [Casa Taloyum](http://casatwy.com/) | [feed](http://casatwy.com/feeds/all.atom.xml) | 2016-04-30 
+[Cocoa with Love](http://www.cocoawithlove.com/) | [feed](http://www.cocoawithlove.com/feed.xml) | 2016-04-30 
 [猫·仁波切](https://andelf.github.io/) | [feed](https://andelf.github.io/atom.xml) | 2016-04-28 
 [阿毛的蛋疼地](http://xiangwangfeng.com/) | [feed](http://xiangwangfeng.com/atom.xml) | 2016-04-27 
 [HenryCheng - 简书](http://www.jianshu.com/users/233c37d8a732/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/162.json) | 2016-04-27 
@@ -73,5 +74,5 @@ Blog | Feed | Update Time
 [Starming星光社](http://www.starming.com/) | [feed](http://www.starming.com/index.php?v=index&rss=all) | 1970-01-01 
 ---
 
-Updated at 2016-05-19T23:21:13.531054
+Updated at 2016-05-20T18:56:13.873427
 
