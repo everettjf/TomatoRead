@@ -107,7 +107,7 @@ def export_markdown():
     f.write('\n\n---\n\n')
     feeds = all_feeds()
 
-    f.write('Blog (%d) | Feed | Update Time\n', len(feeds))
+    f.write('Blog (%d) | Feed | Update Time\n' % len(feeds))
     f.write('-----|------|-----\n')
 
     items = []
