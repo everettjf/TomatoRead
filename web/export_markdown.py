@@ -98,18 +98,20 @@ def export_markdown():
     f.write('[开发总结](https://everettjf.github.io/2016/05/13/how-to-write-a-simple-feed-reader)\n\n')
 
     f.write('\n\n')
-    f.write('- 感谢 https://github.com/tangqiaoboy/iOSBlogCN 提供基础数据,我在此基础上进行了较多的增删.'
+    f.write('- 感谢 [tangqiaoboy](https://github.com/tangqiaoboy/iOSBlogCN) 提供基础数据,我在此基础上进行了较多的增删.'
             ' 且不同之处在于,我会主动收集选择博客,并根据博客文章的质量随时增减.\n')
     f.write('- 此列表大约每天更新一次\n')
     f.write('- 按最后更新时间倒序排列\n')
+    f.write('- Feed列说明: `feed` 支持RSS/Atom ; `jianshu` 简书 ; `空白` 不支持RSS/Atom且暂不支持爬取.\n')
 
-    f.write('---\n\n')
+    f.write('\n\n---\n\n')
+    feeds = all_feeds()
 
-    f.write('Blog | Feed | Update Time\n')
+    f.write('Blog (%d) | Feed | Update Time\n', len(feeds))
     f.write('-----|------|-----\n')
 
     items = []
-    for link in all_feeds():
+    for link in feeds:
         update_time = ''
 
         name = link.name.replace('|', ' ')
@@ -153,7 +155,6 @@ def export_markdown():
 
     print('finished')
     f.write('---\n\n')
-    f.write('Feed列说明: `feed` 支持RSS/Atom ; `jianshu` 简书 ; `空白` 不支持RSS/Atom且暂不支持爬取.\n\n')
     f.write('Updated at %s'% datetime.datetime.now().isoformat())
     f.write('\n\n')
 
