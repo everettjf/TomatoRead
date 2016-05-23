@@ -47,8 +47,6 @@ def time_as_string(struct_time):
     return time.strftime('%Y-%m-%d', struct_time)
 
 # Helper
-def all_feeds():
-    return Bookmark.objects.filter(~Q(feed_url='') | ~Q(spider='') ).order_by('-zindex', 'created_at')
 
 
 def get_update_time_string(spider, oid):
@@ -87,6 +85,11 @@ def get_update_time_from_feed(feed_url):
     return update_time
 
 
+def all_feeds():
+    return Bookmark.objects.filter(aspect__tag='blog', aspect__domain__tag='ios').order_by('-zindex', 'created_at')
+    # return Bookmark.objects.filter( ~Q(feed_url='') | ~Q(spider='') ).order_by('-zindex', 'created_at')
+
+
 def export_markdown():
     f = local_markdown_open('README.md')
 
@@ -96,9 +99,9 @@ def export_markdown():
 
     f.write('\n\n')
     f.write('- 感谢 https://github.com/tangqiaoboy/iOSBlogCN 提供基础数据,我在此基础上进行了较多的增删.'
-            ' 且不同之处在于,我会主动收集选择博客,并根据博客文章的质量随时增减.\n\n')
-    f.write('- 此列表大约每天更新一次\n\n')
-    f.write('- 按最后更新时间倒序排列\n\n')
+            ' 且不同之处在于,我会主动收集选择博客,并根据博客文章的质量随时增减.\n')
+    f.write('- 此列表大约每天更新一次\n')
+    f.write('- 按最后更新时间倒序排列\n')
 
     f.write('---\n\n')
 
@@ -107,23 +110,26 @@ def export_markdown():
 
     items = []
     for link in all_feeds():
+        update_time = ''
+
         name = link.name.replace('|', ' ')
-        if link.feed_url == '':
-            spider = link.spider
-            spider_url = 'https://everettjf.github.io/app/blogreader/spider/%s/%d.json' %(spider, link.id)
-        else:
+
+        start = time.time()
+        if link.feed_url != '':
+            # Feed
             spider = 'feed'
             spider_url = link.feed_url
-
-        update_time = ''
-        if spider != 'feed':
-            start = time.time()
-            update_time = get_update_time_string(spider, link.id)
-            end = time.time()
-        else:
-            start = time.time()
             update_time = get_update_time_from_feed(spider_url)
-            end = time.time()
+        elif link.spider != '':
+            # Spider
+            spider = link.spider
+            spider_url = 'https://everettjf.github.io/app/blogreader/spider/%s/%d.json' %(spider, link.id)
+            update_time = get_update_time_string(spider, link.id)
+        else:
+            # No spider and no feed
+            spider = ''
+            spider_url = ''
+        end = time.time()
 
         print('(%d)%s[%s](%s) | %s ' % (math.ceil(end-start),update_time,name, spider_url, spider))
 
@@ -147,6 +153,7 @@ def export_markdown():
 
     print('finished')
     f.write('---\n\n')
+    f.write('Feed列说明: `feed` 支持RSS/Atom ; `jianshu` 简书 ; `空白` 不支持RSS/Atom且暂不支持爬取.\n\n')
     f.write('Updated at %s'% datetime.datetime.now().isoformat())
     f.write('\n\n')
 
