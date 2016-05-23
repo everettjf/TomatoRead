@@ -7,11 +7,8 @@
 
 
 - 感谢 https://github.com/tangqiaoboy/iOSBlogCN 提供基础数据,我在此基础上进行了较多的增删. 且不同之处在于,我会主动收集选择博客,并根据博客文章的质量随时增减.
-
 - 此列表大约每天更新一次
-
 - 按最后更新时间倒序排列
-
 ---
 
 Blog | Feed | Update Time
@@ -65,6 +62,7 @@ Blog | Feed | Update Time
 [Wonderffee's Blog](http://wonderffee.github.io/) | [feed](http://wonderffee.github.io/atom.xml) | 2015-09-24 
 [KenshinCui - 博客园](http://www.cnblogs.com/kenshincui/) | [feed](http://www.cnblogs.com/kenshincui/rss) | 2015-09-20 
 [Travis.Wang](http://imi.im/) | [feed](http://travis.wang/rss/) | 2015-07-29 
+[摇滚诗人 - 博客园](http://www.cnblogs.com/biosli) | [feed](http://www.cnblogs.com/biosli/rss) | 2015-06-03 
 [answer_huang - iOS developer，Python fans](http://answerhuang.duapp.com/) | [feed](http://answerhuang.duapp.com/index.php/feed/) | 2015-04-19 
 [技术哥-编程是一种思想,代码是一种人生](http://suenblog.duapp.com/) | [feed](http://suenblog.duapp.com/rss/) | 2015-02-02 
 [不会开机的男孩](http://studentdeng.github.io/) | [feed](http://studentdeng.github.io/atom.xml) | 2015-01-02 
@@ -75,8 +73,24 @@ Blog | Feed | Update Time
 [念茜的博客 - 博客频道 - CSDN.NET](http://blog.csdn.net/yiyaaixuexi) | [feed](http://blog.csdn.net/yiyaaixuexi/rss/list) | 2014-06-07 
 [KooFrank's Den](http://koofrank.com/) | [feed](http://koofrank.com/rss/) | 2014-04-03 
 [Starming星光社](http://www.starming.com/) | [feed](http://www.starming.com/index.php?v=index&rss=all) | 1970-01-01 
-[摇滚诗人 - 博客园](http://www.cnblogs.com/biosli) | [feed](http://www.cnblogs.com/biosli/rss) |  
+[Limboy's HQ](http://limboy.me/) | []() |  
+[Xcode Dev](http://blog.xcodev.com/) | []() |  
+[I'm TualatriX](http://imtx.me/) | []() |  
+[Cocoabit](http://blog.cocoabit.com/) | []() |  
+[不掏蜂窝的熊](http://www.hotobear.com/) | []() |  
+[首页 – 煲仔饭](http://ivoryxiong.org/) | []() |  
+[coderyi](http://www.coderyi.com/) | []() |  
+[Recent Posts - Made of Bugs](https://blog.nelhage.com/) | []() |  
+[Albert43's Blog](http://albert43.net/) | []() |  
+[Jamin's BLOG   jaminzzhang](http://oncenote.com/) | []() |  
+[SindriLin's 小巢 - Blog for SindriLin](http://sindrilin.com/) | []() |  
+[XS-Labs](http://www.xs-labs.com/en/) | []() |  
+[ScorpioLin 偶尔死宅的林小懒](http://scorpiolin.github.io/) | []() |  
+[Glow 技术团队博客](http://tech.glowing.com/cn/) | []() |  
+[bang’s blog](http://blog.cnbang.net/) | []() |  
 ---
 
-Updated at 2016-05-23T22:11:25.140908
+Feed列说明: `feed` 支持RSS/Atom ; `jianshu` 简书 ; `空白` 不支持RSS/Atom且暂不支持爬取.
+
+Updated at 2016-05-23T22:38:30.220203
 
