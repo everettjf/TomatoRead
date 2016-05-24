@@ -14,9 +14,8 @@
 
 ---
 
-Blog (76) | Feed | Update Time
+Blog (75) | Feed | Update Time
 -----|------|-----
-[Boy_iOS - 简书](http://www.jianshu.com/users/7f2da8d4ae92/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/165.json) | 2016-05-24 
 [philon - 简书](http://www.jianshu.com/users/f835e076a43d/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/207.json) | 2016-05-24 
 [康大亮 - 简书](http://www.jianshu.com/users/da3e1f68113d/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/158.json) | 2016-05-23 
 [唐巧的技术博客](http://blog.devtang.com/) | [feed](http://blog.devtang.com/atom.xml) | 2016-05-22 
@@ -94,5 +93,5 @@ Blog (76) | Feed | Update Time
 [bang’s blog](http://blog.cnbang.net/) | []() |  
 ---
 
-Updated at 2016-05-24T22:16:32.292565
+Updated at 2016-05-24T22:20:45.663176
 
