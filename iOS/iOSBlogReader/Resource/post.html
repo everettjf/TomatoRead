@@ -4,11 +4,27 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width initial-scale=1.0">
-        %@
+        <style>
+            %@
+            %@
+            %@
+        </style>
     </head>
     <body>
-        <a class="title">%@</a>
-        <div class="diver"></div>
-        <div class="content">%@</div>
+        <div class="container-fluid" id="main-layout">
+            <div class="sidebar col-sm-12 col-md-3">
+            </div>
+            <div class="content col-sm-12 col-md-9">
+                <div class="post">
+                    <header class="post-header">
+                        <h1>%@</h1>
+                        <p class="post-meta">%@</p>
+                    </header>
+                    <article class="post-content">
+                        %@
+                    <article>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

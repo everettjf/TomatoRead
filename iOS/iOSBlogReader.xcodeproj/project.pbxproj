@@ -44,7 +44,6 @@
 		D144319D1CCBC8E800FDE636 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431951CCBC8E800FDE636 /* WebViewController.m */; };
 		D14431A71CCC039000FDE636 /* FeedSourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431A61CCC039000FDE636 /* FeedSourceManager.m */; };
 		D14431AA1CCD054400FDE636 /* FeedPostContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431A91CCD054400FDE636 /* FeedPostContentViewController.m */; };
-		D14431AC1CCD0AD000FDE636 /* css.html in Resources */ = {isa = PBXBuildFile; fileRef = D14431AB1CCD0AD000FDE636 /* css.html */; };
 		D14431AE1CCD0BD800FDE636 /* post.html in Resources */ = {isa = PBXBuildFile; fileRef = D14431AD1CCD0BD800FDE636 /* post.html */; };
 		D14431CA1CD0DA7E00FDE636 /* EENavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431C71CD0DA7E00FDE636 /* EENavigationController.m */; };
 		D14431CB1CD0DA7E00FDE636 /* EETabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D14431C91CD0DA7E00FDE636 /* EETabBarController.m */; };
@@ -72,6 +71,9 @@
 		D182DE6E1CD5228F009BF3E9 /* FeedLoadingProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D182DE6D1CD5228F009BF3E9 /* FeedLoadingProgressView.m */; };
 		D182DE731CD7937F009BF3E9 /* NSManagedObject+MatrixCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = D182DE721CD7937F009BF3E9 /* NSManagedObject+MatrixCoreData.m */; };
 		D182DE761CD793AB009BF3E9 /* MagicCubeProgressBox.m in Sources */ = {isa = PBXBuildFile; fileRef = D182DE751CD793AB009BF3E9 /* MagicCubeProgressBox.m */; };
+		D1DE3D0B1CF4B7C20027AFA9 /* main.css in Resources */ = {isa = PBXBuildFile; fileRef = D1DE3D0A1CF4B7C20027AFA9 /* main.css */; };
+		D1DE3D0E1CF4B85C0027AFA9 /* bootstrap.min.css in Resources */ = {isa = PBXBuildFile; fileRef = D1DE3D0C1CF4B85C0027AFA9 /* bootstrap.min.css */; };
+		D1DE3D0F1CF4B85C0027AFA9 /* font-awesome.min.css in Resources */ = {isa = PBXBuildFile; fileRef = D1DE3D0D1CF4B85C0027AFA9 /* font-awesome.min.css */; };
 		D1F574C01CB541580044B494 /* AppUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574BF1CB541580044B494 /* AppUtil.m */; };
 		D1F574D61CB55F190044B494 /* PageDataset.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574D51CB55F190044B494 /* PageDataset.m */; };
 		D1F574E21CB5717C0044B494 /* RestApiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F574E11CB5717C0044B494 /* RestApiTests.m */; };
@@ -155,7 +157,6 @@
 		D14431A61CCC039000FDE636 /* FeedSourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedSourceManager.m; path = Manager/FeedSourceManager.m; sourceTree = "<group>"; };
 		D14431A81CCD054400FDE636 /* FeedPostContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedPostContentViewController.h; sourceTree = "<group>"; };
 		D14431A91CCD054400FDE636 /* FeedPostContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedPostContentViewController.m; sourceTree = "<group>"; };
-		D14431AB1CCD0AD000FDE636 /* css.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = css.html; path = Resource/css.html; sourceTree = "<group>"; };
 		D14431AD1CCD0BD800FDE636 /* post.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = post.html; path = Resource/post.html; sourceTree = "<group>"; };
 		D14431C61CD0DA7E00FDE636 /* EENavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EENavigationController.h; sourceTree = "<group>"; };
 		D14431C71CD0DA7E00FDE636 /* EENavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EENavigationController.m; sourceTree = "<group>"; };
@@ -210,6 +211,9 @@
 		D182DE751CD793AB009BF3E9 /* MagicCubeProgressBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicCubeProgressBox.m; sourceTree = "<group>"; };
 		D182DE771CD8E5FD009BF3E9 /* PrivateHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrivateHeader.h; sourceTree = "<group>"; };
 		D1B3825E1CE6412F0023C8F2 /* BlogModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "BlogModel 2.xcdatamodel"; sourceTree = "<group>"; };
+		D1DE3D0A1CF4B7C20027AFA9 /* main.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = main.css; path = Resource/main.css; sourceTree = "<group>"; };
+		D1DE3D0C1CF4B85C0027AFA9 /* bootstrap.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = bootstrap.min.css; path = Resource/bootstrap.min.css; sourceTree = "<group>"; };
+		D1DE3D0D1CF4B85C0027AFA9 /* font-awesome.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = "font-awesome.min.css"; path = "Resource/font-awesome.min.css"; sourceTree = "<group>"; };
 		D1F574BE1CB541580044B494 /* AppUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppUtil.h; path = Utility/AppUtil.h; sourceTree = "<group>"; };
 		D1F574BF1CB541580044B494 /* AppUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppUtil.m; path = Utility/AppUtil.m; sourceTree = "<group>"; };
 		D1F574D41CB55F190044B494 /* PageDataset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageDataset.h; path = Model/PageDataset.h; sourceTree = "<group>"; };
@@ -576,8 +580,10 @@
 				D176AC711C7E221A001F25D4 /* Assets.xcassets */,
 				D176AC731C7E221A001F25D4 /* LaunchScreen.storyboard */,
 				D176AC761C7E221A001F25D4 /* Info.plist */,
-				D14431AB1CCD0AD000FDE636 /* css.html */,
 				D14431AD1CCD0BD800FDE636 /* post.html */,
+				D1DE3D0C1CF4B85C0027AFA9 /* bootstrap.min.css */,
+				D1DE3D0D1CF4B85C0027AFA9 /* font-awesome.min.css */,
+				D1DE3D0A1CF4B7C20027AFA9 /* main.css */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -738,15 +744,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				D134CFAB1CDA29970055E1B0 /* forwardbutton@3x.png in Resources */,
+				D1DE3D0B1CF4B7C20027AFA9 /* main.css in Resources */,
 				D176AC751C7E221A001F25D4 /* LaunchScreen.storyboard in Resources */,
 				D134CFA91CDA29970055E1B0 /* forwardbutton.png in Resources */,
+				D1DE3D0E1CF4B85C0027AFA9 /* bootstrap.min.css in Resources */,
 				D134CFA61CDA29970055E1B0 /* backbutton.png in Resources */,
 				D176AC721C7E221A001F25D4 /* Assets.xcassets in Resources */,
 				D134CFA81CDA29970055E1B0 /* backbutton@3x.png in Resources */,
 				D134CFA71CDA29970055E1B0 /* backbutton@2x.png in Resources */,
 				D14431AE1CCD0BD800FDE636 /* post.html in Resources */,
+				D1DE3D0F1CF4B85C0027AFA9 /* font-awesome.min.css in Resources */,
 				D134CFAA1CDA29970055E1B0 /* forwardbutton@2x.png in Resources */,
-				D14431AC1CCD0AD000FDE636 /* css.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

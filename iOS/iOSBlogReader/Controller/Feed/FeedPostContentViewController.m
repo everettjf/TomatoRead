@@ -9,6 +9,7 @@
 #import "FeedPostContentViewController.h"
 #import <WebKit/WebKit.h>
 #import "WebViewController.h"
+#import "AppUtil.h"
 
 @interface FeedPostContentViewController ()
 @property (strong,nonatomic) WKWebView *webView;
@@ -52,16 +53,23 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)_loadContent{
-    NSString *cssFilePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"css.html"];
-    NSString *cssString = [NSString stringWithContentsOfFile:cssFilePath encoding:NSUTF8StringEncoding error:nil];
-    
-    NSString *postFilePath = [[[NSBundle mainBundle]resourcePath] stringByAppendingPathComponent:@"post.html"];
-    NSString *postString = [NSString stringWithContentsOfFile:postFilePath encoding:NSUTF8StringEncoding error:nil];
+- (NSString *)_readResourceContent:(NSString*)name{
+    NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:name];
+    NSString *string = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+    if(!string)return @"";
+    return string;
+}
 
+- (void)_loadContent{
+    NSString *postString = [self _readResourceContent:@"post.html"];
     NSString *content = _post.content;
-    
-    NSString *htmlContent = [NSString stringWithFormat:postString, cssString, _post.title, content];
+    NSString *htmlContent = [NSString stringWithFormat:postString,
+                             [self _readResourceContent:@"bootstrap.min.css"],
+                             [self _readResourceContent:@"font-awesome.min.css"],
+                             [self _readResourceContent:@"main.css"],
+                             _post.title,
+                             [[AppUtil util]formatDate:_post.date],
+                             content];
     [_webView loadHTMLString:htmlContent baseURL:nil];
 }
 
