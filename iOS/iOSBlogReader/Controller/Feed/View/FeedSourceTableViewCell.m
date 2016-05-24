@@ -46,7 +46,7 @@
     _subTitleLabel = [UILabel new];
     _subTitleLabel.font = [UIFont systemFontOfSize:14];
     _subTitleLabel.numberOfLines = 1;
-    _subTitleLabel.textColor = UIColorFromRGBA(0xb4b4b4, 1.0);
+    _subTitleLabel.textColor = UIColorGraySubTitle;
     [rootView addSubview:_subTitleLabel];
     
     [_faviconImageView mas_makeConstraints:^(MASConstraintMaker *make){

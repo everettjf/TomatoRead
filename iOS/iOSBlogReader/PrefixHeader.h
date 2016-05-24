@@ -15,6 +15,7 @@
 #import <MobClick.h>
 
 #define UIColorFromRGBA(rgbValue,a)        [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0f green:((float)((rgbValue & 0xFF00) >> 8))/255.0f blue:((float)(rgbValue & 0xFF))/255.0f alpha:a]
+#define UIColorGraySubTitle [UIColor colorWithRed:0.498 green:0.498 blue:0.498 alpha:1.0];
 
 
 #endif /* PrefixHeader_h */

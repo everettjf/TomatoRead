@@ -45,12 +45,12 @@
     
     _dateLabel = [UILabel new];
     _dateLabel.font = [UIFont systemFontOfSize:14];
-    _dateLabel.textColor = UIColorFromRGBA(0xd7dae2, 1.0);
+    _dateLabel.textColor = UIColorGraySubTitle;
     [root addSubview:_dateLabel];
     
     _authorLabel = [UILabel new];
     _authorLabel.font = [UIFont systemFontOfSize:14];
-    _authorLabel.textColor = UIColorFromRGBA(0xd7dae2, 1.0);
+    _authorLabel.textColor = UIColorGraySubTitle;
     [root addSubview:_authorLabel];
     
     _imageView = [UIImageView new];
