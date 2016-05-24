@@ -39,7 +39,7 @@
         NSLog(@"data path = %@", [self _dataPath]);
 #ifdef DEBUG
 //        [[NSFileManager defaultManager]removeItemAtURL:[self _dataPath] error:nil];
-//        [self saveFeedVersion:@""];
+        [self saveFeedVersion:@""];
 #endif
         
         self.managedObjectContext = [NSManagedObject mcd_init:@"BlogModel" storePath:[self _dataPath]];
@@ -60,6 +60,26 @@
         
         callback((id)m);
     }];
+}
+
+- (void)rebuildFeeds:(NSSet<NSNumber *> *)oidset{
+    if(oidset.count == 0)return;
+    
+    NSArray<FeedModel*> *localFeeds = [FeedModel mcd_findAll];
+    if(!localFeeds)return;
+    NSMutableSet<NSNumber*> *currentOids = [NSMutableSet new];
+    for (FeedModel*model in localFeeds) {
+        [currentOids addObject:model.oid];
+    }
+    localFeeds = nil;
+    
+    [currentOids minusSet:oidset];
+    
+    NSLog(@"Feeds will remove : %@", currentOids);
+    
+    for (NSNumber*oid in currentOids) {
+        [FeedModel mcd_delete:@"oid" value:oid];
+    }
 }
 
 - (NSArray<FeedModel *> *)findAllFeed{

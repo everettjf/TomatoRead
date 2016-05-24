@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSArray<FeedModel*>*)findAllFeed;
 - (NSArray<FeedModel*>*)findAllFeed:(NSUInteger)offset limit:(NSUInteger)limit;
 - (NSUInteger)countFeed;
+- (void)rebuildFeeds:(NSSet<NSNumber*>*)oidset;
 
 - (NSString*)getFeedVersion;
 - (void)saveFeedVersion:(NSString*)version;

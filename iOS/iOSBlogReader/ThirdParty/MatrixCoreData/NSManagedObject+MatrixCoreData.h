@@ -28,5 +28,6 @@
 + (void)mcd_findOrCreate:(NSString*)key value:(id)value callback:(void (^)(NSManagedObject*m))callback;
 + (NSManagedObject*)mcd_find:(NSString*)key value:(id)value;
 + (void)mcd_update:(NSString*)key value:(id)value callback:(void (^)(NSManagedObject*m))callback;
++ (void)mcd_delete:(NSString*)key value:(id)value;
 
 @end

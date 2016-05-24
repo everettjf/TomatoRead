@@ -64,7 +64,10 @@
             
             // Persist
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                NSMutableSet<NSNumber*> *oidset = [[NSMutableSet alloc]initWithCapacity:model.feeds.count];
                 for (RestLinkModel *feed in model.feeds) {
+                    [oidset addObject:@(feed.oid)];
+                    
                     [[DataManager manager]findOrCreateFeed:feed.oid callback:^(FeedModel * _Nullable m) {
                         m.favicon = feed.favicon;
                         m.feed_url = feed.feed_url;
@@ -75,6 +78,8 @@
                         m.zindex = @(feed.zindex);
                     }];
                 }
+                
+                [[DataManager manager]rebuildFeeds:oidset];
                 
                 [[DataManager manager]saveFeedVersion:version];
                 

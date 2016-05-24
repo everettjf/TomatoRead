@@ -170,6 +170,23 @@ static NSManagedObjectContext *s_context;
     return model;
 }
 
++ (void)mcd_delete:(NSString *)key value:(id)value{
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([self class])];
+    req.predicate = [NSPredicate predicateWithFormat:@"%K == %@",key,value];
+    
+    [[[self class]mcd_context] performBlockAndWait:^{
+        NSError *error = nil;
+        NSArray *results = [[[self class]mcd_context] executeFetchRequest:req error:&error];
+        if(error || !results){
+            return;
+        }
+        
+        for (NSManagedObject *obj in results) {
+            [[[self class]mcd_context]deleteObject:obj];
+        }
+    }];
+}
+
 + (void)mcd_update:(NSString *)key value:(id)value callback:(void (^)(NSManagedObject *))callback{
     NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([self class])];
     req.predicate = [NSPredicate predicateWithFormat:@"%K == %@",key,value];
