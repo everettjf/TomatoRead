@@ -81,7 +81,7 @@
         }
         return [[NSAttributedString alloc] initWithString:title
                                                attributes: @{
-                                     NSForegroundColorAttributeName : UIColorFromRGBA(0xa8b2bd, 1.0),
+                                     NSForegroundColorAttributeName : [UIColor colorWithRed:0.298 green:0.298 blue:0.298 alpha:1.0],
                                      NSFontAttributeName : [UIFont systemFontOfSize:16]
                                  }
                 ];
