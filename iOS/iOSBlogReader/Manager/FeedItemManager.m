@@ -184,7 +184,7 @@
                         if(!latest_post_date){
                             latest_post_date = m.date;
                         }else{
-                            if([m.date timeIntervalSinceDate:latest_post_date]< 0){
+                            if([m.date timeIntervalSinceDate:latest_post_date]> 0){
                                 latest_post_date = m.date;
                             }
                         }
