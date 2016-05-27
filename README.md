@@ -16,10 +16,10 @@
 
 Blog (77) | Feed | Update Time
 -----|------|-----
+[唐巧的技术博客](http://blog.devtang.com/) | [feed](http://blog.devtang.com/atom.xml) | 2016-05-26 
 [饶志臻 - 简书](http://www.jianshu.com/users/263107bb1199/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/157.json) | 2016-05-26 
 [Migi000 - 简书](http://www.jianshu.com/users/4633193fb272/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/159.json) | 2016-05-26 
 [everettjf](http://everettjf.github.io/) | [feed](http://everettjf.github.io/feed.xml) | 2016-05-25 
-[唐巧的技术博客](http://blog.devtang.com/) | [feed](http://blog.devtang.com/atom.xml) | 2016-05-24 
 [philon - 简书](http://www.jianshu.com/users/f835e076a43d/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/207.json) | 2016-05-24 
 [康大亮 - 简书](http://www.jianshu.com/users/da3e1f68113d/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/158.json) | 2016-05-23 
 [AlexPei - 简书](http://www.jianshu.com/users/476877f2e719/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/160.json) | 2016-05-21 
@@ -95,5 +95,5 @@ Blog (77) | Feed | Update Time
 [破博客 - 文官洗碗安天下，武将打怪定乾坤。多么美好的年代，思之令人泪落。](http://www.poboke.com/) | []() |  
 ---
 
-Updated at 2016-05-26T22:03:11.537626
+Updated at 2016-05-27T20:58:01.115395
 
