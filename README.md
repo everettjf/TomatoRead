@@ -14,12 +14,13 @@
 
 ---
 
-Blog (77) | Feed | Update Time
+Blog (78) | Feed | Update Time
 -----|------|-----
 [唐巧的技术博客](http://blog.devtang.com/) | [feed](http://blog.devtang.com/atom.xml) | 2016-05-26 
 [饶志臻 - 简书](http://www.jianshu.com/users/263107bb1199/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/157.json) | 2016-05-26 
 [Migi000 - 简书](http://www.jianshu.com/users/4633193fb272/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/159.json) | 2016-05-26 
 [everettjf](http://everettjf.github.io/) | [feed](http://everettjf.github.io/feed.xml) | 2016-05-25 
+[Cocoa · ‘for iOS/Mac’](http://cocoahuke.com/) | [feed](http://cocoahuke.com/atom.xml) | 2016-05-25 
 [philon - 简书](http://www.jianshu.com/users/f835e076a43d/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/207.json) | 2016-05-24 
 [康大亮 - 简书](http://www.jianshu.com/users/da3e1f68113d/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/158.json) | 2016-05-23 
 [AlexPei - 简书](http://www.jianshu.com/users/476877f2e719/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/160.json) | 2016-05-21 
@@ -33,6 +34,7 @@ Blog (77) | Feed | Update Time
 [Why's Blog](http://blog.callmewhy.com/) | [feed](http://blog.callmewhy.com/atom.xml) | 2016-05-11 
 [Welcome   刘彦玮的技术博客](http://liuyanwei.jumppo.com/) | [feed](http://liuyanwei.jumppo.com/pages/rss.xml) | 2016-05-09 
 [yulingtianxia's blog](http://yulingtianxia.com/) | [feed](http://yulingtianxia.com/atom.xml) | 2016-05-06 
+[Startry Blog](http://blog.startry.com/) | [feed](http://blog.startry.com/atom.xml) | 2016-05-06 
 [土土哥的技术Blog](http://tutuge.me/) | [feed](http://tutuge.me/atom.xml) | 2016-05-02 
 [Casa Taloyum](http://casatwy.com/) | [feed](http://casatwy.com/feeds/all.atom.xml) | 2016-04-30 
 [猫·仁波切](https://andelf.github.io/) | [feed](https://andelf.github.io/atom.xml) | 2016-04-28 
@@ -73,10 +75,10 @@ Blog (77) | Feed | Update Time
 [码农人生](http://msching.github.io/) | [feed](http://msching.github.io/atom.xml) | 2014-11-06 
 [Ted's Homepage   Ted](http://wufawei.com/) | [feed](http://wufawei.com/feed/) | 2014-11-04 
 [亚庆的 Blog](http://billwang1990.github.io/) | [feed](http://billwang1990.github.io/atom.xml) | 2014-09-29 
+[念茜的博客 - 博客频道 - CSDN.NET](http://blog.csdn.net/yiyaaixuexi) | [feed](http://blog.csdn.net/yiyaaixuexi/rss/list) | 2014-06-07 
 [KooFrank's Den](http://koofrank.com/) | [feed](http://koofrank.com/rss/) | 2014-04-03 
 [Starming星光社](http://www.starming.com/) | [feed](http://www.starming.com/index.php?v=index&rss=all) | 1970-01-01 
 [Limboy's HQ](http://limboy.me/) | []() |  
-[念茜的博客 - 博客频道 - CSDN.NET](http://blog.csdn.net/yiyaaixuexi) | [feed](http://blog.csdn.net/yiyaaixuexi/rss/list) |  
 [Xcode Dev](http://blog.xcodev.com/) | []() |  
 [I'm TualatriX](http://imtx.me/) | []() |  
 [Cocoabit](http://blog.cocoabit.com/) | []() |  
@@ -90,10 +92,9 @@ Blog (77) | Feed | Update Time
 [XS-Labs](http://www.xs-labs.com/en/) | []() |  
 [ScorpioLin 偶尔死宅的林小懒](http://scorpiolin.github.io/) | []() |  
 [Glow 技术团队博客](http://tech.glowing.com/cn/) | []() |  
-[Startry Blog](http://blog.startry.com/) | [feed](http://blog.startry.com/atom.xml) |  
 [bang’s blog](http://blog.cnbang.net/) | []() |  
 [破博客 - 文官洗碗安天下，武将打怪定乾坤。多么美好的年代，思之令人泪落。](http://www.poboke.com/) | []() |  
 ---
 
-Updated at 2016-05-30T01:27:35.299008
+Updated at 2016-05-30T01:36:10.504903
 
