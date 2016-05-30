@@ -14,8 +14,9 @@
 
 ---
 
-Blog (78) | Feed | Update Time
+Blog (80) | Feed | Update Time
 -----|------|-----
+[Realank - 简书](http://www.jianshu.com/users/aa6c2a4a126c/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/161.json) | 2016-05-30 
 [唐巧的技术博客](http://blog.devtang.com/) | [feed](http://blog.devtang.com/atom.xml) | 2016-05-26 
 [饶志臻 - 简书](http://www.jianshu.com/users/263107bb1199/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/157.json) | 2016-05-26 
 [Migi000 - 简书](http://www.jianshu.com/users/4633193fb272/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/159.json) | 2016-05-26 
@@ -24,17 +25,16 @@ Blog (78) | Feed | Update Time
 [philon - 简书](http://www.jianshu.com/users/f835e076a43d/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/207.json) | 2016-05-24 
 [康大亮 - 简书](http://www.jianshu.com/users/da3e1f68113d/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/158.json) | 2016-05-23 
 [AlexPei - 简书](http://www.jianshu.com/users/476877f2e719/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/160.json) | 2016-05-21 
-[Realank - 简书](http://www.jianshu.com/users/aa6c2a4a126c/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/161.json) | 2016-05-20 
 [Ben Snider](http://www.bensnider.com/) | [feed](http://www.bensnider.com/feeds/all.atom.xml) | 2016-05-20 
 [Bison的技术博客 – iOS开发](http://allluckly.cn/) | [feed](http://allluckly.cn/feed.xml) | 2016-05-19 
 [Cocoa with Love](http://www.cocoawithlove.com/) | [feed](http://www.cocoawithlove.com/feed.xml) | 2016-05-18 
 [YM2rr - 简书](http://www.jianshu.com/users/ee84d859d5f0/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/152.json) | 2016-05-17 
 [一个iOS菜菜的白话文记录](http://xiongzenghuidegithub.github.io/) | [feed](http://xiongzenghuidegithub.github.io/atom.xml) | 2016-05-17 
+[WildDylan - 简书](http://www.jianshu.com/users/81c4380481c1/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/221.json) | 2016-05-15 
 [sunnyxx的技术博客](http://blog.sunnyxx.com/) | [feed](http://blog.sunnyxx.com/atom.xml) | 2016-05-14 
 [Why's Blog](http://blog.callmewhy.com/) | [feed](http://blog.callmewhy.com/atom.xml) | 2016-05-11 
 [Welcome   刘彦玮的技术博客](http://liuyanwei.jumppo.com/) | [feed](http://liuyanwei.jumppo.com/pages/rss.xml) | 2016-05-09 
 [yulingtianxia's blog](http://yulingtianxia.com/) | [feed](http://yulingtianxia.com/atom.xml) | 2016-05-06 
-[Startry Blog](http://blog.startry.com/) | [feed](http://blog.startry.com/atom.xml) | 2016-05-06 
 [土土哥的技术Blog](http://tutuge.me/) | [feed](http://tutuge.me/atom.xml) | 2016-05-02 
 [Casa Taloyum](http://casatwy.com/) | [feed](http://casatwy.com/feeds/all.atom.xml) | 2016-04-30 
 [猫·仁波切](https://andelf.github.io/) | [feed](https://andelf.github.io/atom.xml) | 2016-04-28 
@@ -92,9 +92,11 @@ Blog (78) | Feed | Update Time
 [XS-Labs](http://www.xs-labs.com/en/) | []() |  
 [ScorpioLin 偶尔死宅的林小懒](http://scorpiolin.github.io/) | []() |  
 [Glow 技术团队博客](http://tech.glowing.com/cn/) | []() |  
+[Startry Blog](http://blog.startry.com/) | [feed](http://blog.startry.com/atom.xml) |  
 [bang’s blog](http://blog.cnbang.net/) | []() |  
 [破博客 - 文官洗碗安天下，武将打怪定乾坤。多么美好的年代，思之令人泪落。](http://www.poboke.com/) | []() |  
+[WeRead团队博客](http://wereadteam.github.io/) | []() |  
 ---
 
-Updated at 2016-05-30T01:36:10.504903
+Updated at 2016-05-31T01:25:57.239976
 
