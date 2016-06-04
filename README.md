@@ -20,6 +20,7 @@ Blog (80) | Feed | Update Time
 [Migi000 - 简书](http://www.jianshu.com/users/4633193fb272/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/159.json) | 2016-06-01 
 [AlexPei - 简书](http://www.jianshu.com/users/476877f2e719/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/160.json) | 2016-06-01 
 [Bison的技术博客 – iOS开发](http://allluckly.cn/) | [feed](http://allluckly.cn/feed.xml) | 2016-06-01 
+[Cocoa with Love](http://www.cocoawithlove.com/) | [feed](http://www.cocoawithlove.com/feed.xml) | 2016-06-01 
 [Kevin](http://blog.zhowkev.in/) | [feed](http://blog.zhowkev.in/rss/) | 2016-05-31 
 [WildDylan - 简书](http://www.jianshu.com/users/81c4380481c1/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/221.json) | 2016-05-31 
 [Realank - 简书](http://www.jianshu.com/users/aa6c2a4a126c/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/161.json) | 2016-05-30 
@@ -31,7 +32,6 @@ Blog (80) | Feed | Update Time
 [philon - 简书](http://www.jianshu.com/users/f835e076a43d/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/207.json) | 2016-05-24 
 [康大亮 - 简书](http://www.jianshu.com/users/da3e1f68113d/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/158.json) | 2016-05-23 
 [Ben Snider](http://www.bensnider.com/) | [feed](http://www.bensnider.com/feeds/all.atom.xml) | 2016-05-20 
-[Cocoa with Love](http://www.cocoawithlove.com/) | [feed](http://www.cocoawithlove.com/feed.xml) | 2016-05-18 
 [YM2rr - 简书](http://www.jianshu.com/users/ee84d859d5f0/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/152.json) | 2016-05-17 
 [一个iOS菜菜的白话文记录](http://xiongzenghuidegithub.github.io/) | [feed](http://xiongzenghuidegithub.github.io/atom.xml) | 2016-05-17 
 [sunnyxx的技术博客](http://blog.sunnyxx.com/) | [feed](http://blog.sunnyxx.com/atom.xml) | 2016-05-14 
@@ -71,7 +71,6 @@ Blog (80) | Feed | Update Time
 [Travis.Wang](http://imi.im/) | [feed](http://travis.wang/rss/) | 2015-07-29 
 [摇滚诗人 - 博客园](http://www.cnblogs.com/biosli) | [feed](http://www.cnblogs.com/biosli/rss) | 2015-06-03 
 [answer_huang - iOS developer，Python fans](http://answerhuang.duapp.com/) | [feed](http://answerhuang.duapp.com/index.php/feed/) | 2015-04-19 
-[技术哥-编程是一种思想,代码是一种人生](http://suenblog.duapp.com/) | [feed](http://suenblog.duapp.com/rss/) | 2015-02-02 
 [不会开机的男孩](http://studentdeng.github.io/) | [feed](http://studentdeng.github.io/atom.xml) | 2015-01-02 
 [Allen's Memos](http://imallen.com/) | [feed](http://imallen.com/rss/) | 2014-12-15 
 [Ted's Homepage   Ted](http://wufawei.com/) | [feed](http://wufawei.com/feed/) | 2014-11-04 
@@ -85,6 +84,7 @@ Blog (80) | Feed | Update Time
 [Cocoabit](http://blog.cocoabit.com/) | []() |  
 [不掏蜂窝的熊](http://www.hotobear.com/) | []() |  
 [首页 – 煲仔饭](http://ivoryxiong.org/) | []() |  
+[技术哥-编程是一种思想,代码是一种人生](http://suenblog.duapp.com/) | [feed](http://suenblog.duapp.com/rss/) |  
 [coderyi](http://www.coderyi.com/) | []() |  
 [Recent Posts - Made of Bugs](https://blog.nelhage.com/) | []() |  
 [Albert43's Blog](http://albert43.net/) | []() |  
@@ -98,5 +98,5 @@ Blog (80) | Feed | Update Time
 [WeRead团队博客](http://wereadteam.github.io/) | []() |  
 ---
 
-Updated at 2016-06-03T07:37:16.146234
+Updated at 2016-06-04T22:43:28.022712
 
