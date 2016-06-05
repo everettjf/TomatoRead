@@ -14,7 +14,7 @@
 
 ---
 
-Blog (80) | Feed | Update Time
+Blog (81) | Feed | Update Time
 -----|------|-----
 [向晨宇的技术博客](http://www.iosxxx.com/) | [feed](http://www.iosxxx.com/atom.xml) | 2016-06-02 
 [Migi000 - 简书](http://www.jianshu.com/users/4633193fb272/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/159.json) | 2016-06-01 
@@ -70,6 +70,7 @@ Blog (80) | Feed | Update Time
 [KenshinCui - 博客园](http://www.cnblogs.com/kenshincui/) | [feed](http://www.cnblogs.com/kenshincui/rss) | 2015-09-20 
 [Travis.Wang](http://imi.im/) | [feed](http://travis.wang/rss/) | 2015-07-29 
 [摇滚诗人 - 博客园](http://www.cnblogs.com/biosli) | [feed](http://www.cnblogs.com/biosli/rss) | 2015-06-03 
+[Chen_Yilong - 博客园](http://www.cnblogs.com/ChenYilong/?from=inf&wvr=5&loc=infblog) | [feed](http://www.cnblogs.com/ChenYilong/article/rss) | 2015-05-25 
 [answer_huang - iOS developer，Python fans](http://answerhuang.duapp.com/) | [feed](http://answerhuang.duapp.com/index.php/feed/) | 2015-04-19 
 [不会开机的男孩](http://studentdeng.github.io/) | [feed](http://studentdeng.github.io/atom.xml) | 2015-01-02 
 [Allen's Memos](http://imallen.com/) | [feed](http://imallen.com/rss/) | 2014-12-15 
@@ -98,5 +99,5 @@ Blog (80) | Feed | Update Time
 [WeRead团队博客](http://wereadteam.github.io/) | []() |  
 ---
 
-Updated at 2016-06-04T22:43:28.022712
+Updated at 2016-06-05T12:25:44.012867
 
