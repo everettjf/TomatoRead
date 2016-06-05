@@ -14,7 +14,7 @@
 
 ---
 
-Blog (81) | Feed | Update Time
+Blog (80) | Feed | Update Time
 -----|------|-----
 [向晨宇的技术博客](http://www.iosxxx.com/) | [feed](http://www.iosxxx.com/atom.xml) | 2016-06-02 
 [Migi000 - 简书](http://www.jianshu.com/users/4633193fb272/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/159.json) | 2016-06-01 
@@ -85,7 +85,6 @@ Blog (81) | Feed | Update Time
 [Cocoabit](http://blog.cocoabit.com/) | []() |  
 [不掏蜂窝的熊](http://www.hotobear.com/) | []() |  
 [首页 – 煲仔饭](http://ivoryxiong.org/) | []() |  
-[技术哥-编程是一种思想,代码是一种人生](http://suenblog.duapp.com/) | [feed](http://suenblog.duapp.com/rss/) |  
 [coderyi](http://www.coderyi.com/) | []() |  
 [Recent Posts - Made of Bugs](https://blog.nelhage.com/) | []() |  
 [Albert43's Blog](http://albert43.net/) | []() |  
@@ -99,5 +98,5 @@ Blog (81) | Feed | Update Time
 [WeRead团队博客](http://wereadteam.github.io/) | []() |  
 ---
 
-Updated at 2016-06-05T12:25:44.012867
+Updated at 2016-06-05T12:28:46.175293
 
