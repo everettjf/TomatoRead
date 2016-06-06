@@ -16,7 +16,9 @@
 
 Blog (83) | Feed | Update Time
 -----|------|-----
-[唐巧的技术博客](http://blog.devtang.com/) | [feed](http://blog.devtang.com/atom.xml) | 2016-06-05 
+[唐巧的技术博客](http://blog.devtang.com/) | [feed](http://blog.devtang.com/atom.xml) | 2016-06-06 
+[叶孤城___ - 简书](http://www.jianshu.com/users/b82d2721ba07/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/150.json) | 2016-06-06 
+[YM2rr - 简书](http://www.jianshu.com/users/ee84d859d5f0/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/152.json) | 2016-06-06 
 [一个iOS菜菜的白话文记录](http://xiongzenghuidegithub.github.io/) | [feed](http://xiongzenghuidegithub.github.io/atom.xml) | 2016-06-05 
 [向晨宇的技术博客](http://www.iosxxx.com/) | [feed](http://www.iosxxx.com/atom.xml) | 2016-06-02 
 [Migi000 - 简书](http://www.jianshu.com/users/4633193fb272/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/159.json) | 2016-06-01 
@@ -33,7 +35,6 @@ Blog (83) | Feed | Update Time
 [philon - 简书](http://www.jianshu.com/users/f835e076a43d/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/207.json) | 2016-05-24 
 [康大亮 - 简书](http://www.jianshu.com/users/da3e1f68113d/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/158.json) | 2016-05-23 
 [Ben Snider](http://www.bensnider.com/) | [feed](http://www.bensnider.com/feeds/all.atom.xml) | 2016-05-20 
-[YM2rr - 简书](http://www.jianshu.com/users/ee84d859d5f0/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/152.json) | 2016-05-17 
 [sunnyxx的技术博客](http://blog.sunnyxx.com/) | [feed](http://blog.sunnyxx.com/atom.xml) | 2016-05-14 
 [Why's Blog](http://blog.callmewhy.com/) | [feed](http://blog.callmewhy.com/atom.xml) | 2016-05-11 
 [Welcome   刘彦玮的技术博客](http://liuyanwei.jumppo.com/) | [feed](http://liuyanwei.jumppo.com/pages/rss.xml) | 2016-05-09 
@@ -50,7 +51,6 @@ Blog (83) | Feed | Update Time
 [Kitten's 时间胶囊](http://kittenyang.com/) | [feed](http://kittenyang.com/rss) | 2016-04-18 
 [极客 IO](http://zengxianhua.com/) | [feed](http://www.zengxianhua.com/rss/) | 2016-04-18 
 [Luke's Homepage   卢克](http://geeklu.com/) | [feed](http://geeklu.com/feed) | 2016-03-31 
-[叶孤城___ - 简书](http://www.jianshu.com/users/b82d2721ba07/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/150.json) | 2016-03-25 
 [iOS_Cqlee - 简书](http://www.jianshu.com/users/789039ed7f4c/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/166.json) | 2016-03-08 
 [雷纯锋的技术博客](http://blog.leichunfeng.com/) | [feed](http://blog.leichunfeng.com/atom.xml) | 2016-02-27 
 [萧宸宇   如果不能成为拯救世界的神，那就堕落到征服世界的魔吧。](http://iiiyu.com/) | [feed](http://iiiyu.com/atom.xml) | 2016-02-23 
@@ -101,5 +101,5 @@ Blog (83) | Feed | Update Time
 [王中周的技术博客](http://foggry.com/) | []() |  
 ---
 
-Updated at 2016-06-06T02:31:51.026988
+Updated at 2016-06-07T00:14:07.768359
 
