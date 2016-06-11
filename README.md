@@ -14,8 +14,9 @@
 
 ---
 
-Blog (83) | Feed | Update Time
+Blog (85) | Feed | Update Time
 -----|------|-----
+[82Flex](https://82flex.com/) | [feed](https://82flex.com/feed/) | 2016-06-08 
 [YM2rr - 简书](http://www.jianshu.com/users/ee84d859d5f0/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/152.json) | 2016-06-07 
 [Migi000 - 简书](http://www.jianshu.com/users/4633193fb272/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/159.json) | 2016-06-07 
 [唐巧的技术博客](http://blog.devtang.com/) | [feed](http://blog.devtang.com/atom.xml) | 2016-06-06 
@@ -35,6 +36,7 @@ Blog (83) | Feed | Update Time
 [philon - 简书](http://www.jianshu.com/users/f835e076a43d/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/207.json) | 2016-05-24 
 [康大亮 - 简书](http://www.jianshu.com/users/da3e1f68113d/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/158.json) | 2016-05-23 
 [Ben Snider](http://www.bensnider.com/) | [feed](http://www.bensnider.com/feeds/all.atom.xml) | 2016-05-20 
+[Shelin - 简书](http://www.jianshu.com/users/edad244257e2/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/305.json) | 2016-05-16 
 [sunnyxx的技术博客](http://blog.sunnyxx.com/) | [feed](http://blog.sunnyxx.com/atom.xml) | 2016-05-14 
 [Why's Blog](http://blog.callmewhy.com/) | [feed](http://blog.callmewhy.com/atom.xml) | 2016-05-11 
 [Welcome   刘彦玮的技术博客](http://liuyanwei.jumppo.com/) | [feed](http://liuyanwei.jumppo.com/pages/rss.xml) | 2016-05-09 
@@ -101,5 +103,5 @@ Blog (83) | Feed | Update Time
 [王中周的技术博客](http://foggry.com/) | []() |  
 ---
 
-Updated at 2016-06-10T03:23:53.300356
+Updated at 2016-06-11T23:34:22.137195
 
