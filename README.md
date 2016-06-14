@@ -14,8 +14,9 @@
 
 ---
 
-Blog (86) | Feed | Update Time
+Blog (87) | Feed | Update Time
 -----|------|-----
+[WildDylan - 简书](http://www.jianshu.com/users/81c4380481c1/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/221.json) | 2016-06-13 
 [82Flex](https://82flex.com/) | [feed](https://82flex.com/feed/) | 2016-06-12 
 [Bison的技术博客 – iOS开发](http://allluckly.cn/) | [feed](http://allluckly.cn/feed.xml) | 2016-06-11 
 [YM2rr - 简书](http://www.jianshu.com/users/ee84d859d5f0/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/152.json) | 2016-06-07 
@@ -27,7 +28,6 @@ Blog (86) | Feed | Update Time
 [AlexPei - 简书](http://www.jianshu.com/users/476877f2e719/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/160.json) | 2016-06-01 
 [Cocoa with Love](http://www.cocoawithlove.com/) | [feed](http://www.cocoawithlove.com/feed.xml) | 2016-06-01 
 [Kevin](http://blog.zhowkev.in/) | [feed](http://blog.zhowkev.in/rss/) | 2016-05-31 
-[WildDylan - 简书](http://www.jianshu.com/users/81c4380481c1/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/221.json) | 2016-05-31 
 [Realank - 简书](http://www.jianshu.com/users/aa6c2a4a126c/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/161.json) | 2016-05-30 
 [饶志臻 - 简书](http://www.jianshu.com/users/263107bb1199/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/157.json) | 2016-05-26 
 [everettjf](http://everettjf.github.io/) | [feed](http://everettjf.github.io/feed.xml) | 2016-05-25 
@@ -42,7 +42,6 @@ Blog (86) | Feed | Update Time
 [Welcome   刘彦玮的技术博客](http://liuyanwei.jumppo.com/) | [feed](http://liuyanwei.jumppo.com/pages/rss.xml) | 2016-05-09 
 [yulingtianxia's blog](http://yulingtianxia.com/) | [feed](http://yulingtianxia.com/atom.xml) | 2016-05-06 
 [Startry Blog](http://blog.startry.com/) | [feed](http://blog.startry.com/atom.xml) | 2016-05-06 
-[土土哥的技术Blog](http://tutuge.me/) | [feed](http://tutuge.me/atom.xml) | 2016-05-02 
 [Casa Taloyum](http://casatwy.com/) | [feed](http://casatwy.com/feeds/all.atom.xml) | 2016-04-30 
 [猫·仁波切](https://andelf.github.io/) | [feed](https://andelf.github.io/atom.xml) | 2016-04-28 
 [阿毛的蛋疼地](http://xiangwangfeng.com/) | [feed](http://xiangwangfeng.com/atom.xml) | 2016-04-27 
@@ -87,6 +86,7 @@ Blog (86) | Feed | Update Time
 [Cocoabit](http://blog.cocoabit.com/) | []() |  
 [不掏蜂窝的熊](http://www.hotobear.com/) | []() |  
 [首页 – 煲仔饭](http://ivoryxiong.org/) | []() |  
+[土土哥的技术Blog](http://tutuge.me/) | [feed](http://tutuge.me/atom.xml) |  
 [coderyi](http://www.coderyi.com/) | []() |  
 [Recent Posts - Made of Bugs](https://blog.nelhage.com/) | []() |  
 [Albert43's Blog](http://albert43.net/) | []() |  
@@ -102,7 +102,8 @@ Blog (86) | Feed | Update Time
 [Vincent Gable’s Blog](http://vgable.com/blog/) | []() |  
 [王中周的技术博客](http://foggry.com/) | []() |  
 [解密-神秘的RunLoop - 简书](http://www.jianshu.com/p/cf4915508929) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/309.json) |  
+[Zhiyi](http://zyden.vicp.cc/) | []() |  
 ---
 
-Updated at 2016-06-13T09:04:49.292102
+Updated at 2016-06-14T22:31:13.943282
 
