@@ -14,13 +14,15 @@
 
 ---
 
-Blog (88) | Feed | Update Time
+Blog (92) | Feed | Update Time
 -----|------|-----
+[唐巧的技术博客](http://blog.devtang.com/) | [feed](http://blog.devtang.com/atom.xml) | 2016-06-26 
+[老谭笔记](http://www.tanhao.me/) | [feed](http://www.tanhao.me/atom.xml) | 2016-06-26 
 [HenryCheng - 简书](http://www.jianshu.com/users/233c37d8a732/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/162.json) | 2016-06-22 
 [iOS_Cqlee - 简书](http://www.jianshu.com/users/789039ed7f4c/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/166.json) | 2016-06-21 
+[雷纯锋的技术博客](http://blog.leichunfeng.com/) | [feed](http://blog.leichunfeng.com/atom.xml) | 2016-06-20 
 [Migi000 - 简书](http://www.jianshu.com/users/4633193fb272/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/159.json) | 2016-06-20 
 [一个iOS菜菜的白话文记录](http://xiongzenghuidegithub.github.io/) | [feed](http://xiongzenghuidegithub.github.io/atom.xml) | 2016-06-20 
-[唐巧的技术博客](http://blog.devtang.com/) | [feed](http://blog.devtang.com/atom.xml) | 2016-06-19 
 [everettjf](http://everettjf.github.io/) | [feed](http://everettjf.github.io/feed.xml) | 2016-06-19 
 [土土哥的技术Blog](http://tutuge.me/) | [feed](http://tutuge.me/atom.xml) | 2016-06-18 
 [叶孤城___ - 简书](http://www.jianshu.com/users/b82d2721ba07/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/150.json) | 2016-06-18 
@@ -58,7 +60,6 @@ Blog (88) | Feed | Update Time
 [Kitten's 时间胶囊](http://kittenyang.com/) | [feed](http://kittenyang.com/rss) | 2016-04-18 
 [极客 IO](http://zengxianhua.com/) | [feed](http://www.zengxianhua.com/rss/) | 2016-04-18 
 [Luke's Homepage   卢克](http://geeklu.com/) | [feed](http://geeklu.com/feed) | 2016-03-31 
-[雷纯锋的技术博客](http://blog.leichunfeng.com/) | [feed](http://blog.leichunfeng.com/atom.xml) | 2016-02-27 
 [小笨狼 - 简书](http://www.jianshu.com/users/1f93e3b1f3da/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/156.json) | 2016-02-22 
 [nswebfrog' Homepage   nswebfrog](http://blog.nswebfrog.com/) | [feed](http://blog.nswebfrog.com/feed/) | 2016-02-20 
 [Garan no dou   一只魔法师的工坊](http://blog.ibireme.com/) | [feed](http://blog.ibireme.com/feed/) | 2016-01-15 
@@ -66,7 +67,6 @@ Blog (88) | Feed | Update Time
 [Girl_iOS - 简书](http://www.jianshu.com/users/1fb7af67f724/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/167.json) | 2015-12-17 
 [里脊串的开发随笔](http://adad184.com/) | [feed](http://adad184.com/atom.xml) | 2015-12-04 
 [刘坤的技术博客](https://blog.cnbluebox.com/) | [feed](https://blog.cnbluebox.com/atom.xml) | 2015-11-28 
-[老谭笔记](http://www.tanhao.me/) | [feed](http://www.tanhao.me/atom.xml) | 2015-11-21 
 [破船之家](http://beyondvincent.com/) | [feed](http://beyondvincent.com/atom.xml) | 2015-10-16 
 [NSHipster 中文版](http://nshipster.cn/) | [feed](http://nshipster.cn/feed.xml) | 2015-10-04 
 [lucky_06的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/lucky_06) | [feed](http://blog.csdn.net/lucky_06/rss/list) | 2015-09-29 
@@ -104,7 +104,11 @@ Blog (88) | Feed | Update Time
 [王中周的技术博客](http://foggry.com/) | []() |  
 [解密-神秘的RunLoop - 简书](http://www.jianshu.com/p/cf4915508929) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/309.json) |  
 [Zhiyi](http://zyden.vicp.cc/) | []() |  
+[树下的老男孩 - 简书](http://www.jianshu.com/users/811a70f4726a/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/326.json) |  
+[树下的老男孩](http://freemind-lj.github.io/) | []() |  
+[Cocoaphony](http://robnapier.net/) | []() |  
+[风之痕_ - 简书](http://www.jianshu.com/users/786ab819976a/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/331.json) |  
 ---
 
-Updated at 2016-06-23T06:31:31.546433
+Updated at 2016-06-26T23:32:14.117133
 
