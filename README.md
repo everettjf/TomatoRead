@@ -14,16 +14,18 @@
 
 ---
 
-Blog (92) | Feed | Update Time
+Blog (94) | Feed | Update Time
 -----|------|-----
 [唐巧的技术博客](http://blog.devtang.com/) | [feed](http://blog.devtang.com/atom.xml) | 2016-06-26 
+[everettjf](http://everettjf.github.io/) | [feed](http://everettjf.github.io/feed.xml) | 2016-06-26 
 [老谭笔记](http://www.tanhao.me/) | [feed](http://www.tanhao.me/atom.xml) | 2016-06-26 
+[Cocoa with Love](http://www.cocoawithlove.com/) | [feed](http://www.cocoawithlove.com/feed.xml) | 2016-06-24 
+[iOS > 新闻 > 第1页](http://www.infoq.com/cn/iOS/news/) | [feed](http://www.infoq.com/cn/feed/iOS/news) | 2016-06-24 
 [HenryCheng - 简书](http://www.jianshu.com/users/233c37d8a732/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/162.json) | 2016-06-22 
 [iOS_Cqlee - 简书](http://www.jianshu.com/users/789039ed7f4c/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/166.json) | 2016-06-21 
 [雷纯锋的技术博客](http://blog.leichunfeng.com/) | [feed](http://blog.leichunfeng.com/atom.xml) | 2016-06-20 
 [Migi000 - 简书](http://www.jianshu.com/users/4633193fb272/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/159.json) | 2016-06-20 
 [一个iOS菜菜的白话文记录](http://xiongzenghuidegithub.github.io/) | [feed](http://xiongzenghuidegithub.github.io/atom.xml) | 2016-06-20 
-[everettjf](http://everettjf.github.io/) | [feed](http://everettjf.github.io/feed.xml) | 2016-06-19 
 [土土哥的技术Blog](http://tutuge.me/) | [feed](http://tutuge.me/atom.xml) | 2016-06-18 
 [叶孤城___ - 简书](http://www.jianshu.com/users/b82d2721ba07/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/150.json) | 2016-06-18 
 [Bison的技术博客 – iOS开发](http://allluckly.cn/) | [feed](http://allluckly.cn/feed.xml) | 2016-06-18 
@@ -39,7 +41,6 @@ Blog (92) | Feed | Update Time
 [YM2rr - 简书](http://www.jianshu.com/users/ee84d859d5f0/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/152.json) | 2016-06-07 
 [向晨宇的技术博客](http://www.iosxxx.com/) | [feed](http://www.iosxxx.com/atom.xml) | 2016-06-02 
 [AlexPei - 简书](http://www.jianshu.com/users/476877f2e719/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/160.json) | 2016-06-01 
-[Cocoa with Love](http://www.cocoawithlove.com/) | [feed](http://www.cocoawithlove.com/feed.xml) | 2016-06-01 
 [Kevin](http://blog.zhowkev.in/) | [feed](http://blog.zhowkev.in/rss/) | 2016-05-31 
 [Realank - 简书](http://www.jianshu.com/users/aa6c2a4a126c/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/161.json) | 2016-05-30 
 [饶志臻 - 简书](http://www.jianshu.com/users/263107bb1199/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/157.json) | 2016-05-26 
@@ -108,7 +109,8 @@ Blog (92) | Feed | Update Time
 [树下的老男孩](http://freemind-lj.github.io/) | []() |  
 [Cocoaphony](http://robnapier.net/) | []() |  
 [风之痕_ - 简书](http://www.jianshu.com/users/786ab819976a/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/331.json) |  
+[ZeroJ - 简书](http://www.jianshu.com/users/fb31a3d1ec30/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/337.json) |  
 ---
 
-Updated at 2016-06-26T23:32:14.117133
+Updated at 2016-06-29T00:37:08.337460
 
