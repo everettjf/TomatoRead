@@ -16,11 +16,11 @@
 
 Blog (93) | Feed | Update Time
 -----|------|-----
+[everettjf](https://everettjf.github.io/) | [feed](https://everettjf.github.io/atom.xml) | 2016-07-03 
 [老谭笔记](http://www.tanhao.me/) | [feed](http://www.tanhao.me/atom.xml) | 2016-07-02 
 [Why's Blog](http://blog.callmewhy.com/) | [feed](http://blog.callmewhy.com/atom.xml) | 2016-07-01 
 [Bison的技术博客 – iOS开发](http://allluckly.cn/) | [feed](http://allluckly.cn/feed.xml) | 2016-06-28 
 [唐巧的技术博客](http://blog.devtang.com/) | [feed](http://blog.devtang.com/atom.xml) | 2016-06-26 
-[everettjf](http://everettjf.github.io/) | [feed](http://everettjf.github.io/feed.xml) | 2016-06-26 
 [Cocoa with Love](http://www.cocoawithlove.com/) | [feed](http://www.cocoawithlove.com/feed.xml) | 2016-06-24 
 [HenryCheng - 简书](http://www.jianshu.com/users/233c37d8a732/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/162.json) | 2016-06-22 
 [iOS_Cqlee - 简书](http://www.jianshu.com/users/789039ed7f4c/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/166.json) | 2016-06-21 
@@ -111,5 +111,5 @@ Blog (93) | Feed | Update Time
 [ZeroJ - 简书](http://www.jianshu.com/users/fb31a3d1ec30/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/337.json) |  
 ---
 
-Updated at 2016-07-02T22:59:36.923728
+Updated at 2016-07-03T19:33:00.229517
 
