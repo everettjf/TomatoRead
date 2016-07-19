@@ -53,6 +53,7 @@ Blog (93) | Feed | Update Time
 [Ben Snider](http://www.bensnider.com/) | [feed](http://www.bensnider.com/feeds/all.atom.xml) | 2016-05-20 
 [Shelin - 简书](http://www.jianshu.com/users/edad244257e2/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/305.json) | 2016-05-16 
 [sunnyxx的技术博客](http://blog.sunnyxx.com/) | [feed](http://blog.sunnyxx.com/atom.xml) | 2016-05-14 
+[Welcome   刘彦玮的技术博客](http://liuyanwei.jumppo.com/) | [feed](http://liuyanwei.jumppo.com/pages/rss.xml) | 2016-05-09 
 [Casa Taloyum](http://casatwy.com/) | [feed](http://casatwy.com/feeds/all.atom.xml) | 2016-04-30 
 [猫·仁波切](https://andelf.github.io/) | [feed](https://andelf.github.io/atom.xml) | 2016-04-28 
 [阿毛的蛋疼地](http://xiangwangfeng.com/) | [feed](http://xiangwangfeng.com/atom.xml) | 2016-04-27 
@@ -96,7 +97,6 @@ Blog (93) | Feed | Update Time
 [ScorpioLin 偶尔死宅的林小懒](http://scorpiolin.github.io/) | []() |  
 [Glow 技术团队博客](http://tech.glowing.com/cn/) | []() |  
 [bang’s blog](http://blog.cnbang.net/) | []() |  
-[Welcome   刘彦玮的技术博客](http://liuyanwei.jumppo.com/) | [feed](http://liuyanwei.jumppo.com/pages/rss.xml) |  
 [破博客 - 文官洗碗安天下，武将打怪定乾坤。多么美好的年代，思之令人泪落。](http://www.poboke.com/) | []() |  
 [WeRead团队博客](http://wereadteam.github.io/) | []() |  
 [Chun Tips](http://chun.tips/) | []() |  
@@ -111,5 +111,5 @@ Blog (93) | Feed | Update Time
 [ZeroJ - 简书](http://www.jianshu.com/users/fb31a3d1ec30/latest_articles) | [jianshu](https://everettjf.github.io/app/blogreader/spider/jianshu/337.json) |  
 ---
 
-Updated at 2016-07-19T00:33:16.698513
+Updated at 2016-07-19T21:22:35.459196
 
