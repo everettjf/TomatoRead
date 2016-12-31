@@ -1,5 +1,7 @@
 # 番茄阅读 - 专注于精选 iOS/OS X 开发者博客
 
+*已暂停更新.坚持不是一件容易的事情.*
+
 [AppStore地址](https://itunes.apple.com/us/app/id1111654149)
 
 [开发总结](https://everettjf.github.io/2016/05/13/how-to-write-a-simple-feed-reader)
